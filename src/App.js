@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "react-navigation";
 import DashboardScreen from "./DashboardScreen";
 import CoursesScreen from "./CoursesScreen";
 import SettingScreen from "./SettingScreen";
-import Ionicons from "@expo/vector-icons/Ionicons"
+import { Icon } from "react-native-elements";
 
 const MainStack = createBottomTabNavigator(
   {
@@ -17,13 +17,13 @@ const MainStack = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === "Dashboard") {
-          iconName = `ios-home${focused? '' : '-outline'}`;
+          iconName = `dashboard`;
         } else if (routeName === "Courses") {
-          iconName = `ios-list-box${focused? '' : '-outline'}`;
+          iconName = `subject`;
         } else {
-          iconName = `ios-settings${focused? '' : '-outline'}`;
+          iconName = `settings`;
         }
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
+        return <Icon name={iconName} size={25} color={tintColor} />;
       }
     })
   },

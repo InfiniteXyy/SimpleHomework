@@ -1,12 +1,6 @@
 import React from "react";
-import { View, Button, Text, StyleSheet } from "react-native";
-import {
-  Card,
-  CardAction,
-  CardButton,
-  CardContent,
-  CardTitle
-} from "react-native-material-cards";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { Card, Button, Icon } from "react-native-elements";
 
 class DashboardHeader extends React.Component {
   render() {
@@ -22,30 +16,56 @@ class DashboardHeader extends React.Component {
 class DashboardCard extends React.Component {
   render() {
     return (
-      <View style={styles.dashboardHeader}>
-        <Card>
-          <CardTitle title="This is a title" subtitle="This is subtitle" />
-          <CardContent text="Your device will reboot in few seconds once successful, be patient meanwhile" />
-          <CardAction separator={true} inColumn={false}>
-            <CardButton onPress={() => {}} title="Push" color="blue" />
-            <CardButton onPress={() => {}} title="Later" color="blue" />
-          </CardAction>
-        </Card>
-      </View>
+      <Card containerStyle={styles.dashboardCardContainer}>
+        <Text
+          style={{
+            color: "#6200EE",
+            fontSize: 18,
+            marginBottom: 9,
+            marginLeft: 16,
+            marginTop: 9
+          }}
+        >
+          {this.props.title}
+        </Text>
+        {this.props.content.map((u, i) => {
+          return (
+            <View style={styles.dashboardCardItem} key={i}>
+              <Text style={{ fontSize: 14 }}>{u.content}</Text>
+              <View style={{ flex: 1, alignItems: "flex-end" }}>
+                <Icon
+                  type="ionicon"
+                  name="ios-checkmark-circle"
+                  size={18}
+                  color="#FFAFAF"
+                />;
+              </View>
+            </View>
+          );
+        })}
+      </Card>
     );
   }
 }
 export default class DashboardScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <DashboardHeader title="Week 3" subtitle="~2019 at ECNU" />
-        <DashboardCard />
-        <DashboardCard />
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <DashboardHeader title="Week 3" subtitle="星期五 9:32" />
+          <DashboardCard title="机器学习" content={demoList[0]} />
+          <DashboardCard title="计算机视觉" content={demoList[1]} />
+        </View>
+      </ScrollView>
     );
   }
 }
+
+const demoList = [
+  [{ content: "做一张卷子" }, { content: "整理房间" }, { content: "做大扫除" }],
+  [{ content: "做张卷子" }, { content: "整理房间" }, { content: "做大扫除" }],
+  [{ content: "做张卷子" }, { content: "整理房间" }, { content: "做大扫除" }]
+];
 
 const styles = StyleSheet.create({
   container: {
@@ -67,5 +87,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "400",
     color: "#CCCCCC"
+  },
+  dashboardCardContainer: {
+    marginLeft: 36,
+    marginRight: 36,
+    padding: 0
+  },
+  dashboardCardItem: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingLeft: 16,
+    paddingRight: 16,
+    height: 39
   }
 });
