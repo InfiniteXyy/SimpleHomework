@@ -28,7 +28,6 @@ export default class HomeworkAdd extends React.Component {
     ];
 
     return (
-      <ScrollView>
         <View style={styles.container}>
           <View style={styles.modalClose}>
             <Icon
@@ -61,7 +60,6 @@ export default class HomeworkAdd extends React.Component {
             <ModalIcon name="md-time" type="ionicon" color={colors.brown} />
           </View>
         </View>
-      </ScrollView>
     );
   }
 }

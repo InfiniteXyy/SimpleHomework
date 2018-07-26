@@ -31,6 +31,7 @@ const settings = ["登录", "主题", "捐助", "国际化", "关于"];
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: 'center',
     marginTop: 20,
     flex: 1,
     backgroundColor: "#fff"
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
     height: 67,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 34,
     marginBottom: 7
   },
   settingItem: {

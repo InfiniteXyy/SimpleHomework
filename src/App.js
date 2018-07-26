@@ -60,7 +60,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{ backgroundColor: "white", flex: 1 }}>
-        <RootStack />;
+        <RootStack />
       </View>
     );
   }
