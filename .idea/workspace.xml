@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/xuyiyang.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/xuyiyang.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoursesScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoursesScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DashboardScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DashboardScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SettingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BoardElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoardElements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,20 +26,21 @@
       <file leaf-file-name="DashboardScreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DashboardScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+            <state relative-caret-position="91">
+              <caret line="129" column="46" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#250#295#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeworkAdd.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
+      <file leaf-file-name="BoardElements.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/BoardElements.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-282">
-              <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="38" selection-end-column="17" />
+            <state relative-caret-position="760">
+              <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -48,8 +51,8 @@
       <file leaf-file-name="CoursesScreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CoursesScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+            <state relative-caret-position="321">
+              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -73,6 +76,9 @@
       <find>if</find>
       <find>changeFinshed</find>
       <find>changeFinished</find>
+      <find>DashboardItem</find>
+      <find>finishStates</find>
+      <find>moment</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,15 +91,15 @@
         <option value="$PROJECT_DIR$/src/components/BigTitle.js" />
         <option value="$PROJECT_DIR$/src/utils.js" />
         <option value="$PROJECT_DIR$/src/components/IconButton.js" />
-        <option value="$PROJECT_DIR$/src/static.js" />
         <option value="$PROJECT_DIR$/src/components/ModalElements.js" />
         <option value="$PROJECT_DIR$/src/modals/CourseAdd.js" />
-        <option value="$PROJECT_DIR$/src/CoursesScreen.js" />
-        <option value="$PROJECT_DIR$/src/components/BoardElements.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/SettingScreen.js" />
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/src/modals/HomeworkAdd.js" />
+        <option value="$PROJECT_DIR$/src/static.js" />
+        <option value="$PROJECT_DIR$/src/CoursesScreen.js" />
+        <option value="$PROJECT_DIR$/src/components/BoardElements.js" />
         <option value="$PROJECT_DIR$/src/DashboardScreen.js" />
       </list>
     </option>
@@ -115,10 +121,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-43" />
-    <option name="y" value="155" />
-    <option name="width" value="1623" />
-    <option name="height" value="891" />
+    <option name="x" value="275" />
+    <option name="y" value="133" />
+    <option name="width" value="1342" />
+    <option name="height" value="898" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -238,7 +244,7 @@
       <workItem from="1532415274097" duration="8173000" />
       <workItem from="1532432851471" duration="2000" />
       <workItem from="1532514981239" duration="11126000" />
-      <workItem from="1532534077916" duration="27501000" />
+      <workItem from="1532534077916" duration="34785000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1532523310323</created>
@@ -275,11 +281,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532589333134</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="还是不熟悉啊 es6">
+      <created>1532606684030</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1532606684030</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46802000" />
+    <option name="totallyTimeSpent" value="54086000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -291,25 +304,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-268" y="188" width="1623" height="891" extended-state="0" />
+    <frame x="373" y="119" width="1342" height="898" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6381818" visible="true" weight="0.15650031" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32866043" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007452" side_tool="true" weight="0.19347037" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.35618114" />
       <window_info id="npm" order="2" sideWeight="0.3618182" side_tool="true" weight="0.19463602" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19461444" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925485" weight="0.19296117" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2633495" />
+      <window_info anchor="bottom" id="TypeScript" order="10" weight="0.32866043" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6381818" visible="true" weight="0.18926975" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2643819" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925485" weight="0.39903265" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TypeScript" order="10" weight="0.32866043" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -353,7 +366,8 @@
     <MESSAGE value="course page" />
     <MESSAGE value="some different pages" />
     <MESSAGE value="add two modals" />
-    <option name="LAST_COMMIT_MESSAGE" value="add two modals" />
+    <MESSAGE value="还是不熟悉啊 es6" />
+    <option name="LAST_COMMIT_MESSAGE" value="还是不熟悉啊 es6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -397,6 +411,7 @@
           <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#250#295#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -489,23 +504,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/react-native-material-textfield/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/BoardElements.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/static.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -591,22 +589,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/static.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/CoursesScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+        <state relative-caret-position="321">
+          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DashboardScreen.js">
+    <entry file="file://$PROJECT_DIR$/src/components/BoardElements.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+        <state relative-caret-position="760">
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-moment/dist/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/moment/moment.d.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DashboardScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="129" column="46" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#250#295#0" expanded="true" />
           </folding>
         </state>
       </provider>

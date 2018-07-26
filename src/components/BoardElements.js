@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     color: "#4A4A4A"
   },
   dashboardSubtitle: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "400",
     color: "#9b9b9b"
   }

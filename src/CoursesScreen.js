@@ -1,11 +1,11 @@
 import React from "react";
 import {
   View,
-  Button,
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  FlatList
 } from "react-native";
 import { DashboardHeader } from "./components/BoardElements";
 import { Icon } from "react-native-elements";
@@ -15,41 +15,36 @@ export default class CoursesScreen extends React.Component {
     title: "课程"
   };
 
+  onPress(key) {
+    if (key === "+") {
+      this.props.navigation.navigate("AddCourse");
+    }
+  }
+
   render() {
     return (
-      <ScrollView>
-        <View style={styles.container}>
-          <DashboardHeader title="2018" subtitle="~2019 at ECNU" />
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              paddingLeft: 27
-            }}
-          >
-            {demoCourses.map((c, i) => {
-              if (c === "+")
-                return (
-                  <TouchableOpacity
-                    key={i}
-                    onPress={() => this.props.navigation.navigate("AddCourse")}
-                  >
-                    <View style={styles.courseCard}>
-                      <Icon name="plus" size={24} type="feather" color="gray" />
-                    </View>
-                  </TouchableOpacity>
-                );
-              return (
-                <TouchableOpacity key={i}>
-                  <View style={styles.courseCard}>
-                    <Text style={styles.courseTitle}>{c}</Text>
-                  </View>
-                </TouchableOpacity>
+      <View style={styles.container}>
+        <DashboardHeader title="2018" subtitle="~2019 at ECNU" />
+        <FlatList
+          contentContainerStyle={styles.list}
+          data={demoCourses}
+          numColumns={2}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => {
+            let content =
+              item !== "+" ? (
+                <Text style={styles.courseTitle}>{item}</Text>
+              ) : (
+                <Icon name="plus" size={24} type="feather" color="gray" />
               );
-            })}
-          </View>
-        </View>
-      </ScrollView>
+            return (
+              <TouchableOpacity onPress={() => this.onPress(item)}>
+                <View style={styles.courseCard}>{content}</View>
+              </TouchableOpacity>
+            );
+          }}
+        />
+      </View>
     );
   }
 }
@@ -68,16 +63,16 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 20,
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    alignItems: "center"
   },
   courseCard: {
-    marginRight: 30,
     backgroundColor: "#fff",
+    margin: 13,
     width: 143,
     height: 62,
     borderRadius: 4,
-    marginTop: 10,
-    marginBottom: 21,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "#CCCCCC",

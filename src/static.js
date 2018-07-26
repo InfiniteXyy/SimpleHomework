@@ -4,7 +4,8 @@ const colors = {
   gray: "#9B9B9B",
   green: "#7ED321",
   brown: "#8B572A",
-  blue: "#019AE8"
+  blue: "#019AE8",
+  rememberBlue: "#89c3eb"
 };
 
 export { colors };
