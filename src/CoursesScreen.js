@@ -11,6 +11,10 @@ import { DashboardHeader } from "./components/BoardElements";
 import { Icon } from "react-native-elements";
 
 export default class CoursesScreen extends React.Component {
+  static navigationOptions = {
+    title: "课程"
+  };
+
   render() {
     return (
       <ScrollView>
@@ -18,10 +22,9 @@ export default class CoursesScreen extends React.Component {
           <DashboardHeader title="2018" subtitle="~2019 at ECNU" />
           <View
             style={{
-              marginHorizontal: 27,
               flexDirection: "row",
               flexWrap: "wrap",
-              justifyContent: "space-between"
+              paddingLeft: 27
             }}
           >
             {demoCourses.map((c, i) => {
@@ -65,6 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   courseCard: {
+    marginRight: 30,
     backgroundColor: "#fff",
     width: 143,
     height: 62,
@@ -81,6 +85,7 @@ const styles = StyleSheet.create({
   },
   courseTitle: {
     fontSize: 14,
+    fontWeight: "500",
     color: "#717171"
   }
 });

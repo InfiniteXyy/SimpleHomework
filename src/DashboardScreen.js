@@ -4,7 +4,9 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity
+  TouchableWithoutFeedback,
+  RefreshControl,
+  Button
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { DashboardHeader } from "./components/BoardElements";
@@ -29,7 +31,10 @@ class DashboardCard extends React.Component {
         <Text style={styles.dashboardCardTitle}>{this.props.title}</Text>
         {this.state.data.map((u, i) => {
           return (
-            <TouchableOpacity key={i} onPress={() => this._changeStatus(i)}>
+            <TouchableWithoutFeedback
+              key={i}
+              onPress={() => this._changeStatus(i)}
+            >
               <View style={styles.dashboardCardItem}>
                 <Text
                   style={
@@ -49,7 +54,7 @@ class DashboardCard extends React.Component {
                   />
                 </View>
               </View>
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
           );
         })}
       </View>
@@ -57,11 +62,26 @@ class DashboardCard extends React.Component {
   }
 }
 export default class DashboardScreen extends React.Component {
+  static navigationOptions = {
+    title: "主页"
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      refreshing: false
+    };
+  }
+
+  _onAddHomework = () => {
+    this.props.navigation.navigate('AddHomework')
+  };
+
   render() {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <DashboardHeader title="Week 3" subtitle="星期五 9:32" />
+          <DashboardHeader title="Week 3" subtitle="星期五 9:32" onClick={() => this._onAddHomework()} />
           <DashboardCard title="机器学习" data={demoList[0]} />
           <DashboardCard title="计算机视觉" data={demoList[1]} />
         </View>
@@ -105,9 +125,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 26,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.24,
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
     elevation: 1
   },
   dashboardCardItem: {
