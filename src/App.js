@@ -12,6 +12,7 @@ const MainStack = createBottomTabNavigator(
     Setting: SettingScreen
   },
   {
+    initialRouteName: "Courses",
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
@@ -26,9 +27,6 @@ const MainStack = createBottomTabNavigator(
         return <Icon name={iconName} size={25} color={tintColor} />;
       }
     })
-  },
-  {
-    initialRouteName: "Dashboard"
   }
 );
 
