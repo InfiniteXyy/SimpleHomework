@@ -30,7 +30,10 @@ export default class CoursesScreen extends React.Component {
             {demoCourses.map((c, i) => {
               if (c === "+")
                 return (
-                  <TouchableOpacity key={i}>
+                  <TouchableOpacity
+                    key={i}
+                    onPress={() => this.props.navigation.navigate("AddCourse")}
+                  >
                     <View style={styles.courseCard}>
                       <Icon name="plus" size={24} type="feather" color="gray" />
                     </View>

@@ -1,8 +1,13 @@
 import React from "react";
-import { View, Button, StyleSheet, Text, ScrollView } from 'react-native'
+import { View, Button, StyleSheet, Text, ScrollView } from "react-native";
 import { Icon } from "react-native-elements";
 import { colors } from "../static";
 import { Dropdown } from "react-native-material-dropdown";
+import {
+  ModalTitle,
+  ModalIcon,
+  ModalMoreHint
+} from "../components/ModalElements";
 
 export default class HomeworkAdd extends React.Component {
   render() {
@@ -30,10 +35,10 @@ export default class HomeworkAdd extends React.Component {
               size={24}
               name="close"
               color={colors.icon}
-              onPress={() => this.props.navigation.navigate("Main")}
+              onPress={() => this.props.navigation.goBack()}
             />
           </View>
-          <Text style={styles.modalTitle}>添加新的作业</Text>
+          <ModalTitle title="添加新的作业" />
           <View style={{ width: 285, marginTop: 48 }}>
             <Dropdown
               data={data}
@@ -49,38 +54,11 @@ export default class HomeworkAdd extends React.Component {
           <View style={styles.homeworkCard}>
             <Text style={{ color: colors.gray, fontSize: 14 }}>Notes</Text>
           </View>
-          <View style={styles.moreOption}>
-            <Icon name="plus" type="entypo" color={colors.gray} size={14} />
-            <Text style={{ color: colors.gray, fontSize: 14, marginLeft: 6 }}>
-              自定义更多选项
-            </Text>
-          </View>
-
+          <ModalMoreHint />
           <View style={styles.buttonGroup}>
-            <Icon
-              style={styles.circleIcon}
-              name="camera"
-              type="entypo"
-              color={colors.green}
-              reverse
-              size={24}
-            />
-            <Icon
-              style={styles.circleIcon}
-              name="check"
-              type="feather"
-              color={colors.primaryColor}
-              reverse
-              size={24}
-            />
-            <Icon
-              style={styles.circleIcon}
-              name="md-time"
-              type="ionicon"
-              color={colors.brown}
-              reverse
-              size={24}
-            />
+            <ModalIcon name="camera" type="entypo" color={colors.green} />
+            <ModalIcon name="check" type="feather" color={colors.blue} />
+            <ModalIcon name="md-time" type="ionicon" color={colors.brown} />
           </View>
         </View>
       </ScrollView>
@@ -93,11 +71,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flex: 1,
     alignItems: "center"
-  },
-  modalTitle: {
-    marginTop: 17,
-    fontSize: 20,
-    color: "#4A4A4A"
   },
   modalClose: {
     marginTop: 14,
@@ -117,17 +90,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 26,
     paddingVertical: 16
   },
-  moreOption: {
-    marginTop: 29,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
-  },
   buttonGroup: {
     marginTop: 72,
     flexDirection: "row"
-  },
-  circleIcon: {
-    marginLeft: 28
   }
 });

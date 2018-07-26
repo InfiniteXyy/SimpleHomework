@@ -3,7 +3,8 @@ const colors = {
   icon: "#757575",
   gray: "#9B9B9B",
   green: "#7ED321",
-  brown: "#8B572A"
+  brown: "#8B572A",
+  blue: "#019AE8"
 };
 
 export { colors };

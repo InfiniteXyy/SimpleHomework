@@ -1,12 +1,16 @@
 import React from "react";
-import { createBottomTabNavigator } from "react-navigation";
+import {
+  createBottomTabNavigator,
+  createStackNavigator
+} from "react-navigation";
 import DashboardScreen from "./DashboardScreen";
 import CoursesScreen from "./CoursesScreen";
 import SettingScreen from "./SettingScreen";
 import { Icon } from "react-native-elements";
 import HomeworkAdd from "./modals/HomeworkAdd";
-import { View } from 'react-native'
-
+import { View } from "react-native";
+import CourseAdd from "./modals/CourseAdd";
+import { colors } from "./static";
 
 const MainStack = createBottomTabNavigator(
   {
@@ -15,7 +19,9 @@ const MainStack = createBottomTabNavigator(
     Setting: SettingScreen
   },
   {
-    animationEnabled: true,
+    tabBarOptions: {
+      activeTintColor: colors.blue
+    },
     initialRouteName: "Dashboard",
     navigationOptions: ({ navigation }) => ({
       swipeEnabled: true,
@@ -35,16 +41,18 @@ const MainStack = createBottomTabNavigator(
   }
 );
 
-const RootStack = createBottomTabNavigator(
+const RootStack = createStackNavigator(
   {
     Main: MainStack,
     AddHomework: HomeworkAdd,
+    AddCourse: CourseAdd
   },
   {
-    initialRouteName: "AddHomework",
-    navigationOptions: {
-      tabBarVisible: false,
-    },
+    headerMode: "none",
+    mode: "modal",
+    cardStyle: {
+      backgroundColor: "white"
+    }
   }
 );
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Icon from "react-native-elements/src/icons/Icon";
 
-class DashboardHeader extends React.Component {
+class DashboardHeader extends React.PureComponent {
   render() {
     let type = this.props.iconType ? this.props.iconType : "material";
     let name = this.props.iconName ? this.props.iconName : "dehaze";

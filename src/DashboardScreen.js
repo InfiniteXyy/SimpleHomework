@@ -5,8 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableWithoutFeedback,
-  RefreshControl,
-  Button
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { DashboardHeader } from "./components/BoardElements";
