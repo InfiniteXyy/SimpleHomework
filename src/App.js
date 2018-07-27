@@ -3,32 +3,80 @@ import {
   createBottomTabNavigator,
   createStackNavigator
 } from "react-navigation";
-import DashboardScreen from "./DashboardScreen";
-import CoursesScreen from "./CoursesScreen";
 import SettingScreen from "./SettingScreen";
-import { Icon } from "react-native-elements";
+import LoginScreen from "./LoginScreen";
+import RegisterScreen from "./RegisterScreen";
 import HomeworkAdd from "./modals/HomeworkAdd";
-import { View } from "react-native";
 import CourseAdd from "./modals/CourseAdd";
+import HomeNavigator from "./HomeNavigator";
+import SecondNavigator from "./SecondNavigator";
+
+import { Icon } from "react-native-elements";
 import { colors } from "./static";
+const demoData = {
+  demoList: [
+    {
+      cid: "1",
+      title: "机器学习",
+      data: [
+        { id: "2", finished: false, content: "整理房间" },
+        { id: "3", finished: false, content: "做大扫除" }
+      ]
+    },
+    {
+      cid: "2",
+      title: "哈哈之课",
+      data: [
+        { id: "4", finished: true, content: "做张卷子" },
+        { id: "5", finished: false, content: "整理房间" },
+        { id: "6", finished: true, content: "做大扫除" }
+      ]
+    },
+    {
+      cid: "3",
+      title: "移动应用开发"
+    },
+    {
+      cid: "4",
+      title: "J2EE"
+    },
+    {
+      cid: "5",
+      title: "Java核心技术"
+    },
+    {
+      cid: "6",
+      title: "神奇的威兹班"
+    }
+  ]
+};
 
 const MainStack = createBottomTabNavigator(
   {
-    Dashboard: DashboardScreen,
-    Courses: CoursesScreen,
+    Home: {
+      screen: HomeNavigator,
+      navigationOptions: {
+        title: "首页"
+      }
+    },
+    Courses: {
+      screen: SecondNavigator,
+      navigationOptions: {
+        title: "课程"
+      }
+    },
     Setting: SettingScreen
   },
   {
     tabBarOptions: {
       activeTintColor: colors.blue
     },
-    initialRouteName: "Dashboard",
+    initialRouteName: "Home",
     navigationOptions: ({ navigation }) => ({
-      swipeEnabled: true,
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === "Dashboard") {
+        if (routeName === "Home") {
           iconName = `dashboard`;
         } else if (routeName === "Courses") {
           iconName = `subject`;
@@ -45,9 +93,12 @@ const RootStack = createStackNavigator(
   {
     Main: MainStack,
     AddHomework: HomeworkAdd,
-    AddCourse: CourseAdd
+    AddCourse: CourseAdd,
+    Login: LoginScreen,
+    Register: RegisterScreen
   },
   {
+    initialRouteName: "Main",
     headerMode: "none",
     mode: "modal",
     cardStyle: {
@@ -57,11 +108,12 @@ const RootStack = createStackNavigator(
 );
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: demoData.demoList };
+    console.ignoredYellowBox = ["Remote debugger"];
+  }
   render() {
-    return (
-      <View style={{ backgroundColor: "white", flex: 1 }}>
-        <RootStack />
-      </View>
-    );
+    return <RootStack screenProps={this.state} />;
   }
 }

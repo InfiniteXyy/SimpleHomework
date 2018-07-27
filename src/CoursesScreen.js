@@ -4,24 +4,37 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
   FlatList
 } from "react-native";
 import { DashboardHeader } from "./components/BoardElements";
 import { Icon } from "react-native-elements";
 
 export default class CoursesScreen extends React.Component {
-  static navigationOptions = {
-    title: "课程"
-  };
-
-  onPress(key) {
-    if (key === "+") {
+  onPress(item) {
+    if (item.title === "+") {
       this.props.navigation.navigate("AddCourse");
+    } else {
+      this.props.navigation.navigate("CourseDetail", { cid: item.cid });
     }
   }
 
+  __renderCourse = ({ item }) => {
+    let content =
+      item.title !== "+" ? (
+        <Text style={styles.courseTitle}>{item.title}</Text>
+      ) : (
+        <Icon name="plus" size={24} type="feather" color="gray" />
+      );
+    return (
+      <TouchableOpacity onPress={() => this.onPress(item)}>
+        <View style={styles.courseCard}>{content}</View>
+      </TouchableOpacity>
+    );
+  };
+
   render() {
+    let demoCourses = this.props.screenProps.data.map(i => i);
+    demoCourses.push({ title: "+" });
     return (
       <View style={styles.container}>
         <DashboardHeader title="2018" subtitle="~2019 at ECNU" />
@@ -30,34 +43,12 @@ export default class CoursesScreen extends React.Component {
           data={demoCourses}
           numColumns={2}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => {
-            let content =
-              item !== "+" ? (
-                <Text style={styles.courseTitle}>{item}</Text>
-              ) : (
-                <Icon name="plus" size={24} type="feather" color="gray" />
-              );
-            return (
-              <TouchableOpacity onPress={() => this.onPress(item)}>
-                <View style={styles.courseCard}>{content}</View>
-              </TouchableOpacity>
-            );
-          }}
+          renderItem={this.__renderCourse}
         />
       </View>
     );
   }
 }
-
-const demoCourses = [
-  "计算机图形学",
-  "移动应用开发",
-  "数据库",
-  "我的世界",
-  "什么鬼",
-  "学会烹饪",
-  "+"
-];
 
 const styles = StyleSheet.create({
   container: {

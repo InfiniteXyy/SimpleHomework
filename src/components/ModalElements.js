@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, View } from "react-native";
 import { colors } from "../static";
 import { Icon } from "react-native-elements";
 
@@ -18,7 +18,7 @@ class ModalIcon extends React.PureComponent {
         type={this.props.type}
         color={this.props.color}
         reverse
-        size={24}
+        size={21}
       />
     );
   }

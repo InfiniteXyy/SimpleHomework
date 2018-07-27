@@ -3,41 +3,62 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   FlatList
 } from "react-native";
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
-
-moment.updateLocale("zh-cn", momentLocale);
 import { Icon } from "react-native-elements";
 import { DashboardHeader } from "./components/BoardElements";
 import { colors } from "./static";
+import HomeworkDetail from "./modals/HomeworkDetail";
 
-class DashboardItem extends React.PureComponent {
+export default class DashboardScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      demoList: this.props.screenProps.data
+    };
+  }
+
+  static navigationOptions = {
+    title: "主页"
+  };
+
+  _onAddHomework = () => {
+    this.props.navigation.navigate("AddHomework");
+  };
+
   render() {
-    let finished = this.props.finished;
-    const iconType = finished ? "ionicon" : "font-awesome";
-    const iconName = finished ? "ios-checkmark-circle" : "circle-thin";
-    const textStyle = finished
-      ? { textDecorationLine: "line-through", color: "#DDDDDD" }
-      : {};
+    moment.updateLocale("zh-cn", momentLocale);
     return (
-      <TouchableWithoutFeedback
-        onPress={() => this.props.onPressItem(this.props.id)}
-      >
-        <View style={styles.dashboardCardItem}>
-          <Text style={textStyle}>{this.props.title}</Text>
-          <View style={{ flex: 1, alignItems: "flex-end" }}>
-            <Icon
-              type={iconType}
-              name={iconName}
-              size={18}
-              color={colors.rememberBlue}
-            />
-          </View>
-        </View>
-      </TouchableWithoutFeedback>
+      <View style={styles.container}>
+        <DashboardHeader
+          title="Week 3"
+          subtitle={moment().format("dddd h:mm")}
+          onClick={this._onAddHomework}
+        />
+
+        <FlatList
+          onScrollEndDrag={event => {
+            if (event.nativeEvent.contentOffset.y < -50) {
+              this._onAddHomework();
+            }
+          }}
+          data={this.state.demoList}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => {
+            if (item.data == null || item.data.length === 0) return;
+            return (
+              <DashboardCard
+                title={item.title}
+                data={item.data}
+                navigation={this.props.navigation}
+              />
+            );
+          }}
+        />
+      </View>
     );
   }
 }
@@ -74,6 +95,7 @@ class DashboardCard extends React.PureComponent {
   _renderItem = ({ item }) => (
     <DashboardItem
       id={item.id}
+      navigation={this.props.navigation}
       onPressItem={this._changeFinished}
       finished={this.state.finishState[item.id]}
       title={item.content}
@@ -94,61 +116,37 @@ class DashboardCard extends React.PureComponent {
     );
   }
 }
-export default class DashboardScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      demoList: [
-        {
-          title: "机器学习",
-          data: [
-            { id: "2", finished: false, content: "整理房间" },
-            { id: "3", finished: false, content: "做大扫除" }
-          ]
-        },
-        {
-          title: "哈哈之课",
-          data: [
-            { id: "4", finished: true, content: "做张卷子" },
-            { id: "5", finished: false, content: "整理房间" },
-            { id: "6", finished: true, content: "做大扫除" }
-          ]
-        }
-      ]
-    };
-  }
 
-  static navigationOptions = {
-    title: "主页"
-  };
-
-  _onAddHomework = () => {
-    this.props.navigation.navigate("AddHomework");
+class DashboardItem extends React.PureComponent {
+  _toHomeworkDetail = () => {
+    console.log(this.props.id);
+    this.props.navigation.navigate("HomeworkDetail", { id: this.props.id });
   };
 
   render() {
-    moment.updateLocale("zh-cn", momentLocale);
-
+    let finished = this.props.finished;
+    const iconType = finished ? "ionicon" : "font-awesome";
+    const iconName = finished ? "ios-checkmark-circle" : "circle-thin";
+    const textStyle = finished
+      ? { textDecorationLine: "line-through", color: "#DDDDDD" }
+      : {};
     return (
-      <View style={styles.container}>
-        <DashboardHeader
-          title="Week 3"
-          subtitle={moment().format("dddd h:mm")}
-          onClick={this._onAddHomework}
-        />
-
-        <FlatList
-          onScrollEndDrag={event => {
-            if (event.nativeEvent.contentOffset.y < -50) {
-              this._onAddHomework();
-            }
-          }}
-          data={this.state.demoList}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <DashboardCard title={item.title} data={item.data} />
-          )}
-        />
+      <View style={styles.dashboardCardItem}>
+        <TouchableOpacity onPress={this._toHomeworkDetail}>
+          <Text style={textStyle}>{this.props.title}</Text>
+        </TouchableOpacity>
+        <View style={{ flex: 1, alignItems: "flex-end" }}>
+          <TouchableOpacity
+            onPress={() => this.props.onPressItem(this.props.id)}
+          >
+            <Icon
+              type={iconType}
+              name={iconName}
+              size={18}
+              color={colors.rememberBlue}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -168,9 +166,9 @@ const styles = StyleSheet.create({
     marginTop: 9
   },
   dashboardCardContainer: {
-    marginLeft: 36,
-    marginRight: 36,
+    marginHorizontal: 36,
     paddingBottom: 12,
+    paddingTop: 5,
     backgroundColor: "#fff",
     borderRadius: 8,
     marginTop: 10,

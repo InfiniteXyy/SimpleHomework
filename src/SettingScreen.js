@@ -1,11 +1,22 @@
 import React from "react";
-import { View, Button, Text, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { colors } from "./static";
 
 export default class SettingScreen extends React.Component {
   static navigationOptions = {
     title: "设置"
   };
+
+  _handlePress(i) {
+    switch (i) {
+      case 0:
+        this.props.navigation.navigate("Login");
+        break;
+      default:
+        break;
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -14,12 +25,15 @@ export default class SettingScreen extends React.Component {
         </View>
         {settings.map((s, i) => {
           return (
-            <TouchableOpacity underlayColor="white" key={i}>
-              <View  style={styles.settingItemContainer}>
-              <Text style={styles.settingItem}>{s}</Text>
+            <TouchableOpacity
+              underlayColor="white"
+              key={i}
+              onPress={() => this._handlePress(i)}
+            >
+              <View style={styles.settingItemContainer}>
+                <Text style={styles.settingItem}>{s}</Text>
               </View>
-
-            </TouchableOpacity >
+            </TouchableOpacity>
           );
         })}
       </View>
@@ -31,7 +45,7 @@ const settings = ["登录", "主题", "捐助", "国际化", "关于"];
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
+    justifyContent: "center",
     marginTop: 20,
     flex: 1,
     backgroundColor: "#fff"

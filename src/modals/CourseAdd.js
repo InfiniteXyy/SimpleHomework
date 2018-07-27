@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Button, StyleSheet, Text, ScrollView } from "react-native";
+import { View } from "react-native";
 import { Icon } from "react-native-elements";
-import { colors } from "../static";
+import { colors, styles } from "../static";
 import {
   ModalTitle,
   ModalIcon,
@@ -26,26 +26,10 @@ export default class CourseAdd extends React.Component {
           <TextField label="这节课叫..." baseColor="#979797" />
         </View>
         <ModalMoreHint />
-        <View style={styles.buttonGroup}>
+        <View style={{ marginTop: 190 }}>
           <ModalIcon name="check" type="feather" color={colors.blue} />
         </View>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20,
-    flex: 1,
-    alignItems: "center"
-  },
-  modalClose: {
-    marginTop: 14,
-    marginRight: 21,
-    alignSelf: "flex-end"
-  },
-  buttonGroup: {
-    marginTop: 190,
-  }
-});
