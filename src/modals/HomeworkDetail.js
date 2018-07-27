@@ -38,7 +38,7 @@ export default class HomeworkDetail extends React.Component {
                 color={colors.black}
               />
               <Text style={styles.title}>作业</Text>
-            </View>{" "}
+            </View>
           </TouchableOpacity>
 
           <View style={styles.rightTitleContainer}>
