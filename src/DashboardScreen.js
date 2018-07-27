@@ -6,10 +6,10 @@ import {
   TouchableWithoutFeedback,
   FlatList
 } from "react-native";
-import moment from 'moment';
-import momentLocale from 'moment/locale/zh-cn';
+import moment from "moment";
+import momentLocale from "moment/locale/zh-cn";
 
-moment.updateLocale('zh-cn', momentLocale);
+moment.updateLocale("zh-cn", momentLocale);
 import { Icon } from "react-native-elements";
 import { DashboardHeader } from "./components/BoardElements";
 import { colors } from "./static";
@@ -46,7 +46,7 @@ class DashboardCard extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      finishState: {},
+      finishState: {}
     };
   }
 
@@ -58,17 +58,23 @@ class DashboardCard extends React.PureComponent {
     this.setState({ finishState: out });
   }
 
-  changeFinished = id => {
+  _changeFinished = id => {
     this.setState(old => {
-      old[id] = !old[id];
-      return { finishState: old };
+      let finishList = old.finishState;
+      let out = {};
+      for (let i in finishList) {
+        if (i === id) finishList[i] = !finishList[i];
+        out[i] = finishList[i];
+      }
+      finishList[id] = !finishList[id];
+      return { finishState: out };
     });
   };
 
   _renderItem = ({ item }) => (
     <DashboardItem
       id={item.id}
-      onPressItem={this.changeFinished}
+      onPressItem={this._changeFinished}
       finished={this.state.finishState[item.id]}
       title={item.content}
     />
@@ -121,7 +127,7 @@ export default class DashboardScreen extends React.Component {
   };
 
   render() {
-    moment.updateLocale('zh-cn', momentLocale);
+    moment.updateLocale("zh-cn", momentLocale);
 
     return (
       <View style={styles.container}>
@@ -130,6 +136,7 @@ export default class DashboardScreen extends React.Component {
           subtitle={moment().format("dddd h:mm")}
           onClick={this._onAddHomework}
         />
+
         <FlatList
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -50) {
