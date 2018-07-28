@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { colors } from "../static";
 import { Icon } from "react-native-elements";
 
@@ -10,16 +10,24 @@ class ModalTitle extends React.PureComponent {
 }
 
 class ModalIcon extends React.PureComponent {
+  _onPress =
+    this.props.onClick != null
+      ? this.props.onClick
+      : () => 
+          alert("no method");
+        ;
   render() {
     return (
-      <Icon
-        style={styles.circleIcon}
-        name={this.props.name}
-        type={this.props.type}
-        color={this.props.color}
-        reverse
-        size={21}
-      />
+      <TouchableOpacity onPress={this._onPress}>
+        <Icon
+          style={styles.circleIcon}
+          name={this.props.name}
+          type={this.props.type}
+          color={this.props.color}
+          reverse
+          size={21}
+        />
+      </TouchableOpacity>
     );
   }
 }

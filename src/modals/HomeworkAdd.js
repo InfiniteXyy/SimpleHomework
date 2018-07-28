@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Button, StyleSheet, Text, ScrollView } from "react-native";
+import { View, StyleSheet, Text, TextInput } from "react-native";
 import { Icon } from "react-native-elements";
 import { colors } from "../static";
 import { Dropdown } from "react-native-material-dropdown";
+import { DatePickerDialog } from 'react-native-datepicker-dialog'
 import {
   ModalTitle,
   ModalIcon,
@@ -10,11 +11,34 @@ import {
 } from "../components/ModalElements";
 
 export default class HomeworkAdd extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: "",
+      deadline: new Date()
+    };
+  }
+  //TODO: 完成 3 个函数
+  _showCamera = () => {
+    alert("相机购买中");
+  };
+  _showCalendar = () => {
+    this.refs.dateDialog.open({ date: new Date(), maxDate: new Date() });
+  };
+  _clickSubmit = () => {
+    alert(this.state.content);
+  };
+
+  _onDeadlineDatePicked = (date) => {
+    this.setState({
+      deadline: date,
+    });
+  }
+
   render() {
     let data = this.props.screenProps.data.map(i => {
       return { value: i.title };
     });
-
     return (
       <View style={styles.container}>
         <View style={styles.modalClose}>
@@ -38,14 +62,37 @@ export default class HomeworkAdd extends React.Component {
           />
         </View>
         <View style={styles.homeworkCard}>
-          <Text style={{ color: colors.gray, fontSize: 14 }}>Notes</Text>
+          <TextInput
+            style={{ color: colors.black, fontSize: 15 }}
+            multiline
+            placeholder="Notes..."
+            placeholderTextColor={colors.gray}
+            value={this.state.content}
+            onChangeText={text => this.setState({ content: text })}
+          />
         </View>
         <ModalMoreHint />
         <View style={styles.buttonGroup}>
-          <ModalIcon name="camera" type="entypo" color={colors.green} />
-          <ModalIcon name="check" type="feather" color={colors.blue} />
-          <ModalIcon name="md-time" type="ionicon" color={colors.brown} />
+          <ModalIcon
+            name="camera"
+            type="entypo"
+            color={colors.green}
+            onClick={this._showCamera}
+          />
+          <ModalIcon
+            name="check"
+            type="feather"
+            color={colors.blue}
+            onClick={this._clickSubmit}
+          />
+          <ModalIcon
+            name="md-time"
+            type="ionicon"
+            color={colors.brown}
+            onClick={this._showCalendar}
+          />
         </View>
+        <DatePickerDialog ref="dateDialog" onDatePicked={this._onDeadlineDatePicked.bind(this)} />
       </View>
     );
   }

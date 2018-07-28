@@ -11,7 +11,6 @@ import momentLocale from "moment/locale/zh-cn";
 import { Icon } from "react-native-elements";
 import { DashboardHeader } from "./components/BoardElements";
 import { colors } from "./static";
-import HomeworkDetail from "./modals/HomeworkDetail";
 
 export default class DashboardScreen extends React.Component {
   constructor(props) {
@@ -52,6 +51,7 @@ export default class DashboardScreen extends React.Component {
             return (
               <DashboardCard
                 title={item.title}
+                cid={item.cid}
                 data={item.data}
                 navigation={this.props.navigation}
               />
@@ -64,6 +64,9 @@ export default class DashboardScreen extends React.Component {
 }
 
 class DashboardCard extends React.PureComponent {
+  _toCourseDetail = () => {
+    this.props.navigation.navigate("CourseDetail", { cid: this.props.cid });
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -106,7 +109,9 @@ class DashboardCard extends React.PureComponent {
       <View style={styles.dashboardCardContainer}>
         <FlatList
           ListHeaderComponent={
-            <Text style={styles.dashboardCardTitle}>{this.props.title}</Text>
+            <TouchableOpacity onPress={this._toCourseDetail}>
+              <Text style={styles.dashboardCardTitle}>{this.props.title}</Text>
+            </TouchableOpacity>
           }
           data={this.props.data}
           keyExtractor={(item, index) => item.id}
