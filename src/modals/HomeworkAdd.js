@@ -1,9 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Text, TextInput } from "react-native";
+import { View, TextInput } from "react-native";
 import { Icon } from "react-native-elements";
-import { colors } from "../static";
+import { colors, styles } from "../static";
 import { Dropdown } from "react-native-material-dropdown";
-import { DatePickerDialog } from 'react-native-datepicker-dialog'
+import { DatePickerDialog } from "react-native-datepicker-dialog";
 import {
   ModalTitle,
   ModalIcon,
@@ -29,11 +29,11 @@ export default class HomeworkAdd extends React.Component {
     alert(this.state.content);
   };
 
-  _onDeadlineDatePicked = (date) => {
+  _onDeadlineDatePicked = date => {
     this.setState({
-      deadline: date,
+      deadline: date
     });
-  }
+  };
 
   render() {
     let data = this.props.screenProps.data.map(i => {
@@ -61,7 +61,7 @@ export default class HomeworkAdd extends React.Component {
             propsExtractor={({ props }, index) => props}
           />
         </View>
-        <View style={styles.homeworkCard}>
+        <View style={styles.addHomeworkCard}>
           <TextInput
             style={{ color: colors.black, fontSize: 15 }}
             multiline
@@ -72,7 +72,7 @@ export default class HomeworkAdd extends React.Component {
           />
         </View>
         <ModalMoreHint />
-        <View style={styles.buttonGroup}>
+        <View style={{ marginTop: 72, flexDirection: "row" }}>
           <ModalIcon
             name="camera"
             type="entypo"
@@ -92,38 +92,11 @@ export default class HomeworkAdd extends React.Component {
             onClick={this._showCalendar}
           />
         </View>
-        <DatePickerDialog ref="dateDialog" onDatePicked={this._onDeadlineDatePicked.bind(this)} />
+        <DatePickerDialog
+          ref="dateDialog"
+          onDatePicked={this._onDeadlineDatePicked.bind(this)}
+        />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20,
-    flex: 1,
-    alignItems: "center"
-  },
-  modalClose: {
-    marginTop: 14,
-    marginRight: 21,
-    alignSelf: "flex-end"
-  },
-  homeworkCard: {
-    backgroundColor: "white",
-    marginTop: 29,
-    width: 285,
-    height: 145,
-    borderRadius: 6,
-    shadowColor: "#aaaaaa",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.68,
-    shadowRadius: 4,
-    paddingHorizontal: 26,
-    paddingVertical: 16
-  },
-  buttonGroup: {
-    marginTop: 72,
-    flexDirection: "row"
-  }
-});

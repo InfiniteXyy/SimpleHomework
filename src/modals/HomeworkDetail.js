@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  View,
-  Button,
-  StyleSheet,
-  Text,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
-import { colors } from "../static";
+import { colors, styles } from "../static";
 import { ModalIcon } from "../components/ModalElements";
 
 export default class HomeworkDetail extends React.Component {
@@ -56,55 +49,3 @@ export default class HomeworkDetail extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20,
-    flex: 1,
-    alignItems: "center"
-  },
-  headerContainer: {
-    height: 63,
-    marginHorizontal: 16,
-    backgroundColor: "white",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start"
-  },
-  leftButtonContainer: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  rightTitleContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "flex-end"
-  },
-  title: {
-    marginLeft: 12,
-    fontSize: 24,
-    fontWeight: "600",
-    color: colors.black
-  },
-  subtitle: {
-    marginRight: 12,
-    fontSize: 24,
-    fontWeight: "600",
-    color: colors.gray
-  },
-  homeworkCard: {
-    marginBottom: 75,
-    backgroundColor: "white",
-    marginTop: 66,
-    width: 285,
-    height: 200,
-    borderRadius: 6,
-    shadowColor: "#aaaaaa",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.68,
-    shadowRadius: 4,
-    paddingHorizontal: 26,
-    paddingVertical: 16
-  }
-});

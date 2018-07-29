@@ -14,7 +14,7 @@ export default (HomeNavigator = createStackNavigator(
     headerMode: "none",
     mode: "card",
     cardStyle: {
-      backgroundColor: "white"
+      backgroundColor: "#fafafa"
     }
   }
 ));

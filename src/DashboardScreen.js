@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 20,
     flex: 1,
-    backgroundColor: "#fff"
   },
   dashboardCardTitle: {
     color: "#cd5e3c",

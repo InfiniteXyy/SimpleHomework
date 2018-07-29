@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 20,
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fafafa"
   },
   settingTitle: {
     fontSize: 33,
