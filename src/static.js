@@ -105,7 +105,8 @@ const cardStyle = {
     shadowOpacity: 0.68,
     shadowRadius: 4,
     paddingHorizontal: 26,
-    paddingVertical: 16
+    paddingVertical: 16,
+    elevation: 4
   },
   addHomeworkCard: {
     backgroundColor: "white",
@@ -118,7 +119,13 @@ const cardStyle = {
     shadowOpacity: 0.68,
     shadowRadius: 4,
     paddingHorizontal: 26,
-    paddingVertical: 16
+    paddingVertical: 16,
+    elevation: 4
+  },
+  card: {
+    backgroundColor: "white",
+    marginTop: 10,
+    padding: 16
   }
 };
 

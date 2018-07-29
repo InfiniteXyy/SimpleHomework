@@ -9,8 +9,8 @@ import {
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
 import { Icon } from "react-native-elements";
-import { DashboardHeader } from "./components/BoardElements";
-import { colors } from "./static";
+import { DashboardHeader } from "../components/BoardElements";
+import { colors } from "../static";
 
 export default class DashboardScreen extends React.Component {
   constructor(props) {
@@ -120,7 +120,6 @@ class DashboardCard extends React.PureComponent {
 
 class DashboardItem extends React.PureComponent {
   _toHomeworkDetail = () => {
-    console.log(this.props.id);
     this.props.navigation.navigate("HomeworkDetail", { id: this.props.id });
   };
 

@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { colors, styles } from "./static";
+import { colors, styles } from "../static";
 import { Icon, Button } from "react-native-elements";
 import { TextField } from "react-native-material-textfield";
 
 export default class LoginScreen extends React.Component {
   _toRegister = () => {
-    this.props.navigation.navigate("Register");
+    this.props.navigation.navigate("Login");
   };
   render() {
     return (
@@ -20,20 +20,20 @@ export default class LoginScreen extends React.Component {
           />
         </View>
         <View style={styles.loginHeader}>
-          <Text style={styles.bigBlueTitle}>欢迎</Text>
+          <Text style={styles.bigBlueTitle}>注册</Text>
           <View style={{ marginTop: 8 }}>
-            <Text style={styles.bigBlueSubtitle}>登录以获得群组信息</Text>
-            <Text style={styles.bigBlueSubtitle}>并在多设备上同步您的记录</Text>
+            <Text style={styles.bigBlueSubtitle}>欢迎来到简记作业</Text>
           </View>
         </View>
 
-        <View style={{ width: 285, marginTop: 66 }}>
+        <View style={{ width: 285, marginTop: 16 }}>
           <TextField label="Email" />
           <TextField label="Password" />
+          <TextField label="Password Again" />
         </View>
 
         <Button
-          title="登录"
+          title="提交"
           color={colors.primaryColor}
           backgroundColor="white"
           borderRadius={27}
@@ -48,7 +48,9 @@ export default class LoginScreen extends React.Component {
         />
 
         <View style={styles.moreOption}>
-          <Text style={{ fontSize: 14, color: colors.gray }}>还没有账号？</Text>
+          <Text style={{ fontSize: 14, color: colors.gray }}>
+            已经有账号了？
+          </Text>
           <TouchableOpacity onPress={this._toRegister}>
             <Text
               style={{
@@ -57,7 +59,7 @@ export default class LoginScreen extends React.Component {
                 marginLeft: 3
               }}
             >
-              立即注册
+              立即登录
             </Text>
           </TouchableOpacity>
         </View>

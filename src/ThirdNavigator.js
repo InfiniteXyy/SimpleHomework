@@ -1,8 +1,8 @@
 import { createStackNavigator } from "react-navigation";
-import MineScreen from "./MineScreen";
-import SettingScreen from "./SettingScreen";
-import ProfileScreen from "./ProfileScreen";
-import PersonPageScreen from "./PersonPageScreen";
+import MineScreen from "./screens/MineScreen";
+import SettingScreen from "./screens/SettingScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import PersonPageScreen from "./screens/PersonPageScreen";
 
 export default (HomeNavigator = createStackNavigator(
   {
@@ -12,7 +12,7 @@ export default (HomeNavigator = createStackNavigator(
     PersonPage: PersonPageScreen
   },
   {
-    initialRouteName: "Mine",
+    // initialRouteName: "PersonPage",
     headerMode: "none",
     mode: "card",
     cardStyle: {

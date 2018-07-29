@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Icon, ListItem } from "react-native-elements";
-import { colors, styles } from "./static";
+import { colors, styles } from "../static";
 
 const options = [
   { title: "更换头像", key: "avatar" },
@@ -22,13 +22,7 @@ export default class ProfileScreen extends React.Component {
 
   render() {
     let screenProps = this.props.screenProps;
-    console.log(screenProps);
-    let me;
-    for (let i of screenProps.profileData) {
-      if (screenProps.myId === i.pid) {
-        me = i;
-      }
-    }
+    let me = screenProps.me;
     return (
       <View style={styles.simpleContainer}>
         <View style={styles.headerContainer}>

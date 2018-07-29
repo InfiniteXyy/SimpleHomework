@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { colors, styles } from "./static";
+import { colors, styles } from "../static";
 import { Icon } from "react-native-elements";
 
 export default class SettingScreen extends React.Component {

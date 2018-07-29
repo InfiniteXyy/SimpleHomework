@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
-import { DashboardHeader } from "./components/BoardElements";
+import { DashboardHeader } from "../components/BoardElements";
 import { Icon } from "react-native-elements";
-import { colors, styles } from "./static";
+import { colors, styles } from "../static";
 
 export default class CoursesScreen extends React.Component {
   onPress(item) {

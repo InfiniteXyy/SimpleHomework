@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, TouchableWithoutFeedback } from "react-native";
 import { Avatar, ListItem } from "react-native-elements";
-import { styles, urls, colors } from "./static";
+import { styles, urls, colors } from "../static";
 
 const links = [
   { title: "主页", navigate: "PersonPage" },
@@ -31,7 +31,7 @@ export default class MineScreen extends React.Component {
               title={item.title}
               onPress={() => this._toPage(item.navigate)}
               containerStyle={styles.listContainer}
-              underlayColor={colors.rememberBlue}
+              underlayColor={colors.rice}
               key={index}
             />
           ))}

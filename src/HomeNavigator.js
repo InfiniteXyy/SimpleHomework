@@ -1,6 +1,6 @@
 import HomeworkDetail from "./modals/HomeworkDetail";
 import { createStackNavigator } from "react-navigation";
-import DashboardScreen from "./DashboardScreen";
+import DashboardScreen from "./screens/DashboardScreen";
 import CourseDetail from "./modals/CourseDetail";
 
 export default (HomeNavigator = createStackNavigator(

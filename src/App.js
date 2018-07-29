@@ -4,8 +4,8 @@ import {
   createStackNavigator
 } from "react-navigation";
 
-import LoginScreen from "./LoginScreen";
-import RegisterScreen from "./RegisterScreen";
+import LoginScreen from "./modals/LoginScreen";
+import RegisterScreen from "./modals/RegisterScreen";
 import HomeworkAdd from "./modals/HomeworkAdd";
 import CourseAdd from "./modals/CourseAdd";
 
@@ -14,54 +14,9 @@ import SecondNavigator from "./SecondNavigator";
 import ThirdNavigator from "./ThirdNavigator";
 
 import { Icon } from "react-native-elements";
-import { colors, urls } from "./static";
+import { colors } from "./static";
+import { demoList, profileData } from './DemoServer'
 
-const demoData = {
-  demoList: [
-    {
-      cid: "1",
-      title: "机器学习",
-      data: [
-        { id: "2", finished: false, content: "整理房间" },
-        { id: "3", finished: false, content: "做大扫除" }
-      ]
-    },
-    {
-      cid: "2",
-      title: "哈哈之课",
-      data: [
-        { id: "4", finished: true, content: "做张卷子" },
-        { id: "5", finished: false, content: "整理房间" },
-        { id: "6", finished: true, content: "做大扫除" }
-      ]
-    },
-    {
-      cid: "3",
-      title: "移动应用开发"
-    },
-    {
-      cid: "4",
-      title: "J2EE"
-    },
-    {
-      cid: "5",
-      title: "Java核心技术"
-    },
-    {
-      cid: "6",
-      title: "神奇的威兹班"
-    }
-  ],
-  profileData: [
-    {
-      pid: "1",
-      name: "InfiniteX",
-      avatar: urls.avatar,
-      school: "ECNU",
-      jobTitle: ["计算机", "设计"]
-    }
-  ]
-};
 
 const MainStack = createBottomTabNavigator(
   {
@@ -128,9 +83,10 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: demoData.demoList,
+      data: demoList,
       myId: "1",
-      profileData: demoData.profileData
+      me: profileData[0],
+      profileData: profileData,
     };
     console.ignoredYellowBox = ["Remote debugger"];
   }
