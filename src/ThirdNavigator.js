@@ -1,14 +1,18 @@
 import { createStackNavigator } from "react-navigation";
-import ProfileScreen from "./ProfileScreen"
-import SettingScreen from "./SettingScreen"
+import MineScreen from "./MineScreen";
+import SettingScreen from "./SettingScreen";
+import ProfileScreen from "./ProfileScreen";
+import PersonPageScreen from "./PersonPageScreen";
 
 export default (HomeNavigator = createStackNavigator(
   {
-    ProfileScreen: ProfileScreen,
-    SettingScreen: SettingScreen
+    Mine: MineScreen,
+    Setting: SettingScreen,
+    Profile: ProfileScreen,
+    PersonPage: PersonPageScreen
   },
   {
-    initialRouteName: "ProfileScreen",
+    initialRouteName: "Mine",
     headerMode: "none",
     mode: "card",
     cardStyle: {

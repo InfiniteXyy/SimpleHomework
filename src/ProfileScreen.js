@@ -1,42 +1,65 @@
-import React from 'react'
-import { Text, View } from 'react-native'
-import { Avatar, ListItem } from 'react-native-elements'
-import { styles, urls, colors } from './static'
+import React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { Icon, ListItem } from "react-native-elements";
+import { colors, styles } from "./static";
 
-const links = [
-  {title: '主页', navigate: 'homepage'},
-  {title: '设置', navigate: 'SettingScreen'}
-]
+const options = [
+  { title: "更换头像", key: "avatar" },
+  { title: "昵称", key: "name" },
+  { title: "学校", key: "school" },
+  { title: "职业", key: "jobTitle" }
+];
 
 export default class ProfileScreen extends React.Component {
-  _toPage = (dest) => {
-    this.props.navigation.navigate(dest)
-  }
+  _keyToStr = (me, key) => {
+    if (key === "jobTitle") return me[key].join("/");
+    return me[key];
+  };
 
-  render () {
+  _changeProp = (me, key) => {
+    alert("change " + key);
+  };
+
+  render() {
+    let screenProps = this.props.screenProps;
+    console.log(screenProps);
+    let me;
+    for (let i of screenProps.profileData) {
+      if (screenProps.myId === i.pid) {
+        me = i;
+      }
+    }
     return (
       <View style={styles.simpleContainer}>
-        <View style={styles.profileHeaderContainer}>
-          <Avatar
-            large
-            rounded
-            source={{
-              uri: urls.avatar
-            }}
-          />
-          <View style={{marginLeft: 32}}>
-            <Text style={styles.profileTitle}>InfiniteX</Text>
-            <Text style={styles.profileSubtitle}>查看和编辑个人资料</Text>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <View style={styles.leftButtonContainer}>
+              <Icon
+                name="ios-arrow-back"
+                type="ionicon"
+                size={25}
+                color={colors.black}
+              />
+              <Text style={styles.title}>完善资料</Text>
+            </View>
+          </TouchableOpacity>
+          <View style={styles.rightTitleContainer}>
+            <Text style={styles.subtitle}>保存</Text>
           </View>
         </View>
-        <View style={{marginTop: 45, flex: 1}}>
-          {
-            links.map((item, index) =>
-              (<ListItem title={item.title} onPress={() => this._toPage(item.navigate)}
-                         containerStyle={styles.listContainer} underlayColor={colors.rememberBlue} key={index}/>))
-          }
+        <View style={{ marginTop: 45, flex: 1 }}>
+          {options.map((item, index) => (
+            <ListItem
+              title={item.title}
+              containerStyle={styles.listContainer}
+              onPress={() => this._changeProp(me, item.key)}
+              underlayColor={colors.rice}
+              key={index}
+              rightTitle={this._keyToStr(me, item.key)}
+            />
+          ))}
         </View>
       </View>
-    )
+    );
   }
 }

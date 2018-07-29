@@ -20,10 +20,6 @@ export default class DashboardScreen extends React.Component {
     };
   }
 
-  static navigationOptions = {
-    title: "主页"
-  };
-
   _onAddHomework = () => {
     this.props.navigation.navigate("AddHomework");
   };
@@ -160,7 +156,7 @@ class DashboardItem extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
-    flex: 1,
+    flex: 1
   },
   dashboardCardTitle: {
     color: "#cd5e3c",

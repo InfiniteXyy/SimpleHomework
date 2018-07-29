@@ -11,11 +11,7 @@ class ModalTitle extends React.PureComponent {
 
 class ModalIcon extends React.PureComponent {
   _onPress =
-    this.props.onClick != null
-      ? this.props.onClick
-      : () => 
-          alert("no method");
-        ;
+    this.props.onClick != null ? this.props.onClick : () => alert("no method");
   render() {
     return (
       <TouchableOpacity onPress={this._onPress}>

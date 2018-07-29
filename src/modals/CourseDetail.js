@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
-import { colors } from "../static";
+import { colors, styles } from "../static";
 
 export default class HomeworkDetail extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class HomeworkDetail extends React.Component {
       }
     }
     return (
-      <View style={styles.container}>
+      <View style={styles.simpleContainer}>
         <View style={styles.headerContainer}>
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
             <View style={styles.leftButtonContainer}>
@@ -43,7 +43,7 @@ export default class HomeworkDetail extends React.Component {
             }}
           />
           <View style={{ flex: 1 }}>
-            <Text style={styles.courseTitle}>{courseTitle}</Text>
+            <Text style={styles.courseBigTitle}>{courseTitle}</Text>
             <Text style={styles.courseDetail}>10 人正在关注</Text>
           </View>
         </View>
@@ -53,55 +53,3 @@ export default class HomeworkDetail extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20,
-    flex: 1
-  },
-  headerContainer: {
-    height: 63,
-    marginHorizontal: 16,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start"
-  },
-  leftButtonContainer: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  rightTitleContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "flex-end"
-  },
-  title: {
-    marginLeft: 12,
-    fontSize: 24,
-    fontWeight: "600",
-    color: colors.black
-  },
-  courseTitle: {
-    fontSize: 24,
-    fontWeight: "500",
-    color: "black"
-  },
-  courseDetail: {
-    fontSize: 12,
-    color: "#9B9B9B",
-    marginTop: 10
-  },
-  subtitle: {
-    marginRight: 12,
-    fontSize: 24,
-    fontWeight: "600",
-    color: colors.gray
-  },
-  whiteContainer: {
-    paddingHorizontal: 26,
-    paddingVertical: 40,
-    flexDirection: "row",
-    backgroundColor: "white"
-  }
-});

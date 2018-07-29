@@ -36,6 +36,16 @@ const wordsStyle = {
     fontWeight: "500",
     color: "#717171"
   },
+  courseBigTitle: {
+    fontSize: 24,
+    fontWeight: "500",
+    color: "black"
+  },
+  courseDetail: {
+    fontSize: 12,
+    color: "#9B9B9B",
+    marginTop: 10
+  },
   bigBlueTitle: {
     fontSize: 48,
     color: colors.primaryColor
@@ -55,11 +65,15 @@ const wordsStyle = {
     fontSize: 16,
     color: colors.gray
   },
-  listContainer: {
-    marginLeft: 16,
-    borderBottomColor: "#cccccc",
-    marginBottom: 11,
-    borderBottomWidth: 0.5,
+  settingItem: {
+    fontSize: 18,
+    color: "#6A6A6A",
+    fontWeight: "400"
+  },
+  listDetail: {
+    fontSize: 14,
+    color: "#4A4A4A",
+    marginLeft: 16
   }
 };
 
@@ -111,7 +125,7 @@ const cardStyle = {
 const containerStyle = {
   simpleContainer: {
     flex: 1,
-    marginTop: 20,
+    marginTop: 20
   },
   container: {
     flex: 1,
@@ -135,6 +149,7 @@ const containerStyle = {
     alignItems: "center"
   },
   headerContainer: {
+    alignSelf: "flex-start",
     height: 63,
     marginHorizontal: 16,
     flexDirection: "row",
@@ -156,7 +171,24 @@ const containerStyle = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginHorizontal: 32,
+    marginHorizontal: 32
+  },
+  settingItemContainer: {
+    height: 56,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  listContainer: {
+    marginLeft: 16,
+    borderBottomColor: "#cccccc",
+    marginBottom: 11,
+    borderBottomWidth: 0.5
+  },
+  whiteContainer: {
+    paddingHorizontal: 26,
+    paddingVertical: 40,
+    flexDirection: "row",
+    backgroundColor: "white"
   }
 };
 
