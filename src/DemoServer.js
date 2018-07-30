@@ -1,6 +1,6 @@
 "use strict";
 
-import { urls } from './static'
+import { urls } from "./static";
 
 const demoList = [
   {
@@ -22,19 +22,23 @@ const demoList = [
   },
   {
     cid: "3",
-    title: "移动应用开发"
+    title: "移动应用开发",
+    data: []
   },
   {
     cid: "4",
-    title: "J2EE"
+    title: "J2EE",
+    data: []
   },
   {
     cid: "5",
-    title: "Java核心技术"
+    title: "Java核心技术",
+    data: []
   },
   {
     cid: "6",
-    title: "神奇的威兹班"
+    title: "神奇的威兹班",
+    data: []
   }
 ];
 const profileData = [

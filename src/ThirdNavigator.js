@@ -4,7 +4,7 @@ import SettingScreen from "./screens/SettingScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import PersonPageScreen from "./screens/PersonPageScreen";
 
-export default (HomeNavigator = createStackNavigator(
+const ThirdNavigator = createStackNavigator(
   {
     Mine: MineScreen,
     Setting: SettingScreen,
@@ -19,4 +19,5 @@ export default (HomeNavigator = createStackNavigator(
       backgroundColor: "#fafafa"
     }
   }
-));
+);
+export default ThirdNavigator;

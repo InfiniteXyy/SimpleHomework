@@ -15,9 +15,14 @@ export default class HomeworkAdd extends React.Component {
     super(props);
     this.state = {
       content: "",
-      deadline: new Date()
+      deadline: new Date(),
+      selected: ""
     };
   }
+  _onChooseCourse = (value, index, data) => {
+    console.log(data[index]);
+    this.setState({ selected: data[index] });
+  };
   //TODO: 完成 3 个函数
   _showCamera = () => {
     alert("相机购买中");
@@ -26,7 +31,8 @@ export default class HomeworkAdd extends React.Component {
     this.refs.dateDialog.open({ date: new Date(), maxDate: new Date() });
   };
   _clickSubmit = () => {
-    alert(this.state.content);
+    console.log(this.state.selected.title + ": " + this.state.content);
+    this.props.navigation.goBack();
   };
 
   _onDeadlineDatePicked = date => {
@@ -36,9 +42,7 @@ export default class HomeworkAdd extends React.Component {
   };
 
   render() {
-    let data = this.props.screenProps.data.map(i => {
-      return { value: i.title };
-    });
+    let data = this.props.screenProps.data;
     return (
       <View style={styles.container}>
         <View style={styles.modalClose}>
@@ -56,8 +60,11 @@ export default class HomeworkAdd extends React.Component {
             fontSize={18}
             itemColor="#aaaaaa"
             selectedItemColor="#4A4A4A"
+            dropdownPosition={0}
             baseColor="#979797"
             value="选择一个课程..."
+            onChangeText={this._onChooseCourse}
+            valueExtractor={item => item.title}
             propsExtractor={({ props }, index) => props}
           />
         </View>

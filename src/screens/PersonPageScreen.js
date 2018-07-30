@@ -8,11 +8,11 @@ export default class ProfileScreen extends React.Component {
   render() {
     let screenProps = this.props.screenProps;
     let me = screenProps.me;
-    let groups = []
+    let groups = [];
     for (let i of me.groups) {
       for (let j of groupData) {
         if (j.gid === i) {
-          groups.push(j)
+          groups.push(j);
         }
       }
     }
@@ -123,11 +123,23 @@ class GroupButton extends React.PureComponent {
 class ShowMore extends React.PureComponent {
   render() {
     return (
-      <View style={{flexDirection: "row", justifyContent: "flex-end", alignItems: "center", marginTop: 16}}>
-        <Text style={{fontSize: 12, color: colors.gray}}>查看更多群组</Text>
-        <Icon name="chevron-right" type="entypo" size={12} color={colors.gray}/>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          marginTop: 16
+        }}
+      >
+        <Text style={{ fontSize: 12, color: colors.gray }}>查看更多群组</Text>
+        <Icon
+          name="chevron-right"
+          type="entypo"
+          size={12}
+          color={colors.gray}
+        />
       </View>
-    )
+    );
   }
 }
 

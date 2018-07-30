@@ -24,6 +24,24 @@ export default class DashboardScreen extends React.Component {
     this.props.navigation.navigate("AddHomework");
   };
 
+  _changeFinished = id => {
+    let index = 0;
+    let flag = false;
+    for (let course of this.state.demoList) {
+      for (let homework of course.data)
+        if (homework.id === id) {
+          homework.finished = !homework.finished;
+          flag = true;
+          break;
+        }
+      if (flag) {
+        course.data = [...course.data];
+      }
+      index++;
+    }
+    this.setState({});
+  };
+
   render() {
     moment.updateLocale("zh-cn", momentLocale);
     return (
@@ -49,6 +67,7 @@ export default class DashboardScreen extends React.Component {
                 title={item.title}
                 cid={item.cid}
                 data={item.data}
+                changeFinished={this._changeFinished}
                 navigation={this.props.navigation}
               />
             );
@@ -63,40 +82,13 @@ class DashboardCard extends React.PureComponent {
   _toCourseDetail = () => {
     this.props.navigation.navigate("CourseDetail", { cid: this.props.cid });
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      finishState: {}
-    };
-  }
-
-  componentDidMount() {
-    let out = {};
-    for (let i of this.props.data) {
-      out[i.id] = i.finished;
-    }
-    this.setState({ finishState: out });
-  }
-
-  _changeFinished = id => {
-    this.setState(old => {
-      let finishList = old.finishState;
-      let out = {};
-      for (let i in finishList) {
-        if (i === id) finishList[i] = !finishList[i];
-        out[i] = finishList[i];
-      }
-      finishList[id] = !finishList[id];
-      return { finishState: out };
-    });
-  };
 
   _renderItem = ({ item }) => (
     <DashboardItem
       id={item.id}
       navigation={this.props.navigation}
-      onPressItem={this._changeFinished}
-      finished={this.state.finishState[item.id]}
+      onPressItem={this.props.changeFinished}
+      finished={item.finished}
       title={item.content}
     />
   );
@@ -109,6 +101,7 @@ class DashboardCard extends React.PureComponent {
               <Text style={styles.dashboardCardTitle}>{this.props.title}</Text>
             </TouchableOpacity>
           }
+          extraData={this.props}
           data={this.props.data}
           keyExtractor={(item, index) => item.id}
           renderItem={this._renderItem}
@@ -131,23 +124,22 @@ class DashboardItem extends React.PureComponent {
       ? { textDecorationLine: "line-through", color: "#DDDDDD" }
       : {};
     return (
-      <View style={styles.dashboardCardItem}>
-        <TouchableOpacity onPress={this._toHomeworkDetail}>
+      <TouchableOpacity
+        onPress={() => this.props.onPressItem(this.props.id)}
+        onLongPress={this._toHomeworkDetail}
+      >
+        <View style={styles.dashboardCardItem}>
           <Text style={textStyle}>{this.props.title}</Text>
-        </TouchableOpacity>
-        <View style={{ flex: 1, alignItems: "flex-end" }}>
-          <TouchableOpacity
-            onPress={() => this.props.onPressItem(this.props.id)}
-          >
+          <View style={{ flex: 1, alignItems: "flex-end" }}>
             <Icon
               type={iconType}
               name={iconName}
               size={18}
               color={colors.rememberBlue}
             />
-          </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

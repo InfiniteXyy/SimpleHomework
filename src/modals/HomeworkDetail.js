@@ -2,17 +2,18 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
 import { colors, styles } from "../static";
+import { demoList } from "../DemoServer";
 import { ModalIcon } from "../components/ModalElements";
 
 export default class HomeworkDetail extends React.Component {
   render() {
     let id = this.props.navigation.getParam("id", "2");
-    let data = this.props.screenProps.data;
-    let courseTitle, content;
-    for (let i of data) {
+    let courseTitle, content, cid;
+    for (let i of demoList) {
       if (i.data != null) {
         for (let j of i.data) {
           if (j.id === id) {
+            cid = i.cid;
             courseTitle = i.title;
             content = j.content;
           }
@@ -35,7 +36,13 @@ export default class HomeworkDetail extends React.Component {
           </TouchableOpacity>
 
           <View style={styles.rightTitleContainer}>
-            <Text style={styles.subtitle}>{courseTitle}</Text>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate("CourseDetail", { cid: cid })
+              }
+            >
+              <Text style={styles.subtitle}>{courseTitle}</Text>
+            </TouchableOpacity>
             <Icon name="tune" type="material" size={25} color={colors.gray} />
           </View>
         </View>

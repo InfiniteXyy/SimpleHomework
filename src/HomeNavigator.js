@@ -3,7 +3,7 @@ import { createStackNavigator } from "react-navigation";
 import DashboardScreen from "./screens/DashboardScreen";
 import CourseDetail from "./modals/CourseDetail";
 
-export default (HomeNavigator = createStackNavigator(
+const HomeNavigator = createStackNavigator(
   {
     DashboardMain: DashboardScreen,
     HomeworkDetail: HomeworkDetail,
@@ -17,4 +17,5 @@ export default (HomeNavigator = createStackNavigator(
       backgroundColor: "#fafafa"
     }
   }
-));
+);
+export default HomeNavigator;

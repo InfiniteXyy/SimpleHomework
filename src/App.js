@@ -15,8 +15,7 @@ import ThirdNavigator from "./ThirdNavigator";
 
 import { Icon } from "react-native-elements";
 import { colors } from "./static";
-import { demoList, profileData } from './DemoServer'
-
+import { demoList, profileData } from "./DemoServer";
 
 const MainStack = createBottomTabNavigator(
   {
@@ -86,7 +85,7 @@ export default class App extends React.Component {
       data: demoList,
       myId: "1",
       me: profileData[0],
-      profileData: profileData,
+      profileData: profileData
     };
     console.ignoredYellowBox = ["Remote debugger"];
   }
