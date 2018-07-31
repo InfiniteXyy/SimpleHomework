@@ -86,12 +86,7 @@ export default class HomeworkAdd extends React.Component {
             color={colors.green}
             onClick={this._showCamera}
           />
-          <ModalIcon
-            name="check"
-            type="feather"
-            color={colors.blue}
-            onClick={this._clickSubmit}
-          />
+          <ModalIcon name="check" type="feather" onClick={this._clickSubmit} />
           <ModalIcon
             name="md-time"
             type="ionicon"

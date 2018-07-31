@@ -19,7 +19,7 @@ class ModalIcon extends React.PureComponent {
           style={styles.circleIcon}
           name={this.props.name}
           type={this.props.type}
-          color={this.props.color}
+          color={this.props.color ? this.props.color : colors.blue}
           reverse
           size={21}
         />

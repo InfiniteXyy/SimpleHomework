@@ -3,16 +3,18 @@ import MineScreen from "./screens/MineScreen";
 import SettingScreen from "./screens/SettingScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import PersonPageScreen from "./screens/PersonPageScreen";
+import ThemeChoose from "./modals/ThemeChoose";
 
 const ThirdNavigator = createStackNavigator(
   {
     Mine: MineScreen,
     Setting: SettingScreen,
     Profile: ProfileScreen,
-    PersonPage: PersonPageScreen
+    PersonPage: PersonPageScreen,
+    ThemeChoose: ThemeChoose
   },
   {
-    // initialRouteName: "PersonPage",
+    //initialRouteName: "ThemeChoose",
     headerMode: "none",
     mode: "card",
     cardStyle: {

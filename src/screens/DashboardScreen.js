@@ -97,9 +97,23 @@ class DashboardCard extends React.PureComponent {
       <View style={styles.dashboardCardContainer}>
         <FlatList
           ListHeaderComponent={
-            <TouchableOpacity onPress={this._toCourseDetail}>
+            <View style={styles.dashboardHeader}>
               <Text style={styles.dashboardCardTitle}>{this.props.title}</Text>
-            </TouchableOpacity>
+              <View
+                style={{
+                  flex: 1,
+                  flexDirection: "row",
+                  justifyContent: "flex-end"
+                }}
+              >
+                <Icon
+                  name="md-more"
+                  type="ionicon"
+                  size={24}
+                  color={colors.icon}
+                />
+              </View>
+            </View>
           }
           extraData={this.props}
           data={this.props.data}
@@ -150,32 +164,36 @@ const styles = StyleSheet.create({
     flex: 1
   },
   dashboardCardTitle: {
-    color: "#cd5e3c",
+    color: "#4A4A4A",
     fontSize: 18,
-    marginBottom: 9,
-    marginLeft: 16,
-    marginTop: 9
+    fontWeight: "500"
+  },
+  dashboardHeader: {
+    marginBottom: 12,
+    paddingHorizontal: 30,
+    height: 64,
+    flexDirection: "row",
+    alignItems: "center",
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#DDDDDD"
   },
   dashboardCardContainer: {
-    marginHorizontal: 36,
-    paddingBottom: 12,
-    paddingTop: 5,
+    marginTop: 16,
+    paddingBottom: 20,
+    marginHorizontal: 20,
     backgroundColor: "#fff",
-    borderRadius: 8,
-    marginTop: 10,
-    marginBottom: 26,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.16,
+    borderRadius: 0,
+    shadowColor: "#cccccc",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
     shadowRadius: 4,
     elevation: 1
   },
   dashboardCardItem: {
     flex: 1,
+    paddingHorizontal: 30,
     flexDirection: "row",
     alignItems: "center",
-    paddingLeft: 16,
-    paddingRight: 16,
     height: 39
   }
 });

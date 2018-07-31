@@ -5,13 +5,18 @@ import { Icon } from "react-native-elements";
 
 export default class SettingScreen extends React.Component {
   _handlePress(i) {
+    let dest = "";
     switch (i) {
       case 0:
-        this.props.navigation.navigate("Login");
+        dest = "Login";
+        break;
+      case 1:
+        dest = "ThemeChoose";
         break;
       default:
         break;
     }
+    this.props.navigation.navigate(dest);
   }
 
   render() {
@@ -50,4 +55,4 @@ export default class SettingScreen extends React.Component {
   }
 }
 
-const settings = ["登录", "主题", "捐助", "国际化", "关于"];
+const settings = ["登录", "主题", "清空缓存", "国际化", "关于"];

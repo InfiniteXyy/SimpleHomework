@@ -42,7 +42,9 @@ const MainStack = createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: colors.blue
     },
-    initialRouteName: "Home",
+
+    initialRouteName: "Profile",
+
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
