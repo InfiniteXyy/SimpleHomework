@@ -2,7 +2,7 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   StyleSheet,
   Animated
 } from "react-native";
@@ -11,17 +11,16 @@ const INDICATOR_HEIGHT = 3;
 
 export default class TabBarView extends React.PureComponent {
   _renderTab = (name, page, isTabActive, onPressHandler) => {
-    console.log(name, page, isTabActive);
     return (
-      <TouchableOpacity
+      <TouchableWithoutFeedback
         style={{ flex: 1 }}
         key={name}
         onPress={() => onPressHandler(page)}
       >
         <View style={[styles.tab, this.props.tabStyle]}>
-          <Text style={{ color: "#4a4a4a", fontSize: 14 }}>{name}</Text>
+          <Text style={{ color: "#4a4a4a", fontSize: 14, fontWeight: "bold" }}>{name}</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   };
 
@@ -49,7 +48,6 @@ export default class TabBarView extends React.PureComponent {
       <View
         style={[
           styles.tabs,
-          { backgroundColor: this.props.backgroundColor },
           this.props.style
         ]}
       >
@@ -78,12 +76,13 @@ const styles = StyleSheet.create({
   tab: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   tabs: {
     height: 40,
     flexDirection: "row",
     justifyContent: "space-around",
+    backgroundColor: "white",
     borderBottomColor: "#fafafa",
     borderBottomWidth: INDICATOR_HEIGHT
   }

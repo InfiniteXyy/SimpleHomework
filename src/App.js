@@ -16,7 +16,8 @@ import ThirdNavigator from "./ThirdNavigator";
 import { Icon } from "react-native-elements";
 import { colors } from "./static";
 import { demoList, profileData } from "./DemoServer";
-
+import moment from 'moment'
+import momentLocale from "moment/locale/zh-cn";
 const MainStack = createBottomTabNavigator(
   {
     Home: {
@@ -43,7 +44,7 @@ const MainStack = createBottomTabNavigator(
       activeTintColor: colors.blue
     },
 
-    initialRouteName: "Profile",
+    initialRouteName: "Home",
 
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
@@ -90,6 +91,7 @@ export default class App extends React.Component {
       profileData: profileData
     };
     console.ignoredYellowBox = ["Remote debugger"];
+    moment.updateLocale("zh-cn", momentLocale);
   }
 
   render() {

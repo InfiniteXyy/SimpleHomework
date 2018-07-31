@@ -10,7 +10,7 @@ const HomeNavigator = createStackNavigator(
     CourseDetail: CourseDetail
   },
   {
-    //initialRouteName: "CourseDetail",
+    initialRouteName: "CourseDetail",
     headerMode: "none",
     mode: "card",
     cardStyle: {

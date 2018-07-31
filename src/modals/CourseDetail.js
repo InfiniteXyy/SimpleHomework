@@ -1,20 +1,25 @@
 import React from "react";
-import {
-  View,
-  FlatList,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView
-} from "react-native";
-import { Icon } from "react-native-elements";
+import { View, FlatList, Text, ScrollView, Animated } from "react-native";
 import { colors, styles } from "../static";
 import ScrollableTabView from "react-native-scrollable-tab-view";
 import TabBarView from "../components/TabBarView";
-import { demoList } from "../DemoServer";
+import { StackHeader } from "../components/StackElements";
 
+const HEADER_HEIGHT = 180;
 export default class HomeworkDetail extends React.PureComponent {
+  offset: Animated.Value;
+
+  componentWillMount() {
+    this.offset = new Animated.Value(0);
+  }
+
   render() {
+    const translateY = this.offset.interpolate({
+      inputRange: [0, HEADER_HEIGHT],
+      outputRange: [0, -HEADER_HEIGHT],
+      extrapolate: "clamp"
+    });
+
     let cid = this.props.navigation.getParam("cid", "1");
     let data = this.props.screenProps.data;
     let courseData;
@@ -23,51 +28,91 @@ export default class HomeworkDetail extends React.PureComponent {
         courseData = i;
       }
     }
+
     return (
       <View style={styles.simpleContainer}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <View style={styles.leftButtonContainer}>
-              <Icon
-                name="ios-arrow-back"
-                type="ionicon"
-                size={25}
-                color={colors.black}
-              />
-              <Text style={styles.title}>课程</Text>
-            </View>
-          </TouchableOpacity>
-          <View style={styles.rightTitleContainer}>
-            <Icon name="tune" type="material" size={25} color={colors.gray} />
-          </View>
-        </View>
+        <StackHeader
+          leftTitle="课程"
+          onPressLeft={() => this.props.navigation.goBack()}
+        />
+        <View style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+          <Animated.View
+            style={[
+              {
+                position: "absolute",
+                left: 0,
+                right: 0,
+                overflow: "hidden",
+                height: HEADER_HEIGHT
+              },
+              { transform: [{ translateY }] }
+            ]}
+          >
+            <CourseDetailHeader data={courseData} />
+          </Animated.View>
 
-        <ScrollView>
-          <View style={styles.whiteContainer}>
-            <View
-              style={{
-                width: 113,
-                height: 113,
-                borderRadius: 8,
-                backgroundColor: "#fafafa",
-                marginRight: 30
-              }}
-            />
-            <View style={{ flex: 1 }}>
-              <Text style={styles.courseBigTitle}>{courseData.title}</Text>
-              <Text style={styles.courseDetail}>10 人正在关注</Text>
-            </View>
-          </View>
-
-          <View style={{ backgroundColor: "white", marginTop: 9, height: 600 }}>
+          <Animated.View
+            style={[
+              {
+                flex: 1,
+                marginTop: HEADER_HEIGHT,
+                marginBottom: -HEADER_HEIGHT
+              },
+              { transform: [{ translateY }] }
+            ]}
+          >
             <ScrollableTabView renderTabBar={() => <TabBarView />}>
-              <HomeworkPage data={courseData} tabLabel="任务" />
-              <ScrollView tabLabel="群组" />
-              <ScrollView tabLabel="资讯" />
-              <ScrollView tabLabel="成就" />
+              <StickScrollView
+                scrollY={this.offset}
+                tabLabel="任务"
+                content={<HomeworkPage />}
+              />
+              <StickScrollView
+                scrollY={this.offset}
+                tabLabel="群组"
+                content={<HomeworkPage />}
+              />
+              <StickScrollView
+                scrollY={this.offset}
+                tabLabel="资讯"
+                content={<HomeworkPage />}
+              />
+              <StickScrollView
+                scrollY={this.offset}
+                tabLabel="成就"
+                content={<HomeworkPage />}
+              />
             </ScrollableTabView>
-          </View>
-        </ScrollView>
+          </Animated.View>
+        </View>
+      </View>
+    );
+  }
+}
+
+class StickScrollView extends React.PureComponent {
+  render() {
+    let animation = {
+      onScroll: Animated.event(
+        [{ nativeEvent: { contentOffset: { y: this.props.scrollY } } }],
+        { useNativeDriver: true }
+      )
+    };
+
+    const translateY = this.props.scrollY.interpolate({
+      inputRange: [0, HEADER_HEIGHT],
+      outputRange: [0, HEADER_HEIGHT],
+      extrapolate: "clamp"
+    });
+    let transform = [{ translateY }];
+
+    return (
+      <View style={{ flex: 1 }}>
+        <Animated.ScrollView scrollEventThrottle={1} {...animation}>
+          <Animated.View style={{ paddingBottom: HEADER_HEIGHT, transform }}>
+            {this.props.content}
+          </Animated.View>
+        </Animated.ScrollView>
       </View>
     );
   }
@@ -76,23 +121,84 @@ export default class HomeworkDetail extends React.PureComponent {
 class HomeworkPage extends React.PureComponent {
   constructor(props) {
     super(props);
+    let data = [];
+    for (let i = 0; i < 30; i++) {
+      data.push("content" + i);
+    }
     this.state = {
-      tasks: props.data.data
+      data: data
     };
   }
-  _renderHomework = ({ item, index }) => {
-    console.log(item);
-    return <Text>{item.content}</Text>;
-  };
 
   render() {
     return (
-      <View>
-        <FlatList
-          data={this.state.tasks}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={this._renderHomework}
+      <View style={{ height: 800, backgroundColor: "white", padding: 20 }}>
+        {this.state.data.map((item, index) => {
+          return <Text key={index}>{item}</Text>;
+        })}
+      </View>
+    );
+  }
+}
+
+class GroupPage extends React.PureComponent {
+  render() {
+    let animation = {
+      onScroll: Animated.event(
+        [{ nativeEvent: { contentOffset: { y: this.props.scrollY } } }],
+        { useNativeDriver: true }
+      )
+    };
+
+    const translateY = this.props.scrollY.interpolate({
+      inputRange: [0, HEADER_HEIGHT],
+      outputRange: [0, HEADER_HEIGHT],
+      extrapolate: "clamp"
+    });
+
+    let transform = [{ translateY }];
+
+    return (
+      <View style={{ flex: 1 }}>
+        <Animated.ScrollView scrollEventThrottle={1} {...animation}>
+          <Animated.View style={{ paddingBottom: HEADER_HEIGHT, transform }}>
+            <View
+              style={{ height: 800, backgroundColor: "skyblue", padding: 20 }}
+            />
+          </Animated.View>
+        </Animated.ScrollView>
+      </View>
+    );
+  }
+}
+
+class CourseDetailHeader extends React.PureComponent {
+  render() {
+    let courseData = this.props.data;
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "white",
+          flexDirection: "row",
+          borderBottomWidth: 9,
+          borderBottomColor: colors.rice
+        }}
+      >
+        <View
+          style={{
+            marginHorizontal: 20,
+            alignSelf: "center",
+            width: 110,
+            height: 110,
+            borderRadius: 8,
+            backgroundColor: "#fafafa"
+          }}
         />
+        <View style={{ marginTop: 40 }}>
+          <Text style={styles.courseBigTitle}>{courseData.title}</Text>
+          <Text style={styles.courseDetail}>10 人正在关注</Text>
+        </View>
       </View>
     );
   }

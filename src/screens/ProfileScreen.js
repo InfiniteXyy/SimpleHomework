@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Icon, ListItem } from "react-native-elements";
 import { colors, styles } from "../static";
+import { StackHeader } from "../components/StackElements";
 
 const options = [
   { title: "更换头像", key: "avatar" },
@@ -25,22 +26,11 @@ export default class ProfileScreen extends React.Component {
     let me = screenProps.me;
     return (
       <View style={styles.simpleContainer}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <View style={styles.leftButtonContainer}>
-              <Icon
-                name="ios-arrow-back"
-                type="ionicon"
-                size={25}
-                color={colors.black}
-              />
-              <Text style={styles.title}>完善资料</Text>
-            </View>
-          </TouchableOpacity>
-          <View style={styles.rightTitleContainer}>
-            <Text style={styles.subtitle}>保存</Text>
-          </View>
-        </View>
+        <StackHeader
+          leftTitle="完善资料"
+          rightTitle="保存"
+          onPressLeft={() => this.props.navigation.goBack()}
+        />
         <View style={{ marginTop: 45, flex: 1 }}>
           {options.map((item, index) => (
             <ListItem

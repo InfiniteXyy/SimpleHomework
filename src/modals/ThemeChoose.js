@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
 import { ModalIcon } from "../components/ModalElements";
 import { StackHeader } from "../components/StackElements";
 import { colors } from "../static";
@@ -48,13 +48,29 @@ class ChooseItem extends React.PureComponent {
     const borderColor = roundType === isRound ? colors.blue : "#E9E9E9";
 
     return (
-      <TouchableWithoutFeedback
-        onPress={() => {
-          this.props.onPress(roundType);
-        }}
-      >
-        <View style={[styles.roundCard, { borderColor }]} />
-      </TouchableWithoutFeedback>
+      <View style={{ alignItems: "center" }}>
+        <View
+          style={{
+            position: "absolute",
+            top: 62,
+            left: 62,
+            backgroundColor: "#D8D8D8",
+            height: 82,
+            width: 82,
+            borderTopColor: "#979797",
+            borderLeftColor: "#979797",
+            borderWidth: 1,
+          }}
+        />
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.props.onPress(roundType);
+          }}
+        >
+          <View style={[styles.roundCard, { borderColor }]} />
+        </TouchableWithoutFeedback>
+        <Text style={{ color: "#4a4a4a" }}>{roundType ? "圆润" : "方正"}</Text>
+      </View>
     );
   }
 }

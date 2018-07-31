@@ -4,6 +4,7 @@ import { Icon } from "react-native-elements";
 import { colors, styles } from "../static";
 import { demoList } from "../DemoServer";
 import { ModalIcon } from "../components/ModalElements";
+import { StackHeader } from "../components/StackElements";
 
 export default class HomeworkDetail extends React.Component {
   render() {
@@ -22,30 +23,14 @@ export default class HomeworkDetail extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <View style={styles.leftButtonContainer}>
-              <Icon
-                name="ios-arrow-back"
-                type="ionicon"
-                size={25}
-                color={colors.black}
-              />
-              <Text style={styles.title}>作业</Text>
-            </View>
-          </TouchableOpacity>
-
-          <View style={styles.rightTitleContainer}>
-            <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate("CourseDetail", { cid: cid })
-              }
-            >
-              <Text style={styles.subtitle}>{courseTitle}</Text>
-            </TouchableOpacity>
-            <Icon name="tune" type="material" size={25} color={colors.gray} />
-          </View>
-        </View>
+        <StackHeader
+          leftTitle="作业"
+          rightTitle={courseTitle}
+          onPressLeft={() => this.props.navigation.goBack()}
+          onPressRight={() =>
+            this.props.navigation.navigate("CourseDetail", { cid: cid })
+          }
+        />
 
         <View style={styles.homeworkCard}>
           <Text style={{ color: colors.black, fontSize: 18 }}>{content}</Text>

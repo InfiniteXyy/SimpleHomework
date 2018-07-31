@@ -7,7 +7,7 @@ import {
   FlatList
 } from "react-native";
 import moment from "moment";
-import momentLocale from "moment/locale/zh-cn";
+
 import { Icon } from "react-native-elements";
 import { DashboardHeader } from "../components/BoardElements";
 import { colors } from "../static";
@@ -43,7 +43,6 @@ export default class DashboardScreen extends React.Component {
   };
 
   render() {
-    moment.updateLocale("zh-cn", momentLocale);
     return (
       <View style={styles.container}>
         <DashboardHeader
@@ -51,10 +50,13 @@ export default class DashboardScreen extends React.Component {
           subtitle={moment().format("dddd h:mm")}
           onClick={this._onAddHomework}
         />
+        <View style={styles.hiddenTipContainer}>
+          <Text style={{color: "#aaaaaa",fontSize: 16}}>下拉以添加更多作业</Text>
+        </View>
 
         <FlatList
           onScrollEndDrag={event => {
-            if (event.nativeEvent.contentOffset.y < -50) {
+            if (event.nativeEvent.contentOffset.y < -70) {
               this._onAddHomework();
             }
           }}
@@ -195,5 +197,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     height: 39
+  },
+  hiddenTipContainer: {
+    position: "absolute",
+    top: 150,
+    alignSelf: "center",
+    height: 100,
   }
 });

@@ -163,6 +163,13 @@ const containerStyle = {
     alignItems: "center",
     justifyContent: "flex-start"
   },
+  absoluteHeader: {
+    position: "absolute",
+    top: 80,
+    height: 30,
+    width: 375,
+    backgroundColor: "skyblue"
+  },
   leftButtonContainer: {
     flex: 1,
     flexDirection: "row",
