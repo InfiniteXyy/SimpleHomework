@@ -16,7 +16,7 @@ import ThirdNavigator from "./ThirdNavigator";
 import { Icon } from "react-native-elements";
 import { colors } from "./static";
 import { demoList, profileData } from "./DemoServer";
-import moment from 'moment'
+import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
 const MainStack = createBottomTabNavigator(
   {

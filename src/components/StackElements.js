@@ -24,13 +24,12 @@ class StackHeader extends React.PureComponent {
           </View>
         </TouchableOpacity>
         {rightTitle ? (
-
           <TouchableOpacity onPress={right} style={styles.rightTitleContainer}>
             <Text style={styles.subtitle}>{rightTitle}</Text>
           </TouchableOpacity>
         ) : (
           <View />
-        )}}
+        )}
       </View>
     );
   }

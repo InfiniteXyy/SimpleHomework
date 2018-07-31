@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Icon, Avatar } from "react-native-elements";
 import { colors, styles as s, urls } from "../static";
 import { groupData } from "../DemoServer";
+import { StackHeader } from "../components/StackElements";
 
 export default class ProfileScreen extends React.Component {
   render() {
@@ -19,19 +20,7 @@ export default class ProfileScreen extends React.Component {
 
     return (
       <View style={styles.simpleContainer}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-            <View style={s.leftButtonContainer}>
-              <Icon
-                name="ios-arrow-back"
-                type="ionicon"
-                size={25}
-                color={colors.black}
-              />
-              <Text style={styles.title}>{me.name}</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        <StackHeader leftTitle={me.name} onPressLeft={() => this.props.navigation.goBack()}/>
         <ProfileTitle me={me} />
         <GroupDetail data={groups} />
         <ActivityDetail />
@@ -46,7 +35,7 @@ class ProfileTitle extends React.PureComponent {
     return (
       <View
         style={{
-          marginTop: 40,
+
           backgroundColor: "white",
           alignItems: "center",
           paddingBottom: 16
@@ -145,7 +134,7 @@ class ShowMore extends React.PureComponent {
 
 const mStyle = {
   profileHeader: {
-    marginTop: -32
+    marginTop: 16
   },
   profileDetailContainer: {
     height: 31,

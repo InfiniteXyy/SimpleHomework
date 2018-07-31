@@ -18,7 +18,9 @@ export default class TabBarView extends React.PureComponent {
         onPress={() => onPressHandler(page)}
       >
         <View style={[styles.tab, this.props.tabStyle]}>
-          <Text style={{ color: "#4a4a4a", fontSize: 14, fontWeight: "bold" }}>{name}</Text>
+          <Text style={{ color: "#4a4a4a", fontSize: 14, fontWeight: "bold" }}>
+            {name}
+          </Text>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -45,16 +47,16 @@ export default class TabBarView extends React.PureComponent {
       ]
     };
     return (
-      <View
-        style={[
-          styles.tabs,
-          this.props.style
-        ]}
-      >
-        {this.props.tabs.map((name, page) => {
-          const isTabActive = this.props.activeTab === page;
-          const renderTab = this.props.renderTab || this._renderTab;
-          return renderTab(name, page, isTabActive, this.props.goToPage);
+      <View style={[styles.tabs, this.props.style]}>
+        {this.props.tabs.map(tab => {
+          const isTabActive = false;
+          const renderTab = this._renderTab;
+          return renderTab(
+            tab.name,
+            tab.page,
+            isTabActive,
+            this.props.goToPage
+          );
         })}
         <Animated.View
           style={[tabUnderlineStyle, left, this.props.underlineStyle]}
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
   tab: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   tabs: {
     height: 40,

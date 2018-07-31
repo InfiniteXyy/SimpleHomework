@@ -59,7 +59,7 @@ class ChooseItem extends React.PureComponent {
             width: 82,
             borderTopColor: "#979797",
             borderLeftColor: "#979797",
-            borderWidth: 1,
+            borderWidth: 1
           }}
         />
         <TouchableWithoutFeedback

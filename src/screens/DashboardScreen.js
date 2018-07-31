@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Animated,
   FlatList
 } from "react-native";
 import moment from "moment";
@@ -16,7 +17,8 @@ export default class DashboardScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      demoList: this.props.screenProps.data
+      demoList: this.props.screenProps.data,
+      fadeAnim: new Animated.Value(0)
     };
   }
 
@@ -43,6 +45,19 @@ export default class DashboardScreen extends React.Component {
   };
 
   render() {
+    let animation = {
+      onScroll: event => {
+        let y = event.nativeEvent.contentOffset.y;
+        let opacity;
+        if (y < -50) opacity = 1;
+        else if (y > 0) opacity = 0;
+        else {
+          opacity = y / -50;
+        }
+        this.state.fadeAnim.setValue(opacity);
+      }
+    };
+
     return (
       <View style={styles.container}>
         <DashboardHeader
@@ -50,16 +65,22 @@ export default class DashboardScreen extends React.Component {
           subtitle={moment().format("dddd h:mm")}
           onClick={this._onAddHomework}
         />
-        <View style={styles.hiddenTipContainer}>
-          <Text style={{color: "#aaaaaa",fontSize: 16}}>下拉以添加更多作业</Text>
-        </View>
+        <Animated.View
+          style={[styles.hiddenTipContainer, { opacity: this.state.fadeAnim }]}
+        >
+          <Text style={{ color: "#aaaaaa", fontSize: 16 }}>
+            下拉以添加更多作业
+          </Text>
+        </Animated.View>
 
         <FlatList
+          style={{ marginTop: 8 }}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
               this._onAddHomework();
             }
           }}
+          {...animation}
           data={this.state.demoList}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => {
@@ -136,7 +157,7 @@ class DashboardItem extends React.PureComponent {
     let finished = this.props.finished;
     const iconType = finished ? "ionicon" : "font-awesome";
     const iconName = finished ? "ios-checkmark-circle" : "circle-thin";
-    const textStyle = finished
+    const decoration = finished
       ? { textDecorationLine: "line-through", color: "#DDDDDD" }
       : {};
     return (
@@ -145,7 +166,9 @@ class DashboardItem extends React.PureComponent {
         onLongPress={this._toHomeworkDetail}
       >
         <View style={styles.dashboardCardItem}>
-          <Text style={textStyle}>{this.props.title}</Text>
+          <Text style={[{ fontSize: 15, color: "#4a4a4a" }, decoration]}>
+            {this.props.title}
+          </Text>
           <View style={{ flex: 1, alignItems: "flex-end" }}>
             <Icon
               type={iconType}
@@ -166,34 +189,34 @@ const styles = StyleSheet.create({
     flex: 1
   },
   dashboardCardTitle: {
-    color: "#4A4A4A",
+    color: "#7a7a7a",
     fontSize: 18,
-    fontWeight: "500"
+    fontWeight: "bold"
   },
   dashboardHeader: {
     marginBottom: 12,
-    paddingHorizontal: 30,
-    height: 64,
+    paddingHorizontal: 24,
+    height: 56,
     flexDirection: "row",
     alignItems: "center",
     borderBottomWidth: 0.5,
     borderBottomColor: "#DDDDDD"
   },
   dashboardCardContainer: {
-    marginTop: 16,
-    paddingBottom: 20,
+    marginVertical: 8,
     marginHorizontal: 20,
+    paddingBottom: 16,
     backgroundColor: "#fff",
     borderRadius: 0,
     shadowColor: "#cccccc",
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
     shadowRadius: 4,
-    elevation: 1
+    elevation: 2
   },
   dashboardCardItem: {
     flex: 1,
-    paddingHorizontal: 30,
+    paddingHorizontal: 24,
     flexDirection: "row",
     alignItems: "center",
     height: 39
@@ -202,6 +225,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 150,
     alignSelf: "center",
-    height: 100,
+    height: 100
   }
 });

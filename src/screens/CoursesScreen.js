@@ -14,17 +14,41 @@ export default class CoursesScreen extends React.Component {
   }
 
   __renderCourse = ({ item }) => {
-    let content =
-      item.title !== "+" ? (
-        <Text style={styles.courseTitle}>{item.title}</Text>
-      ) : (
-        <Icon name="plus" size={24} type="feather" color="gray" />
+    if (item.title !== "+") {
+      return (
+        <TouchableOpacity onPress={() => this.onPress(item)}>
+          <View style={[styles.courseCard, { height: 112 }]}>
+            <Icon
+              name="circle"
+              size={24}
+              type="font-awesome"
+              color={item.color}
+            />
+            <Text
+              style={{
+                marginTop: 12,
+                fontSize: 14,
+                fontWeight: "bold",
+                color: "#717171"
+              }}
+            >
+              {item.title}
+            </Text>
+            <Text style={{ marginTop: 6, fontSize: 13, color: "#9b9b9b" }}>
+              {item.data.length + " tasks"}
+            </Text>
+          </View>
+        </TouchableOpacity>
       );
-    return (
-      <TouchableOpacity onPress={() => this.onPress(item)}>
-        <View style={styles.courseCard}>{content}</View>
-      </TouchableOpacity>
-    );
+    } else {
+      return (
+        <TouchableOpacity onPress={() => this.onPress(item)}>
+          <View style={[styles.courseCard, { height: 62 }]}>
+            <Icon name="plus" size={24} type="feather" color="gray" />
+          </View>
+        </TouchableOpacity>
+      );
+    }
   };
 
   render() {

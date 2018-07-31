@@ -31,11 +31,6 @@ const wordsStyle = {
     fontWeight: "600",
     color: colors.gray
   },
-  courseTitle: {
-    fontSize: 14,
-    fontWeight: "500",
-    color: "#717171"
-  },
   courseBigTitle: {
     fontSize: 24,
     fontWeight: "500",
@@ -80,16 +75,15 @@ const wordsStyle = {
 const cardStyle = {
   courseCard: {
     backgroundColor: "#fff",
-    margin: 13,
-    width: 143,
-    height: 62,
-    borderRadius: 4,
+    margin: 7,
+    width: 165,
+    borderRadius: 10,
     marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "#CCCCCC",
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 1.0,
+    shadowOpacity: 0.38,
     shadowRadius: 2,
     elevation: 1
   },
@@ -185,7 +179,7 @@ const containerStyle = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginHorizontal: 32
+    marginHorizontal: 32,
   },
   settingItemContainer: {
     height: 56,

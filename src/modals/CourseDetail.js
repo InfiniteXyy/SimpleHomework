@@ -1,25 +1,33 @@
 import React from "react";
-import { View, FlatList, Text, ScrollView, Animated } from "react-native";
+import {
+  View,
+  FlatList,
+  Text,
+  ScrollView,
+  Animated,
+  Dimensions
+} from "react-native";
 import { colors, styles } from "../static";
 import ScrollableTabView from "react-native-scrollable-tab-view";
 import TabBarView from "../components/TabBarView";
 import { StackHeader } from "../components/StackElements";
 
-const HEADER_HEIGHT = 180;
-export default class HomeworkDetail extends React.PureComponent {
-  offset: Animated.Value;
+const SCREEN_WIDTH = Dimensions.get("window").width;
 
-  componentWillMount() {
-    this.offset = new Animated.Value(0);
+export default class HomeworkDetail extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      scrollX: new Animated.Value(0)
+    };
+    this.goToPage = this.goToPage.bind(this);
+  }
+
+  goToPage(i) {
+    this.tabView.goToPage(i);
   }
 
   render() {
-    const translateY = this.offset.interpolate({
-      inputRange: [0, HEADER_HEIGHT],
-      outputRange: [0, -HEADER_HEIGHT],
-      extrapolate: "clamp"
-    });
-
     let cid = this.props.navigation.getParam("cid", "1");
     let data = this.props.screenProps.data;
     let courseData;
@@ -35,139 +43,47 @@ export default class HomeworkDetail extends React.PureComponent {
           leftTitle="课程"
           onPressLeft={() => this.props.navigation.goBack()}
         />
-        <View style={{ flex: 1, position: "relative", overflow: "hidden" }}>
-          <Animated.View
-            style={[
-              {
-                position: "absolute",
-                left: 0,
-                right: 0,
-                overflow: "hidden",
-                height: HEADER_HEIGHT
-              },
-              { transform: [{ translateY }] }
+        <ScrollView stickyHeaderIndices={[1]}
+          style={{flex: 1}}>
+          <CourseDetailHeader data={courseData} />
+          <TabBarView
+            tabs={[
+              { name: "任务", page: 0 },
+              { name: "群组", page: 1 },
+              { name: "资讯", page: 2 },
+              { name: "成就", page: 3 }
             ]}
+            goToPage={this.goToPage}
+            containerWidth={SCREEN_WIDTH}
+            scrollValue={this.state.scrollX}
+          />
+          <ScrollableTabView
+            renderTabBar={() => <View />}
+            onScroll={val => this.state.scrollX.setValue(val)}
+            ref={tabView => {
+              this.tabView = tabView;
+            }}
           >
-            <CourseDetailHeader data={courseData} />
-          </Animated.View>
-
-          <Animated.View
-            style={[
-              {
-                flex: 1,
-                marginTop: HEADER_HEIGHT,
-                marginBottom: -HEADER_HEIGHT
-              },
-              { transform: [{ translateY }] }
-            ]}
-          >
-            <ScrollableTabView renderTabBar={() => <TabBarView />}>
-              <StickScrollView
-                scrollY={this.offset}
-                tabLabel="任务"
-                content={<HomeworkPage />}
-              />
-              <StickScrollView
-                scrollY={this.offset}
-                tabLabel="群组"
-                content={<HomeworkPage />}
-              />
-              <StickScrollView
-                scrollY={this.offset}
-                tabLabel="资讯"
-                content={<HomeworkPage />}
-              />
-              <StickScrollView
-                scrollY={this.offset}
-                tabLabel="成就"
-                content={<HomeworkPage />}
-              />
-            </ScrollableTabView>
-          </Animated.View>
-        </View>
-      </View>
-    );
-  }
-}
-
-class StickScrollView extends React.PureComponent {
-  render() {
-    let animation = {
-      onScroll: Animated.event(
-        [{ nativeEvent: { contentOffset: { y: this.props.scrollY } } }],
-        { useNativeDriver: true }
-      )
-    };
-
-    const translateY = this.props.scrollY.interpolate({
-      inputRange: [0, HEADER_HEIGHT],
-      outputRange: [0, HEADER_HEIGHT],
-      extrapolate: "clamp"
-    });
-    let transform = [{ translateY }];
-
-    return (
-      <View style={{ flex: 1 }}>
-        <Animated.ScrollView scrollEventThrottle={1} {...animation}>
-          <Animated.View style={{ paddingBottom: HEADER_HEIGHT, transform }}>
-            {this.props.content}
-          </Animated.View>
-        </Animated.ScrollView>
+            <HomeworkPage />
+            <HomeworkPage />
+            <HomeworkPage />
+            <HomeworkPage />
+          </ScrollableTabView>
+        </ScrollView>
       </View>
     );
   }
 }
 
 class HomeworkPage extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    let data = [];
-    for (let i = 0; i < 30; i++) {
-      data.push("content" + i);
-    }
-    this.state = {
-      data: data
-    };
-  }
-
   render() {
     return (
-      <View style={{ height: 800, backgroundColor: "white", padding: 20 }}>
-        {this.state.data.map((item, index) => {
-          return <Text key={index}>{item}</Text>;
-        })}
+      <View style={{flex: 1}}>
+        <View style={{ height: 200, backgroundColor: "powderblue", padding: 20 }}/>
+        <View style={{ height: 200, backgroundColor: "skyblue", padding: 20 }}/>
+        <View style={{ height: 200, backgroundColor: "steelblue", padding: 20 }}/>
       </View>
-    );
-  }
-}
 
-class GroupPage extends React.PureComponent {
-  render() {
-    let animation = {
-      onScroll: Animated.event(
-        [{ nativeEvent: { contentOffset: { y: this.props.scrollY } } }],
-        { useNativeDriver: true }
-      )
-    };
-
-    const translateY = this.props.scrollY.interpolate({
-      inputRange: [0, HEADER_HEIGHT],
-      outputRange: [0, HEADER_HEIGHT],
-      extrapolate: "clamp"
-    });
-
-    let transform = [{ translateY }];
-
-    return (
-      <View style={{ flex: 1 }}>
-        <Animated.ScrollView scrollEventThrottle={1} {...animation}>
-          <Animated.View style={{ paddingBottom: HEADER_HEIGHT, transform }}>
-            <View
-              style={{ height: 800, backgroundColor: "skyblue", padding: 20 }}
-            />
-          </Animated.View>
-        </Animated.ScrollView>
-      </View>
     );
   }
 }
@@ -178,7 +94,7 @@ class CourseDetailHeader extends React.PureComponent {
     return (
       <View
         style={{
-          flex: 1,
+          paddingVertical: 40,
           backgroundColor: "white",
           flexDirection: "row",
           borderBottomWidth: 9,
@@ -195,7 +111,7 @@ class CourseDetailHeader extends React.PureComponent {
             backgroundColor: "#fafafa"
           }}
         />
-        <View style={{ marginTop: 40 }}>
+        <View>
           <Text style={styles.courseBigTitle}>{courseData.title}</Text>
           <Text style={styles.courseDetail}>10 人正在关注</Text>
         </View>

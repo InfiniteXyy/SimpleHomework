@@ -14,7 +14,7 @@ const ThirdNavigator = createStackNavigator(
     ThemeChoose: ThemeChoose
   },
   {
-    initialRouteName: "ThemeChoose",
+    //initialRouteName: "ThemeChoose",
     headerMode: "none",
     mode: "card",
     cardStyle: {
