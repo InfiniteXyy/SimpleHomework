@@ -1,11 +1,28 @@
 import React from "react";
-import { View, Text, TouchableOpacity, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  Animated,
+  Dimensions
+} from "react-native";
 import { DashboardHeader } from "../components/BoardElements";
 import { Icon } from "react-native-elements";
 import { colors, styles } from "../static";
+import { Toolbar } from "../components/ToolbarView";
 
 export default class CoursesScreen extends React.Component {
-  onPress(item) {
+  constructor(props) {
+    super(props);
+    this.state = {
+      scrollY: new Animated.Value(0),
+      windowWidth: Dimensions.get("window").width,
+      windowHeight: Dimensions.get("window").height
+    };
+  }
+
+  _onPress(item) {
     if (item.title === "+") {
       this.props.navigation.navigate("AddCourse");
     } else {
@@ -16,7 +33,7 @@ export default class CoursesScreen extends React.Component {
   __renderCourse = ({ item }) => {
     if (item.title !== "+") {
       return (
-        <TouchableOpacity onPress={() => this.onPress(item)}>
+        <TouchableOpacity onPress={() => this._onPress(item)}>
           <View style={[styles.courseCard, { height: 112 }]}>
             <Icon
               name="circle"
@@ -42,7 +59,7 @@ export default class CoursesScreen extends React.Component {
       );
     } else {
       return (
-        <TouchableOpacity onPress={() => this.onPress(item)}>
+        <TouchableOpacity onPress={() => this._onPress(item)}>
           <View style={[styles.courseCard, { height: 62 }]}>
             <Icon name="plus" size={24} type="feather" color="gray" />
           </View>
@@ -51,19 +68,51 @@ export default class CoursesScreen extends React.Component {
     }
   };
 
+  componentWillMount() {
+    Dimensions.addEventListener("change", dims => {
+      this.setState({
+        windowWidth: dims.window.width,
+        windowHeight: dims.window.height
+      });
+    });
+  }
+
   render() {
+    const colNums = Math.floor(this.state.windowWidth / 179);
+
+    console.log(colNums);
     let demoCourses = this.props.screenProps.data.map(i => i);
     demoCourses.push({ title: "+" });
+
+    let animation = {
+      onScroll: event => {
+        let y = event.nativeEvent.contentOffset.y;
+        this.state.scrollY.setValue(y);
+      }
+    };
+
+    let margin = (this.state.windowWidth - colNums * 179) / 2;
+
     return (
       <View style={styles.container}>
-        <DashboardHeader title="2018" subtitle="~2019 at ECNU" />
         <FlatList
-          contentContainerStyle={styles.list}
+          style={{ width: this.state.windowWidth }}
+          contentContainerStyle={{ marginHorizontal: margin }}
+          ListHeaderComponent={
+            <DashboardHeader
+              title="2018"
+              subtitle="~2019 at ECNU"
+              padding={margin}
+            />
+          }
           data={demoCourses}
-          numColumns={2}
+          numColumns={colNums}
           keyExtractor={(item, index) => index.toString()}
+          key={this.state.windowWidth / this.state.windowHeight < 1 ? "h" : "v"}
           renderItem={this.__renderCourse}
+          {...animation}
         />
+        <Toolbar scrollY={this.state.scrollY} title="2018" />
       </View>
     );
   }

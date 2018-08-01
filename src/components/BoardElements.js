@@ -6,13 +6,14 @@ class DashboardHeader extends React.PureComponent {
   render() {
     let type = this.props.iconType ? this.props.iconType : "material";
     let name = this.props.iconName ? this.props.iconName : "dehaze";
+    let padding = this.props.padding ? 36 - this.props.padding : 36;
     let onClick = this.props.onClick
       ? this.props.onClick
       : () => {
           alert("no method");
         };
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { paddingHorizontal: padding }]}>
         <View style={styles.dashboardHeader}>
           <Text style={styles.dashboardTitle}>{this.props.title}</Text>
           <Text style={styles.dashboardSubtitle}>{this.props.subtitle}</Text>
@@ -35,12 +36,11 @@ class DashboardHeader extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    paddingRight: 36
+    alignSelf: "flex-start",
+    flexDirection: "row"
   },
   dashboardHeader: {
     height: 115,
-    paddingLeft: 36,
     paddingTop: 18
   },
   dashboardTitle: {

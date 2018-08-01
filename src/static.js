@@ -78,7 +78,7 @@ const cardStyle = {
     margin: 7,
     width: 165,
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 7,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: "#CCCCCC",
@@ -179,7 +179,7 @@ const containerStyle = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginHorizontal: 32,
+    marginHorizontal: 32
   },
   settingItemContainer: {
     height: 56,

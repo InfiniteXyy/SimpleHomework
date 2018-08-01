@@ -41,7 +41,10 @@ const demoList = [
     cid: "5",
     title: "Java核心技术",
     color: colors.rememberBlue,
-    data: []
+    data: [
+      { id: "10", finished: false, content: "优化Animizz" },
+      { id: "11", finished: true, content: "哈哈不直达偶哦什么" }
+    ]
   }
 ];
 const profileData = [

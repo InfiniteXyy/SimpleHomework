@@ -1,26 +1,26 @@
 import React from "react";
-import {
-  View,
-  FlatList,
-  Text,
-  ScrollView,
-  Animated,
-  Dimensions
-} from "react-native";
+import { View, Text, ScrollView, Animated, Dimensions } from "react-native";
 import { colors, styles } from "../static";
 import ScrollableTabView from "react-native-scrollable-tab-view";
 import TabBarView from "../components/TabBarView";
 import { StackHeader } from "../components/StackElements";
 
-const SCREEN_WIDTH = Dimensions.get("window").width;
-
 export default class HomeworkDetail extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      scrollX: new Animated.Value(0)
+      scrollX: new Animated.Value(0),
+      screenWidth: Dimensions.get("window").width
     };
     this.goToPage = this.goToPage.bind(this);
+  }
+
+  componentWillMount() {
+    Dimensions.addEventListener("change", dims => {
+      this.setState({
+        screenWidth: dims.window.width
+      });
+    });
   }
 
   goToPage(i) {
@@ -43,8 +43,7 @@ export default class HomeworkDetail extends React.PureComponent {
           leftTitle="课程"
           onPressLeft={() => this.props.navigation.goBack()}
         />
-        <ScrollView stickyHeaderIndices={[1]}
-          style={{flex: 1}}>
+        <ScrollView stickyHeaderIndices={[1]} style={{ flex: 1 }}>
           <CourseDetailHeader data={courseData} />
           <TabBarView
             tabs={[
@@ -54,7 +53,7 @@ export default class HomeworkDetail extends React.PureComponent {
               { name: "成就", page: 3 }
             ]}
             goToPage={this.goToPage}
-            containerWidth={SCREEN_WIDTH}
+            containerWidth={this.state.screenWidth}
             scrollValue={this.state.scrollX}
           />
           <ScrollableTabView
@@ -78,12 +77,17 @@ export default class HomeworkDetail extends React.PureComponent {
 class HomeworkPage extends React.PureComponent {
   render() {
     return (
-      <View style={{flex: 1}}>
-        <View style={{ height: 200, backgroundColor: "powderblue", padding: 20 }}/>
-        <View style={{ height: 200, backgroundColor: "skyblue", padding: 20 }}/>
-        <View style={{ height: 200, backgroundColor: "steelblue", padding: 20 }}/>
+      <View style={{ flex: 1 }}>
+        <View
+          style={{ height: 200, backgroundColor: "powderblue", padding: 20 }}
+        />
+        <View
+          style={{ height: 200, backgroundColor: "skyblue", padding: 20 }}
+        />
+        <View
+          style={{ height: 200, backgroundColor: "steelblue", padding: 20 }}
+        />
       </View>
-
     );
   }
 }

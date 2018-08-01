@@ -10,15 +10,16 @@ import {
 import moment from "moment";
 
 import { Icon } from "react-native-elements";
-import { DashboardHeader } from "../components/BoardElements";
 import { colors } from "../static";
+import { DashboardHeader } from "../components/BoardElements";
+import { Toolbar } from "../components/ToolbarView";
 
 export default class DashboardScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       demoList: this.props.screenProps.data,
-      fadeAnim: new Animated.Value(0)
+      scrollY: new Animated.Value(0)
     };
   }
 
@@ -44,37 +45,51 @@ export default class DashboardScreen extends React.Component {
     this.setState({});
   };
 
+  _renderCard = ({ item }) => {
+    if (item.data == null || item.data.length === 0) return;
+    return (
+      <DashboardCard
+        title={item.title}
+        cid={item.cid}
+        data={item.data}
+        changeFinished={this._changeFinished}
+        navigation={this.props.navigation}
+      />
+    );
+  };
+
   render() {
     let animation = {
       onScroll: event => {
         let y = event.nativeEvent.contentOffset.y;
-        let opacity;
-        if (y < -50) opacity = 1;
-        else if (y > 0) opacity = 0;
-        else {
-          opacity = y / -50;
-        }
-        this.state.fadeAnim.setValue(opacity);
+        this.state.scrollY.setValue(y);
       }
     };
 
+    const opacityTip = this.state.scrollY.interpolate({
+      inputRange: [-80, -40],
+      outputRange: [1, 0],
+      extrapolate: "clamp",
+      useNativeDriver: true
+    });
+
     return (
       <View style={styles.container}>
-        <DashboardHeader
-          title="Week 3"
-          subtitle={moment().format("dddd h:mm")}
-          onClick={this._onAddHomework}
-        />
         <Animated.View
-          style={[styles.hiddenTipContainer, { opacity: this.state.fadeAnim }]}
+          style={[styles.hiddenTipContainer, { opacity: opacityTip }]}
         >
           <Text style={{ color: "#aaaaaa", fontSize: 16 }}>
             下拉以添加更多作业
           </Text>
         </Animated.View>
-
         <FlatList
-          style={{ marginTop: 8 }}
+          ListHeaderComponent={
+            <DashboardHeader
+              title="Week 3"
+              subtitle={moment().format("dddd h:mm")}
+              onClick={this._onAddHomework}
+            />
+          }
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
               this._onAddHomework();
@@ -83,19 +98,9 @@ export default class DashboardScreen extends React.Component {
           {...animation}
           data={this.state.demoList}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => {
-            if (item.data == null || item.data.length === 0) return;
-            return (
-              <DashboardCard
-                title={item.title}
-                cid={item.cid}
-                data={item.data}
-                changeFinished={this._changeFinished}
-                navigation={this.props.navigation}
-              />
-            );
-          }}
+          renderItem={this._renderCard}
         />
+        <Toolbar scrollY={this.state.scrollY} title="Week 3" />
       </View>
     );
   }
@@ -223,7 +228,7 @@ const styles = StyleSheet.create({
   },
   hiddenTipContainer: {
     position: "absolute",
-    top: 150,
+    top: 30,
     alignSelf: "center",
     height: 100
   }
