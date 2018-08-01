@@ -26,8 +26,12 @@ export default class LoginScreen extends React.Component {
         </View>
         <Text style={styles.bigBlueTitle}>欢迎</Text>
         <View style={{ width: 285, marginTop: 16 }}>
-          <TextField label="Email" keyboardType="email-address"/>
-          <TextField label="Password" textContentType="password" secureTextEntry/>
+          <TextField label="Email" keyboardType="email-address" />
+          <TextField
+            label="Password"
+            textContentType="password"
+            secureTextEntry
+          />
           <Button
             title="登录"
             color={colors.primaryColor}

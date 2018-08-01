@@ -7,7 +7,13 @@ class MyTextInput extends Component {
     return Platform.OS !== "ios" || this.props.value === nextProps.value;
   }
   render() {
-    return <TextInput {...this.props} style={{fontSize: 18}} underlineColorAndroid="transparent" />;
+    return (
+      <TextInput
+        {...this.props}
+        style={{ fontSize: 18 }}
+        underlineColorAndroid="transparent"
+      />
+    );
   }
 }
 

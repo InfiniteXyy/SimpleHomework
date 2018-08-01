@@ -1,7 +1,7 @@
 import React from "react";
-import { Animated, StyleSheet, Text, View } from "react-native";
+import { Animated, StyleSheet, Text, View, Platform } from "react-native";
 import { Icon } from "react-native-elements";
-import { colors } from '../static'
+import { colors } from "../static";
 
 class Toolbar extends React.PureComponent {
   render() {
@@ -19,7 +19,7 @@ class Toolbar extends React.PureComponent {
         <View
           style={{ flex: 1, justifyContent: "flex-end", flexDirection: "row" }}
         >
-          <Icon name="dehaze" type="material" color={colors.icon} size={20}/>
+          <Icon name="dehaze" type="material" color={colors.icon} size={20} />
         </View>
       </Animated.View>
     );
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 44,
+    height: Platform.OS === "ios" ? 44 : 56,
     paddingHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",

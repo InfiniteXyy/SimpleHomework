@@ -27,7 +27,7 @@ export default class CourseAdd extends React.Component {
         </View>
         <ModalTitle title="创建新的课程" />
         <View style={{ width: 285, marginTop: 48 }}>
-          <MyTextInput placeholder="这节课叫..."/>
+          <MyTextInput placeholder="这节课叫..." />
         </View>
         <ModalMoreHint />
         <View style={{ marginTop: 190 }}>

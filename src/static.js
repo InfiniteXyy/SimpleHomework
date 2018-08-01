@@ -179,7 +179,7 @@ const containerStyle = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginHorizontal: 32,
+    marginHorizontal: 32
   },
   settingItemContainer: {
     height: 56,

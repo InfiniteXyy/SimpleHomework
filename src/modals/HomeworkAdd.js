@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Icon } from "react-native-elements";
 import { colors, styles } from "../static";
 import { Dropdown } from "react-native-material-dropdown";
-import MyTextInput from "../components/MyTextInput"
+import MyTextInput from "../components/MyTextInput";
 import { DatePickerDialog } from "react-native-datepicker-dialog";
 import {
   ModalTitle,
@@ -72,7 +72,7 @@ export default class HomeworkAdd extends React.Component {
             valueExtractor={item => item.title}
             propsExtractor={({ props }, index) => props}
           />
-          <MyTextInput placeholder="内容..."/>
+          <MyTextInput placeholder="内容..." />
         </View>
         <ModalMoreHint />
         <View

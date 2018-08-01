@@ -6,13 +6,13 @@ import {
   StyleSheet,
   Animated
 } from "react-native";
-import { colors } from '../static'
+import { colors } from "../static";
 
 const INDICATOR_HEIGHT = 3;
 
 export default class TabBarView extends React.PureComponent {
   _renderTab = (name, page, isTabActive, onPressHandler) => {
-    const textColor = isTabActive ? colors.primaryColor : colors.black
+    const textColor = isTabActive ? colors.primaryColor : colors.black;
     return (
       <TouchableWithoutFeedback
         style={{ flex: 1 }}
@@ -34,7 +34,7 @@ export default class TabBarView extends React.PureComponent {
     const tabUnderlineStyle = {
       position: "absolute",
       width: containerWidth / numberOfTabs,
-      bottom: -INDICATOR_HEIGHT,
+      bottom: 0,
       justifyContent: "center",
       alignItems: "center"
     };
@@ -44,22 +44,16 @@ export default class TabBarView extends React.PureComponent {
           translateX: this.props.scrollValue.interpolate({
             inputRange: [0, 1],
             outputRange: [0, containerWidth / numberOfTabs],
-            useNativeDriver: true,
           })
         }
       ]
     };
     return (
       <View style={[styles.tabs, this.props.style]}>
-        {this.props.tabs.map((tab, index) => {
-          const isTabActive = index === this.props.selected;
-          const renderTab = this._renderTab;
-          return renderTab(
-            tab.name,
-            tab.page,
-            isTabActive,
-            this.props.goToPage
-          );
+        {this.props.tabs.map((name, page) => {
+          const isTabActive = this.props.activeTab === page;
+          const renderTab = this.props.renderTab || this._renderTab;
+          return renderTab(name, page, isTabActive, this.props.goToPage);
         })}
         <Animated.View
           style={[tabUnderlineStyle, left, this.props.underlineStyle]}
@@ -87,8 +81,7 @@ const styles = StyleSheet.create({
     height: 40,
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "white",
-    borderBottomColor: "#fafafa",
-    borderBottomWidth: INDICATOR_HEIGHT
+    borderBottomColor: "#b2b2b2",
+    borderBottomWidth: 0.5
   }
 });

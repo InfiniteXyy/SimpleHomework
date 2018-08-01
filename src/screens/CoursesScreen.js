@@ -18,7 +18,7 @@ export default class CoursesScreen extends React.Component {
     this.state = {
       scrollY: new Animated.Value(0),
       windowWidth: Dimensions.get("window").width,
-      windowHeight: Dimensions.get("window").height,
+      windowHeight: Dimensions.get("window").height
     };
   }
 
@@ -68,21 +68,25 @@ export default class CoursesScreen extends React.Component {
     }
   };
 
-  componentWillMount() {
-    Dimensions.addEventListener("change", dims => {
-      this.setState({
-        windowWidth: dims.window.width,
-        windowHeight: dims.window.height
-      });
+  _rotateHandler = dims => {
+    this.setState({
+      windowWidth: dims.window.width,
+      windowHeight: dims.window.height
     });
+  };
+  componentWillMount() {
+    Dimensions.addEventListener("change", this._rotateHandler);
+  }
+
+  componentWillUnmount() {
+    Dimensions.removeEventListener("change", this._rotateHandler);
   }
 
   render() {
     const colNums = Math.floor(this.state.windowWidth / 179);
 
-      console.log(colNums);
-    let demoCourses = this.props.screenProps.data.map(i => i);
-    demoCourses.push({ title: "+" });
+    console.log("info: course list columns = " + colNums);
+    let demoCourses = [...this.props.screenProps.data, { title: "+" }];
 
     let animation = {
       onScroll: event => {
@@ -96,10 +100,14 @@ export default class CoursesScreen extends React.Component {
     return (
       <View style={styles.container}>
         <FlatList
-          style={{width: this.state.windowWidth}}
-          contentContainerStyle={{marginHorizontal: margin}}
+          style={{ width: this.state.windowWidth }}
+          contentContainerStyle={{ marginHorizontal: margin }}
           ListHeaderComponent={
-            <DashboardHeader title="2018" subtitle="~2019 at ECNU" padding={margin} />
+            <DashboardHeader
+              title="2018"
+              subtitle="~2019 at ECNU"
+              padding={margin}
+            />
           }
           data={demoCourses}
           numColumns={colNums}

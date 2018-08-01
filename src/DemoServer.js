@@ -43,7 +43,7 @@ const demoList = [
     color: colors.rememberBlue,
     data: [
       { id: "10", finished: false, content: "优化Animizz" },
-      { id: "11", finished: true, content: "哈哈这是个啥" },
+      { id: "11", finished: true, content: "哈哈这是个啥" }
     ]
   }
 ];

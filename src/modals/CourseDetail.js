@@ -6,37 +6,6 @@ import TabBarView from "../components/TabBarView";
 import { StackHeader } from "../components/StackElements";
 
 export default class HomeworkDetail extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      scrollX: new Animated.Value(0),
-      screenWidth: Dimensions.get("window").width,
-      selected: 0
-    };
-  }
-
-  _rotateHandler = dims => {
-    this.setState({
-      screenWidth: dims.window.width
-    });
-  };
-
-  componentWillMount() {
-    Dimensions.addEventListener("change", this._rotateHandler);
-  }
-
-  componentWillUnmount() {
-    Dimensions.removeEventListener("change", this._rotateHandler);
-  }
-
-  goToPage = i => {
-    this.tabView.goToPage(i);
-  };
-
-  _scrollTab = val => this.state.scrollX.setValue(val);
-
-  _changeTab = ({ i }) => this.setState({ selected: i });
-
   render() {
     let cid = this.props.navigation.getParam("cid", "1");
     let data = this.props.screenProps.data;
@@ -50,37 +19,17 @@ export default class HomeworkDetail extends React.PureComponent {
     return (
       <View style={styles.simpleContainer}>
         <StackHeader
-          leftTitle="课程"
+          leftTitle={courseData.title}
           onPressLeft={() => this.props.navigation.goBack()}
         />
-        <ScrollView stickyHeaderIndices={[1]} style={{ flex: 1 }}>
-          <CourseDetailHeader data={courseData} />
-          <TabBarView
-            tabs={[
-              { name: "任务", page: 0 },
-              { name: "群组", page: 1 },
-              { name: "资讯", page: 2 },
-              { name: "成就", page: 3 }
-            ]}
-            selected={this.state.selected}
-            goToPage={this.goToPage}
-            containerWidth={this.state.screenWidth}
-            scrollValue={this.state.scrollX}
-          />
-          <ScrollableTabView
-            renderTabBar={() => <View />}
-            onScroll={this._scrollTab}
-            onChangeTab={this._changeTab}
-            ref={tabView => {
-              this.tabView = tabView;
-            }}
-          >
-            <HomeworkPage />
-            <HomeworkPage />
-            <HomeworkPage />
-            <HomeworkPage />
-          </ScrollableTabView>
-        </ScrollView>
+        <ScrollableTabView
+          prerenderingSiblingsNumber={4}
+          renderTabBar={() => <TabBarView />}>
+          <HomeworkPage tabLabel={"任务"} />
+          <HomeworkPage tabLabel={"群组"} />
+          <HomeworkPage tabLabel={"资讯"} />
+          <HomeworkPage tabLabel={"成就"} />
+        </ScrollableTabView>
       </View>
     );
   }
@@ -89,17 +38,18 @@ export default class HomeworkDetail extends React.PureComponent {
 class HomeworkPage extends React.PureComponent {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <ScrollView>
         <View
-          style={{ height: 200, backgroundColor: "powderblue", padding: 20 }}
-        />
-        <View
-          style={{ height: 200, backgroundColor: "skyblue", padding: 20 }}
-        />
-        <View
-          style={{ height: 200, backgroundColor: "steelblue", padding: 20 }}
-        />
-      </View>
+          style={{
+            flex: 1,
+            height: 600,
+            padding: 20,
+            alignItems: "center",
+          }}
+        >
+          <Text>{this.props.tabLabel}</Text>
+        </View>
+      </ScrollView>
     );
   }
 }

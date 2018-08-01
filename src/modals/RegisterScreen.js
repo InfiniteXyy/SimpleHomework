@@ -22,9 +22,17 @@ export default class LoginScreen extends React.Component {
         <Text style={styles.bigBlueTitle}>注册</Text>
 
         <View style={{ width: 285, marginTop: 16 }}>
-          <TextField label="Email" keyboardType="email-address"/>
-          <TextField label="Password" textContentType="password" secureTextEntry/>
-          <TextField label="Password Again" textContentType="password" secureTextEntry/>
+          <TextField label="Email" keyboardType="email-address" />
+          <TextField
+            label="Password"
+            textContentType="password"
+            secureTextEntry
+          />
+          <TextField
+            label="Password Again"
+            textContentType="password"
+            secureTextEntry
+          />
           <Button
             title="提交"
             color={colors.primaryColor}
@@ -41,7 +49,6 @@ export default class LoginScreen extends React.Component {
             }}
           />
         </View>
-
 
         <View style={styles.moreOption}>
           <Text style={{ fontSize: 14, color: colors.gray }}>
