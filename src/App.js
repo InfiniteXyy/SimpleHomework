@@ -72,7 +72,7 @@ const RootStack = createStackNavigator(
     Register: RegisterScreen
   },
   {
-    initialRouteName: "Main",
+    //initialRouteName: "Register",
     headerMode: "none",
     mode: "modal",
     cardStyle: {

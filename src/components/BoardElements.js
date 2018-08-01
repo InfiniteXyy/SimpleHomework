@@ -13,7 +13,7 @@ class DashboardHeader extends React.PureComponent {
           alert("no method");
         };
     return (
-      <View style={[styles.container, { paddingHorizontal: padding }]}>
+      <View style={[styles.container, {paddingHorizontal: padding}]}>
         <View style={styles.dashboardHeader}>
           <Text style={styles.dashboardTitle}>{this.props.title}</Text>
           <Text style={styles.dashboardSubtitle}>{this.props.subtitle}</Text>
@@ -37,7 +37,7 @@ class DashboardHeader extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     alignSelf: "flex-start",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   dashboardHeader: {
     height: 115,

@@ -18,7 +18,7 @@ export default class CoursesScreen extends React.Component {
     this.state = {
       scrollY: new Animated.Value(0),
       windowWidth: Dimensions.get("window").width,
-      windowHeight: Dimensions.get("window").height
+      windowHeight: Dimensions.get("window").height,
     };
   }
 
@@ -80,7 +80,7 @@ export default class CoursesScreen extends React.Component {
   render() {
     const colNums = Math.floor(this.state.windowWidth / 179);
 
-    console.log(colNums);
+      console.log(colNums);
     let demoCourses = this.props.screenProps.data.map(i => i);
     demoCourses.push({ title: "+" });
 
@@ -96,14 +96,10 @@ export default class CoursesScreen extends React.Component {
     return (
       <View style={styles.container}>
         <FlatList
-          style={{ width: this.state.windowWidth }}
-          contentContainerStyle={{ marginHorizontal: margin }}
+          style={{width: this.state.windowWidth}}
+          contentContainerStyle={{marginHorizontal: margin}}
           ListHeaderComponent={
-            <DashboardHeader
-              title="2018"
-              subtitle="~2019 at ECNU"
-              padding={margin}
-            />
+            <DashboardHeader title="2018" subtitle="~2019 at ECNU" padding={margin} />
           }
           data={demoCourses}
           numColumns={colNums}

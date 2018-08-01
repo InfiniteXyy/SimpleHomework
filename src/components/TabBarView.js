@@ -6,11 +6,13 @@ import {
   StyleSheet,
   Animated
 } from "react-native";
+import { colors } from '../static'
 
 const INDICATOR_HEIGHT = 3;
 
 export default class TabBarView extends React.PureComponent {
   _renderTab = (name, page, isTabActive, onPressHandler) => {
+    const textColor = isTabActive ? colors.primaryColor : colors.black
     return (
       <TouchableWithoutFeedback
         style={{ flex: 1 }}
@@ -18,7 +20,7 @@ export default class TabBarView extends React.PureComponent {
         onPress={() => onPressHandler(page)}
       >
         <View style={[styles.tab, this.props.tabStyle]}>
-          <Text style={{ color: "#4a4a4a", fontSize: 14, fontWeight: "bold" }}>
+          <Text style={{ color: textColor, fontSize: 14, fontWeight: "bold" }}>
             {name}
           </Text>
         </View>
@@ -41,15 +43,16 @@ export default class TabBarView extends React.PureComponent {
         {
           translateX: this.props.scrollValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, containerWidth / numberOfTabs]
+            outputRange: [0, containerWidth / numberOfTabs],
+            useNativeDriver: true,
           })
         }
       ]
     };
     return (
       <View style={[styles.tabs, this.props.style]}>
-        {this.props.tabs.map(tab => {
-          const isTabActive = false;
+        {this.props.tabs.map((tab, index) => {
+          const isTabActive = index === this.props.selected;
           const renderTab = this._renderTab;
           return renderTab(
             tab.name,

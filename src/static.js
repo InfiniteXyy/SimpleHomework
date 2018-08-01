@@ -42,6 +42,7 @@ const wordsStyle = {
     marginTop: 10
   },
   bigBlueTitle: {
+    alignSelf: "center",
     fontSize: 48,
     color: colors.primaryColor
   },
@@ -140,7 +141,6 @@ const containerStyle = {
   },
   loginHeader: {
     marginTop: 16,
-    marginLeft: 52,
     alignSelf: "flex-start"
   },
   moreOption: {
@@ -179,7 +179,7 @@ const containerStyle = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",
-    marginHorizontal: 32
+    marginHorizontal: 32,
   },
   settingItemContainer: {
     height: 56,

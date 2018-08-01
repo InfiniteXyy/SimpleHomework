@@ -7,9 +7,13 @@ import {
   ModalIcon,
   ModalMoreHint
 } from "../components/ModalElements";
-import { TextField } from "react-native-material-textfield";
+import MyTextInput from "../components/MyTextInput";
 
 export default class CourseAdd extends React.Component {
+  _goBack = () => {
+    this.props.navigation.goBack();
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -18,12 +22,12 @@ export default class CourseAdd extends React.Component {
             size={24}
             name="close"
             color={colors.icon}
-            onPress={() => this.props.navigation.goBack()}
+            onPress={this._goBack}
           />
         </View>
         <ModalTitle title="创建新的课程" />
         <View style={{ width: 285, marginTop: 48 }}>
-          <TextField label="这节课叫..." baseColor="#979797" />
+          <MyTextInput placeholder="这节课叫..."/>
         </View>
         <ModalMoreHint />
         <View style={{ marginTop: 190 }}>

@@ -20,10 +20,7 @@ export default class ProfileScreen extends React.Component {
 
     return (
       <View style={styles.simpleContainer}>
-        <StackHeader
-          leftTitle={me.name}
-          onPressLeft={() => this.props.navigation.goBack()}
-        />
+        <StackHeader leftTitle={me.name} onPressLeft={() => this.props.navigation.goBack()}/>
         <ProfileTitle me={me} />
         <GroupDetail data={groups} />
         <ActivityDetail />
@@ -38,6 +35,7 @@ class ProfileTitle extends React.PureComponent {
     return (
       <View
         style={{
+
           backgroundColor: "white",
           alignItems: "center",
           paddingBottom: 16

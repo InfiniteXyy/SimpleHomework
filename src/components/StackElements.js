@@ -4,12 +4,18 @@ import { colors, styles } from "../static";
 import { Icon } from "react-native-elements";
 
 class StackHeader extends React.PureComponent {
+  static defaultProps = {
+    onPressLeft: () => {},
+    onPressRight: () => {},
+    leftTitle: "返回"
+  };
+
   render() {
-    let defaultFun = () => {};
-    let left = this.props.onPressLeft ? this.props.onPressLeft : defaultFun;
-    let right = this.props.onPressRight ? this.props.onPressRight : defaultFun;
-    let leftTitle = this.props.leftTitle ? this.props.leftTitle : "返回";
+    let left = this.props.onPressLeft;
+    let right = this.props.onPressRight;
+    let leftTitle = this.props.leftTitle;
     let rightTitle = this.props.rightTitle;
+
     return (
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={left}>

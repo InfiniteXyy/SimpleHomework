@@ -1,8 +1,9 @@
 import React from "react";
-import { View, TextInput } from "react-native";
+import { View } from "react-native";
 import { Icon } from "react-native-elements";
 import { colors, styles } from "../static";
 import { Dropdown } from "react-native-material-dropdown";
+import MyTextInput from "../components/MyTextInput"
 import { DatePickerDialog } from "react-native-datepicker-dialog";
 import {
   ModalTitle,
@@ -30,6 +31,10 @@ export default class HomeworkAdd extends React.Component {
   _showCalendar = () => {
     this.refs.dateDialog.open({ date: new Date(), maxDate: new Date() });
   };
+
+  _onChangeText = text => {
+    this.setState({ content: text });
+  };
   _clickSubmit = () => {
     console.log(this.state.selected.title + ": " + this.state.content);
     this.props.navigation.goBack();
@@ -44,7 +49,7 @@ export default class HomeworkAdd extends React.Component {
   render() {
     let data = this.props.screenProps.data;
     return (
-      <View style={styles.container}>
+      <View style={styles.simpleContainer}>
         <View style={styles.modalClose}>
           <Icon
             size={24}
@@ -54,7 +59,7 @@ export default class HomeworkAdd extends React.Component {
           />
         </View>
         <ModalTitle title="添加新的作业" />
-        <View style={{ width: 285, marginTop: 48 }}>
+        <View style={{ marginHorizontal: 45 }}>
           <Dropdown
             data={data}
             fontSize={18}
@@ -67,19 +72,12 @@ export default class HomeworkAdd extends React.Component {
             valueExtractor={item => item.title}
             propsExtractor={({ props }, index) => props}
           />
-        </View>
-        <View style={styles.addHomeworkCard}>
-          <TextInput
-            style={{ color: colors.black, fontSize: 15 }}
-            multiline
-            placeholder="Notes..."
-            placeholderTextColor={colors.gray}
-            value={this.state.content}
-            onChangeText={text => this.setState({ content: text })}
-          />
+          <MyTextInput placeholder="内容..."/>
         </View>
         <ModalMoreHint />
-        <View style={{ marginTop: 72, flexDirection: "row" }}>
+        <View
+          style={{ alignSelf: "center", marginTop: 72, flexDirection: "row" }}
+        >
           <ModalIcon
             name="camera"
             type="entypo"

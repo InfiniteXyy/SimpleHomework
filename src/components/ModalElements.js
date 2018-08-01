@@ -45,6 +45,7 @@ export { ModalTitle, ModalIcon, ModalMoreHint };
 
 const styles = StyleSheet.create({
   modalTitle: {
+    alignSelf: "center",
     marginTop: 17,
     fontSize: 20,
     color: "#4A4A4A"

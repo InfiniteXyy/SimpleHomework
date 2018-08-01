@@ -19,33 +19,29 @@ export default class LoginScreen extends React.Component {
             onPress={() => this.props.navigation.goBack()}
           />
         </View>
-        <View style={styles.loginHeader}>
-          <Text style={styles.bigBlueTitle}>注册</Text>
-          <View style={{ marginTop: 8 }}>
-            <Text style={styles.bigBlueSubtitle}>欢迎来到简记作业</Text>
-          </View>
-        </View>
+        <Text style={styles.bigBlueTitle}>注册</Text>
 
         <View style={{ width: 285, marginTop: 16 }}>
-          <TextField label="Email" />
-          <TextField label="Password" />
-          <TextField label="Password Again" />
+          <TextField label="Email" keyboardType="email-address"/>
+          <TextField label="Password" textContentType="password" secureTextEntry/>
+          <TextField label="Password Again" textContentType="password" secureTextEntry/>
+          <Button
+            title="提交"
+            color={colors.primaryColor}
+            backgroundColor="white"
+            borderRadius={27}
+            fontWeight="800"
+            buttonStyle={{
+              marginTop: 97,
+              width: 148,
+              height: 56,
+              borderColor: colors.primaryColor,
+              borderWidth: 2.0,
+              alignSelf: "center"
+            }}
+          />
         </View>
 
-        <Button
-          title="提交"
-          color={colors.primaryColor}
-          backgroundColor="white"
-          borderRadius={27}
-          fontWeight="800"
-          buttonStyle={{
-            marginTop: 97,
-            width: 148,
-            height: 56,
-            borderColor: colors.primaryColor,
-            borderWidth: 2.0
-          }}
-        />
 
         <View style={styles.moreOption}>
           <Text style={{ fontSize: 14, color: colors.gray }}>

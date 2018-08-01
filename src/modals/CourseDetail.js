@@ -10,22 +10,32 @@ export default class HomeworkDetail extends React.PureComponent {
     super(props);
     this.state = {
       scrollX: new Animated.Value(0),
-      screenWidth: Dimensions.get("window").width
+      screenWidth: Dimensions.get("window").width,
+      selected: 0
     };
-    this.goToPage = this.goToPage.bind(this);
   }
+
+  _rotateHandler = dims => {
+    this.setState({
+      screenWidth: dims.window.width
+    });
+  };
 
   componentWillMount() {
-    Dimensions.addEventListener("change", dims => {
-      this.setState({
-        screenWidth: dims.window.width
-      });
-    });
+    Dimensions.addEventListener("change", this._rotateHandler);
   }
 
-  goToPage(i) {
-    this.tabView.goToPage(i);
+  componentWillUnmount() {
+    Dimensions.removeEventListener("change", this._rotateHandler);
   }
+
+  goToPage = i => {
+    this.tabView.goToPage(i);
+  };
+
+  _scrollTab = val => this.state.scrollX.setValue(val);
+
+  _changeTab = ({ i }) => this.setState({ selected: i });
 
   render() {
     let cid = this.props.navigation.getParam("cid", "1");
@@ -52,13 +62,15 @@ export default class HomeworkDetail extends React.PureComponent {
               { name: "资讯", page: 2 },
               { name: "成就", page: 3 }
             ]}
+            selected={this.state.selected}
             goToPage={this.goToPage}
             containerWidth={this.state.screenWidth}
             scrollValue={this.state.scrollX}
           />
           <ScrollableTabView
             renderTabBar={() => <View />}
-            onScroll={val => this.state.scrollX.setValue(val)}
+            onScroll={this._scrollTab}
+            onChangeTab={this._changeTab}
             ref={tabView => {
               this.tabView = tabView;
             }}
