@@ -2,6 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { colors } from "../static";
 import { Icon } from "react-native-elements";
+import PropTypes from "prop-types";
 
 class ModalTitle extends React.PureComponent {
   render() {
@@ -10,16 +11,26 @@ class ModalTitle extends React.PureComponent {
 }
 
 class ModalIcon extends React.PureComponent {
-  _onPress =
-    this.props.onClick != null ? this.props.onClick : () => alert("no method");
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    color: PropTypes.string,
+    onClick: PropTypes.func
+  };
+
+  static defaultProps = {
+    onClick: () => alert("no method"),
+    color: colors.blue,
+    type: "material"
+  };
   render() {
     return (
-      <TouchableOpacity onPress={this._onPress}>
+      <TouchableOpacity onPress={this.props.onClick}>
         <Icon
           style={styles.circleIcon}
           name={this.props.name}
           type={this.props.type}
-          color={this.props.color ? this.props.color : colors.blue}
+          color={this.props.color}
           reverse
           size={21}
         />
@@ -31,7 +42,7 @@ class ModalIcon extends React.PureComponent {
 class ModalMoreHint extends React.PureComponent {
   render() {
     return (
-      <View style={styles.moreOption}>
+      <View style={[styles.moreOption, this.props.style]}>
         <Icon name="plus" type="entypo" color={colors.gray} size={14} />
         <Text style={{ color: colors.gray, fontSize: 14, marginLeft: 6 }}>
           自定义更多选项
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
     marginLeft: 28
   },
   moreOption: {
-    marginTop: 29,
+    marginTop: 10,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"

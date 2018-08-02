@@ -2,8 +2,18 @@ import React from "react";
 import { Animated, StyleSheet, Text, View, Platform } from "react-native";
 import { Icon } from "react-native-elements";
 import { colors } from "../static";
+import propTypes from "prop-types";
 
 class Toolbar extends React.PureComponent {
+  static propTypes = {
+    title: propTypes.string.isRequired,
+    onClick: propTypes.func
+  };
+
+  static defaultProps = {
+    onClick: () => {}
+  };
+
   render() {
     const opacity = this.props.scrollY.interpolate({
       inputRange: [20, 70],
@@ -19,7 +29,14 @@ class Toolbar extends React.PureComponent {
         <View
           style={{ flex: 1, justifyContent: "flex-end", flexDirection: "row" }}
         >
-          <Icon name="dehaze" type="material" color={colors.icon} size={20} />
+          <Icon
+            name="dehaze"
+            type="material"
+            color={colors.icon}
+            size={20}
+            onPress={this.props.onClick}
+            underlayColor={colors.rice}
+          />
         </View>
       </Animated.View>
     );

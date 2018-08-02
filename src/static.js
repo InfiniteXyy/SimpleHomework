@@ -103,19 +103,14 @@ const cardStyle = {
     paddingVertical: 16,
     elevation: 4
   },
-  addHomeworkCard: {
+  TextInputBox: {
     backgroundColor: "white",
-    marginTop: 29,
-    width: 285,
-    height: 145,
+    marginTop: 24,
+    borderColor: "#979797",
+    borderWidth: 1,
     borderRadius: 6,
-    shadowColor: "#aaaaaa",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.68,
-    shadowRadius: 4,
-    paddingHorizontal: 26,
+    paddingHorizontal: 24,
     paddingVertical: 16,
-    elevation: 4
   },
   card: {
     backgroundColor: "white",

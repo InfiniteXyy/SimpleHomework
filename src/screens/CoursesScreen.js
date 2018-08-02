@@ -11,6 +11,7 @@ import { DashboardHeader } from "../components/BoardElements";
 import { Icon } from "react-native-elements";
 import { colors, styles } from "../static";
 import { Toolbar } from "../components/ToolbarView";
+import ActionSheet from "react-native-actionsheet";
 
 export default class CoursesScreen extends React.Component {
   constructor(props) {
@@ -28,6 +29,16 @@ export default class CoursesScreen extends React.Component {
     } else {
       this.props.navigation.navigate("CourseDetail", { cid: item.cid });
     }
+  }
+
+  actionList = ["添加新课", "设置排序", "取消"]
+
+  _showActionSheet = () => {
+    this.ActionSheet.show();
+  };
+
+  _onPressActionSheet = (index) => {
+
   }
 
   __renderCourse = ({ item }) => {
@@ -107,6 +118,7 @@ export default class CoursesScreen extends React.Component {
               title="2018"
               subtitle="~2019 at ECNU"
               padding={margin}
+              onClick={this._showActionSheet}
             />
           }
           data={demoCourses}
@@ -117,6 +129,16 @@ export default class CoursesScreen extends React.Component {
           {...animation}
         />
         <Toolbar scrollY={this.state.scrollY} title="2018" />
+        <ActionSheet
+          ref={o => (this.ActionSheet = o)}
+          //title={'title'}
+          options={this.actionList}
+          cancelButtonIndex={2}
+          //destructiveButtonIndex={1}
+          onPress={index => {
+            /* do something */
+          }}
+        />
       </View>
     );
   }

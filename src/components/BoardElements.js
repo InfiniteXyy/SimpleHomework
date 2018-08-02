@@ -1,17 +1,31 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Icon from "react-native-elements/src/icons/Icon";
+import { colors } from '../static'
+import propTypes from "prop-types";
 
 class DashboardHeader extends React.PureComponent {
+  static propTypes = {
+    iconType: propTypes.string,
+    iconName: propTypes.string,
+    padding: propTypes.number,
+    onClick: propTypes.func
+  };
+
+  static defaultProps = {
+    iconType: "material",
+    iconName: "dehaze",
+    padding: 0,
+    onClick: () => {
+      alert("no method");
+    }
+  };
   render() {
-    let type = this.props.iconType ? this.props.iconType : "material";
-    let name = this.props.iconName ? this.props.iconName : "dehaze";
-    let padding = this.props.padding ? 36 - this.props.padding : 36;
-    let onClick = this.props.onClick
-      ? this.props.onClick
-      : () => {
-          alert("no method");
-        };
+    let type = this.props.iconType;
+    let name = this.props.iconName;
+    let padding = 36 - this.props.padding;
+    let onClick = this.props.onClick;
+
     return (
       <View style={[styles.container, { paddingHorizontal: padding }]}>
         <View style={styles.dashboardHeader}>
@@ -23,10 +37,11 @@ class DashboardHeader extends React.PureComponent {
         >
           <Icon
             onPress={onClick}
+            underlayColor={colors.rice}
             type={type}
             name={name}
             size={24}
-            color="#cccccc"
+            color={colors.icon}
           />
         </View>
       </View>

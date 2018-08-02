@@ -13,6 +13,7 @@ import { Icon } from "react-native-elements";
 import { colors } from "../static";
 import { DashboardHeader } from "../components/BoardElements";
 import { Toolbar } from "../components/ToolbarView";
+import ActionSheet from "react-native-actionsheet";
 
 export default class DashboardScreen extends React.Component {
   constructor(props) {
@@ -22,6 +23,22 @@ export default class DashboardScreen extends React.Component {
       scrollY: new Animated.Value(0)
     };
   }
+
+  _showActionSheet = () => {
+    this.ActionSheet.show();
+  };
+
+  actionList = ["添加作业", "取消"];
+
+  _onPressActionSheet = index => {
+    switch (index) {
+      case 0:
+        this._onAddHomework();
+        break;
+      default:
+        break;
+    }
+  };
 
   _onAddHomework = () => {
     this.props.navigation.navigate("AddHomework");
@@ -87,7 +104,7 @@ export default class DashboardScreen extends React.Component {
             <DashboardHeader
               title="Week 3"
               subtitle={moment().format("dddd h:mm")}
-              onClick={this._onAddHomework}
+              onClick={this._showActionSheet}
             />
           }
           onScrollEndDrag={event => {
@@ -100,7 +117,17 @@ export default class DashboardScreen extends React.Component {
           keyExtractor={(item, index) => index.toString()}
           renderItem={this._renderCard}
         />
-        <Toolbar scrollY={this.state.scrollY} title="Week 3" />
+        <Toolbar
+          scrollY={this.state.scrollY}
+          title="Week 3"
+          onClick={this._showActionSheet}
+        />
+        <ActionSheet
+          ref={o => (this.ActionSheet = o)}
+          options={this.actionList}
+          cancelButtonIndex={1}
+          onPress={this._onPressActionSheet}
+        />
       </View>
     );
   }

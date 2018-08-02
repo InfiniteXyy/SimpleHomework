@@ -10,13 +10,24 @@ import {
 import MyTextInput from "../components/MyTextInput";
 
 export default class CourseAdd extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      courseName: ""
+    };
+  }
+
   _goBack = () => {
     this.props.navigation.goBack();
   };
 
+  _onChangeContent = text => {
+    this.setState({ courseName: text });
+  };
+
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.simpleContainer}>
         <View style={styles.modalClose}>
           <Icon
             size={24}
@@ -26,12 +37,23 @@ export default class CourseAdd extends React.Component {
           />
         </View>
         <ModalTitle title="创建新的课程" />
-        <View style={{ width: 285, marginTop: 48 }}>
-          <MyTextInput placeholder="这节课叫..." />
-        </View>
-        <ModalMoreHint />
-        <View style={{ marginTop: 190 }}>
-          <ModalIcon name="check" type="feather" color={colors.blue} />
+        <View style={{ marginHorizontal: 45 }}>
+          <View style={styles.TextInputBox}>
+            <MyTextInput
+              placeholder="内容..."
+              returnKeyType="done"
+              onChangeText={this._onChangeContent}
+            />
+          </View>
+          <ModalMoreHint />
+          <View style={{ marginTop: 72, alignSelf: "center" }}>
+            <ModalIcon
+              name="check"
+              type="feather"
+              color={colors.blue}
+              onClick={() => alert(this.state.courseName)}
+            />
+          </View>
         </View>
       </View>
     );

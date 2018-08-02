@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, KeyboardAvoidingView } from "react-native";
 import { Icon } from "react-native-elements";
 import { colors, styles } from "../static";
 import { Dropdown } from "react-native-material-dropdown";
@@ -32,12 +32,14 @@ export default class HomeworkAdd extends React.Component {
     this.refs.dateDialog.open({ date: new Date(), maxDate: new Date() });
   };
 
-  _onChangeText = text => {
-    this.setState({ content: text });
-  };
   _clickSubmit = () => {
     console.log(this.state.selected.title + ": " + this.state.content);
     this.props.navigation.goBack();
+  };
+
+  _onChangeContent = text => {
+    console.log(text);
+    this.setState({ content: text });
   };
 
   _onDeadlineDatePicked = date => {
@@ -45,6 +47,28 @@ export default class HomeworkAdd extends React.Component {
       deadline: date
     });
   };
+
+  _iconGroup(props) {
+    return (
+      <View
+        style={{ alignSelf: "center", paddingTop: 36, flexDirection: "row" }}
+      >
+        <ModalIcon
+          name="camera"
+          type="entypo"
+          color={colors.green}
+          onClick={this._showCamera}
+        />
+        <ModalIcon name="check" type="feather" onClick={this._clickSubmit} />
+        <ModalIcon
+          name="md-time"
+          type="ionicon"
+          color={colors.brown}
+          onClick={this._showCalendar}
+        />
+      </View>
+    );
+  }
 
   render() {
     let data = this.props.screenProps.data;
@@ -58,8 +82,11 @@ export default class HomeworkAdd extends React.Component {
             onPress={() => this.props.navigation.goBack()}
           />
         </View>
-        <ModalTitle title="添加新的作业" />
-        <View style={{ marginHorizontal: 45 }}>
+        <KeyboardAvoidingView
+          style={{ marginHorizontal: 45 }}
+          behavior="position"
+        >
+          <ModalTitle title="添加新的作业" />
           <Dropdown
             data={data}
             fontSize={18}
@@ -72,26 +99,17 @@ export default class HomeworkAdd extends React.Component {
             valueExtractor={item => item.title}
             propsExtractor={({ props }, index) => props}
           />
-          <MyTextInput placeholder="内容..." />
-        </View>
-        <ModalMoreHint />
-        <View
-          style={{ alignSelf: "center", marginTop: 72, flexDirection: "row" }}
-        >
-          <ModalIcon
-            name="camera"
-            type="entypo"
-            color={colors.green}
-            onClick={this._showCamera}
-          />
-          <ModalIcon name="check" type="feather" onClick={this._clickSubmit} />
-          <ModalIcon
-            name="md-time"
-            type="ionicon"
-            color={colors.brown}
-            onClick={this._showCalendar}
-          />
-        </View>
+          <View style={styles.TextInputBox}>
+            <MyTextInput
+              placeholder="内容..."
+              returnKeyType="done"
+              onChangeText={this._onChangeContent}
+            />
+          </View>
+          <ModalMoreHint style={{ alignSelf: "flex-end" }} />
+          {this._iconGroup()}
+        </KeyboardAvoidingView>
+
         <DatePickerDialog
           ref="dateDialog"
           onDatePicked={this._onDeadlineDatePicked.bind(this)}
