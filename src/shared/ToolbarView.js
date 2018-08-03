@@ -1,41 +1,39 @@
 import React from "react";
-import { Animated, StyleSheet, Text, View, Platform } from "react-native";
-import { Icon } from "react-native-elements";
-import { colors } from "../static";
+import { View, Text, Animated, StyleSheet, Platform } from "react-native";
 import propTypes from "prop-types";
+import { themeColor } from "../static";
+import { Icon } from "react-native-elements";
+import gStyles from "../static/styles";
 
-class Toolbar extends React.PureComponent {
+export default class ToolbarView extends React.Component {
   static propTypes = {
     title: propTypes.string.isRequired,
-    onClick: propTypes.func
+    onClick: propTypes.func,
+    scrollY: propTypes.object
   };
-
   static defaultProps = {
     onClick: () => {}
   };
 
   render() {
-    const opacity = this.props.scrollY.interpolate({
+    let opacity = this.props.scrollY.interpolate({
       inputRange: [20, 70],
       outputRange: [0, 1],
       extrapolate: "clamp",
       useNativeDriver: true
     });
+
     return (
       <Animated.View style={[styles.toolbarContainer, { opacity: opacity }]}>
-        <Text style={{ fontSize: 20, color: colors.black, fontWeight: "bold" }}>
-          {this.props.title}
-        </Text>
-        <View
-          style={{ flex: 1, justifyContent: "flex-end", flexDirection: "row" }}
-        >
+        <Text style={styles.toolbarTitle}>{this.props.title}</Text>
+        <View style={gStyles.rightIconContainer}>
           <Icon
             name="dehaze"
             type="material"
-            color={colors.icon}
+            color={themeColor.activeIcon}
             size={20}
+            underlayColor={themeColor.backgroundColor}
             onPress={this.props.onClick}
-            underlayColor={colors.rice}
           />
         </View>
       </Animated.View>
@@ -53,9 +51,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fafafa",
+    backgroundColor: themeColor.backgroundColor,
     borderBottomColor: "#b2b2b2",
     borderBottomWidth: 0.5
+  },
+  toolbarTitle: {
+    fontSize: 20,
+    color: themeColor.primaryText,
+    fontWeight: "bold"
   }
 });
-export { Toolbar };

@@ -1,18 +1,18 @@
-import CourseDetail from "./modals/CourseDetail";
 import { createStackNavigator } from "react-navigation";
-import CourseScreen from "./screens/CoursesScreen";
+import { themeColor } from "../static";
+import { CourseDetail, Courses } from "../screens";
 
 const SecondNavigator = createStackNavigator(
   {
-    CourseMain: CourseScreen,
+    Courses: Courses,
     CourseDetail: CourseDetail
   },
   {
-    // initialRouteName: "CourseDetail",
+    // initialRouteName: "Courses",
     headerMode: "none",
     mode: "card",
     cardStyle: {
-      backgroundColor: "#fafafa"
+      backgroundColor: themeColor.backgroundColor
     }
   }
 );
