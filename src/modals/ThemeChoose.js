@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableWithoutFeedback, Text } from "react-native";
+import { View, StyleSheet, TouchableWithoutFeedback, Text, Platform } from "react-native";
 import { ModalIcon } from "../components/ModalElements";
 import { StackHeader } from "../components/StackElements";
 import { colors } from "../static";
@@ -78,7 +78,7 @@ class ChooseItem extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: Platform.OS === "ios" ? 20 : 0,
     alignItems: "center"
   },
   rowContainer: {

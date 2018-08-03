@@ -5,7 +5,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Animated,
-  FlatList
+  FlatList,
+  Platform
 } from "react-native";
 import moment from "moment";
 
@@ -217,7 +218,7 @@ class DashboardItem extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: Platform.OS === "ios" ? 20 : 0,
     flex: 1
   },
   dashboardCardTitle: {

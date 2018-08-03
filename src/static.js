@@ -1,5 +1,7 @@
 "use strict";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
+
+const screenTop = Platform.OS === "ios" ? 20 : 0
 
 const colors = {
   primaryColor: "#019AE8",
@@ -122,11 +124,11 @@ const cardStyle = {
 const containerStyle = {
   simpleContainer: {
     flex: 1,
-    marginTop: 20
+    marginTop: screenTop
   },
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: screenTop,
     alignItems: "center"
   },
   modalClose: {

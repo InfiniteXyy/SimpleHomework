@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="* all right 既然怎么都弄不好不如重新设计吧">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BoardElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoardElements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModalElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalElements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolbarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolbarView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modals/CourseAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/CourseAdd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/CoursesScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CoursesScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/DashboardScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashboardScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="* redesign &quot;add homework/course&quot; page&#10;* add action sheet to buttons" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,7 +15,7 @@
     <session id="768325287">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="3" />
@@ -40,26 +27,26 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="17616" />
-          <entry key="txt" value="608" />
+          <entry key="txt" value="672" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="15014" />
-          <entry key="PLAIN_TEXT" value="586" />
+          <entry key="PLAIN_TEXT" value="650" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="eslintrc" value="1" />
           <entry key="js" value="174" />
-          <entry key="json" value="4" />
+          <entry key="json" value="5" />
           <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="5" />
+          <entry key="JSON" value="6" />
           <entry key="JavaScript" value="174" />
           <entry key="TypeScript" value="2" />
         </counts>
@@ -98,14 +85,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/DashboardScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
+            <state relative-caret-position="333">
               <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -249,8 +245,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="41" />
-    <option name="y" value="50" />
+    <option name="x" value="290" />
+    <option name="y" value="56" />
     <option name="width" value="1234" />
     <option name="height" value="837" />
   </component>
@@ -398,7 +394,7 @@
       <workItem from="1533008207062" duration="4032000" />
       <workItem from="1533099526977" duration="7198000" />
       <workItem from="1533112997223" duration="13180000" />
-      <workItem from="1533189076568" duration="5555000" />
+      <workItem from="1533189076568" duration="6667000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1532523310323</created>
@@ -526,11 +522,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533134735860</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="* redesign &quot;add homework/course&quot; page&#10;* add action sheet to buttons">
+      <created>1533195664390</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1533195664390</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149260000" />
+    <option name="totallyTimeSpent" value="150372000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,11 +545,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="50" width="1234" height="837" extended-state="0" />
+    <frame x="482" y="693" width="1234" height="837" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.27191868" visible="true" weight="0.21880065" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.72808135" side_tool="true" visible="true" weight="0.21880065" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.27191868" visible="true" weight="0.21880065" />
+      <window_info id="Structure" order="1" sideWeight="0.72808135" side_tool="true" visible="true" weight="0.21880065" />
       <window_info id="npm" order="2" sideWeight="0.39543727" side_tool="true" weight="0.24584718" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -617,7 +620,8 @@
     <MESSAGE value="* add a brand new toolbar&#10;* fix display bugs on wide screen (such as iPad)" />
     <MESSAGE value="* use defaultProps to optimize the code&#10;* fix display error in login page&#10;* fix bug that can not type Chinese in &lt;TextInput&gt;" />
     <MESSAGE value="* all right 既然怎么都弄不好不如重新设计吧" />
-    <option name="LAST_COMMIT_MESSAGE" value="* all right 既然怎么都弄不好不如重新设计吧" />
+    <MESSAGE value="* redesign &quot;add homework/course&quot; page&#10;* add action sheet to buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="* redesign &quot;add homework/course&quot; page&#10;* add action sheet to buttons" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -870,13 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ModalElements.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -960,11 +957,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/DashboardScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
+        <state relative-caret-position="333">
           <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="29" />
         </state>
       </provider>
     </entry>
