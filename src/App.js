@@ -2,7 +2,7 @@ import React from "react";
 import { themeColor } from "./static";
 import { createStackNavigator } from "react-navigation";
 
-import { CourseAdd, HomeworkAdd, LoginModal, Register } from "./modals";
+import { CourseAdd, HomeworkAdd } from "./modals";
 import { MainStack } from "./routes/MainStack";
 
 export default class App extends React.Component {
@@ -22,8 +22,6 @@ const RootStack = createStackNavigator(
     Main: MainStack,
     HomeworkAdd: HomeworkAdd,
     CourseAdd: CourseAdd,
-    Login: LoginModal,
-    Register: Register
   },
   {
     // initialRouteName: "Main",

@@ -15,8 +15,6 @@ export default class Register extends React.Component {
       <View style={gStyles.container}>
         <StackHeader onPressLeft={() => this.props.navigation.goBack()} />
         <Text style={styles.title}>注册</Text>
-        contentContainerStyle=
-        {styles.inputBoxContainer}
         <View style={styles.inputBoxContainer}>
           <InputField placeholder={"Email"} type={"profile"} />
           <InputField placeholder={"Password"} type={"password"} />
@@ -25,7 +23,7 @@ export default class Register extends React.Component {
             backgroundColor={themeColor.primaryColor}
             buttonStyle={{ marginTop: 20, marginBottom: 45, width: 335 }}
             title={"提交"}
-            onPress={this.login}
+            onPress={this.register}
           />
         </View>
         <View style={styles.bottomContainer}>

@@ -7,10 +7,12 @@ import { colors } from "../static";
 export default class InputField extends React.Component {
   static propTypes = {
     placeholder: propTypes.string,
-    type: propTypes.oneOf(["profile", "password"])
+    type: propTypes.oneOf(["profile", "password"]),
+    autoFocus: propTypes.bool
   };
   static defaultProps = {
-    type: "profile"
+    type: "profile",
+    autoFocus: false
   };
   render() {
     let icon, inputOption;
@@ -40,6 +42,7 @@ export default class InputField extends React.Component {
           color={colors.gray}
         />
         <TextInput
+          autoFocus={this.props.autoFocus}
           placeholder={this.props.placeholder}
           style={{ fontSize: 18, flex: 1 }}
           {...inputOption}

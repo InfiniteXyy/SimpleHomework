@@ -9,6 +9,7 @@ const routeNames = {
   courseDetail: "CourseDetail",
   homeworkDetail: "HomeworkDetail"
 };
+
+import gStyles from "./styles"
 export { colors, themeColor } from "./colors";
-export gStyles from "./styles";
-export { routeNames };
+export { routeNames, gStyles };

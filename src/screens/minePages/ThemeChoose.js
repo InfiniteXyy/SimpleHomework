@@ -34,8 +34,7 @@ export default class PersonPage extends React.Component {
           <View style={{ alignSelf: "center", marginTop: 45 }}>
             <TouchableOpacity onPress={() => {}}>
               <Icon
-                name="ios-checkmark"
-                type="ionicon"
+                name="check"
                 color={themeColor.primaryColor}
                 reverse
                 size={21}

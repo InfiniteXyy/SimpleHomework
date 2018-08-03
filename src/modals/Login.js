@@ -15,11 +15,8 @@ export default class Login extends React.Component {
       <View style={gStyles.container}>
         <StackHeader onPressLeft={() => this.props.navigation.goBack()} />
         <Text style={styles.title}>欢迎</Text>
-        contentContainerStyle=
-        {styles.inputBoxContainer}
         <View style={styles.inputBoxContainer}>
-          <InputField placeholder={"Username"} type={"profile"} />
-          <InputField placeholder={"Password"} type={"password"} />
+          <InputField placeholder={"Email/Username"} type={"profile"}/>
           <Text style={styles.rightTip}>忘记密码？</Text>
           <Button
             backgroundColor={themeColor.primaryColor}

@@ -1,6 +1,8 @@
 import { createStackNavigator } from "react-navigation";
 import { themeColor } from "../static";
 import { Mine, PersonPage, Profile, ThemeChoose, Setting } from "../screens";
+import LoginModal from '../modals/Login'
+import Register from '../modals/Register'
 
 const ThirdNavigator = createStackNavigator(
   {
@@ -8,7 +10,9 @@ const ThirdNavigator = createStackNavigator(
     Setting: Setting,
     Profile: Profile,
     PersonPage: PersonPage,
-    ThemeChoose: ThemeChoose
+    ThemeChoose: ThemeChoose,
+    Login: LoginModal,
+    Register: Register
   },
   {
     // initialRouteName: "Courses",
