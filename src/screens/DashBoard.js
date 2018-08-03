@@ -95,7 +95,7 @@ export default class DashBoard extends React.Component {
               <Text style={styles.cardTitle}>{item.title}</Text>
               <View style={gStyles.rightIconContainer}>
                 <Icon
-                  name="md-more"
+                  name="ios-more"
                   type="ionicon"
                   size={24}
                   color={themeColor.inactiveIcon}
@@ -119,7 +119,12 @@ export default class DashBoard extends React.Component {
       ? { fontSize: 15, textDecorationLine: "line-through", color: "#DDDDDD" }
       : { fontSize: 15, color: themeColor.primaryText };
     return (
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          item.finished = !item.finished;
+          this.setState({})
+        }}
+        onLongPress={() => this.to(routeNames.homeworkDetail, {hid: item.hid})}>
         <View style={styles.cardItemContainer}>
           <Text style={textStyle}>{item.content}</Text>
           <View style={gStyles.rightIconContainer}>

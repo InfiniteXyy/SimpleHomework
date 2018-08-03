@@ -31,6 +31,6 @@ const RootStack = createStackNavigator(
     mode: "modal",
     cardStyle: {
       backgroundColor: themeColor.backgroundColor
-    }
+    },
   }
 );

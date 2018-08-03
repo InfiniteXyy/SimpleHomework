@@ -23,19 +23,18 @@ export default class StackHeader extends React.PureComponent {
     let rightContent = <View />;
     if (rightTitle) {
       rightContent = (
-        <TouchableOpacity
-          onPress={onPressRight}
-          style={gStyles.rightIconContainer}
-        >
-          <Text style={styles.subtitle}>{rightTitle}</Text>
-        </TouchableOpacity>
+        <View style={gStyles.rightIconContainer}>
+          <TouchableOpacity onPress={onPressRight}>
+            <Text style={styles.subtitle}>{rightTitle}</Text>
+          </TouchableOpacity>
+        </View>
       );
     }
 
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={onPressLeft}>
-          <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Icon
               name="ios-arrow-back"
               type="ionicon"

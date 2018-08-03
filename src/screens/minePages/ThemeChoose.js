@@ -34,8 +34,8 @@ export default class PersonPage extends React.Component {
           <View style={{ alignSelf: "center", marginTop: 45 }}>
             <TouchableOpacity onPress={() => {}}>
               <Icon
-                name={"check"}
-                type={"material"}
+                name="ios-checkmark"
+                type="ionicon"
                 color={themeColor.primaryColor}
                 reverse
                 size={21}
@@ -56,7 +56,7 @@ export default class PersonPage extends React.Component {
         <TouchableWithoutFeedback onPress={() => this.handleSelect(item.id)}>
           <View style={[styles.roundCard, { borderColor }]} />
         </TouchableWithoutFeedback>
-        <Text style={styles.cardName}>{item.title}</Text>
+        <Text style={{fontSize: 16, color: borderColor}}>{item.title}</Text>
       </View>
     );
   };
@@ -74,8 +74,4 @@ const styles = {
     borderWidth: 2,
     borderRadius: 4
   },
-  cardName: {
-    fontSize: 18,
-    color: themeColor.primaryText
-  }
 };
