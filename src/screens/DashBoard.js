@@ -10,6 +10,7 @@ import {
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
 import { ToolbarView, DashboardHeader, PullDownTip } from "../shared";
+import ActionSheet from "react-native-actionsheet";
 import { gStyles, themeColor, colors, routeNames } from "../static";
 import { courseData } from "../utils/DemoServer";
 import { Icon } from "react-native-elements";
@@ -23,45 +24,72 @@ export default class DashBoard extends React.Component {
       courses: courseData, // for demo,
       scrollY: new Animated.Value(0) // for List Scroll Animation
     };
+    this.actionList = [
+      {
+        title: "添加作业",
+        type: "normal",
+        method: () => this.to(routeNames.homeworkAdd, {})
+      },
+      { title: "取消", type: "cancel", method: () => {} }
+    ];
     moment.updateLocale("zh-cn", momentLocale);
   }
 
   to = (where, params) => {
-    this.props.navigation.navigate(where, params)
-  }
+    this.props.navigation.navigate(where, params);
+  };
+
+  showActionSheet = () => {
+    this.ActionSheet.show();
+  };
 
   render() {
     return (
       <View style={gStyles.container}>
-        <PullDownTip content="下拉以添加更多作业" scrollY={this.state.scrollY}/>
+        <PullDownTip
+          content="下拉以添加更多作业"
+          scrollY={this.state.scrollY}
+        />
         <FlatList
+          onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
-              this.to("HomeworkAdd");
+              this.to(routeNames.homeworkAdd);
             }
           }}
           ListHeaderComponent={
             <DashboardHeader
               title={this.state.weekTitle}
               subtitle={this.state.dateTime}
-              onClick={() => {}}
+              onClick={this.showActionSheet}
             />
           }
           keyExtractor={item => item.cid}
           data={this.state.courses}
           renderItem={this.renderCard}
         />
-        <ToolbarView title={this.state.weekTitle} scrollY={this.state.scrollY}/>
+        <ToolbarView
+          title={this.state.weekTitle}
+          scrollY={this.state.scrollY}
+          onClick={this.showActionSheet}
+        />
+        <ActionSheet
+          ref={o => (this.ActionSheet = o)}
+          options={this.actionList.map(i => i.title)}
+          cancelButtonIndex={this.actionList.findIndex(
+            i => i.type === "cancel"
+          )}
+          onPress={index => this.actionList[index].method()}
+        />
       </View>
     );
   }
 
   renderCard = ({ item }) => {
-    if (!item.data || item.data.length === 0) return <View/>
+    if (!item.data || item.data.length === 0) return <View />;
     return (
       <View style={styles.cardContainer}>
         <FlatList
-          onScroll={this.handleScroll}
           ListHeaderComponent={
             <View style={styles.cardTitleContainer}>
               <Text style={styles.cardTitle}>{item.title}</Text>

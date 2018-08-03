@@ -9,7 +9,13 @@ const gStyles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
     flexDirection: "row"
-  }
+  },
+  listContainer: {
+    marginLeft: 16,
+    borderBottomColor: "#cccccc",
+    marginBottom: 11,
+    borderBottomWidth: 0.5
+  },
 });
 
 export default gStyles;
