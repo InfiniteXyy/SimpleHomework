@@ -13,9 +13,9 @@ const gStyles = StyleSheet.create({
   listContainer: {
     marginLeft: 16,
     borderBottomColor: "#cccccc",
-    marginBottom: 11,
+    paddingTop: 16,
     borderBottomWidth: 0.5
-  },
+  }
 });
 
 export default gStyles;

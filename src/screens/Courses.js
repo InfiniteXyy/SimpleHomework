@@ -8,7 +8,7 @@ import {
   Animated,
   Dimensions
 } from "react-native";
-import { themeColor, gStyles } from "../static";
+import { themeColor, gStyles, routeNames } from "../static";
 import DashboardHeader from "../shared/DashboardHeader";
 import { courseData } from "../utils/DemoServer";
 import { Icon } from "react-native-elements";
@@ -23,7 +23,7 @@ export default class Courses extends React.Component {
       title: "2018",
       subtitle: "~2019 at ECNU",
       scrollY: new Animated.Value(0),
-      // for screen rotate
+      // for screen rotation
       windowWidth: Dimensions.get("window").width,
       windowHeight: Dimensions.get("window").height,
       columnNumber: Math.floor(Dimensions.get("window").width / 165)
@@ -91,7 +91,13 @@ export default class Courses extends React.Component {
     };
 
     return (
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() =>
+          this.props.navigation.navigate(routeNames.courseDetail, {
+            cid: item.cid
+          })
+        }
+      >
         <View style={[styles.courseCard, { height: 112, width: cardWidth }]}>
           <Icon {...iconProps} />
           <Text style={styles.cardTitle}>{item.title}</Text>

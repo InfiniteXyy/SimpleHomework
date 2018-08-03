@@ -2,13 +2,8 @@ import React from "react";
 import { themeColor } from "./static";
 import { createStackNavigator } from "react-navigation";
 
-import {
-  CourseAdd,
-  HomeworkAdd,
-  LoginModal,
-  Register
-} from "./modals";
-import { MainStack } from "./routers/MainStack";
+import { CourseAdd, HomeworkAdd, LoginModal, Register } from "./modals";
+import { MainStack } from "./routes/MainStack";
 
 export default class App extends React.Component {
   constructor(props) {

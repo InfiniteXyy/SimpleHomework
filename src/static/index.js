@@ -4,6 +4,8 @@ const routeNames = {
   setting: "Setting",
   profileSetting: "Profile",
   theme: "ThemeChoose",
+  login: "Login",
+  courseDetail: "CourseDetail"
 };
 export { colors, themeColor } from "./colors";
 export gStyles from "./styles";

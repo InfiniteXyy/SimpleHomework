@@ -2,6 +2,7 @@ import React from "react";
 import {
   View,
   TouchableWithoutFeedback,
+  TouchableHighlight,
   Text,
   StyleSheet,
   FlatList
@@ -9,7 +10,6 @@ import {
 import { routeNames, gStyles, themeColor } from "../static";
 import { Avatar, ListItem } from "react-native-elements";
 import { profileData } from "../utils/DemoServer";
-import DashboardHeader from "../shared/DashboardHeader";
 
 const links = [
   { title: "主页", navigate: routeNames.personPage },
@@ -34,7 +34,7 @@ export default class Mine extends React.Component {
     return (
       <View style={gStyles.container}>
         <TouchableWithoutFeedback
-          onPress={() => this.to(routeNames.profileSetting)}
+          onPress={() => this.to(routeNames.profileSetting, { me: me })}
         >
           <View style={styles.profileContainer}>
             <Avatar large rounded source={{ uri: me.avatar }} />
@@ -47,17 +47,16 @@ export default class Mine extends React.Component {
         <FlatList
           data={links}
           renderItem={({ item, index }) => {
-            let marginTop = index === 0 ? 45 : 0;
             return (
-              <ListItem
-                title={item.title}
-                onPress={() => this.to(item.navigate)}
-                containerStyle={[
-                  gStyles.listContainer,
-                  { marginTop: marginTop }
-                ]}
-                underlayColor={themeColor.backgroundColor}
-              />
+              <TouchableHighlight
+                onPress={() => this.to(item.navigate, { me: me })}
+                underlayColor={"#cccccc"}
+              >
+                <ListItem
+                  title={item.title}
+                  containerStyle={[gStyles.listContainer]}
+                />
+              </TouchableHighlight>
             );
           }}
           keyExtractor={(item, index) => index.toString()}
@@ -69,7 +68,7 @@ export default class Mine extends React.Component {
 
 const styles = StyleSheet.create({
   profileContainer: {
-    marginTop: 51,
+    marginVertical: 45,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-start",

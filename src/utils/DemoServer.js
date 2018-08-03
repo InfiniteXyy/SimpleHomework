@@ -46,18 +46,17 @@ const courseData = [
   }
 ];
 
-
 const profileData = [
   {
     pid: "1",
     name: "InfiniteX",
-    avatar: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532851530477&di=a49376cb1357fb7ec2280ed2565a48d7&imgtype=0&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F20%2F06%2F50%2F86p58PIChKY_1024.jpg",
+    avatar:
+      "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532851530477&di=a49376cb1357fb7ec2280ed2565a48d7&imgtype=0&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F20%2F06%2F50%2F86p58PIChKY_1024.jpg",
     school: "ECNU",
     jobTitle: ["计算机", "设计"],
     groups: ["3", "4", "5"]
   }
 ];
-
 
 const groupData = [
   { gid: "3", title: "计网A班", color: "#417505" },

@@ -10,7 +10,7 @@ export default class DashboardHeader extends React.PureComponent {
     subtitle: propTypes.string.isRequired,
     onClick: propTypes.func.isRequired,
     iconType: propTypes.string,
-    iconName: propTypes.string,
+    iconName: propTypes.string
   };
 
   static defaultProps = {
@@ -19,7 +19,7 @@ export default class DashboardHeader extends React.PureComponent {
   };
 
   render() {
-    let { title, subtitle, onClick, iconType, iconName } = this.props
+    let { title, subtitle, onClick, iconType, iconName } = this.props;
     return (
       <View style={styles.container}>
         <View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 48,
     fontWeight: "400",
-    color: themeColor.primaryText,
+    color: themeColor.primaryText
   },
   subtitleStyle: {
     fontSize: 16,

@@ -1,12 +1,81 @@
-import React from "react"
-import { View } from "react-native"
+import React from "react";
+import {
+  View,
+  ScrollView,
+  TouchableWithoutFeedback,
+  Text,
+  TouchableOpacity
+} from "react-native";
+import gStyles from "../../static/styles";
+import StackHeader from "../../shared/StackHeader";
+import { themeColor } from "../../static";
+import { Icon } from "react-native-elements";
 
+const types = [{ title: "圆润", id: "1" }, { title: "方正", id: "2" }];
 export default class PersonPage extends React.Component {
-  render () {
-    return (
-      <View>
-
-      </View>
-    )
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: "1"
+    };
   }
+
+  render() {
+    return (
+      <View style={[gStyles.container, { alignItems: "center" }]}>
+        <StackHeader
+          leftTitle={"主题"}
+          onPressLeft={() => this.props.navigation.goBack()}
+        />
+        <ScrollView>
+          <View style={{ flexDirection: "row", marginTop: 45 }}>
+            {types.map(this.renderChooseItem)}
+          </View>
+          <View style={{ alignSelf: "center", marginTop: 45 }}>
+            <TouchableOpacity onPress={() => {}}>
+              <Icon
+                name={"check"}
+                type={"material"}
+                color={themeColor.primaryColor}
+                reverse
+                size={21}
+              />
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
+  renderChooseItem = item => {
+    let borderColor =
+      this.state.selected === item.id
+        ? themeColor.primaryColor
+        : themeColor.inactiveIcon;
+    return (
+      <View style={{ alignItems: "center" }} key={item.id}>
+        <TouchableWithoutFeedback onPress={() => this.handleSelect(item.id)}>
+          <View style={[styles.roundCard, { borderColor }]} />
+        </TouchableWithoutFeedback>
+        <Text style={styles.cardName}>{item.title}</Text>
+      </View>
+    );
+  };
+
+  handleSelect = id => {
+    this.setState({ selected: id });
+  };
 }
+
+const styles = {
+  roundCard: {
+    margin: 20,
+    height: 125,
+    width: 125,
+    borderWidth: 2,
+    borderRadius: 4
+  },
+  cardName: {
+    fontSize: 18,
+    color: themeColor.primaryText
+  }
+};
