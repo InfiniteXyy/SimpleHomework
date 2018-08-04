@@ -1,5 +1,6 @@
 const routeNames = {
   homeworkAdd: "HomeworkAdd",
+  courseAdd: "CourseAdd",
   personPage: "PersonPage",
   setting: "Setting",
   profileSetting: "Profile",

@@ -28,7 +28,10 @@ export default class DashBoard extends React.Component {
       {
         title: "添加作业",
         type: "normal",
-        method: () => this.to(routeNames.homeworkAdd, {})
+        method: () =>
+          this.to(routeNames.homeworkAdd, {
+            courses: courseData.map(item => item.title)
+          })
       },
       { title: "取消", type: "cancel", method: () => {} }
     ];
@@ -54,7 +57,7 @@ export default class DashBoard extends React.Component {
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
-              this.to(routeNames.homeworkAdd);
+              this.actionList[0].method()
             }
           }}
           ListHeaderComponent={
@@ -122,9 +125,12 @@ export default class DashBoard extends React.Component {
       <TouchableOpacity
         onPress={() => {
           item.finished = !item.finished;
-          this.setState({})
+          this.setState({});
         }}
-        onLongPress={() => this.to(routeNames.homeworkDetail, {hid: item.hid})}>
+        onLongPress={() =>
+          this.to(routeNames.homeworkDetail, { hid: item.hid })
+        }
+      >
         <View style={styles.cardItemContainer}>
           <Text style={textStyle}>{item.content}</Text>
           <View style={gStyles.rightIconContainer}>

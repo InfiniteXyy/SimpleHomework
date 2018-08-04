@@ -8,7 +8,7 @@ const links = [
   { title: "登录", navigate: routeNames.login },
   { title: "主题", navigate: routeNames.theme },
   { title: "国际化", navigate: "" },
-  { title: "账号和密码", navigate: "" },
+  { title: "反馈", navigate: "" },
   { title: "关于", navigate: "" }
 ];
 
@@ -32,10 +32,11 @@ export default class PersonPage extends React.Component {
       </View>
     );
   }
-  renderOption = ({ item }) => {
+  renderOption = ({ item, index }) => {
+    let marginTop = index === 0 ? "24%" : 0
     return (
       <TouchableOpacity onPress={() => this.to(item.navigate)}>
-        <View style={{ alignItems: "center", height: 56 }}>
+        <View style={{ alignItems: "center", height: 56, marginTop }}>
           <Text
             style={{
               color: themeColor.primaryText,

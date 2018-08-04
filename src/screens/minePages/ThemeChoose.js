@@ -28,10 +28,10 @@ export default class PersonPage extends React.Component {
           onPressLeft={() => this.props.navigation.goBack()}
         />
         <ScrollView>
-          <View style={{ flexDirection: "row", marginTop: 45 }}>
+          <View style={{ flexDirection: "row", marginTop: "24%" }}>
             {types.map(this.renderChooseItem)}
           </View>
-          <View style={{ alignSelf: "center", marginTop: 45 }}>
+          <View style={{ alignSelf: "center", marginTop: 70 }}>
             <TouchableOpacity onPress={() => {}}>
               <Icon
                 name="check"

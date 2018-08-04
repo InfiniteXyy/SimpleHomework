@@ -76,7 +76,9 @@ export default class Courses extends React.Component {
 
     if (item === "+") {
       return (
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => {
+          this.props.navigation.navigate(routeNames.courseAdd)
+        }}>
           <View style={[styles.courseCard, { height: 62, width: cardWidth }]}>
             <Icon name="plus" size={24} type="feather" color="gray" />
           </View>
