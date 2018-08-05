@@ -11,15 +11,18 @@ import gStyles from "../static/styles";
 import StackHeader from "../shared/StackHeader";
 import MyTextInput from "../shared/MyTextInput";
 import { colors, themeColor } from "../static";
-import { Icon } from "react-native-elements";
-import ActionSheet from 'react-native-actionsheet'
+import { Icon, Button } from "react-native-elements";
+import ActionSheet from "react-native-actionsheet";
 
 export default class HomeworkAdd extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: ""
+      content: "",
+      selectedCourse: null
     };
+    this.options = this.props.navigation.getParam("courses", ["无"]);
+    this.options.push("取消");
   }
 
   goBack = () => {
@@ -39,19 +42,30 @@ export default class HomeworkAdd extends React.Component {
     }
   ];
 
+  selectCourse = index => {
+    if (index !== this.options.length - 1) {
+      this.setState({ selectedCourse: this.options[index] });
+    }
+  };
+
   render() {
-    let options = this.props.navigation.getParam("courses", ["无"])
 
     return (
       <View style={gStyles.container}>
         <StackHeader
-          rightTitle={"选择课程"}
+          rightTitle={
+            this.state.selectedCourse ? this.state.selectedCourse : "选择课程"
+          }
           onPressLeft={this.goBack}
           onPressRight={() => this.ActionSheet.show()}
         />
-        <ScrollView style={{marginHorizontal: 24}}>
+        <ScrollView style={{ marginHorizontal: 24 }}>
           <MyTextInput
-            style={{ fontSize: 36, color: themeColor.primaryText, marginTop: 80 }}
+            style={{
+              fontSize: 36,
+              color: themeColor.primaryText,
+              marginTop: 80
+            }}
             placeholder="作业内容..."
             returnKeyType="done"
             onChangeText={text => {
@@ -69,11 +83,24 @@ export default class HomeworkAdd extends React.Component {
               <Text style={{ color: themeColor.secondaryText }}>点击添加</Text>
             </View>
           </TouchableWithoutFeedback>
+          <View style={{ alignSelf: "center", marginTop: 70 }}>
+            <TouchableOpacity onPress={() => {}}>
+              <Icon
+                name="check"
+                color={themeColor.primaryColor}
+                reverse
+                size={21}
+              />
+            </TouchableOpacity>
+          </View>
         </ScrollView>
         <ActionSheet
+          title={"选择一门课程"}
+          styles={styles} // for Android
           ref={o => (this.ActionSheet = o)}
-          options={options}
-          onPress={(index) => {alert(options[index])}}
+          options={this.options}
+          onPress={this.selectCourse}
+          cancelButtonIndex={this.options.length - 1}
         />
       </View>
     );

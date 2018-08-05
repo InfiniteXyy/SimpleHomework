@@ -1,35 +1,30 @@
 {
-  "name": "simpleHomework",
-  "version": "0.1.0",
+  "name": "SimpleHomework",
+  "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "jest-expo": "~27.0.0",
-    "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.3.1"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "jest"
-  },
-  "jest": {
-    "preset": "jest-expo"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "ios": "react-native run-ios"
   },
   "dependencies": {
-    "expo": "^27.0.1",
     "moment": "^2.22.2",
-    "prop-types": "^15.6.2",
-    "react": "16.3.1",
-    "react-native": "~0.55.2",
+    "react": "16.4.1",
+    "react-native": "0.56.0",
     "react-native-actionsheet": "^2.4.2",
     "react-native-datepicker-dialog": "^0.0.9",
     "react-native-elements": "^0.19.1",
-    "react-native-material-dropdown": "^0.11.1",
-    "react-native-material-textfield": "^0.12.0",
     "react-native-scrollable-tab-view": "^0.8.0",
-    "react-navigation": "^2.9.0"
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "^2.9.3"
+  },
+  "devDependencies": {
+    "babel-jest": "23.4.2",
+    "babel-preset-react-native": "^5",
+    "jest": "23.4.2",
+    "react-test-renderer": "16.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }

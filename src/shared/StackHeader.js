@@ -15,22 +15,12 @@ export default class StackHeader extends React.PureComponent {
   static defaultProps = {
     onPressLeft: () => {},
     onPressRight: () => {},
-    leftTitle: "返回"
+    leftTitle: "返回",
+    rightTitle: ""
   };
 
   render() {
     let { onPressLeft, onPressRight, leftTitle, rightTitle } = this.props;
-    let rightContent = <View />;
-    if (rightTitle) {
-      rightContent = (
-        <View style={gStyles.rightIconContainer}>
-          <TouchableOpacity onPress={onPressRight}>
-            <Text style={styles.subtitle}>{rightTitle}</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    }
-
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={onPressLeft}>
@@ -44,7 +34,11 @@ export default class StackHeader extends React.PureComponent {
             <Text style={styles.title}>{leftTitle}</Text>
           </View>
         </TouchableOpacity>
-        {rightContent}
+        <View style={gStyles.rightIconContainer}>
+          <TouchableOpacity onPress={onPressRight}>
+            <Text style={styles.subtitle}>{rightTitle}</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
