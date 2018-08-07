@@ -20,10 +20,12 @@ export default class DashBoard extends React.Component {
     };
 
     // update time automatically
-    this.timeUpdater = setInterval(() => {
-      console.log("info: time updated");
-      this.setState({ dateTime: moment().format("dddd h:mm") });
-    }, 60000);
+    setTimeout(() => {
+      this.timeUpdater = setInterval(() => {
+        console.log("info: time updated");
+        this.setState({ dateTime: moment().format("dddd h:mm") });
+      }, 60000);
+    }, 60000 - new Date().valueOf() % 60000);
 
     this.actionList = [
       {
@@ -150,6 +152,7 @@ export default class DashBoard extends React.Component {
           });
         }
       }
+      this.forceUpdate()
     });
   };
 

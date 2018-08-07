@@ -5,7 +5,7 @@ import gStyles from "../global/styles";
 import { Icon } from "react-native-elements";
 import realm from "../global/realm";
 
-export default class DashboardCardItem extends React.PureComponent {
+export default class DashboardCardItem extends React.Component {
   render() {
     let item = this.props.item;
     let iconKind = item.finished

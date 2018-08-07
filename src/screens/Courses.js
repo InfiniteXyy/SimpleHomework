@@ -49,13 +49,10 @@ export default class Courses extends React.Component {
   }
 
   updateUI = (newList, changes) => {
-    for (let i in changes) {
-      if (changes[i].length !== 0) {
-        console.log("Courses Screen updating...");
-        console.log(changes);
-        this.forceUpdate();
-        break;
-      }
+    if (changes.insertions.length !== 0) {
+      console.log("Courses Screen insert...");
+      console.log(changes);
+      this.forceUpdate();
     }
   };
 

@@ -10,6 +10,7 @@ CourseModel.schema = {
   properties: {
     title: "string",
     color: { type: "string", default: "#cccccc" },
+    expanding: { type: "bool", default: true }, // for view
     homeworkList: {
       type: "linkingObjects",
       objectType: "Homework",

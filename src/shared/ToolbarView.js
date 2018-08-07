@@ -17,8 +17,8 @@ export default class ToolbarView extends React.Component {
 
   render() {
     let opacity = this.props.scrollY.interpolate({
-      inputRange: [20, 70],
-      outputRange: [0, 1],
+      inputRange: [20, 30, 70],
+      outputRange: [0, 0.5, 1],
       extrapolate: "clamp",
       useNativeDriver: true
     });

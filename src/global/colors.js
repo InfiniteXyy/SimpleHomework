@@ -15,7 +15,8 @@ const themeColor = {
   secondaryText: colors.gray,
   activeIcon: colors.darkerGray,
   inactiveIcon: colors.gray,
-  backgroundColor: colors.rice
+  backgroundColor: colors.rice,
+  underlayColor: "#cccccc"
 };
 
 export { colors, themeColor };
