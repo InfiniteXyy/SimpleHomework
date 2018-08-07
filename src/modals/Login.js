@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import gStyles from "../static/styles";
+import gStyles from "../global/styles";
 import StackHeader from "../shared/StackHeader";
-import { routeNames, themeColor } from "../static";
+import { routeNames, themeColor } from "../global";
 import InputField from "../shared/InputField";
 import { Button } from "react-native-elements";
 
@@ -16,7 +16,7 @@ export default class Login extends React.Component {
         <StackHeader onPressLeft={() => this.props.navigation.goBack()} />
         <Text style={styles.title}>欢迎</Text>
         <View style={styles.inputBoxContainer}>
-          <InputField placeholder={"Email/Username"} type={"profile"}/>
+          <InputField placeholder={"Email/Username"} type={"profile"} />
           <Text style={styles.rightTip}>忘记密码？</Text>
           <Button
             backgroundColor={themeColor.primaryColor}

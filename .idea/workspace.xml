@@ -1,90 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="至此全部重构完成，接下来要写调用数据库的接口了">
-      <change afterPath="$PROJECT_DIR$/.buckconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.flowconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/BUCK" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/Entypo.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/EvilIcons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/Feather.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/FontAwesome.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/Foundation.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/Ionicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/MaterialCommunityIcons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/MaterialIcons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/Octicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/SimpleLineIcons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/assets/fonts/Zocial.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/simplehomework/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/simplehomework/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/keystores/BUCK" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/keystores/debug.keystore.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework-tvOS/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework-tvOSTests/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/xcshareddata/xcschemes/SimpleHomework-tvOS.xcscheme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/xcshareddata/xcschemes/SimpleHomework.xcscheme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/AppDelegate.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/AppDelegate.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Base.lproj/LaunchScreen.xib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_20pt@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_20pt@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_40pt@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_40pt@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/main.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomeworkTests/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/SimpleHomeworkTests/SimpleHomeworkTests.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/xuyiyang.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" />
+    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="ejected! for Realm use">
+      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Icon-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/logo.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/logo.imageset/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/global/model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/global/realm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/DashboardCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/DashboardCardItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.watchmanconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.watchmanconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/simplehomework/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/simplehomework/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Base.lproj/LaunchScreen.xib" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Base.lproj/LaunchScreen.xib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_20pt@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_20pt@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_20pt@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_20pt@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_40pt@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_40pt@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_40pt@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_40pt@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/CourseAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/CourseAdd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/FirstNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/FirstNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/MainStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/MainStack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/SecondNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/SecondNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/ThirdNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/ThirdNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CourseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CourseDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Courses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/DashBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/HomeworkDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeworkDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Mine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/PersonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/minePages/PersonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/minePages/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/Setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/minePages/Setting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/ThemeChoose.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/minePages/ThemeChoose.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/DashboardHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/DashboardHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/InputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/InputField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/PullDownTip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/PullDownTip.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/StackHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/StackHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/TabBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/TabBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ToolbarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ToolbarView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/colors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/DemoServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DemoServer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -100,48 +72,61 @@
     <session id="768325287">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.4" value="5" />
-          <entry key="project.open.time.5" value="4" />
-          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.4" value="6" />
+          <entry key="project.open.time.5" value="5" />
+          <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="34675" />
-          <entry key="json" value="34" />
-          <entry key="txt" value="992" />
+          <entry key="js" value="40086" />
+          <entry key="json" value="55" />
+          <entry key="txt" value="1022" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="34" />
-          <entry key="JavaScript" value="32073" />
-          <entry key="PLAIN_TEXT" value="970" />
+          <entry key="JSON" value="55" />
+          <entry key="JavaScript" value="37484" />
+          <entry key="PLAIN_TEXT" value="1000" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="babelrc" value="1" />
           <entry key="eslintrc" value="1" />
-          <entry key="js" value="408" />
-          <entry key="json" value="7" />
-          <entry key="ts" value="3" />
+          <entry key="gradle" value="3" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="1" />
+          <entry key="js" value="441" />
+          <entry key="json" value="9" />
+          <entry key="lock" value="1" />
+          <entry key="log" value="1" />
+          <entry key="mm" value="1" />
+          <entry key="png" value="8" />
+          <entry key="properties" value="1" />
+          <entry key="ts" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="8" />
-          <entry key="JavaScript" value="408" />
-          <entry key="TypeScript" value="3" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="Image" value="8" />
+          <entry key="JSON" value="11" />
+          <entry key="JavaScript" value="441" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="TypeScript" value="4" />
+          <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="PrettierLanguageServiceImpl" value="10" />
+          <entry key="PrettierLanguageServiceImpl" value="12" />
           <entry key="TypeScriptServerServiceImpl" value="3" />
         </counts>
       </usages-collector>
@@ -150,40 +135,85 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="46" column="7" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
+            <state relative-caret-position="470">
+              <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/screens/CourseDetail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/screens/DashboardCardItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="670">
+              <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/index.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/Courses.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-457" />
+            <state relative-caret-position="433">
+              <caret line="121" column="60" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/DashboardCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            <state relative-caret-position="720">
+              <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="136" column="8" selection-start-line="136" selection-start-column="8" selection-end-line="137" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,9 +229,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>moment</find>
-      <find>navigate</find>
-      <find>console.log</find>
       <find>expor</find>
       <find>courseTitle</find>
       <find>Simple</find>
@@ -229,6 +256,9 @@
       <find>actionshee</find>
       <find>courses</find>
       <find>ActionSheet</find>
+      <find>HomeworkAd</find>
+      <find>Action</find>
+      <find>HomeworkAdd</find>
     </findStrings>
     <replaceStrings>
       <replace>hid</replace>
@@ -240,11 +270,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Route.js" />
-        <option value="$PROJECT_DIR$/App.js" />
-        <option value="$PROJECT_DIR$/src/screens/Modals/CourseAddModal.js" />
-        <option value="$PROJECT_DIR$/src/screens/Modals/HomeworkAddModal.js" />
-        <option value="$PROJECT_DIR$/src/screens/Modals/LoginModal.js" />
         <option value="$PROJECT_DIR$/src/screens/Modals/RegisterModal.js" />
         <option value="$PROJECT_DIR$/src/screens/Modals/index.js" />
         <option value="$PROJECT_DIR$/src/Router.js" />
@@ -266,31 +291,36 @@
         <option value="$PROJECT_DIR$/src/shared/PullDownTip.js" />
         <option value="$PROJECT_DIR$/src/shared/MyTextInput.js" />
         <option value="$PROJECT_DIR$/src/shared/index.js" />
-        <option value="$PROJECT_DIR$/src/shared/DashboardHeader.js" />
         <option value="$PROJECT_DIR$/src/static/styles.js" />
         <option value="$PROJECT_DIR$/src/screens/minePages/Profile.js" />
         <option value="$PROJECT_DIR$/src/screens/minePages/PersonPage.js" />
         <option value="$PROJECT_DIR$/src/screens/Mine.js" />
         <option value="$PROJECT_DIR$/src/shared/TabBar.js" />
-        <option value="$PROJECT_DIR$/src/screens/CourseDetail.js" />
         <option value="$PROJECT_DIR$/src/screens/HomeworkDetail.js" />
         <option value="$PROJECT_DIR$/src/shared/InputField.js" />
         <option value="$PROJECT_DIR$/src/routes/ThirdNavigator.js" />
         <option value="$PROJECT_DIR$/src/modals/Login.js" />
         <option value="$PROJECT_DIR$/src/modals/Register.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/static/colors.js" />
-        <option value="$PROJECT_DIR$/src/screens/Courses.js" />
         <option value="$PROJECT_DIR$/src/static/index.js" />
         <option value="$PROJECT_DIR$/src/screens/minePages/ThemeChoose.js" />
         <option value="$PROJECT_DIR$/src/screens/minePages/Setting.js" />
-        <option value="$PROJECT_DIR$/src/screens/DashBoard.js" />
-        <option value="$PROJECT_DIR$/src/modals/CourseAdd.js" />
-        <option value="$PROJECT_DIR$/src/modals/HomeworkAdd.js" />
         <option value="$PROJECT_DIR$/src/shared/StackHeader.js" />
+        <option value="$PROJECT_DIR$/src/shared/DashboardHeader.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js" />
+        <option value="$PROJECT_DIR$/src/global/index.js" />
+        <option value="$PROJECT_DIR$/src/screens/CourseDetail.js" />
+        <option value="$PROJECT_DIR$/src/global/model.js" />
+        <option value="$PROJECT_DIR$/src/global/realm.js" />
+        <option value="$PROJECT_DIR$/src/modals/CourseAdd.js" />
+        <option value="$PROJECT_DIR$/src/modals/HomeworkAdd.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/screens/DashboardCardItem.js" />
+        <option value="$PROJECT_DIR$/src/screens/DashboardCard.js" />
+        <option value="$PROJECT_DIR$/src/screens/DashBoard.js" />
+        <option value="$PROJECT_DIR$/src/screens/Courses.js" />
       </list>
     </option>
   </component>
@@ -317,10 +347,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="402" />
+    <option name="x" value="334" />
     <option name="y" value="22" />
-    <option name="width" value="1205" />
-    <option name="height" value="913" />
+    <option name="width" value="1293" />
+    <option name="height" value="858" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -328,6 +358,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -338,28 +369,34 @@
             <path>
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="react-native-scrollable-tab-view" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modals" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="theme&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/ThemeChoose.js&#10;add&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/CourseAdd.js&#10;demo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/utils/DemoServer.js&#10;course&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/CourseDetail.js&#10;dash&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/DashBoard.js&#10;setting&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/Setting.js&#10;cours&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/CourseAdd.js&#10;homewo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/HomeworkAdd.js&#10;courses&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/Courses.js&#10;TouchableHighlight&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="dash&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/DashBoard.js&#10;theme&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/ThemeChoose.js&#10;add&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/CourseAdd.js&#10;demo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/utils/DemoServer.js&#10;course&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/CourseDetail.js&#10;setting&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/Setting.js&#10;cours&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/CourseAdd.js&#10;homewo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/HomeworkAdd.js&#10;courses&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/Courses.js&#10;TouchableHighlight&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -470,7 +507,10 @@
       <workItem from="1533469853761" duration="117000" />
       <workItem from="1533470001193" duration="133000" />
       <workItem from="1533470136853" duration="23000" />
-      <workItem from="1533470161266" duration="483000" />
+      <workItem from="1533470161266" duration="3042000" />
+      <workItem from="1533527260328" duration="9677000" />
+      <workItem from="1533617186393" duration="4901000" />
+      <workItem from="1533623667573" duration="8955000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1532523310323</created>
@@ -654,11 +694,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533387245883</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="ejected! for Realm use">
+      <created>1533470713090</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1533470713090</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189928000" />
+    <option name="totallyTimeSpent" value="215984000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -670,23 +717,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="402" y="22" width="1205" height="913" extended-state="0" />
+    <frame x="387" y="67" width="1293" height="858" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.63423425" visible="true" weight="0.21493776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.63325185" visible="true" weight="0.19025522" />
       <window_info id="Structure" order="1" sideWeight="0.2979798" side_tool="true" weight="0.21044427" />
-      <window_info id="npm" order="2" sideWeight="0.36576578" side_tool="true" visible="true" weight="0.21493776" />
+      <window_info id="npm" order="2" sideWeight="0.36674815" side_tool="true" weight="0.21493776" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49925485" visible="true" weight="0.35689455" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925485" weight="0.509901" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925485" weight="0.39903265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3278481" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3002232" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.35267857" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.48267326" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.35148516" />
       <window_info anchor="bottom" id="TypeScript" order="10" weight="0.3270202" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007452" side_tool="true" weight="0.19264892" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -727,7 +774,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="home page" />
     <MESSAGE value="course page" />
     <MESSAGE value="some different pages" />
     <MESSAGE value="add two modals" />
@@ -752,64 +798,15 @@
     <MESSAGE value="重写完成✿✿ヽ(°▽°)ノ✿&#10;感觉代码一多起来又出了一些坑哎" />
     <MESSAGE value="我好像遇到了react navigation的奇妙bug，那只好换条路了" />
     <MESSAGE value="至此全部重构完成，接下来要写调用数据库的接口了" />
-    <option name="LAST_COMMIT_MESSAGE" value="至此全部重构完成，接下来要写调用数据库的接口了" />
+    <MESSAGE value="ejected! for Realm use" />
+    <option name="LAST_COMMIT_MESSAGE" value="ejected! for Realm use" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/screens/DashboardScreen.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-navigation-tabs/node_modules/react-native-safe-area-view/index.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-navigation-tabs/node_modules/react-native-safe-area-view/index.web.js" />
-    <entry file="file://$PROJECT_DIR$/src/routes/MainStack.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/minePages/index.js" />
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/index.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-elements/src/index.d.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Animated/src/AnimatedImplementation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10511" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Animated/src/Animated.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modals/index.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/prop-types/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/MyTextInput.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/PullDownTip.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/ToolbarView.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/ReactNative/YellowBox.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/minePages/PersonPage.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/Mine.js" />
-    <entry file="file://$PROJECT_DIR$/src/routes/SecondNavigator.js" />
-    <entry file="file://$PROJECT_DIR$/src/routes/FirstNavigator.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/minePages/Profile.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/TabBar.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/DashboardHeader.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/HomeworkDetail.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/styles.js" />
+    <entry file="file://$PROJECT_DIR$/src/global/styles.js" />
     <entry file="file://$PROJECT_DIR$/src/shared/InputField.js" />
-    <entry file="file://$PROJECT_DIR$/src/App.js" />
     <entry file="file://$PROJECT_DIR$/src/routes/ThirdNavigator.js" />
     <entry file="file://$PROJECT_DIR$/src/modals/Login.js" />
     <entry file="file://$PROJECT_DIR$/src/modals/Register.js" />
-    <entry file="file://$PROJECT_DIR$/src/static/colors.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Components/Touchable/TouchableHighlight.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -817,46 +814,255 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/Courses.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/CourseDetail.js" />
     <entry file="file://$PROJECT_DIR$/src/screens/minePages/Setting.js" />
-    <entry file="file://$PROJECT_DIR$/src/utils/DemoServer.js" />
-    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js" />
-    <entry file="file://$PROJECT_DIR$/src/modals/CourseAdd.js" />
     <entry file="file://$PROJECT_DIR$/src/screens/minePages/ThemeChoose.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-native-actionsheet/lib/index.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-native-actionsheet/lib/ActionSheetCustom.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-native-actionsheet/lib/ActionSheetIOS.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/StackHeader.js" />
-    <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="46" column="7" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
+        <state relative-caret-position="183">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/DashboardHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_20pt@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_40pt@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Icon-1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@3x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/StackHeader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="139">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yarn-error.log" />
+    <entry file="file://$PROJECT_DIR$/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/index.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/Button.android.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/Button.ios.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="280">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="139" column="29" lean-forward="true" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/simplehomework/MainApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/app/app.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/colors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceHostingView.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="229" column="69" selection-start-line="229" selection-start-column="69" selection-end-line="229" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="15930" column="17" selection-start-line="15930" selection-start-column="17" selection-end-line="15930" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/DemoServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/realm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modals/CourseAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="136" column="8" selection-start-line="136" selection-start-column="8" selection-end-line="137" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/DashboardCardItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/DashboardCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/CourseDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Courses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="121" column="60" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

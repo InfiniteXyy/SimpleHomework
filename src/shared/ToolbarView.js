@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, Animated, StyleSheet, Platform } from "react-native";
 import propTypes from "prop-types";
-import { themeColor } from "../static";
+import { themeColor } from "../global";
 import { Icon } from "react-native-elements";
-import gStyles from "../static/styles";
+import gStyles from "../global/styles";
 
 export default class ToolbarView extends React.Component {
   static propTypes = {

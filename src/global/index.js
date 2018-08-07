@@ -11,6 +11,7 @@ const routeNames = {
   homeworkDetail: "HomeworkDetail"
 };
 
-import gStyles from "./styles"
+import gStyles from "./styles";
 export { colors, themeColor } from "./colors";
 export { routeNames, gStyles };
+export { CourseModel, HomeworkModel } from "./model";

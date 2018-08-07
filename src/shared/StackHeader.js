@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
-import { themeColor, gStyles } from "../static";
+import { themeColor, gStyles } from "../global";
 import { Icon } from "react-native-elements";
 import propTypes from "prop-types";
 

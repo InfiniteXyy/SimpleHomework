@@ -7,21 +7,24 @@ import {
   ScrollView,
   TouchableWithoutFeedback
 } from "react-native";
-import gStyles from "../static/styles";
+import gStyles from "../global/styles";
 import StackHeader from "../shared/StackHeader";
 import MyTextInput from "../shared/MyTextInput";
-import { colors, themeColor } from "../static";
+import { colors, themeColor } from "../global";
 import { Icon, Button } from "react-native-elements";
 import ActionSheet from "react-native-actionsheet";
+import realm from "../global/realm";
 
 export default class HomeworkAdd extends React.Component {
   constructor(props) {
     super(props);
+    let courses = props.navigation.getParam("courses", ["无"]);
     this.state = {
       content: "",
-      selectedCourse: null
+      selectedCourse: null,
+      courses
     };
-    this.options = this.props.navigation.getParam("courses", ["无"]);
+    this.options = courses.map(item => item.title);
     this.options.push("取消");
   }
 
@@ -49,7 +52,6 @@ export default class HomeworkAdd extends React.Component {
   };
 
   render() {
-
     return (
       <View style={gStyles.container}>
         <StackHeader
@@ -57,7 +59,7 @@ export default class HomeworkAdd extends React.Component {
             this.state.selectedCourse ? this.state.selectedCourse : "选择课程"
           }
           onPressLeft={this.goBack}
-          onPressRight={() => this.ActionSheet.show()}
+          onPressRight={this.showCourseSelection}
         />
         <ScrollView style={{ marginHorizontal: 24 }}>
           <MyTextInput
@@ -86,6 +88,7 @@ export default class HomeworkAdd extends React.Component {
           <View style={{ alignSelf: "center", marginTop: 70 }}>
             <TouchableOpacity onPress={() => {}}>
               <Icon
+                onPress={this.addHomework}
                 name="check"
                 color={themeColor.primaryColor}
                 reverse
@@ -117,6 +120,28 @@ export default class HomeworkAdd extends React.Component {
         </View>
       </TouchableOpacity>
     );
+  };
+
+  showCourseSelection = () => this.ActionSheet.show();
+
+  addHomework = () => {
+    let content = this.state.content.trim();
+    if (content.length === 0) {
+      alert("请输入正确的名字");
+    } else {
+      if (this.state.selectedCourse == null) {
+        this.showCourseSelection();
+      } else {
+        let course = realm.objectForPrimaryKey(
+          "Course",
+          this.state.selectedCourse
+        );
+        realm.write(() => {
+          realm.create("Homework", { content, course });
+        });
+        this.goBack();
+      }
+    }
   };
 }
 

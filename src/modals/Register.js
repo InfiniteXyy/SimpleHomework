@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import gStyles from "../static/styles";
+import gStyles from "../global/styles";
 import StackHeader from "../shared/StackHeader";
-import { routeNames, themeColor } from "../static";
+import { routeNames, themeColor } from "../global";
 import InputField from "../shared/InputField";
 import { Button } from "react-native-elements";
 

@@ -6,9 +6,9 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import gStyles from "../../static/styles";
+import gStyles from "../../global/styles";
 import StackHeader from "../../shared/StackHeader";
-import { themeColor } from "../../static";
+import { themeColor } from "../../global";
 import { Icon } from "react-native-elements";
 
 const types = [{ title: "圆润", id: "1" }, { title: "方正", id: "2" }];
@@ -55,7 +55,7 @@ export default class PersonPage extends React.Component {
         <TouchableWithoutFeedback onPress={() => this.handleSelect(item.id)}>
           <View style={[styles.roundCard, { borderColor }]} />
         </TouchableWithoutFeedback>
-        <Text style={{fontSize: 16, color: borderColor}}>{item.title}</Text>
+        <Text style={{ fontSize: 16, color: borderColor }}>{item.title}</Text>
       </View>
     );
   };
@@ -72,5 +72,5 @@ const styles = {
     width: 125,
     borderWidth: 2,
     borderRadius: 4
-  },
+  }
 };

@@ -7,7 +7,7 @@ import {
   StyleSheet,
   FlatList
 } from "react-native";
-import { routeNames, gStyles, themeColor } from "../static";
+import { routeNames, gStyles, themeColor } from "../global";
 import { Avatar, ListItem } from "react-native-elements";
 import { profileData } from "../utils/DemoServer";
 

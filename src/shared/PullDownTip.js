@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Animated, StyleSheet } from "react-native";
 import propTypes from "prop-types";
-import { themeColor } from "../static";
+import { themeColor } from "../global";
 
 export default class PullDownTip extends React.PureComponent {
   static propTypes = {

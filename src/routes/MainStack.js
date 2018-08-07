@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation";
-import { colors } from "../static";
+import { colors } from "../global";
 import { Icon } from "react-native-elements";
 import FirstNavigator from "./FirstNavigator";
 import SecondNavigator from "./SecondNavigator";

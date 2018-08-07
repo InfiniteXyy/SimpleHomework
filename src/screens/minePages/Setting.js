@@ -1,8 +1,8 @@
 import React from "react";
 import { View, FlatList, Text, TouchableOpacity } from "react-native";
-import gStyles from "../../static/styles";
+import gStyles from "../../global/styles";
 import StackHeader from "../../shared/StackHeader";
-import { routeNames, themeColor } from "../../static";
+import { routeNames, themeColor } from "../../global";
 
 const links = [
   { title: "登录", navigate: routeNames.login },
@@ -33,7 +33,7 @@ export default class PersonPage extends React.Component {
     );
   }
   renderOption = ({ item, index }) => {
-    let marginTop = index === 0 ? "24%" : 0
+    let marginTop = index === 0 ? "24%" : 0;
     return (
       <TouchableOpacity onPress={() => this.to(item.navigate)}>
         <View style={{ alignItems: "center", height: 56, marginTop }}>

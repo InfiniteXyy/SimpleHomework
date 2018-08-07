@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import gStyles from "../../static/styles";
+import gStyles from "../../global/styles";
 import StackHeader from "../../shared/StackHeader";
 import { Avatar, Text } from "react-native-elements";
-import { themeColor } from "../../static";
+import { themeColor } from "../../global";
 
 export default class PersonPage extends React.Component {
   render() {

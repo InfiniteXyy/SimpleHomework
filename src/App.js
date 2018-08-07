@@ -1,5 +1,5 @@
 import React from "react";
-import { themeColor } from "./static";
+import { themeColor } from "./global";
 import { createStackNavigator } from "react-navigation";
 
 import { CourseAdd, HomeworkAdd } from "./modals";
@@ -11,6 +11,7 @@ export default class App extends React.Component {
     this.state = {
       userId: "1"
     };
+    console.ignoredYellowBox = ["Remote debugger"];
   }
   render() {
     return <RootStack screenProps={this.state} />;
@@ -21,7 +22,7 @@ const RootStack = createStackNavigator(
   {
     Main: MainStack,
     HomeworkAdd: HomeworkAdd,
-    CourseAdd: CourseAdd,
+    CourseAdd: CourseAdd
   },
   {
     // initialRouteName: "Main",
@@ -29,6 +30,6 @@ const RootStack = createStackNavigator(
     mode: "modal",
     cardStyle: {
       backgroundColor: themeColor.backgroundColor
-    },
+    }
   }
 );

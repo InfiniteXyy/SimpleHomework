@@ -8,11 +8,11 @@ import {
   Animated,
   Dimensions
 } from "react-native";
-import { themeColor, gStyles, routeNames } from "../static";
+import { themeColor, gStyles, routeNames } from "../global";
 import DashboardHeader from "../shared/DashboardHeader";
-import { courseData } from "../utils/DemoServer";
 import { Icon } from "react-native-elements";
 import ToolbarView from "../shared/ToolbarView";
+import realm from "../global/realm";
 
 const cardMargin = 16;
 
@@ -38,16 +38,30 @@ export default class Courses extends React.Component {
         columnNumber: Math.floor(Dimensions.get("window").width / 165)
       });
     });
+    let courses = realm.objects("Course");
+    courses.addListener(this.updateUI);
+    this.setState({ courses });
   }
 
   componentWillUnmount() {
     Dimensions.removeEventListener("change", this.rotateHandler);
+    this.state.courses.removeListener(this.updateUI);
   }
 
-  render() {
-    let dataList = [...courseData];
-    dataList.push("+");
+  updateUI = (newList, changes) => {
+    for (let i in changes) {
+      if (changes[i].length !== 0) {
+        console.log("Courses Screen updating...");
+        console.log(changes);
+        this.forceUpdate();
+        break;
+      }
+    }
+  };
 
+  render() {
+    let dataList = [...this.state.courses];
+    dataList.push("+");
     return (
       <View style={gStyles.container}>
         <FlatList
@@ -62,7 +76,7 @@ export default class Courses extends React.Component {
           numColumns={this.state.columnNumber}
           key={this.state.windowWidth / this.state.windowHeight < 1 ? "h" : "v"}
           data={dataList}
-          keyExtractor={item => item.cid}
+          keyExtractor={item => item.title}
           renderItem={this.renderCourse}
         />
         <ToolbarView title={this.state.title} scrollY={this.state.scrollY} />
@@ -76,9 +90,11 @@ export default class Courses extends React.Component {
 
     if (item === "+") {
       return (
-        <TouchableOpacity onPress={() => {
-          this.props.navigation.navigate(routeNames.courseAdd)
-        }}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate(routeNames.courseAdd);
+          }}
+        >
           <View style={[styles.courseCard, { height: 62, width: cardWidth }]}>
             <Icon name="plus" size={24} type="feather" color="gray" />
           </View>
@@ -96,14 +112,13 @@ export default class Courses extends React.Component {
       <TouchableOpacity
         onPress={() =>
           this.props.navigation.navigate(routeNames.courseDetail, {
-            cid: item.cid
+            title: item.title
           })
         }
       >
         <View style={[styles.courseCard, { height: 112, width: cardWidth }]}>
           <Icon {...iconProps} />
           <Text style={styles.cardTitle}>{item.title}</Text>
-          <Text style={styles.cardSubtitle}>{item.data.length + " tasks"}</Text>
         </View>
       </TouchableOpacity>
     );

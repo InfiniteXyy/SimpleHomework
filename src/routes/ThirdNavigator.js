@@ -1,8 +1,8 @@
 import { createStackNavigator } from "react-navigation";
-import { themeColor } from "../static";
+import { themeColor } from "../global";
 import { Mine, PersonPage, Profile, ThemeChoose, Setting } from "../screens";
-import LoginModal from '../modals/Login'
-import Register from '../modals/Register'
+import LoginModal from "../modals/Login";
+import Register from "../modals/Register";
 
 const ThirdNavigator = createStackNavigator(
   {

@@ -1,5 +1,5 @@
 import { createStackNavigator } from "react-navigation";
-import { themeColor } from "../static";
+import { themeColor } from "../global";
 import { HomeworkDetail, CourseDetail, Dashboard } from "../screens";
 
 const FirstNavigator = createStackNavigator(

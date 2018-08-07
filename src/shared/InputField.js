@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, TextInput } from "react-native";
 import propTypes from "prop-types";
 import { Icon } from "react-native-elements";
-import { colors } from "../static";
+import { colors } from "../global";
 
 export default class InputField extends React.Component {
   static propTypes = {

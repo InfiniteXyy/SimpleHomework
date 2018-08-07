@@ -1,4 +1,4 @@
-import { colors } from "../static";
+import { colors } from "../global";
 
 const courseData = [
   {

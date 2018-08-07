@@ -1,9 +1,10 @@
 import React from "react";
-import { ScrollView, View } from "react-native";
-import gStyles from "../static/styles";
+import { View } from "react-native";
+import gStyles from "../global/styles";
 import StackHeader from "../shared/StackHeader";
 import MyTextInput from "../shared/MyTextInput";
-import { themeColor } from "../static";
+import { themeColor } from "../global";
+import realm from "../global/realm";
 
 export default class CourseAdd extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class CourseAdd extends React.Component {
         <StackHeader
           rightTitle={"添加"}
           onPressLeft={this.goBack}
-          onPressRight={() => alert(this.state.content)}
+          onPressRight={this.addCourse}
         />
         <View style={{ marginHorizontal: 24 }}>
           <MyTextInput
@@ -42,4 +43,20 @@ export default class CourseAdd extends React.Component {
       </View>
     );
   }
+
+  addCourse = () => {
+    let title = this.state.content.trim();
+    if (title.length === 0) {
+      alert("请输入正确的名字");
+    } else {
+      if (realm.objectForPrimaryKey("Course", title)) {
+        alert("课程已存在");
+      } else {
+        realm.write(() => {
+          realm.create("Course", { title });
+        });
+        this.goBack();
+      }
+    }
+  };
 }

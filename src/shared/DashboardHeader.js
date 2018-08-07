@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import propTypes from "prop-types";
 import { Icon } from "react-native-elements";
-import { themeColor } from "../static";
+import { themeColor } from "../global";
 
 export default class DashboardHeader extends React.PureComponent {
   static propTypes = {

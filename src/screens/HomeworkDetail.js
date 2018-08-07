@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import gStyles from "../static/styles";
+import gStyles from "../global/styles";
 import StackHeader from "../shared/StackHeader";
 
 export default class HomeworkDetail extends React.Component {

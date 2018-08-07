@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Animated
 } from "react-native";
-import { themeColor } from "../static";
+import { themeColor } from "../global";
 
 const INDICATOR_HEIGHT = 3;
 

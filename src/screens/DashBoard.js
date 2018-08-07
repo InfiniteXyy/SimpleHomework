@@ -1,19 +1,13 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  Animated
-} from "react-native";
+import { Animated, FlatList, View } from "react-native";
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
-import { ToolbarView, DashboardHeader, PullDownTip } from "../shared";
+import realm from "../global/realm";
+import { DashboardHeader, PullDownTip, ToolbarView } from "../shared";
 import ActionSheet from "react-native-actionsheet";
-import { gStyles, themeColor, colors, routeNames } from "../static";
+import { gStyles, routeNames } from "../global";
 import { courseData } from "../utils/DemoServer";
-import { Icon } from "react-native-elements";
+import DashboardCard from "./DashboardCard";
 
 export default class DashBoard extends React.Component {
   constructor(props) {
@@ -21,29 +15,62 @@ export default class DashBoard extends React.Component {
     this.state = {
       weekTitle: "Week 3",
       dateTime: moment().format("dddd h:mm"),
-      courses: courseData, // for demo,
+      courses: [],
       scrollY: new Animated.Value(0) // for List Scroll Animation
     };
+
+    // update time automatically
+    this.timeUpdater = setInterval(() => {
+      console.log("info: time updated");
+      this.setState({ dateTime: moment().format("dddd h:mm") });
+    }, 60000);
+
     this.actionList = [
       {
         title: "添加作业",
         type: "normal",
         method: () =>
           this.to(routeNames.homeworkAdd, {
-            courses: courseData.map(item => item.title)
+            courses: this.state.courses
           })
+      },
+      {
+        title: "使用demo",
+        type: "normal",
+        method: this.useDemo
+      },
+      {
+        title: "重置数据库",
+        type: "destructive",
+        method: this.resetDatabase
       },
       { title: "取消", type: "cancel", method: () => {} }
     ];
     moment.updateLocale("zh-cn", momentLocale);
   }
 
-  to = (where, params) => {
-    this.props.navigation.navigate(where, params);
+  componentWillMount() {
+    let courses = realm.objects("Course");
+    courses.addListener(this.updateUI);
+    this.homeworks = realm.objects("Homework");
+    this.homeworks.addListener(this.alterHomework);
+    this.setState({ courses });
+  }
+
+  componentWillUnmount() {
+    this.state.courses.removeListener(this.updateUI);
+    this.homeworks.removeAllListeners();
+    clearInterval(this.timeUpdater);
+  }
+
+  updateUI = (newList, changes) => {
+    this.forceUpdate();
   };
 
-  showActionSheet = () => {
-    this.ActionSheet.show();
+  alterHomework = (newList, changes) => {
+    if (changes.insertions.length !== 0) {
+      this.forceUpdate();
+    }
   };
 
   render() {
@@ -57,7 +84,7 @@ export default class DashBoard extends React.Component {
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
-              this.actionList[0].method()
+              this.actionList[0].method();
             }
           }}
           ListHeaderComponent={
@@ -67,7 +94,7 @@ export default class DashBoard extends React.Component {
               onClick={this.showActionSheet}
             />
           }
-          keyExtractor={item => item.cid}
+          keyExtractor={item => item.title}
           data={this.state.courses}
           renderItem={this.renderCard}
         />
@@ -82,6 +109,9 @@ export default class DashBoard extends React.Component {
           cancelButtonIndex={this.actionList.findIndex(
             i => i.type === "cancel"
           )}
+          destructiveButtonIndex={this.actionList.findIndex(
+            i => i.type === "destructive"
+          )}
           onPress={index => this.actionList[index].method()}
         />
       </View>
@@ -89,94 +119,43 @@ export default class DashBoard extends React.Component {
   }
 
   renderCard = ({ item }) => {
-    if (!item.data || item.data.length === 0) return <View />;
-    return (
-      <View style={styles.cardContainer}>
-        <FlatList
-          ListHeaderComponent={
-            <View style={styles.cardTitleContainer}>
-              <Text style={styles.cardTitle}>{item.title}</Text>
-              <View style={gStyles.rightIconContainer}>
-                <Icon
-                  name="ios-more"
-                  type="ionicon"
-                  size={24}
-                  color={themeColor.inactiveIcon}
-                />
-              </View>
-            </View>
-          }
-          keyExtractor={item => item.hid}
-          data={item.data}
-          renderItem={this.renderItem}
-        />
-      </View>
-    );
+    return <DashboardCard data={item} />;
   };
 
-  renderItem = ({ item }) => {
-    let iconKind = item.finished
-      ? { type: "ionicon", name: "ios-checkmark-circle" }
-      : { type: "font-awesome", name: "circle-thin" };
-    let textStyle = item.finished
-      ? { fontSize: 15, textDecorationLine: "line-through", color: "#DDDDDD" }
-      : { fontSize: 15, color: themeColor.primaryText };
-    return (
-      <TouchableOpacity
-        onPress={() => {
-          item.finished = !item.finished;
-          this.setState({});
-        }}
-        onLongPress={() =>
-          this.to(routeNames.homeworkDetail, { hid: item.hid })
-        }
-      >
-        <View style={styles.cardItemContainer}>
-          <Text style={textStyle}>{item.content}</Text>
-          <View style={gStyles.rightIconContainer}>
-            <Icon {...iconKind} size={18} color={colors.lightBlue} />
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
+  to = (where, params) => {
+    this.props.navigation.navigate(where, params);
+  };
+
+  showActionSheet = () => {
+    this.ActionSheet.show();
   };
 
   handleScroll = event => {
     this.state.scrollY.setValue(event.nativeEvent.contentOffset.y);
   };
-}
 
-const styles = StyleSheet.create({
-  cardContainer: {
-    marginVertical: 8,
-    marginHorizontal: 20,
-    paddingBottom: 12,
-    backgroundColor: "white",
-    //TODO: android beautify
-    shadowColor: "#CCCCCC",
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
-    elevation: 2
-  },
-  cardTitleContainer: {
-    marginBottom: 12,
-    height: 56,
-    paddingHorizontal: 24,
-    flexDirection: "row",
-    alignItems: "center",
-    borderBottomWidth: 0.5,
-    borderBottomColor: "#DDDDDD"
-  },
-  cardTitle: {
-    color: themeColor.primaryText,
-    fontSize: 18,
-    fontWeight: "bold"
-  },
-  cardItemContainer: {
-    paddingHorizontal: 24,
-    flexDirection: "row",
-    alignItems: "center",
-    height: 39
-  }
-});
+  useDemo = () => {
+    realm.write(() => {
+      realm.deleteAll();
+      for (const item of courseData) {
+        let course = realm.create("Course", {
+          title: item.title,
+          color: item.color
+        });
+        for (let h of item.data) {
+          realm.create("Homework", {
+            content: h.content,
+            finished: h.finished,
+            course: course
+          });
+        }
+      }
+    });
+  };
+
+  resetDatabase = () => {
+    realm.write(() => {
+      realm.deleteAll();
+    });
+  };
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, TouchableHighlight, View } from "react-native";
 import StackHeader from "../../shared/StackHeader";
-import gStyles from "../../static/styles";
+import gStyles from "../../global/styles";
 import { ListItem } from "react-native-elements";
 
 const options = [
