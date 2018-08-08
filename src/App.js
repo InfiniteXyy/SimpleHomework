@@ -14,22 +14,6 @@ export default class App extends React.Component {
     console.ignoredYellowBox = ["Remote debugger"];
   }
   render() {
-    return <RootStack screenProps={this.state} />;
+    return <MainStack screenProps={this.state} />;
   }
 }
-
-const RootStack = createStackNavigator(
-  {
-    Main: MainStack,
-    HomeworkAdd: HomeworkAdd,
-    CourseAdd: CourseAdd
-  },
-  {
-    // initialRouteName: "Main",
-    headerMode: "none",
-    mode: "modal",
-    cardStyle: {
-      backgroundColor: themeColor.backgroundColor
-    }
-  }
-);

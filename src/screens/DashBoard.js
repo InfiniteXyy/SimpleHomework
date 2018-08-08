@@ -1,5 +1,6 @@
 import React from "react";
-import { Animated, FlatList, View } from "react-native";
+import { Animated, FlatList, View, Text, TouchableOpacity } from "react-native";
+import Modal from "react-native-modal";
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
 import realm from "../global/realm";
@@ -8,6 +9,7 @@ import ActionSheet from "react-native-actionsheet";
 import { gStyles, routeNames } from "../global";
 import { courseData } from "../utils/DemoServer";
 import DashboardCard from "./DashboardCard";
+import HomeworkAdd from "../modals/HomeworkAdd";
 
 export default class DashBoard extends React.Component {
   constructor(props) {
@@ -16,7 +18,8 @@ export default class DashBoard extends React.Component {
       weekTitle: "Week 3",
       dateTime: moment().format("dddd h:mm"),
       courses: [],
-      scrollY: new Animated.Value(0) // for List Scroll Animation
+      scrollY: new Animated.Value(0), // for List Scroll Animation
+      modalVisible: null
     };
 
     // update time automatically
@@ -25,16 +28,15 @@ export default class DashBoard extends React.Component {
         console.log("info: time updated");
         this.setState({ dateTime: moment().format("dddd h:mm") });
       }, 60000);
-    }, 60000 - new Date().valueOf() % 60000);
+    }, 60000 - (new Date().valueOf() % 60000));
 
     this.actionList = [
       {
         title: "添加作业",
         type: "normal",
-        method: () =>
-          this.to(routeNames.homeworkAdd, {
-            courses: this.state.courses
-          })
+        method: () => {
+          this.setState({ modalVisible: 1 });
+        }
       },
       {
         title: "使用demo",
@@ -76,6 +78,19 @@ export default class DashBoard extends React.Component {
   };
 
   render() {
+    let modalProps = {
+      isVisible: this.state.modalVisible === 1,
+      // swipeDirection: "down",
+      animationInTiming: 500,
+      animationOutTiming: 450,
+      useNativeDriver: true,
+      style: {
+        flex: 1,
+        justifyContent: "flex-end",
+        margin: 0
+      }
+    };
+
     return (
       <View style={gStyles.container}>
         <PullDownTip
@@ -93,7 +108,7 @@ export default class DashBoard extends React.Component {
             <DashboardHeader
               title={this.state.weekTitle}
               subtitle={this.state.dateTime}
-              onClick={this.showActionSheet}
+              onClick={this.toggleActionSheet}
             />
           }
           keyExtractor={item => item.title}
@@ -103,7 +118,7 @@ export default class DashBoard extends React.Component {
         <ToolbarView
           title={this.state.weekTitle}
           scrollY={this.state.scrollY}
-          onClick={this.showActionSheet}
+          onClick={this.toggleActionSheet}
         />
         <ActionSheet
           ref={o => (this.ActionSheet = o)}
@@ -116,6 +131,10 @@ export default class DashBoard extends React.Component {
           )}
           onPress={index => this.actionList[index].method()}
         />
+        <Modal {...modalProps}>
+          <HomeworkAdd data={this.state.courses} goBack={this.toggleModal}/>
+        </Modal>
+
       </View>
     );
   }
@@ -124,13 +143,13 @@ export default class DashBoard extends React.Component {
     return <DashboardCard data={item} />;
   };
 
-  to = (where, params) => {
-    this.props.navigation.navigate(where, params);
-  };
-
-  showActionSheet = () => {
+  toggleActionSheet = () => {
     this.ActionSheet.show();
   };
+  
+  toggleModal = () => {
+    this.setState({modalVisible: null})
+  }
 
   handleScroll = event => {
     this.state.scrollY.setValue(event.nativeEvent.contentOffset.y);
@@ -152,7 +171,7 @@ export default class DashBoard extends React.Component {
           });
         }
       }
-      this.forceUpdate()
+      this.forceUpdate();
     });
   };
 

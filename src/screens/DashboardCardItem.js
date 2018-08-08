@@ -17,7 +17,7 @@ export default class DashboardCardItem extends React.Component {
     return (
       <TouchableOpacity
         onPress={this.changeItemFinished}
-        onLongPress={() => {}}
+        onLongPress={this.goToDetail}
       >
         <View style={styles.cardItemContainer}>
           <Text style={textStyle}>{item.content}</Text>
@@ -35,6 +35,10 @@ export default class DashboardCardItem extends React.Component {
       item.finished = !item.finished;
       this.forceUpdate();
     });
+  };
+
+  goToDetail = () => {
+
   };
 }
 

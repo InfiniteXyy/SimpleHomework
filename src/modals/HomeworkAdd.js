@@ -7,43 +7,30 @@ import {
   ScrollView,
   TouchableWithoutFeedback
 } from "react-native";
-import gStyles from "../global/styles";
-import StackHeader from "../shared/StackHeader";
 import MyTextInput from "../shared/MyTextInput";
-import { colors, themeColor } from "../global";
-import { Icon, Button } from "react-native-elements";
+import { themeColor } from "../global";
+import { Icon } from "react-native-elements";
 import ActionSheet from "react-native-actionsheet";
 import realm from "../global/realm";
+import BorderHeader from "../shared/BorderHeader";
 
 export default class HomeworkAdd extends React.Component {
   constructor(props) {
     super(props);
-    let courses = props.navigation.getParam("courses", ["无"]);
+    let courses = props.data;
     this.state = {
       content: "",
       selectedCourse: null,
-      courses
+      courses,
+      deadline: new Date()
     };
     this.options = courses.map(item => item.title);
     this.options.push("取消");
   }
 
   goBack = () => {
-    this.props.navigation.goBack();
+    this.props.goBack();
   };
-
-  buttons = [
-    {
-      icon: { type: "material", name: "access-time" },
-      title: "设置截止时间",
-      onClick: () => {}
-    },
-    {
-      icon: { type: "material", name: "event" },
-      title: "添加提醒",
-      onClick: () => {}
-    }
-  ];
 
   selectCourse = index => {
     if (index !== this.options.length - 1) {
@@ -53,53 +40,38 @@ export default class HomeworkAdd extends React.Component {
 
   render() {
     return (
-      <View style={gStyles.container}>
-        <StackHeader
-          rightTitle={
-            this.state.selectedCourse ? this.state.selectedCourse : "选择课程"
-          }
+      <View style={styles.container}>
+        <BorderHeader
           onPressLeft={this.goBack}
-          onPressRight={this.showCourseSelection}
+          onPressRight={this.addHomework}
         />
-        <ScrollView style={{ marginHorizontal: 24 }}>
-          <MyTextInput
-            style={{
-              fontSize: 36,
-              color: themeColor.primaryText,
-              marginTop: 80
-            }}
-            placeholder="作业内容..."
-            returnKeyType="done"
-            onChangeText={text => {
-              this.setState({ content: text });
-            }}
-          />
-          <View style={styles.buttonContainer}>
-            {this.buttons.map(this.renderButton)}
+        <MyTextInput
+          style={{
+            fontSize: 36,
+            color: themeColor.primaryText,
+            marginTop: 20
+          }}
+          placeholder="作业内容..."
+          returnKeyType="done"
+          onChangeText={text => {
+            this.setState({ content: text });
+          }}
+        />
+        <View style={styles.buttonContainer}>
+          {this.buttons.map(this.renderButton)}
+        </View>
+        <Text style={{ fontSize: 18, color: themeColor.primaryText }}>
+          备注
+        </Text>
+        <TouchableWithoutFeedback>
+          <View style={styles.tagButton}>
+            <Text style={{ color: themeColor.secondaryText }}>点击添加</Text>
           </View>
-          <Text style={{ fontSize: 18, color: themeColor.primaryText }}>
-            备注
-          </Text>
-          <TouchableWithoutFeedback>
-            <View style={styles.tagButton}>
-              <Text style={{ color: themeColor.secondaryText }}>点击添加</Text>
-            </View>
-          </TouchableWithoutFeedback>
-          <View style={{ alignSelf: "center", marginTop: 70 }}>
-            <TouchableOpacity onPress={() => {}}>
-              <Icon
-                onPress={this.addHomework}
-                name="check"
-                color={themeColor.primaryColor}
-                reverse
-                size={21}
-              />
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+        </TouchableWithoutFeedback>
+
         <ActionSheet
           title={"选择一门课程"}
-          styles={styles} // for Android
+          styles={{}} // for Android
           ref={o => (this.ActionSheet = o)}
           options={this.options}
           onPress={this.selectCourse}
@@ -109,20 +81,43 @@ export default class HomeworkAdd extends React.Component {
     );
   }
 
+  showCourseSelection = () => this.ActionSheet.show();
+  
   renderButton = (item, index) => {
     return (
       <TouchableOpacity onPress={item.onClick} key={index.toString()}>
         <View style={styles.button}>
           <Icon {...item.icon} size={24} color={themeColor.activeIcon} />
-          <Text style={{ color: themeColor.activeIcon, marginTop: 15 }}>
-            {item.title}
+          <Text
+            style={{
+              color: themeColor.activeIcon,
+              marginTop: 12,
+              fontSize: 15
+            }}
+          >
+            {item.title()}
           </Text>
         </View>
       </TouchableOpacity>
     );
   };
 
-  showCourseSelection = () => this.ActionSheet.show();
+  getCourseTitle = () => {
+    return this.state.selectedCourse ? this.state.selectedCourse : "设置课程";
+  };
+
+  buttons = [
+    {
+      icon: { type: "entypo", name: "blackboard" },
+      title: this.getCourseTitle,
+      onClick: this.showCourseSelection
+    },
+    {
+      icon: { type: "material", name: "access-time" },
+      title: () => "设置截止时间",
+      onClick: this.showDatePicker
+    }
+  ];
 
   addHomework = () => {
     let content = this.state.content.trim();
@@ -146,22 +141,28 @@ export default class HomeworkAdd extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    borderTopEndRadius: 12,
+    borderTopStartRadius: 12,
+    paddingHorizontal: 24,
+    paddingBottom: 80,
+    backgroundColor: "white"
+  },
   buttonContainer: {
     marginVertical: 40,
     flexDirection: "row",
-    justifyContent: "space-between"
   },
   button: {
-    width: 150,
-    height: 95,
+    marginRight: 16,
+    width: 110,
+    height: 80,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
+    borderStyle: "dashed",
     borderRadius: 10,
-    shadowRadius: 2,
-    shadowColor: "#cccccc",
-    shadowOffset: { height: 2 },
-    shadowOpacity: 0.38
+    borderWidth: 1,
+    borderColor: themeColor.inactiveIcon,
   },
   tagButton: {
     marginTop: 16,

@@ -6,24 +6,41 @@ import { themeColor } from "../global";
 import DashboardCardItem from "./DashboardCardItem";
 import realm from "../global/realm";
 
+// 计算卡片"内容高度"的函数
+const getBodyHeight = num => num * 39 + 24;
+
 export default class DashboardCard extends React.PureComponent {
   constructor(props) {
     super(props);
-    let expanding = props.data.expanding;
     this.state = {
-      course: props.data,
-      opacity: new Animated.Value(expanding ? 1 : 0),
-      marginBottomAnim: new Animated.Value(expanding ? 0 : -this.getBodyHeight(props.data.homeworkList.length))
+      course: props.data
     };
   }
-  
-  getBodyHeight = num => num * 39 + 24
+
+  componentWillMount() {
+    let course = this.state.course;
+    let expanding = course.expanding;
+    this.setState({
+      opacity: new Animated.Value(expanding ? 1 : 0),
+      marginBottomAnim: new Animated.Value(
+        expanding ? 0 : -getBodyHeight(course.homeworkList.length)
+      )
+    });
+  }
 
   render() {
-    let item = this.state.course;
-    let itemNums = item.homeworkList.length;
-    if (itemNums === 0) return <View />;
-    let expanding = item.expanding;
+    if (this.state.course.homeworkList.length === 0) return <View />;
+    return (
+      <View style={styles.cardContainer}>
+        {this.cardTitle()}
+        {this.homeworkList()}
+      </View>
+    );
+  }
+
+  cardTitle = () => {
+    let course = this.state.course;
+    let expanding = course.expanding;
     let icon = expanding ? (
       <Icon
         name="chevron-up"
@@ -33,7 +50,7 @@ export default class DashboardCard extends React.PureComponent {
       />
     ) : (
       <Badge
-        value={item.homeworkList.length}
+        value={course.homeworkList.length}
         containerStyle={{
           backgroundColor: themeColor.underlayColor
         }}
@@ -41,20 +58,17 @@ export default class DashboardCard extends React.PureComponent {
     );
 
     return (
-      <View style={styles.cardContainer}>
-        <TouchableHighlight
-          onPress={this.setCardExpand}
-          underlayColor={themeColor.backgroundColor}
-        >
-          <View style={styles.cardTitleContainer}>
-            <Text style={styles.cardTitle}>{item.title}</Text>
-            <View style={gStyles.rightIconContainer}>{icon}</View>
-          </View>
-        </TouchableHighlight>
-        {this.homeworkList()}
-      </View>
+      <TouchableHighlight
+        onPress={this.setCardExpand}
+        underlayColor={themeColor.backgroundColor}
+      >
+        <View style={styles.cardTitleContainer}>
+          <Text style={styles.cardTitle}>{course.title}</Text>
+          <View style={gStyles.rightIconContainer}>{icon}</View>
+        </View>
+      </TouchableHighlight>
     );
-  }
+  };
 
   homeworkList = () => {
     let animProp = {
@@ -71,10 +85,11 @@ export default class DashboardCard extends React.PureComponent {
   };
 
   setCardExpand = () => {
-    let expanding = this.state.course.expanding;
-    let expandHeight = this.getBodyHeight(this.state.course.homeworkList.length)
+    let course = this.state.course;
+    let expanding = course.expanding;
+    let expandHeight = getBodyHeight(course.homeworkList.length);
     realm.write(() => {
-      this.state.course.expanding = !expanding;
+      course.expanding = !expanding;
     });
     Animated.parallel([
       Animated.spring(this.state.marginBottomAnim, {
