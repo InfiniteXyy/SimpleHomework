@@ -37,9 +37,7 @@ export default class DashboardCardItem extends React.Component {
     });
   };
 
-  goToDetail = () => {
-
-  };
+  goToDetail = () => {};
 }
 
 const styles = {

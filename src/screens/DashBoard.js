@@ -1,6 +1,5 @@
 import React from "react";
 import { Animated, FlatList, View, Text, TouchableOpacity } from "react-native";
-import Modal from "react-native-modal";
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
 import realm from "../global/realm";
@@ -10,6 +9,8 @@ import { gStyles, routeNames } from "../global";
 import { courseData } from "../utils/DemoServer";
 import DashboardCard from "./DashboardCard";
 import HomeworkAdd from "../modals/HomeworkAdd";
+import { showMessage, hideMessage } from "react-native-flash-message";
+import MyBottomModal from "../shared/MyBottomModal";
 
 export default class DashBoard extends React.Component {
   constructor(props) {
@@ -31,6 +32,11 @@ export default class DashBoard extends React.Component {
     }, 60000 - (new Date().valueOf() % 60000));
 
     this.actionList = [
+      {
+        title: "显示message",
+        type: "normal",
+        method: this.toggleMessage
+      },
       {
         title: "添加作业",
         type: "normal",
@@ -67,28 +73,14 @@ export default class DashBoard extends React.Component {
     clearInterval(this.timeUpdater);
   }
 
-  updateUI = (newList, changes) => {
-    this.forceUpdate();
-  };
-
-  alterHomework = (newList, changes) => {
-    if (changes.insertions.length !== 0) {
-      this.forceUpdate();
-    }
-  };
-
   render() {
-    let modalProps = {
-      isVisible: this.state.modalVisible === 1,
-      // swipeDirection: "down",
-      animationInTiming: 500,
-      animationOutTiming: 450,
-      useNativeDriver: true,
-      style: {
-        flex: 1,
-        justifyContent: "flex-end",
-        margin: 0
-      }
+    let actionSheetProps = {
+      options: this.actionList.map(i => i.title),
+      cancelButtonIndex: this.actionList.findIndex(i => i.type === "cancel"),
+      destructiveButtonIndex: this.actionList.findIndex(
+        i => i.type === "destructive"
+      ),
+      onPress: index => this.actionList[index].method()
     };
 
     return (
@@ -101,7 +93,7 @@ export default class DashBoard extends React.Component {
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
-              this.actionList[0].method();
+              this.actionList[1].method();
             }
           }}
           ListHeaderComponent={
@@ -120,36 +112,44 @@ export default class DashBoard extends React.Component {
           scrollY={this.state.scrollY}
           onClick={this.toggleActionSheet}
         />
-        <ActionSheet
-          ref={o => (this.ActionSheet = o)}
-          options={this.actionList.map(i => i.title)}
-          cancelButtonIndex={this.actionList.findIndex(
-            i => i.type === "cancel"
-          )}
-          destructiveButtonIndex={this.actionList.findIndex(
-            i => i.type === "destructive"
-          )}
-          onPress={index => this.actionList[index].method()}
+        <ActionSheet ref={o => (this.ActionSheet = o)} {...actionSheetProps} />
+        <MyBottomModal
+          isVisible={this.state.modalVisible === 1}
+          toggleModal={this.toggleModal}
+          child={<HomeworkAdd data={this.state.courses} />}
         />
-        <Modal {...modalProps}>
-          <HomeworkAdd data={this.state.courses} goBack={this.toggleModal}/>
-        </Modal>
-
       </View>
     );
   }
+
+  updateUI = (newList, changes) => {
+    this.forceUpdate();
+  };
+
+  alterHomework = (newList, changes) => {
+    if (changes.insertions.length !== 0) {
+      this.forceUpdate();
+    }
+  };
 
   renderCard = ({ item }) => {
     return <DashboardCard data={item} />;
   };
 
+  toggleMessage = () => {
+    showMessage({
+      message: "Simple message",
+      type: "default"
+    });
+  };
+
   toggleActionSheet = () => {
     this.ActionSheet.show();
   };
-  
+
   toggleModal = () => {
-    this.setState({modalVisible: null})
-  }
+    this.setState({ modalVisible: null });
+  };
 
   handleScroll = event => {
     this.state.scrollY.setValue(event.nativeEvent.contentOffset.y);

@@ -13,6 +13,8 @@ import DashboardHeader from "../shared/DashboardHeader";
 import { Icon } from "react-native-elements";
 import ToolbarView from "../shared/ToolbarView";
 import realm from "../global/realm";
+import MyBottomModal from "../shared/MyBottomModal";
+import CourseAdd from "../modals/CourseAdd";
 
 const cardMargin = 16;
 
@@ -22,6 +24,7 @@ export default class Courses extends React.Component {
     this.state = {
       title: "2018",
       subtitle: "~2019 at ECNU",
+      modalVisible: false,
       scrollY: new Animated.Value(0),
       // for screen rotation
       windowWidth: Dimensions.get("window").width,
@@ -77,6 +80,11 @@ export default class Courses extends React.Component {
           renderItem={this.renderCourse}
         />
         <ToolbarView title={this.state.title} scrollY={this.state.scrollY} />
+        <MyBottomModal
+          isVisible={this.state.modalVisible}
+          toggleModal={this.toggleModal}
+          child={<CourseAdd />}
+        />
       </View>
     );
   }
@@ -89,7 +97,7 @@ export default class Courses extends React.Component {
       return (
         <TouchableOpacity
           onPress={() => {
-            this.props.navigation.navigate(routeNames.courseAdd);
+            this.setState({ modalVisible: true });
           }}
         >
           <View style={[styles.courseCard, { height: 62, width: cardWidth }]}>
@@ -123,6 +131,10 @@ export default class Courses extends React.Component {
 
   handleScroll = event => {
     this.state.scrollY.setValue(event.nativeEvent.contentOffset.y);
+  };
+
+  toggleModal = () => {
+    this.setState({ modalVisible: false });
   };
 }
 

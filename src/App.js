@@ -1,9 +1,7 @@
 import React from "react";
-import { themeColor } from "./global";
-import { createStackNavigator } from "react-navigation";
-
-import { CourseAdd, HomeworkAdd } from "./modals";
 import { MainStack } from "./routes/MainStack";
+import FlashMessage from "react-native-flash-message/src/FlashMessage";
+import { View } from "react-native";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,6 +12,11 @@ export default class App extends React.Component {
     console.ignoredYellowBox = ["Remote debugger"];
   }
   render() {
-    return <MainStack screenProps={this.state} />;
+    return (
+      <View style={{ flex: 1 }}>
+        <MainStack screenProps={this.state} />
+        <FlashMessage position="top" floating={true} />
+      </View>
+    );
   }
 }

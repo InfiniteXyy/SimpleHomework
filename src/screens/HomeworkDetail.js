@@ -18,7 +18,7 @@ export default class HomeworkDetail extends React.Component {
           rightTitle={"保存"}
           onPressLeft={() => this.props.navigation.goBack()}
         />
-        
+
         <Text>{this.state.homework.content}</Text>
       </View>
     );

@@ -24,7 +24,7 @@ export default class BorderHeader extends React.PureComponent {
       <View style={styles.container}>
         <TouchableOpacity onPress={onPressLeft}>
           <Icon
-            containerStyle={{padding: 6}}
+            containerStyle={{ padding: 6 }}
             name="md-close"
             type="ionicon"
             size={30}
@@ -53,5 +53,5 @@ const styles = {
     fontSize: 24,
     fontWeight: "600",
     color: themeColor.secondaryText
-  },
+  }
 };

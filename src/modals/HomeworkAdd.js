@@ -4,7 +4,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  ScrollView,
+  Dimensions,
   TouchableWithoutFeedback
 } from "react-native";
 import MyTextInput from "../shared/MyTextInput";
@@ -13,6 +13,8 @@ import { Icon } from "react-native-elements";
 import ActionSheet from "react-native-actionsheet";
 import realm from "../global/realm";
 import BorderHeader from "../shared/BorderHeader";
+import { showMessage, hideMessage } from "react-native-flash-message";
+import FlashMessage from "react-native-flash-message/src/FlashMessage";
 
 export default class HomeworkAdd extends React.Component {
   constructor(props) {
@@ -26,6 +28,10 @@ export default class HomeworkAdd extends React.Component {
     };
     this.options = courses.map(item => item.title);
     this.options.push("取消");
+    let windowWidth = Dimensions.get("window").width;
+    let buttonColumns = Math.floor(windowWidth / 100);
+    this.buttonWidth =
+      (windowWidth - 24 * 2 - 12 * (buttonColumns - 1)) / buttonColumns;
   }
 
   goBack = () => {
@@ -51,7 +57,7 @@ export default class HomeworkAdd extends React.Component {
             color: themeColor.primaryText,
             marginTop: 20
           }}
-          placeholder="作业内容..."
+          placeholder="作业标题..."
           returnKeyType="done"
           onChangeText={text => {
             this.setState({ content: text });
@@ -77,22 +83,28 @@ export default class HomeworkAdd extends React.Component {
           onPress={this.selectCourse}
           cancelButtonIndex={this.options.length - 1}
         />
+        <FlashMessage
+          ref={o => {
+            this.message = o;
+          }}
+          position={"left"}
+          floating={true}
+        />
       </View>
     );
   }
 
   showCourseSelection = () => this.ActionSheet.show();
-  
+
   renderButton = (item, index) => {
     return (
       <TouchableOpacity onPress={item.onClick} key={index.toString()}>
-        <View style={styles.button}>
+        <View style={[styles.button, { width: this.buttonWidth }]}>
           <Icon {...item.icon} size={24} color={themeColor.activeIcon} />
           <Text
             style={{
               color: themeColor.activeIcon,
-              marginTop: 12,
-              fontSize: 15
+              marginTop: 12
             }}
           >
             {item.title()}
@@ -122,10 +134,19 @@ export default class HomeworkAdd extends React.Component {
   addHomework = () => {
     let content = this.state.content.trim();
     if (content.length === 0) {
-      alert("请输入正确的名字");
+      this.message.showMessage({
+        ref: "myLocalFlashMessage",
+        message: "输入错误！",
+        description: "请输入作业标题...",
+        type: "warning"
+      });
     } else {
       if (this.state.selectedCourse == null) {
-        this.showCourseSelection();
+        this.message.showMessage({
+          message: "课程未设定！",
+          description: "请先点击下方按钮设置课程",
+          type: "warning"
+        });
       } else {
         let course = realm.objectForPrimaryKey(
           "Course",
@@ -133,7 +154,13 @@ export default class HomeworkAdd extends React.Component {
         );
         realm.write(() => {
           realm.create("Homework", { content, course });
+          showMessage({
+            message: course.title,
+            description: "添加了新的作业",
+            type: "success"
+          });
         });
+
         this.goBack();
       }
     }
@@ -142,19 +169,21 @@ export default class HomeworkAdd extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    shadowColor: "#cccccc",
+    shadowRadius: 10,
+    elevation: 4,
     borderTopEndRadius: 12,
     borderTopStartRadius: 12,
     paddingHorizontal: 24,
     paddingBottom: 80,
-    backgroundColor: "white"
+    backgroundColor: themeColor.backgroundColor
   },
   buttonContainer: {
     marginVertical: 40,
-    flexDirection: "row",
+    flexDirection: "row"
   },
   button: {
     marginRight: 16,
-    width: 110,
     height: 80,
     alignItems: "center",
     justifyContent: "center",
@@ -162,7 +191,7 @@ const styles = StyleSheet.create({
     borderStyle: "dashed",
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: themeColor.inactiveIcon,
+    borderColor: themeColor.inactiveIcon
   },
   tagButton: {
     marginTop: 16,

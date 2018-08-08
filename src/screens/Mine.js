@@ -14,7 +14,7 @@ import { profileData } from "../utils/DemoServer";
 const links = [
   { title: "主页", navigate: routeNames.personPage },
   { title: "归档", navigate: "" },
-  { title: "设置", navigate: routeNames.setting },
+  { title: "设置", navigate: routeNames.setting }
 ];
 
 export default class Mine extends React.Component {

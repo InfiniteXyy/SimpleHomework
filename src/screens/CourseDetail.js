@@ -17,7 +17,6 @@ export default class CourseDetail extends React.Component {
           leftTitle={this.title}
           onPressLeft={() => this.props.navigation.goBack()}
         />
-
       </View>
     );
   }

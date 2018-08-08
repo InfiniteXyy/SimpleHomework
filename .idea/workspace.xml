@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="增加有趣动画。。。">
-      <change afterPath="$PROJECT_DIR$/src/shared/BorderHeader.js" afterDir="false" />
+    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="use modal">
+      <change afterPath="$PROJECT_DIR$/src/shared/MyBottomModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/xcshareddata/xcschemes/SimpleHomework.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/SimpleHomework.xcodeproj/xcshareddata/xcschemes/SimpleHomework.xcscheme" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/CourseAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/CourseAdd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/CourseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CourseDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Courses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/DashBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/DashboardCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashboardCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/DashboardCardItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashboardCardItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/HomeworkDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeworkDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Mine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/BorderHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/BorderHeader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,28 +30,28 @@
     <session id="768325287">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.4" value="7" />
+          <entry key="project.open.time.4" value="8" />
           <entry key="project.open.time.5" value="5" />
           <entry key="project.open.time.6" value="5" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="44954" />
+          <entry key="js" value="47852" />
           <entry key="json" value="55" />
-          <entry key="txt" value="1075" />
+          <entry key="txt" value="1084" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="55" />
-          <entry key="JavaScript" value="42352" />
-          <entry key="PLAIN_TEXT" value="1053" />
+          <entry key="JavaScript" value="45250" />
+          <entry key="PLAIN_TEXT" value="1062" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -60,10 +61,11 @@
           <entry key="gradle" value="3" />
           <entry key="iml" value="1" />
           <entry key="java" value="1" />
-          <entry key="js" value="506" />
-          <entry key="json" value="12" />
+          <entry key="js" value="544" />
+          <entry key="json" value="13" />
           <entry key="lock" value="1" />
           <entry key="log" value="1" />
+          <entry key="md" value="1" />
           <entry key="mm" value="1" />
           <entry key="png" value="8" />
           <entry key="properties" value="1" />
@@ -74,16 +76,16 @@
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="8" />
-          <entry key="JSON" value="14" />
-          <entry key="JavaScript" value="506" />
-          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="JSON" value="15" />
+          <entry key="JavaScript" value="544" />
+          <entry key="PLAIN_TEXT" value="8" />
           <entry key="TypeScript" value="4" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="PrettierLanguageServiceImpl" value="14" />
+          <entry key="PrettierLanguageServiceImpl" value="15" />
           <entry key="TypeScriptServerServiceImpl" value="3" />
         </counts>
       </usages-collector>
@@ -92,10 +94,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
+        <entry file="file://$PROJECT_DIR$/src/modals/CourseAdd.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1399">
-              <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
+            <state relative-caret-position="286">
+              <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -106,26 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@babel/core/node_modules/babylon/lib/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-336">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/DashboardCard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+            <state relative-caret-position="255">
+              <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -134,19 +118,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/screens/HomeworkDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/CourseDetail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state relative-caret-position="240">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -157,8 +132,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/screens/DashboardCardItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="456">
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Components/Keyboard/Keyboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="108" column="26" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="968">
+              <caret line="224" column="30" lean-forward="true" selection-start-line="224" selection-start-column="30" selection-end-line="224" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -174,18 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>create</find>
-      <find>renderTabBar</find>
-      <find>Value</find>
-      <find>Text</find>
-      <find>eleva</find>
-      <find>onscroll</find>
-      <find>collapsableBar</find>
-      <find>ios</find>
-      <find>screenWidth</find>
-      <find>prop</find>
-      <find>proptypes</find>
-      <find>color</find>
       <find>id</find>
       <find>onPressLeft</find>
       <find>Flat</find>
@@ -204,6 +185,18 @@
       <find>设置课程</find>
       <find>courses</find>
       <find>to</find>
+      <find>toggle</find>
+      <find>hid</find>
+      <find>react-native-message-bar</find>
+      <find>isvis</find>
+      <find>left</find>
+      <find>themeColor</find>
+      <find>作业</find>
+      <find>show</find>
+      <find>ref</find>
+      <find>hidemessa</find>
+      <find>Animated.spring()</find>
+      <find>floa</find>
     </findStrings>
     <replaceStrings>
       <replace>hid</replace>
@@ -215,8 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/routers/MainStack.js" />
-        <option value="$PROJECT_DIR$/src/screens/CourseDetailScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/HomeworkDetailScreen.js" />
         <option value="$PROJECT_DIR$/src/modals/index.js" />
         <option value="$PROJECT_DIR$/src/routers/FirstNavigator.js" />
@@ -244,28 +235,30 @@
         <option value="$PROJECT_DIR$/src/static/index.js" />
         <option value="$PROJECT_DIR$/src/screens/minePages/ThemeChoose.js" />
         <option value="$PROJECT_DIR$/src/screens/minePages/Setting.js" />
-        <option value="$PROJECT_DIR$/src/shared/DashboardHeader.js" />
         <option value="$PROJECT_DIR$/src/global/index.js" />
-        <option value="$PROJECT_DIR$/src/modals/CourseAdd.js" />
         <option value="$PROJECT_DIR$/src/global/realm.js" />
         <option value="$PROJECT_DIR$/src/screens/Mine.js" />
         <option value="$PROJECT_DIR$/src/global/colors.js" />
         <option value="$PROJECT_DIR$/src/shared/ToolbarView.js" />
         <option value="$PROJECT_DIR$/src/global/model.js" />
-        <option value="$PROJECT_DIR$/src/screens/Courses.js" />
         <option value="$PROJECT_DIR$/src/shared/MyDatePicker.js" />
         <option value="$PROJECT_DIR$/src/screens/HomeworkDetail.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js" />
         <option value="$PROJECT_DIR$/src/shared/StackHeader.js" />
         <option value="$PROJECT_DIR$/src/shared/BorderHeader.js" />
         <option value="$PROJECT_DIR$/src/screens/DashboardCard.js" />
-        <option value="$PROJECT_DIR$/src/screens/DashBoard.js" />
-        <option value="$PROJECT_DIR$/src/modals/HomeworkAdd.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/screens/CourseDetail.js" />
         <option value="$PROJECT_DIR$/src/screens/DashboardCardItem.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/shared/DashboardHeader.js" />
+        <option value="$PROJECT_DIR$/src/shared/MyMessageBar.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/screens/DashBoard.js" />
+        <option value="$PROJECT_DIR$/src/screens/Courses.js" />
+        <option value="$PROJECT_DIR$/src/shared/MyBottomModal.js" />
+        <option value="$PROJECT_DIR$/src/modals/HomeworkAdd.js" />
+        <option value="$PROJECT_DIR$/src/modals/CourseAdd.js" />
       </list>
     </option>
   </component>
@@ -292,10 +285,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="320" />
-    <option name="y" value="22" />
-    <option name="width" value="1321" />
-    <option name="height" value="888" />
+    <option name="x" value="-179" />
+    <option name="y" value="137" />
+    <option name="width" value="1541" />
+    <option name="height" value="871" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -314,12 +307,6 @@
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
@@ -353,7 +340,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="stack&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/shared/StackHeader.js&#10;das&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/DashBoard.js&#10;cours&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/CourseDetail.js&#10;dash&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/DashBoard.js&#10;theme&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/ThemeChoose.js&#10;add&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/CourseAdd.js&#10;demo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/utils/DemoServer.js&#10;course&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/CourseDetail.js&#10;setting&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/Setting.js&#10;homewo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/HomeworkAdd.js&#10;courses&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/Courses.js&#10;TouchableHighlight&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="homew&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/HomeworkAdd.js&#10;coursead&#9;null&#9;null&#10;homewo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/HomeworkAdd.js&#10;stack&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/shared/StackHeader.js&#10;das&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/DashBoard.js&#10;cours&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/CourseDetail.js&#10;dash&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/DashBoard.js&#10;theme&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/ThemeChoose.js&#10;add&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/modals/CourseAdd.js&#10;demo&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/utils/DemoServer.js&#10;course&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/CourseDetail.js&#10;setting&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/minePages/Setting.js&#10;courses&#9;FILE&#9;file:///Users/xuyiyang/Documents/react-native/SimpleHomework/src/screens/Courses.js&#10;TouchableHighlight&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -428,6 +415,9 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -469,7 +459,8 @@
       <workItem from="1533617186393" duration="4901000" />
       <workItem from="1533623667573" duration="19470000" />
       <workItem from="1533652740952" duration="1229000" />
-      <workItem from="1533720682884" duration="8339000" />
+      <workItem from="1533720682884" duration="11355000" />
+      <workItem from="1533733129984" duration="8921000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1532523310323</created>
@@ -674,11 +665,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533646872406</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="use modal">
+      <created>1533730249465</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1533730249465</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236067000" />
+    <option name="totallyTimeSpent" value="248004000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -690,23 +688,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="320" y="22" width="1321" height="888" extended-state="0" />
+    <frame x="275" y="30" width="1541" height="871" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.63325185" visible="true" weight="0.21196063" />
-      <window_info id="Structure" order="1" sideWeight="0.2979798" side_tool="true" weight="0.21044427" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.72959805" visible="true" weight="0.1817002" />
+      <window_info id="Structure" order="1" sideWeight="0.27040195" side_tool="true" weight="0.1817002" />
       <window_info id="npm" order="2" sideWeight="0.36674815" side_tool="true" weight="0.21493776" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925485" weight="0.50835323" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924336" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925485" weight="0.38367844" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925485" weight="0.39903265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3278481" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3276492" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.31861576" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.35148516" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.51400733" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.35079172" />
       <window_info anchor="bottom" id="TypeScript" order="10" weight="0.3270202" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007452" side_tool="true" weight="0.19264892" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -747,7 +745,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add two modals" />
     <MESSAGE value="还是不熟悉啊 es6" />
     <MESSAGE value="pull to add new homework" />
     <MESSAGE value="All screen finished" />
@@ -772,64 +769,10 @@
     <MESSAGE value="ejected! for Realm use" />
     <MESSAGE value="realm 初体验，还是有点难" />
     <MESSAGE value="增加有趣动画。。。" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加有趣动画。。。" />
+    <MESSAGE value="use modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="use modal" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@2x.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_29pt.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/Icon-1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/SimpleHomework/Images.xcassets/AppIcon.appiconset/icon_60pt@3x.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yarn-error.log" />
-    <entry file="file://$PROJECT_DIR$/yarn.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/Button.android.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/Button.ios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="139" column="29" lean-forward="true" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/simplehomework/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/app/app.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -860,15 +803,6 @@
     <entry file="file://$PROJECT_DIR$/src/screens/minePages/PersonPage.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modals/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Mine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -898,20 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Courses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modals/CourseAdd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared/MyDatePicker.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-native-actionsheet/lib/ActionSheetIOS.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -920,34 +840,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-datepicker-dialog/main-index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-datepicker-dialog/lib/datepicker/DatePickerDialog.ios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-datepicker-dialog/lib/datepicker/DatePickerDialog.android.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-datepicker-dialog/main-index.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-datepicker-dialog/lib/datepicker/DatePickerDialog.ios.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-datepicker-dialog/lib/datepicker/DatePickerDialog.android.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-native-actionsheet/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="9" column="31" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -965,23 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/MainStack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/HomeworkDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -989,34 +871,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/DashboardHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="24" selection-start-line="24" selection-end-line="27" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js" />
     <entry file="file://$PROJECT_DIR$/src/shared/ToolbarView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1054,34 +913,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1399">
-          <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@babel/core/node_modules/babylon/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-336">
           <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -1095,10 +930,180 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="1423" column="2" selection-start-line="1423" selection-start-column="2" selection-end-line="1423" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/MyMessageBar.js" />
+    <entry file="file://$PROJECT_DIR$/src/shared/DashboardHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/metro/src/DeltaBundler/traverseDependencies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="238" column="306" selection-start-line="238" selection-start-column="306" selection-end-line="238" selection-end-column="306" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-message-bar/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-message-bar/MessageBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/MainStack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/MyTextInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modals/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/prop-types/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/flow/prop-types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="31" column="18" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-flash-message/src/FlashMessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2317">
+          <caret line="319" column="34" selection-start-line="319" selection-start-column="22" selection-end-line="319" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="115" column="14" lean-forward="true" selection-start-line="115" selection-start-column="14" selection-end-line="115" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Courses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/MyBottomModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="968">
+          <caret line="224" column="30" lean-forward="true" selection-start-line="224" selection-start-column="30" selection-end-line="224" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modals/CourseAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Components/Keyboard/Keyboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="108" column="26" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/HomeworkDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/DashboardCardItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="456">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
         </state>
       </provider>
     </entry>
