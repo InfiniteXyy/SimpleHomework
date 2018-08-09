@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Animated, Keyboard } from "react-native";
+import { Animated, Keyboard } from "react-native";
 import MyTextInput from "../shared/MyTextInput";
 import { themeColor } from "../global";
 import realm from "../global/realm";
@@ -12,7 +12,7 @@ export default class CourseAdd extends React.Component {
     super(props);
     this.state = {
       content: "",
-      paddingBottomAnim: new Animated.Value(60)
+      transformY: new Animated.Value(0)
     };
   }
 
@@ -32,14 +32,16 @@ export default class CourseAdd extends React.Component {
   }
 
   _keyboardWillShow = e => {
-    Animated.spring(this.state.paddingBottomAnim, {
-      toValue: 60 + e.endCoordinates.height
+    Animated.spring(this.state.transformY, {
+      toValue: -e.endCoordinates.height,
+      useNativeDriver: true
     }).start();
   };
 
   _keyboardWillHide = e => {
-    Animated.spring(this.state.paddingBottomAnim, {
-      toValue: 60
+    Animated.spring(this.state.transformY, {
+      toValue: 0,
+      useNativeDriver: true
     }).start();
   };
   componentWillUnmount() {
@@ -52,7 +54,7 @@ export default class CourseAdd extends React.Component {
       <Animated.View
         style={[
           styles.container,
-          { paddingBottom: this.state.paddingBottomAnim }
+          { transform: [{translateY: this.state.transformY}] }
         ]}
       >
         <BorderHeader onPressLeft={this.goBack} onPressRight={this.addCourse} />
@@ -117,7 +119,8 @@ const styles = {
     borderTopEndRadius: 12,
     borderTopStartRadius: 12,
     paddingHorizontal: 24,
-    paddingBottom: 60,
+    paddingBottom: 200,
+    marginBottom: -120,
     backgroundColor: themeColor.backgroundColor
   }
 };

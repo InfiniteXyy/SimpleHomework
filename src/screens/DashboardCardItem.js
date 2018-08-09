@@ -1,11 +1,12 @@
 import React from "react";
-import { colors, routeNames, themeColor } from "../global";
+import { colors, themeColor, routeNames } from "../global";
 import { Text, TouchableOpacity, View } from "react-native";
 import gStyles from "../global/styles";
 import { Icon } from "react-native-elements";
 import realm from "../global/realm";
+import { withNavigation } from "react-navigation";
 
-export default class DashboardCardItem extends React.Component {
+class DashboardCardItem extends React.Component {
   render() {
     let item = this.props.item;
     let iconKind = item.finished
@@ -37,8 +38,14 @@ export default class DashboardCardItem extends React.Component {
     });
   };
 
-  goToDetail = () => {};
+  goToDetail = () => {
+    this.props.navigation.navigate(routeNames.homeworkDetail, {
+      homework: this.props.item
+    });
+  };
 }
+
+export default withNavigation(DashboardCardItem);
 
 const styles = {
   cardItemContainer: {

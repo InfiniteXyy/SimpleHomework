@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardAvoidingView } from "react-native";
+import { Keyboard } from "react-native";
 import Modal from "react-native-modal";
 import propTypes from "prop-types";
 
@@ -14,11 +14,11 @@ export default class MyBottomModal extends React.Component {
     let modalProps = {
       isVisible: this.props.isVisible,
       swipeDirection: "down",
-      onSwipe: this.props.toggleModal,
+      onSwipe: this.close,
       backdropOpacity: 0.38,
       animationInTiming: 500,
       animationOutTiming: 450,
-      onBackdropPress: this.props.toggleModal,
+      onBackdropPress: this.close,
       style: {
         flex: 1,
         justifyContent: "flex-end",
@@ -29,9 +29,15 @@ export default class MyBottomModal extends React.Component {
     return (
       <Modal {...modalProps}>
         {React.cloneElement(this.props.child, {
-          goBack: this.props.toggleModal
+          goBack: this.close
         })}
       </Modal>
     );
   }
+
+  close = () => {
+    Keyboard.dismiss();
+    this.props.toggleModal();
+    // when toggle modal, dashboard will automatically refresh ((*^▽^*))
+  };
 }

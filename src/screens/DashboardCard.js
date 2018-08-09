@@ -90,6 +90,7 @@ export default class DashboardCard extends React.PureComponent {
     let expandHeight = getBodyHeight(course.homeworkList.length);
     realm.write(() => {
       course.expanding = !expanding;
+      this.forceUpdate()
     });
     Animated.parallel([
       Animated.spring(this.state.marginBottomAnim, {

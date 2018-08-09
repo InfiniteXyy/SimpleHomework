@@ -1,16 +1,21 @@
 import React from "react";
-import { Animated, FlatList, View, Text, TouchableOpacity } from "react-native";
+// import RN elements
+import { Animated, FlatList, View } from "react-native";
+import { DashboardHeader, PullDownTip, ToolbarView } from "../shared";
+import { gStyles } from "../global";
+import { showMessage } from "react-native-flash-message";
+import ActionSheet from "react-native-actionsheet";
+// import list items
+import DashboardCard from "./DashboardCard";
+// import modals
+import HomeworkAdd from "../modals/HomeworkAdd";
+import MyBottomModal from "../shared/MyBottomModal";
+// import time library and database support
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
 import realm from "../global/realm";
-import { DashboardHeader, PullDownTip, ToolbarView } from "../shared";
-import ActionSheet from "react-native-actionsheet";
-import { gStyles, routeNames } from "../global";
+// import demo
 import { courseData } from "../utils/DemoServer";
-import DashboardCard from "./DashboardCard";
-import HomeworkAdd from "../modals/HomeworkAdd";
-import { showMessage, hideMessage } from "react-native-flash-message";
-import MyBottomModal from "../shared/MyBottomModal";
 
 export default class DashBoard extends React.Component {
   constructor(props) {
@@ -22,27 +27,12 @@ export default class DashBoard extends React.Component {
       scrollY: new Animated.Value(0), // for List Scroll Animation
       modalVisible: null
     };
-
-    // update time automatically
-    setTimeout(() => {
-      this.timeUpdater = setInterval(() => {
-        console.log("info: time updated");
-        this.setState({ dateTime: moment().format("dddd h:mm") });
-      }, 60000);
-    }, 60000 - (new Date().valueOf() % 60000));
-
+    moment.updateLocale("zh-cn", momentLocale);
     this.actionList = [
-      {
-        title: "显示message",
-        type: "normal",
-        method: this.toggleMessage
-      },
       {
         title: "添加作业",
         type: "normal",
-        method: () => {
-          this.setState({ modalVisible: 1 });
-        }
+        method: this.showAddHomeworkModal
       },
       {
         title: "使用demo",
@@ -56,20 +46,25 @@ export default class DashBoard extends React.Component {
       },
       { title: "取消", type: "cancel", method: () => {} }
     ];
-    moment.updateLocale("zh-cn", momentLocale);
   }
 
   componentWillMount() {
+    // update time automatically
+    setTimeout(() => {
+      this.timeUpdater = setInterval(() => {
+        this.setState({ dateTime: moment().format("dddd h:mm") });
+      }, 60000);
+    }, 60000 - (new Date().valueOf() % 60000));
+  }
+  componentDidMount() {
+    // fetch data from the database
     let courses = realm.objects("Course");
-    courses.addListener(this.updateUI);
-    this.homeworks = realm.objects("Homework");
-    this.homeworks.addListener(this.alterHomework);
+    // courses.addListener(this.updateUI);
     this.setState({ courses });
   }
 
   componentWillUnmount() {
-    this.state.courses.removeListener(this.updateUI);
-    this.homeworks.removeAllListeners();
+    // this.state.courses.removeListener(this.updateUI);
     clearInterval(this.timeUpdater);
   }
 
@@ -93,7 +88,7 @@ export default class DashBoard extends React.Component {
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
-              this.actionList[1].method();
+              this.showAddHomeworkModal();
             }
           }}
           ListHeaderComponent={
@@ -105,7 +100,7 @@ export default class DashBoard extends React.Component {
           }
           keyExtractor={item => item.title}
           data={this.state.courses}
-          renderItem={this.renderCard}
+          renderItem={({ item }) => <DashboardCard data={item} />}
         />
         <ToolbarView
           title={this.state.weekTitle}
@@ -126,16 +121,6 @@ export default class DashBoard extends React.Component {
     this.forceUpdate();
   };
 
-  alterHomework = (newList, changes) => {
-    if (changes.insertions.length !== 0) {
-      this.forceUpdate();
-    }
-  };
-
-  renderCard = ({ item }) => {
-    return <DashboardCard data={item} />;
-  };
-
   toggleMessage = () => {
     showMessage({
       message: "Simple message",
@@ -151,6 +136,10 @@ export default class DashBoard extends React.Component {
     this.setState({ modalVisible: null });
   };
 
+  showAddHomeworkModal = () => {
+    this.setState({ modalVisible: 1 });
+  };
+
   handleScroll = event => {
     this.state.scrollY.setValue(event.nativeEvent.contentOffset.y);
   };
@@ -158,6 +147,7 @@ export default class DashBoard extends React.Component {
   useDemo = () => {
     realm.write(() => {
       realm.deleteAll();
+      this.forceUpdate();
       for (const item of courseData) {
         let course = realm.create("Course", {
           title: item.title,
