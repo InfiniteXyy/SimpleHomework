@@ -8,7 +8,8 @@ const routeNames = {
   login: "Login",
   register: "Register",
   courseDetail: "CourseDetail",
-  homeworkDetail: "HomeworkDetail"
+  homeworkDetail: "HomeworkDetail",
+  homeworkEdit: "HomeworkEdit"
 };
 
 import gStyles from "./styles";

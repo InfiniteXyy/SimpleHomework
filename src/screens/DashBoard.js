@@ -16,6 +16,7 @@ import momentLocale from "moment/locale/zh-cn";
 import realm from "../global/realm";
 // import demo
 import { courseData } from "../utils/DemoServer";
+import EmptyView from '../shared/EmptyView'
 
 export default class DashBoard extends React.Component {
   constructor(props) {
@@ -85,6 +86,7 @@ export default class DashBoard extends React.Component {
           scrollY={this.state.scrollY}
         />
         <FlatList
+          ListEmptyComponent={<EmptyView title={"作业"} onClick={this.showAddHomeworkModal}/>}
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
