@@ -1,9 +1,9 @@
 import React from "react";
-import { Animated, Keyboard } from "react-native";
+import { Animated, Keyboard, View } from "react-native";
 import MyTextInput from "../shared/MyTextInput";
 import { themeColor } from "../global";
 import realm from "../global/realm";
-import BorderHeader from "../shared/BorderHeader";
+import BottomModalHeader from "../shared/BottomModalHeader";
 import FlashMessage from "react-native-flash-message/src/FlashMessage";
 import { showMessage } from "react-native-flash-message";
 
@@ -54,29 +54,35 @@ export default class CourseAdd extends React.Component {
       <Animated.View
         style={[
           styles.container,
-          { transform: [{translateY: this.state.transformY}] }
+          { transform: [{ translateY: this.state.transformY }] }
         ]}
       >
-        <BorderHeader onPressLeft={this.goBack} onPressRight={this.addCourse} />
-        <MyTextInput
-          style={{
-            fontSize: 36,
-            color: themeColor.primaryText,
-            marginTop: 32
-          }}
-          placeholder="课程名..."
-          returnKeyType="done"
-          onChangeText={text => {
-            this.setState({ content: text });
-          }}
+        <BottomModalHeader
+          onPressLeft={this.goBack}
+          onPressRight={this.addCourse}
+          title={"添加课程"}
         />
-        <FlashMessage
-          ref={o => {
-            this.message = o;
-          }}
-          position={"left"}
-          floating={true}
-        />
+        <View style={{ marginHorizontal: 24 }}>
+          <MyTextInput
+            style={{
+              fontSize: 36,
+              color: themeColor.primaryText,
+              marginTop: 32
+            }}
+            placeholder="课程名..."
+            returnKeyType="done"
+            onChangeText={text => {
+              this.setState({ content: text });
+            }}
+          />
+          <FlashMessage
+            ref={o => {
+              this.message = o;
+            }}
+            position={"left"}
+            floating={true}
+          />
+        </View>
       </Animated.View>
     );
   }
@@ -118,7 +124,6 @@ const styles = {
     elevation: 4,
     borderTopEndRadius: 12,
     borderTopStartRadius: 12,
-    paddingHorizontal: 24,
     paddingBottom: 200,
     marginBottom: -120,
     backgroundColor: themeColor.backgroundColor

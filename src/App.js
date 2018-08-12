@@ -15,7 +15,7 @@ export default class App extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <MainStack screenProps={this.state} />
-        <FlashMessage position="top" floating={true} />
+        <FlashMessage position="top" />
       </View>
     );
   }

@@ -6,12 +6,14 @@ const colors = {
   green: "#7ED321",
   brown: "#8B572A",
   blue: "#019AE8",
-  lightBlue: "#89c3eb"
+  lightBlue: "#89c3eb",
+  red: "#e83929"
 };
 
 const themeColor = {
   primaryColor: colors.blue,
   primaryText: colors.black,
+  redText: colors.red,
   secondaryText: colors.gray,
   activeIcon: colors.darkerGray,
   inactiveIcon: colors.gray,

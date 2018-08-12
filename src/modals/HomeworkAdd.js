@@ -12,9 +12,13 @@ import { themeColor } from "../global";
 import { Icon } from "react-native-elements";
 import ActionSheet from "react-native-actionsheet";
 import realm from "../global/realm";
-import BorderHeader from "../shared/BorderHeader";
-import { showMessage, hideMessage } from "react-native-flash-message";
+import BottomModalHeader from "../shared/BottomModalHeader";
+import { showMessage } from "react-native-flash-message";
 import FlashMessage from "react-native-flash-message/src/FlashMessage";
+import MyDatePicker from "../shared/MyDatePicker";
+import moment from "moment";
+
+const df = date => moment(date).format("M月D日截止");
 
 export default class HomeworkAdd extends React.Component {
   constructor(props) {
@@ -24,7 +28,8 @@ export default class HomeworkAdd extends React.Component {
       content: "",
       selectedCourse: null,
       courses,
-      deadline: new Date()
+      deadline: null,
+      modalVisible: null
     };
     this.options = courses.map(item => item.title);
     this.options.push("取消");
@@ -47,42 +52,45 @@ export default class HomeworkAdd extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <BorderHeader
+        <BottomModalHeader
           onPressLeft={this.goBack}
           onPressRight={this.addHomework}
+          title={"添加作业"}
         />
-        <MyTextInput
-          style={{
-            fontSize: 36,
-            color: themeColor.primaryText,
-            marginTop: 20
-          }}
-          placeholder="作业标题..."
-          returnKeyType="done"
-          onChangeText={text => {
-            this.setState({ content: text });
-          }}
-        />
-        <View style={styles.buttonContainer}>
-          {this.buttons.map(this.renderButton)}
-        </View>
-        <Text style={{ fontSize: 18, color: themeColor.primaryText }}>
-          备注
-        </Text>
-        <TouchableWithoutFeedback>
-          <View style={styles.tagButton}>
-            <Text style={{ color: themeColor.secondaryText }}>点击添加</Text>
+        <View style={{ marginHorizontal: 24 }}>
+          <MyTextInput
+            style={{
+              fontSize: 36,
+              color: themeColor.primaryText,
+              marginTop: 20
+            }}
+            placeholder="作业标题..."
+            returnKeyType="done"
+            onChangeText={text => {
+              this.setState({ content: text });
+            }}
+          />
+          <View style={styles.buttonContainer}>
+            {this.buttons.map(this.renderButton)}
           </View>
-        </TouchableWithoutFeedback>
+          <Text style={{ fontSize: 18, color: themeColor.primaryText }}>
+            备注
+          </Text>
+          <TouchableWithoutFeedback>
+            <View style={styles.tagButton}>
+              <Text style={{ color: themeColor.secondaryText }}>点击添加</Text>
+            </View>
+          </TouchableWithoutFeedback>
 
-        <ActionSheet
-          title={"选择一门课程"}
-          styles={{}} // for Android
-          ref={o => (this.ActionSheet = o)}
-          options={this.options}
-          onPress={this.selectCourse}
-          cancelButtonIndex={this.options.length - 1}
-        />
+          <ActionSheet
+            title={"选择一门课程"}
+            styles={{}} // for Android
+            ref={o => (this.ActionSheet = o)}
+            options={this.options}
+            onPress={this.selectCourse}
+            cancelButtonIndex={this.options.length - 1}
+          />
+        </View>
         <FlashMessage
           ref={o => {
             this.message = o;
@@ -90,11 +98,27 @@ export default class HomeworkAdd extends React.Component {
           position={"left"}
           floating={true}
         />
+
+        <MyDatePicker
+          isVisible={this.state.modalVisible === 1}
+          toggleModal={this.toggleModal}
+          date={this.state.deadline}
+          setDate={this.saveTimeAndClose}
+        />
       </View>
     );
   }
 
+  saveTimeAndClose = date => {
+    this.setState({ deadline: date, modalVisible: null });
+  };
+  toggleModal = () => this.setState({ modalVisible: null });
+
   showCourseSelection = () => this.ActionSheet.show();
+
+  showDatePicker = () => {
+    this.setState({ modalVisible: 1 });
+  };
 
   renderButton = (item, index) => {
     return (
@@ -126,7 +150,8 @@ export default class HomeworkAdd extends React.Component {
     },
     {
       icon: { type: "material", name: "access-time" },
-      title: () => "设置截止时间",
+      title: () =>
+        this.state.deadline == null ? "设置截止时间" : df(this.state.deadline),
       onClick: this.showDatePicker
     }
   ];
@@ -153,7 +178,11 @@ export default class HomeworkAdd extends React.Component {
           this.state.selectedCourse
         );
         realm.write(() => {
-          realm.create("Homework", { content, course });
+          realm.create("Homework", {
+            content,
+            course,
+            deadline: this.state.deadline
+          });
           showMessage({
             message: course.title,
             description: "添加了新的作业",
@@ -174,7 +203,6 @@ const styles = StyleSheet.create({
     elevation: 4,
     borderTopEndRadius: 12,
     borderTopStartRadius: 12,
-    paddingHorizontal: 24,
     paddingBottom: 80,
     backgroundColor: themeColor.backgroundColor
   },

@@ -25,10 +25,22 @@ HomeworkModel.schema = {
   name: "Homework",
   properties: {
     created: { type: "date", default: new Date() },
+    deadline: { type: "date", optional: true },
     finished: { type: "bool", default: false },
     content: "string",
-    course: "Course"
+    course: "Course",
+    remarks: "Remark[]"
   }
 };
 
-export { CourseModel, HomeworkModel };
+class RemarkModel {}
+
+RemarkModel.schema = {
+  name: "Remark",
+  properties: {
+    created: { type: "date", default: new Date() },
+    content: "string"
+  }
+};
+
+export { CourseModel, HomeworkModel, RemarkModel };

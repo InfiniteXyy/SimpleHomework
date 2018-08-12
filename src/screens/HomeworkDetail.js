@@ -6,8 +6,12 @@ import MyListItem from "../shared/MyListItem";
 import moment from "moment";
 import { routeNames, themeColor } from "../global";
 import { Icon } from "react-native-elements";
+import { showMessage } from 'react-native-flash-message'
 
-const df = date => moment(date).format("YYYY-M-D");
+const df = date => {
+  if (date) return moment(date).format("YYYY-M-D");
+  else return "未设置";
+};
 
 export default class HomeworkDetail extends React.Component {
   constructor(props) {
@@ -84,6 +88,11 @@ export default class HomeworkDetail extends React.Component {
   };
 
   handleButton = item => {
+    showMessage({
+      message: "功能还没有完善(#`O′)",
+      description: item.title,
+      type: "info"
+    });
     switch (item.title) {
       case "完成":
         break;
@@ -99,7 +108,8 @@ export default class HomeworkDetail extends React.Component {
   handleEdit = item => {
     this.props.navigation.navigate(routeNames.homeworkEdit, {
       content: item.content,
-      editType: item.title
+      editType: item.title,
+      item: this.state.homework
     });
   };
 }

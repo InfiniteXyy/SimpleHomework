@@ -3,7 +3,6 @@ import React from "react";
 import { Animated, FlatList, View } from "react-native";
 import { DashboardHeader, PullDownTip, ToolbarView } from "../shared";
 import { gStyles } from "../global";
-import { showMessage } from "react-native-flash-message";
 import ActionSheet from "react-native-actionsheet";
 // import list items
 import DashboardCard from "./DashboardCard";
@@ -122,13 +121,7 @@ export default class DashBoard extends React.Component {
   updateUI = (newList, changes) => {
     this.forceUpdate();
   };
-
-  toggleMessage = () => {
-    showMessage({
-      message: "Simple message",
-      type: "default"
-    });
-  };
+  
 
   toggleActionSheet = () => {
     this.ActionSheet.show();
