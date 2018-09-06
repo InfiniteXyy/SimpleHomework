@@ -3,6 +3,7 @@ import { View, ScrollView } from "react-native";
 import gStyles from "../global/styles";
 import StackHeader from "../shared/StackHeader";
 import TabBar from "../shared/TabBar";
+import CourseNews from "./CourseNews";
 
 export default class CourseDetail extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class CourseDetail extends React.Component {
           leftTitle={this.title}
           onPressLeft={() => this.props.navigation.goBack()}
         />
+        <CourseNews/>
       </View>
     );
   }
