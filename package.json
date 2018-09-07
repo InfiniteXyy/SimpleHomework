@@ -8,6 +8,7 @@
     "ios": "react-native run-ios"
   },
   "dependencies": {
+    "@bam.tech/react-native-scrollable-tab-view": "^0.8.2",
     "moment": "^2.22.2",
     "prop-types": "latest",
     "react": "16.4.1",

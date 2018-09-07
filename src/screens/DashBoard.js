@@ -59,12 +59,10 @@ export default class DashBoard extends React.Component {
   componentDidMount() {
     // fetch data from the database
     let courses = realm.objects("Course");
-
     this.setState({ courses });
   }
 
   componentWillUnmount() {
-    // this.state.courses.removeListener(this.updateUI);
     clearInterval(this.timeUpdater);
   }
 
@@ -85,6 +83,7 @@ export default class DashBoard extends React.Component {
           scrollY={this.state.scrollY}
         />
         <FlatList
+          ref={"courseList"}
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
@@ -117,10 +116,6 @@ export default class DashBoard extends React.Component {
     );
   }
 
-  updateUI = (newList, changes) => {
-    this.forceUpdate();
-  };
-
   toggleActionSheet = () => {
     this.ActionSheet.show();
   };
@@ -150,6 +145,7 @@ export default class DashBoard extends React.Component {
           realm.create("Homework", {
             content: h.content,
             finished: h.finished,
+            archived: false,
             course: course
           });
         }

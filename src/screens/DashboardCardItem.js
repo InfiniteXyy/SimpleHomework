@@ -34,7 +34,7 @@ class DashboardCardItem extends React.Component {
     realm.write(() => {
       let item = this.props.item;
       item.finished = !item.finished;
-      this.forceUpdate();
+      this.forceUpdate()
     });
   };
 

@@ -1,25 +1,30 @@
 import React from "react";
 import { View, FlatList } from "react-native";
 import CourseNewsItem from "./CourseNewsItem";
+import { fetchNews } from "../global/utils";
+import propTypes from "prop-types"
 
 export default class CourseNews extends React.Component {
-  constructor(props) {
+  static propTypes = {
+    urlCallback: propTypes.func.isRequired
+  }
+  constructor (props) {
     super(props);
-    this.state = {
-      newsList: [
-        { id: "1", title: "happy", content: "veHappy", author: "xyy", date: 0 },
-        { id: "2", title: "sad", content: "verysad", author: "xyy", date: 0 },
-        { id: "3", title: "waht", content: "sdfa", author: "sdaf", date: 0 }
-      ]
-    };
+    this.state = { newsList: [] };
+  }
+
+  componentDidMount() {
+    fetchNews("news", result => {
+      this.setState({ newsList: result.data });
+    });
   }
 
   render() {
     return (
       <FlatList
         data={this.state.newsList}
-        renderItem={({ item }) => <CourseNewsItem item={item} />}
-        keyExtractor={item => item.id}
+        renderItem={({ item }) => <CourseNewsItem item={item} urlCallback={this.props.urlCallback}/>}
+        keyExtractor={(item, index) => index.toString()}
       />
     );
   }

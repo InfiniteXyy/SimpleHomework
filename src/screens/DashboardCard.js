@@ -9,7 +9,7 @@ import realm from "../global/realm";
 // 计算卡片"内容高度"的函数
 const getBodyHeight = num => num * 39 + 24;
 
-export default class DashboardCard extends React.PureComponent {
+export default class DashboardCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +26,28 @@ export default class DashboardCard extends React.PureComponent {
         expanding ? 0 : -getBodyHeight(course.homeworkList.length)
       )
     });
+  }
+
+  componentDidMount() {
+    // this.state.course.homeworkList.addListener(this.updateListener);
+  }
+
+  componentWillUnmount() {
+    // this.state.course.homeworkList.removeListener(this.updateListener);
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return nextState.course !== this.state.course;
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.course.title + "updated!!");
+  }
+
+  updateListener(homework, changes) {
+    if (changes.modifications.length) {
+
+    }
   }
 
   render() {
@@ -90,7 +112,7 @@ export default class DashboardCard extends React.PureComponent {
     let expandHeight = getBodyHeight(course.homeworkList.length);
     realm.write(() => {
       course.expanding = !expanding;
-      this.forceUpdate()
+      this.forceUpdate();
     });
     Animated.parallel([
       Animated.spring(this.state.marginBottomAnim, {

@@ -27,6 +27,7 @@ HomeworkModel.schema = {
     created: { type: "date", default: new Date() },
     deadline: { type: "date", optional: true },
     finished: { type: "bool", default: false },
+    archived: { type: "bool", default: false },
     content: "string",
     course: "Course",
     remarks: "Remark[]"

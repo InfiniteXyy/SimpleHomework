@@ -42,13 +42,13 @@ export default class Courses extends React.Component {
       });
     });
     let courses = realm.objects("Course");
-    courses.addListener(this.updateUI);
+    // courses.addListener(this.updateUI);
     this.setState({ courses });
   }
 
   componentWillUnmount() {
     Dimensions.removeEventListener("change", this.rotateHandler);
-    this.state.courses.removeListener(this.updateUI);
+    // this.state.courses.removeListener(this.updateUI);
   }
 
   updateUI = (newList, changes) => {
@@ -117,7 +117,7 @@ export default class Courses extends React.Component {
       <TouchableOpacity
         onPress={() =>
           this.props.navigation.navigate(routeNames.courseDetail, {
-            title: item.title
+            course: item
           })
         }
       >
