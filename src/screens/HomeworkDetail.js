@@ -6,7 +6,7 @@ import MyListItem from "../shared/MyListItem";
 import moment from "moment";
 import { routeNames, themeColor } from "../global";
 import { Icon } from "react-native-elements";
-import { showMessage } from 'react-native-flash-message'
+import { showMessage } from "react-native-flash-message";
 
 const df = date => {
   if (date) return moment(date).format("YYYY-M-D");
@@ -17,14 +17,19 @@ export default class HomeworkDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      homework: props.navigation.getParam("homework")
+      homework: props.navigation.getParam("homework"),
+      hasEdit: false
     };
-    this.buttons = [
-      { title: "完成", iconProp: { name: "check-circle", type: "feather" } },
-      { title: "归档", iconProp: { name: "package", type: "feather" } },
-      { title: "删除", iconProp: { name: "delete", type: "material" } }
-    ];
   }
+  static buttons = [
+    { title: "完成", iconProp: { name: "check-circle", type: "feather" } },
+    { title: "归档", iconProp: { name: "package", type: "feather" } },
+    { title: "删除", iconProp: { name: "delete", type: "material" } }
+  ];
+
+  refresh = () => {
+    this.setState({ hasEdit: true });
+  };
 
   render() {
     let homework = this.state.homework;
@@ -36,10 +41,7 @@ export default class HomeworkDetail extends React.Component {
     ];
     return (
       <View style={gStyles.container}>
-        <StackHeader
-          leftTitle={"作业"}
-          onPressLeft={() => this.props.navigation.goBack()}
-        />
+        <StackHeader leftTitle={"作业"} onPressLeft={this.handleBack} />
         <ScrollView>
           <View style={gStyles.cardContainer}>
             {this.detailList(listItems)}
@@ -51,6 +53,13 @@ export default class HomeworkDetail extends React.Component {
       </View>
     );
   }
+
+  handleBack = () => {
+    this.props.navigation.goBack();
+    if (this.state.hasEdit) {
+      this.props.navigation.getParam("refreshUI")();
+    }
+  };
 
   detailList = details => {
     return details.map((item, index) => (
@@ -64,7 +73,7 @@ export default class HomeworkDetail extends React.Component {
   };
 
   buttonGroup = () => {
-    return this.buttons.map((item, index) => {
+    return HomeworkDetail.buttons.map((item, index) => {
       let borderProps = {
         borderTopStartRadius: index === 0 ? 5 : 0,
         borderBottomStartRadius: index === 0 ? 5 : 0,
@@ -109,7 +118,8 @@ export default class HomeworkDetail extends React.Component {
     this.props.navigation.navigate(routeNames.homeworkEdit, {
       content: item.content,
       editType: item.title,
-      item: this.state.homework
+      item: this.state.homework,
+      refresh: this.refresh
     });
   };
 }

@@ -8,6 +8,7 @@ import CourseNews from "./CourseNews";
 import CourseHistory from "./CourseHistory";
 import Modal from "react-native-modal";
 import WebPage from "./WebPage";
+import CourseGroup from "./CourseGroup";
 
 export default class CourseDetail extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class CourseDetail extends React.Component {
         <ScrollableTabView renderTabBar={() => <TabBar />}>
           <CourseHistory tabLabel="详情" course={this.state.course} />
           <CourseNews tabLabel="动态" urlCallback={this.setWebUrl} />
-          <ScrollView tabLabel="群组" />
+          <CourseGroup tabLabel="群组"  course={this.state.course}/>
           <ScrollView tabLabel="成就" />
         </ScrollableTabView>
         <Modal visible={this.state.webUrl !== ""} style={{

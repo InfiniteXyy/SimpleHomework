@@ -2,14 +2,15 @@ import React from "react";
 import { Text, View, TouchableHighlight, Animated } from "react-native";
 import gStyles from "../global/styles";
 import { Icon, Badge } from "react-native-elements";
-import { themeColor } from "../global";
+import { routeNames, themeColor } from "../global";
 import DashboardCardItem from "./DashboardCardItem";
 import realm from "../global/realm";
+import { withNavigation } from "react-navigation";
 
 // 计算卡片"内容高度"的函数
 const getBodyHeight = num => num * 39 + 24;
 
-export default class DashboardCard extends React.Component {
+class DashboardCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,12 +45,6 @@ export default class DashboardCard extends React.Component {
     console.log(this.state.course.title + "updated!!");
   }
 
-  updateListener(homework, changes) {
-    if (changes.modifications.length) {
-
-    }
-  }
-
   render() {
     if (this.state.course.homeworkList.length === 0) return <View />;
     return (
@@ -82,6 +77,7 @@ export default class DashboardCard extends React.Component {
     return (
       <TouchableHighlight
         onPress={this.setCardExpand}
+        onLongPress={this.toCourseDetail}
         underlayColor={themeColor.backgroundColor}
       >
         <View style={styles.cardTitleContainer}>
@@ -123,7 +119,15 @@ export default class DashboardCard extends React.Component {
       })
     ]).start();
   };
+
+  toCourseDetail = () => {
+    this.props.navigation.navigate(routeNames.courseDetail, {
+      course: this.state.course
+    });
+  };
 }
+
+export default withNavigation(DashboardCard);
 
 const styles = {
   cardContainer: {

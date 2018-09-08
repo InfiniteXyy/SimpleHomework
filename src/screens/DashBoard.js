@@ -132,6 +132,10 @@ export default class DashBoard extends React.Component {
     this.state.scrollY.setValue(event.nativeEvent.contentOffset.y);
   };
 
+  refreshUI = () => {
+    this.forceUpdate();
+  };
+
   useDemo = () => {
     realm.write(() => {
       realm.deleteAll();

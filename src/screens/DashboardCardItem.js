@@ -40,8 +40,13 @@ class DashboardCardItem extends React.Component {
 
   goToDetail = () => {
     this.props.navigation.navigate(routeNames.homeworkDetail, {
-      homework: this.props.item
+      homework: this.props.item,
+      refreshUI: this.refreshUI
     });
+  };
+
+  refreshUI = () => {
+    this.forceUpdate();
   };
 }
 

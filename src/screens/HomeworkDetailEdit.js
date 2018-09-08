@@ -27,6 +27,7 @@ export default class HomeworkDetailEdit extends React.PureComponent {
       editType: props.navigation.getParam("editType", "back"),
       item: props.navigation.getParam("item", null),
       deadline: props.navigation.getParam("item", null).deadline,
+      refreshCallback: props.navigation.getParam("refresh", null),
       modalVisible: false
     };
   }
@@ -191,7 +192,8 @@ export default class HomeworkDetailEdit extends React.PureComponent {
       default:
         break;
     }
-    this.props.navigation.goBack()
+    this.props.navigation.goBack();
+    this.state.refreshCallback();
   };
 }
 

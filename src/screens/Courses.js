@@ -114,13 +114,7 @@ export default class Courses extends React.Component {
     };
 
     return (
-      <TouchableOpacity
-        onPress={() =>
-          this.props.navigation.navigate(routeNames.courseDetail, {
-            course: item
-          })
-        }
-      >
+      <TouchableOpacity onPress={() => this.toCourseDetail(item)}>
         <View style={[styles.courseCard, { height: 112, width: cardWidth }]}>
           <Icon {...iconProps} />
           <Text style={styles.cardTitle}>{item.title}</Text>
@@ -135,6 +129,12 @@ export default class Courses extends React.Component {
 
   toggleModal = () => {
     this.setState({ modalVisible: false });
+  };
+
+  toCourseDetail = item => {
+    this.props.navigation.navigate(routeNames.courseDetail, {
+      course: item
+    });
   };
 }
 
