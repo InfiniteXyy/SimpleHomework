@@ -1,4 +1,4 @@
-import { groupData } from "../utils/DemoServer";
+import { groupData } from "../global/DemoServer";
 
 const NEWS_HOST = "http://118.25.8.154/tp5/public/spider/index/category/";
 

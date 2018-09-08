@@ -1,19 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="增加了资讯界面，详情界面初步启动">
-      <change afterPath="$PROJECT_DIR$/src/screens/CourseGroup.js" afterDir="false" />
+    <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="增加了群组和作业列表的功能">
+      <change afterPath="$PROJECT_DIR$/src/AppRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global/colors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global/realm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/realm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global/styles.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/global/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/CourseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CourseDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/CourseHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CourseHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/CourseAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/modals/CourseAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/HomeworkAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/modals/HomeworkAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/modals/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/modals/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/FirstNavigator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/MainStack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/SecondNavigator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/ThirdNavigator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CourseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CourseGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CourseHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CourseNews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseNews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CourseNewsItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseNewsItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Courses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/DashBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/DashboardCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashboardCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/DashboardCardItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashboardCardItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeworkDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeworkDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeworkDetailEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeworkDetailEdit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/DemoServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DemoServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/DashboardCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/DashboardCardItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/dashboard/DashboardCardItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/HomeworkDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/homework/HomeworkDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/HomeworkDetailEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/homework/HomeworkDetailEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Mine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Mine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/WebPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/modals/WebPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/PersonPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/profile/PersonPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/profile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/Setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/profile/Setting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/ThemeChoose.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/profile/ThemeChoose.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/minePages/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/BottomModalHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BottomModalHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/DashboardHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/EmptyView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmptyView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/InputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MyBottomModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyBottomModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MyDatePicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyDatePicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MyListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/MyTextInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyTextInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/PullDownTip.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PullDownTip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/StackHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StackHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/TabBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TabBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ToolbarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolbarView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/DemoServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/DemoServer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,48 +67,52 @@
     <session id="768325287">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="31" />
+          <entry key="project.closed" value="32" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="12" />
+          <entry key="project.open.time.4" value="13" />
           <entry key="project.open.time.5" value="9" />
           <entry key="project.open.time.6" value="6" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="34" />
+          <entry key="project.opened" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="69619" />
+          <entry key="babelrc" value="37" />
+          <entry key="editorconfig" value="1" />
+          <entry key="js" value="70585" />
           <entry key="json" value="55" />
           <entry key="prettierrc" value="8" />
-          <entry key="txt" value="1206" />
+          <entry key="txt" value="1216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="63" />
-          <entry key="JavaScript" value="67017" />
-          <entry key="PLAIN_TEXT" value="1184" />
+          <entry key="JSON" value="100" />
+          <entry key="JavaScript" value="67983" />
+          <entry key="PLAIN_TEXT" value="1195" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="babelrc" value="1" />
+          <entry key="babelrc" value="3" />
+          <entry key="buckconfig" value="1" />
+          <entry key="editorconfig" value="1" />
           <entry key="eslintrc" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="gradle" value="3" />
           <entry key="iml" value="1" />
           <entry key="java" value="1" />
-          <entry key="js" value="718" />
-          <entry key="json" value="19" />
+          <entry key="js" value="788" />
+          <entry key="json" value="20" />
           <entry key="lock" value="1" />
           <entry key="log" value="1" />
           <entry key="md" value="2" />
           <entry key="mm" value="1" />
           <entry key="png" value="8" />
-          <entry key="prettierrc" value="2" />
+          <entry key="prettierrc" value="3" />
           <entry key="properties" value="1" />
           <entry key="ts" value="7" />
         </counts>
@@ -78,16 +121,16 @@
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="8" />
-          <entry key="JSON" value="23" />
-          <entry key="JavaScript" value="718" />
-          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="JSON" value="27" />
+          <entry key="JavaScript" value="788" />
+          <entry key="PLAIN_TEXT" value="12" />
           <entry key="TypeScript" value="7" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="PrettierLanguageServiceImpl" value="23" />
+          <entry key="PrettierLanguageServiceImpl" value="24" />
           <entry key="TypeScriptServerServiceImpl" value="6" />
         </counts>
       </usages-collector>
@@ -96,28 +139,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/global/utils.js">
+        <entry file="file://$PROJECT_DIR$/src/global/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="210">
+              <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/utils/DemoServer.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/course/CourseDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/CourseGroup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+            <state relative-caret-position="324">
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -126,12 +160,8 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-native-elements/src/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="210" column="13" selection-start-line="210" selection-start-column="13" selection-end-line="210" selection-end-column="13" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/node_modules/@bam.tech/react-native-scrollable-tab-view/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -145,18 +175,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FlatList</find>
-      <find>TouchableHighlight</find>
-      <find>Tou</find>
-      <find>MyTextInput</find>
-      <find>focus</find>
-      <find>Datep</find>
-      <find>df</find>
-      <find>stylesheet.calendar.header</find>
-      <find>BottomModalHeader</find>
-      <find>showmessae</find>
-      <find>show</find>
-      <find>ListView</find>
       <find>keyExtractor</find>
       <find>homeworkList</find>
       <find>with</find>
@@ -175,9 +193,26 @@
       <find>shadow</find>
       <find>moment</find>
       <find>Avatar</find>
+      <find>DemoSer</find>
+      <find>utils/DemoServer</find>
+      <find>../global/</find>
+      <find>../global</find>
+      <find>..//</find>
+      <find>gStyles</find>
+      <find>import gStyles</find>
+      <find>import gStyles.*</find>
+      <find>pr</find>
+      <find>realm</find>
+      <find>/src/global</find>
+      <find>/global</find>
     </findStrings>
     <replaceStrings>
       <replace>hid</replace>
+      <replace>global/DemoServer</replace>
+      <replace>/global</replace>
+      <replace>/src/</replace>
+      <replace />
+      <replace>import</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -186,57 +221,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/screens/minePages/Profile.js" />
-        <option value="$PROJECT_DIR$/src/screens/minePages/PersonPage.js" />
-        <option value="$PROJECT_DIR$/src/shared/InputField.js" />
-        <option value="$PROJECT_DIR$/src/routes/ThirdNavigator.js" />
-        <option value="$PROJECT_DIR$/src/modals/Login.js" />
-        <option value="$PROJECT_DIR$/src/modals/Register.js" />
-        <option value="$PROJECT_DIR$/src/static/colors.js" />
-        <option value="$PROJECT_DIR$/src/static/index.js" />
-        <option value="$PROJECT_DIR$/src/screens/minePages/ThemeChoose.js" />
-        <option value="$PROJECT_DIR$/src/screens/minePages/Setting.js" />
-        <option value="$PROJECT_DIR$/src/screens/Mine.js" />
-        <option value="$PROJECT_DIR$/src/shared/ToolbarView.js" />
-        <option value="$PROJECT_DIR$/node_modules/react-native-scrollable-tab-view/SceneComponent.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/shared/DashboardHeader.js" />
-        <option value="$PROJECT_DIR$/src/shared/MyMessageBar.js" />
-        <option value="$PROJECT_DIR$/src/shared/MyBottomModal.js" />
-        <option value="$PROJECT_DIR$/src/shared/EmptyView.js" />
-        <option value="$PROJECT_DIR$/src/global/styles.js" />
-        <option value="$PROJECT_DIR$/src/routes/FirstNavigator.js" />
-        <option value="$PROJECT_DIR$/src/shared/MyListItem.js" />
-        <option value="$PROJECT_DIR$/src/shared/StackHeader.js" />
-        <option value="$PROJECT_DIR$/src/shared/MyDatePicke.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/global/colors.js" />
-        <option value="$PROJECT_DIR$/src/shared/BorderHeader.js" />
-        <option value="$PROJECT_DIR$/src/modals/HomeworkAdd.js" />
-        <option value="$PROJECT_DIR$/src/modals/CourseAdd.js" />
-        <option value="$PROJECT_DIR$/src/shared/BottomModalHeader.js" />
-        <option value="$PROJECT_DIR$/src/shared/MyDatePicker.js" />
-        <option value="$PROJECT_DIR$/.prettierrc" />
-        <option value="$PROJECT_DIR$/src/shared/TabBar.js" />
-        <option value="$PROJECT_DIR$/src/routes/SecondNavigator.js" />
-        <option value="$PROJECT_DIR$/src/global/index.js" />
-        <option value="$PROJECT_DIR$/src/screens/CourseNews.js" />
-        <option value="$PROJECT_DIR$/src/screens/CourseNewsItem.js" />
-        <option value="$PROJECT_DIR$/src/screens/WebPage.js" />
-        <option value="$PROJECT_DIR$/src/global/realm.js" />
-        <option value="$PROJECT_DIR$/src/global/model.js" />
-        <option value="$PROJECT_DIR$/src/screens/HomeworkDetailEdit.js" />
-        <option value="$PROJECT_DIR$/src/screens/DashBoard.js" />
-        <option value="$PROJECT_DIR$/src/screens/DashboardCardItem.js" />
-        <option value="$PROJECT_DIR$/src/screens/HomeworkDetail.js" />
-        <option value="$PROJECT_DIR$/src/screens/CourseHistory.js" />
-        <option value="$PROJECT_DIR$/src/screens/Courses.js" />
-        <option value="$PROJECT_DIR$/src/screens/DashboardCard.js" />
         <option value="$PROJECT_DIR$/src/screens/CourseDetail.js" />
-        <option value="$PROJECT_DIR$/src/global/utils.js" />
         <option value="$PROJECT_DIR$/src/screens/CourseGroup.js" />
         <option value="$PROJECT_DIR$/src/utils/DemoServer.js" />
+        <option value="$PROJECT_DIR$/src/screens/DashboardCard.js" />
+        <option value="$PROJECT_DIR$/src/screens/index.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/routes/MainStack.js" />
+        <option value="$PROJECT_DIR$/src/routes/FirstNavigator.js" />
+        <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/.prettierrc" />
+        <option value="$PROJECT_DIR$/.editorconfig" />
+        <option value="$PROJECT_DIR$/src/global/styles.js" />
+        <option value="$PROJECT_DIR$/src/global/colors.js" />
+        <option value="$PROJECT_DIR$/src/global/index.js" />
+        <option value="$PROJECT_DIR$/src/global/realm.js" />
+        <option value="$PROJECT_DIR$/src/components/BottomModalHeader.js" />
+        <option value="$PROJECT_DIR$/src/components/DashboardHeader.js" />
+        <option value="$PROJECT_DIR$/src/components/EmptyView.js" />
+        <option value="$PROJECT_DIR$/src/components/InputField.js" />
+        <option value="$PROJECT_DIR$/src/components/MyDatePicker.js" />
+        <option value="$PROJECT_DIR$/src/components/MyListItem.js" />
+        <option value="$PROJECT_DIR$/src/components/MyTextInput.js" />
+        <option value="$PROJECT_DIR$/src/components/PullDownTip.js" />
+        <option value="$PROJECT_DIR$/src/components/StackHeader.js" />
+        <option value="$PROJECT_DIR$/src/components/TabBar.js" />
+        <option value="$PROJECT_DIR$/src/components/ToolbarView.js" />
+        <option value="$PROJECT_DIR$/src/screens/course/CourseGroup.js" />
+        <option value="$PROJECT_DIR$/src/screens/course/CourseHistory.js" />
+        <option value="$PROJECT_DIR$/src/screens/course/CourseNews.js" />
+        <option value="$PROJECT_DIR$/src/screens/course/CourseNewsItem.js" />
+        <option value="$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js" />
+        <option value="$PROJECT_DIR$/src/screens/dashboard/DashboardCardItem.js" />
+        <option value="$PROJECT_DIR$/src/screens/homework/HomeworkDetail.js" />
+        <option value="$PROJECT_DIR$/src/screens/homework/HomeworkDetailEdit.js" />
+        <option value="$PROJECT_DIR$/src/screens/modals/CourseAdd.js" />
+        <option value="$PROJECT_DIR$/src/screens/modals/HomeworkAdd.js" />
+        <option value="$PROJECT_DIR$/src/screens/modals/Login.js" />
+        <option value="$PROJECT_DIR$/src/screens/modals/Register.js" />
+        <option value="$PROJECT_DIR$/src/screens/modals/WebPage.js" />
+        <option value="$PROJECT_DIR$/src/screens/profile/PersonPage.js" />
+        <option value="$PROJECT_DIR$/src/screens/profile/Profile.js" />
+        <option value="$PROJECT_DIR$/src/screens/profile/Setting.js" />
+        <option value="$PROJECT_DIR$/src/screens/profile/ThemeChoose.js" />
+        <option value="$PROJECT_DIR$/src/screens/Courses.js" />
+        <option value="$PROJECT_DIR$/src/screens/Mine.js" />
+        <option value="$PROJECT_DIR$/src/screens/DashBoard.js" />
+        <option value="$PROJECT_DIR$/src/global/utils.js" />
+        <option value="$PROJECT_DIR$/src/global/DemoServer.js" />
+        <option value="$PROJECT_DIR$/src/AppRouter.js" />
+        <option value="$PROJECT_DIR$/src/screens/course/CourseDetail.js" />
       </list>
     </option>
   </component>
@@ -263,10 +298,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="451" />
-    <option name="y" value="52" />
-    <option name="width" value="1327" />
-    <option name="height" value="882" />
+    <option name="x" value="230" />
+    <option name="y" value="63" />
+    <option name="width" value="1326" />
+    <option name="height" value="912" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -338,19 +373,13 @@
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="global" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
@@ -362,13 +391,36 @@
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="course" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="modals" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -386,15 +438,16 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="project" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/global" />
+      <recent name="$PROJECT_DIR$/src/screens/dashboard" />
+      <recent name="$PROJECT_DIR$/src/screens/modals" />
       <recent name="$PROJECT_DIR$/src/screens" />
-      <recent name="$PROJECT_DIR$/src/screens/mine" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/modals" />
+      <recent name="$PROJECT_DIR$/src/screens/homework" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -410,7 +463,7 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.start">
-    <configuration name="MyListItem.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="MyListItem.js" working-dir="$PROJECT_DIR$/src/shared">
+    <configuration name="MyListItem.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/components/MyListItem.js" working-dir="$PROJECT_DIR$/src/components">
       <method v="2" />
     </configuration>
     <configuration name="android" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
@@ -513,7 +566,8 @@
       <workItem from="1536295538696" duration="10941000" />
       <workItem from="1536334252217" duration="2357000" />
       <workItem from="1536390521804" duration="13000" />
-      <workItem from="1536390548276" duration="4003000" />
+      <workItem from="1536390548276" duration="4486000" />
+      <workItem from="1536411247561" duration="3796000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1532523310323</created>
@@ -753,11 +807,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536309238707</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="增加了群组和作业列表的功能">
+      <created>1536394728016</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1536394728016</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300647000" />
+    <option name="totallyTimeSpent" value="304926000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -769,22 +830,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="451" y="52" width="1327" height="882" extended-state="0" />
+    <frame x="490" y="22" width="1326" height="912" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.72959805" visible="true" weight="0.17784476" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.72959805" visible="true" weight="0.17797889" />
       <window_info id="Structure" order="1" sideWeight="0.27040195" side_tool="true" weight="0.1817002" />
       <window_info id="npm" order="2" sideWeight="0.36674815" side_tool="true" weight="0.21493776" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3283582" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925485" weight="0.34771886" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3255814" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925485" visible="true" weight="0.33650416" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925485" weight="0.39903265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3276492" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2562189" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.24112608" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.35079172" />
       <window_info anchor="bottom" id="TypeScript" order="10" weight="0.3270202" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007452" side_tool="true" weight="0.19154228" />
@@ -826,7 +887,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add profile page" />
     <MESSAGE value="update profile and mine" />
     <MESSAGE value="Small Refactor" />
     <MESSAGE value="Small Refactor second" />
@@ -851,310 +911,408 @@
     <MESSAGE value="修改了icon黑边，增加了详情和编辑界面" />
     <MESSAGE value="使用 prettier 进行代码风格的统一，开启资讯页面的制作" />
     <MESSAGE value="增加了资讯界面，详情界面初步启动" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加了资讯界面，详情界面初步启动" />
+    <MESSAGE value="增加了群组和作业列表的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了群组和作业列表的功能" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shared/InputField.js">
+    <entry file="file://$PROJECT_DIR$/.buckconfig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/flow/prop-types.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared/ToolbarView.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/metro/src/DeltaBundler/traverseDependencies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="55" column="26" lean-forward="true" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+        <state relative-caret-position="231">
+          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-calendars/src/calendar/index.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/xdate/src/xdate.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-calendars/src/index.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/moment/moment.d.ts" />
-    <entry file="file://$PROJECT_DIR$/src/shared/MyDatePicker.js">
+    <entry file="file://$PROJECT_DIR$/.babelrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="101" selection-start-line="101" selection-end-line="103" selection-end-column="4" />
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-flash-message/src/FlashMessage.js" />
-    <entry file="file://$PROJECT_DIR$/src/modals/HomeworkAdd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="185" column="21" selection-start-line="185" selection-start-column="10" selection-end-line="185" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/global/colors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/EmptyView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/react-native/react-native-implementation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/.editorconfig">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.prettierrc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/PullDownTip.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/minePages/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/TabBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/BottomModalHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modals/CourseAdd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="60" column="34" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/ThirdNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/StackHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/MainStack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-185" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/global/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/CourseNews.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/MyBottomModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="21" selection-start-line="21" selection-end-line="25" selection-end-column="7" />
+        <state relative-caret-position="-7">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/global/styles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        <state>
+          <caret selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/WebPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/CourseNewsItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/global/colors.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/global/realm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="134" selection-start-line="134" selection-end-line="136" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/HomeworkDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/DashboardCardItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="29" column="6" lean-forward="true" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/HomeworkDetailEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="948">
-          <caret line="188" column="14" lean-forward="true" selection-start-line="188" selection-start-column="14" selection-end-line="188" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/CourseHistory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="28" column="6" lean-forward="true" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        <state relative-caret-position="273">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1302">
+          <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="6" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/BottomModalHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DashboardHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/EmptyView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InputField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/MyBottomModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/MyDatePicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/MyListItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/MyTextInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PullDownTip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TabBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ToolbarView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/StackHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/course/CourseGroup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/course/CourseHistory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/course/CourseNews.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/course/CourseNewsItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="50" lean-forward="true" selection-start-line="3" selection-start-column="50" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCardItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/homework/HomeworkDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/homework/HomeworkDetailEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="18" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/modals/CourseAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/modals/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/modals/HomeworkAdd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-99">
+          <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/modals/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="53" lean-forward="true" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/modals/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="53" lean-forward="true" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/modals/WebPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/profile/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/profile/PersonPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/profile/Profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/profile/Setting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/profile/ThemeChoose.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/Courses.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="134" selection-start-line="134" selection-end-line="136" selection-end-column="7" />
+        <state relative-caret-position="63">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/SecondNavigator.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/Mine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        <state relative-caret-position="84">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/FirstNavigator.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/global/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/CourseDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state>
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/DashboardCard.js">
+    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="130" lean-forward="true" selection-start-line="130" selection-end-line="130" />
+        <state relative-caret-position="63">
+          <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-elements/src/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="210" column="13" selection-start-line="210" selection-start-column="13" selection-end-line="210" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/CourseGroup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#214#266#0" expanded="true" />
+            <element signature="e#361#408#0" expanded="true" />
+            <element signature="e#510#538#0" expanded="true" />
+            <element signature="e#568#616#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/global/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        <state>
+          <caret column="47" selection-start-column="47" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/DemoServer.js">
+    <entry file="file://$PROJECT_DIR$/src/global/DemoServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+        <state relative-caret-position="126">
+          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2331">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+          <folding>
+            <element signature="e#0#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/global/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@bam.tech/react-native-scrollable-tab-view/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/course/CourseDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

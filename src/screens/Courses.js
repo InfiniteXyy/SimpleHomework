@@ -1,20 +1,12 @@
-import React from "react";
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-  Text,
-  Animated,
-  Dimensions
-} from "react-native";
-import { themeColor, gStyles, routeNames } from "../global";
-import DashboardHeader from "../shared/DashboardHeader";
-import { Icon } from "react-native-elements";
-import ToolbarView from "../shared/ToolbarView";
-import realm from "../global/realm";
-import MyBottomModal from "../shared/MyBottomModal";
-import CourseAdd from "../modals/CourseAdd";
+import React from 'react';
+import { View, StyleSheet, FlatList, TouchableOpacity, Text, Animated, Dimensions } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { realm } from '../global/realm';
+import { themeColor, gStyles, routeNames } from '../global';
+import DashboardHeader from '../components/DashboardHeader';
+import ToolbarView from '../components/ToolbarView';
+import MyBottomModal from '../components/MyBottomModal';
+import CourseAdd from './modals/CourseAdd';
 
 const cardMargin = 16;
 
@@ -22,38 +14,38 @@ export default class Courses extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "2018",
-      subtitle: "~2019 at ECNU",
+      title: '2018',
+      subtitle: '~2019 at ECNU',
       modalVisible: false,
       scrollY: new Animated.Value(0),
       // for screen rotation
-      windowWidth: Dimensions.get("window").width,
-      windowHeight: Dimensions.get("window").height,
-      columnNumber: Math.floor(Dimensions.get("window").width / 165)
+      windowWidth: Dimensions.get('window').width,
+      windowHeight: Dimensions.get('window').height,
+      columnNumber: Math.floor(Dimensions.get('window').width / 165)
     };
   }
 
   componentWillMount() {
-    this.rotateHandler = Dimensions.addEventListener("change", dims => {
+    this.rotateHandler = Dimensions.addEventListener('change', dims => {
       this.setState({
         windowWidth: dims.window.width,
         windowHeight: dims.window.height,
-        columnNumber: Math.floor(Dimensions.get("window").width / 165)
+        columnNumber: Math.floor(Dimensions.get('window').width / 165)
       });
     });
-    let courses = realm.objects("Course");
+    let courses = realm.objects('Course');
     // courses.addListener(this.updateUI);
     this.setState({ courses });
   }
 
   componentWillUnmount() {
-    Dimensions.removeEventListener("change", this.rotateHandler);
+    Dimensions.removeEventListener('change', this.rotateHandler);
     // this.state.courses.removeListener(this.updateUI);
   }
 
   updateUI = (newList, changes) => {
     if (changes.insertions.length !== 0) {
-      console.log("Courses Screen insert...");
+      console.log('Courses Screen insert...');
       console.log(changes);
       this.forceUpdate();
     }
@@ -61,30 +53,22 @@ export default class Courses extends React.Component {
 
   render() {
     let dataList = [...this.state.courses];
-    dataList.push("+");
+    dataList.push('+');
     return (
       <View style={gStyles.container}>
         <FlatList
           onScroll={this.handleScroll}
           ListHeaderComponent={
-            <DashboardHeader
-              title={this.state.title}
-              subtitle={this.state.subtitle}
-              onClick={() => {}}
-            />
+            <DashboardHeader title={this.state.title} subtitle={this.state.subtitle} onClick={() => {}} />
           }
           numColumns={this.state.columnNumber}
-          key={this.state.windowWidth / this.state.windowHeight < 1 ? "h" : "v"}
+          key={this.state.windowWidth / this.state.windowHeight < 1 ? 'h' : 'v'}
           data={dataList}
           keyExtractor={item => item.title}
           renderItem={this.renderCourse}
         />
         <ToolbarView title={this.state.title} scrollY={this.state.scrollY} />
-        <MyBottomModal
-          isVisible={this.state.modalVisible}
-          toggleModal={this.toggleModal}
-          child={<CourseAdd />}
-        />
+        <MyBottomModal isVisible={this.state.modalVisible} toggleModal={this.toggleModal} child={<CourseAdd />} />
       </View>
     );
   }
@@ -93,7 +77,7 @@ export default class Courses extends React.Component {
     let cols = this.state.columnNumber;
     let cardWidth = (this.state.windowWidth - cardMargin * (cols + 1)) / cols;
 
-    if (item === "+") {
+    if (item === '+') {
       return (
         <TouchableOpacity
           onPress={() => {
@@ -107,9 +91,9 @@ export default class Courses extends React.Component {
       );
     }
     let iconProps = {
-      name: "circle",
+      name: 'circle',
       size: 24,
-      type: "font-awesome",
+      type: 'font-awesome',
       color: item.color
     };
 
@@ -141,12 +125,12 @@ export default class Courses extends React.Component {
 const styles = StyleSheet.create({
   courseCard: {
     marginLeft: 16,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     borderRadius: 10,
     marginBottom: 16,
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "#CCCCCC",
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#CCCCCC',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.38,
     shadowRadius: 2,
@@ -155,7 +139,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     marginTop: 12,
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: themeColor.primaryText
   },
   cardSubtitle: {

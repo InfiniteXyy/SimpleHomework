@@ -1,20 +1,13 @@
-import React from "react";
-import {
-  View,
-  TouchableWithoutFeedback,
-  TouchableHighlight,
-  Text,
-  StyleSheet,
-  FlatList
-} from "react-native";
-import { routeNames, gStyles, themeColor } from "../global";
-import { Avatar, ListItem } from "react-native-elements";
-import { profileData } from "../utils/DemoServer";
+import React from 'react';
+import { View, TouchableWithoutFeedback, TouchableHighlight, Text, StyleSheet, FlatList } from 'react-native';
+import { Avatar, ListItem } from 'react-native-elements';
+import { routeNames, gStyles, themeColor } from '../global';
+import { profileData } from '../global/DemoServer';
 
 const links = [
-  { title: "主页", navigate: routeNames.personPage },
-  { title: "归档", navigate: "" },
-  { title: "设置", navigate: routeNames.setting }
+  { title: '主页', navigate: routeNames.personPage },
+  { title: '归档', navigate: '' },
+  { title: '设置', navigate: routeNames.setting }
 ];
 
 export default class Mine extends React.Component {
@@ -34,9 +27,7 @@ export default class Mine extends React.Component {
 
     return (
       <View style={gStyles.container}>
-        <TouchableWithoutFeedback
-          onPress={() => this.to(routeNames.profileSetting, { me: me })}
-        >
+        <TouchableWithoutFeedback onPress={() => this.to(routeNames.profileSetting, { me: me })}>
           <View style={styles.profileContainer}>
             <Avatar large rounded source={{ uri: me.avatar }} />
             <View style={{ marginLeft: 32 }}>
@@ -49,14 +40,8 @@ export default class Mine extends React.Component {
           data={links}
           renderItem={({ item, index }) => {
             return (
-              <TouchableHighlight
-                onPress={() => this.to(item.navigate, { me: me })}
-                underlayColor={"#cccccc"}
-              >
-                <ListItem
-                  title={item.title}
-                  containerStyle={[gStyles.listContainer]}
-                />
+              <TouchableHighlight onPress={() => this.to(item.navigate, { me: me })} underlayColor={'#cccccc'}>
+                <ListItem title={item.title} containerStyle={[gStyles.listContainer]} />
               </TouchableHighlight>
             );
           }}
@@ -70,15 +55,15 @@ export default class Mine extends React.Component {
 const styles = StyleSheet.create({
   profileContainer: {
     marginVertical: 45,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     marginHorizontal: 32
   },
 
   profileTitle: {
     fontSize: 24,
-    fontWeight: "600",
+    fontWeight: '600',
     color: themeColor.primaryText
   },
   profileSubtitle: {

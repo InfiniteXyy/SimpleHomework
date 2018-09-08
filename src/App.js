@@ -1,7 +1,7 @@
 import React from "react";
-import { MainStack } from "./routes/MainStack";
 import FlashMessage from "react-native-flash-message/src/FlashMessage";
 import { View } from "react-native";
+import AppRouter from "./AppRouter"
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <MainStack screenProps={this.state} />
+        <AppRouter screenProps={this.state} />
         <FlashMessage position="top" />
       </View>
     );
