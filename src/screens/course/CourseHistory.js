@@ -3,7 +3,7 @@ import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-nati
 import { Icon } from 'react-native-elements';
 import propTypes from 'prop-types';
 import moment from 'moment';
-import { realm } from '../../global/realm';
+import realm from '../../global/realm';
 import { themeColor, gStyles } from '../../global';
 export default class CourseHistory extends React.Component {
   static propTypes = {

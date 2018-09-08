@@ -1,30 +1,16 @@
-import React from "react";
-import {
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  StyleSheet,
-  Animated
-} from "react-native";
-import { themeColor } from "../global";
+import React from 'react';
+import { View, Text, TouchableWithoutFeedback, StyleSheet, Animated } from 'react-native';
+import { themeColor } from '../global';
 
 const INDICATOR_HEIGHT = 3;
 
 export default class TabBar extends React.PureComponent {
   _renderTab = (name, page, isTabActive, onPressHandler) => {
-    const textColor = isTabActive
-      ? themeColor.primaryColor
-      : themeColor.primaryText;
+    const textColor = isTabActive ? themeColor.primaryColor : themeColor.primaryText;
     return (
-      <TouchableWithoutFeedback
-        style={{ flex: 1 }}
-        key={name}
-        onPress={() => onPressHandler(page)}
-      >
+      <TouchableWithoutFeedback style={{ flex: 1 }} key={name} onPress={() => onPressHandler(page)}>
         <View style={[styles.tab, this.props.tabStyle]}>
-          <Text style={{ color: textColor, fontSize: 14, fontWeight: "bold" }}>
-            {name}
-          </Text>
+          <Text style={{ color: textColor, fontSize: 14, fontWeight: 'bold' }}>{name}</Text>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -34,11 +20,11 @@ export default class TabBar extends React.PureComponent {
     const containerWidth = this.props.containerWidth;
     const numberOfTabs = this.props.tabs.length;
     const tabUnderlineStyle = {
-      position: "absolute",
+      position: 'absolute',
       width: containerWidth / numberOfTabs,
       bottom: 0,
-      justifyContent: "center",
-      alignItems: "center"
+      justifyContent: 'center',
+      alignItems: 'center'
     };
     const left = {
       transform: [
@@ -57,9 +43,7 @@ export default class TabBar extends React.PureComponent {
           const renderTab = this.props.renderTab || this._renderTab;
           return renderTab(name, page, isTabActive, this.props.goToPage);
         })}
-        <Animated.View
-          style={[tabUnderlineStyle, left, this.props.underlineStyle]}
-        >
+        <Animated.View style={[tabUnderlineStyle, left, this.props.underlineStyle]}>
           <View
             style={{
               height: INDICATOR_HEIGHT,
@@ -76,14 +60,14 @@ export default class TabBar extends React.PureComponent {
 const styles = StyleSheet.create({
   tab: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   tabs: {
     height: 40,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    borderBottomColor: "#b2b2b2",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderBottomColor: '#b2b2b2',
     borderBottomWidth: 0.5
   }
 });

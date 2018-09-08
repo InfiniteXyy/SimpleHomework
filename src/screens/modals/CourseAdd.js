@@ -3,7 +3,7 @@ import { Animated, Keyboard, View } from 'react-native';
 import FlashMessage from 'react-native-flash-message/src/FlashMessage';
 import { showMessage } from 'react-native-flash-message';
 import { themeColor } from '../../global';
-import { realm } from '../../global/realm';
+import realm from '../../global/realm';
 import BottomModalHeader from '../../components/BottomModalHeader';
 import MyTextInput from '../../components/MyTextInput';
 

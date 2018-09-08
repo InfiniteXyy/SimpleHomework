@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
-import ScrollableTabView from "@bam.tech/react-native-scrollable-tab-view"
+import ScrollableTabView from '@bam.tech/react-native-scrollable-tab-view';
 import { gStyles } from '../../global';
 import StackHeader from '../../components/StackHeader';
 import CourseHistory from './CourseHistory';

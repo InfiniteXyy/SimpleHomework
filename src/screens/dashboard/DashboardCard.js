@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TouchableHighlight, Animated } from 'react-native';
 import { Icon, Badge } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-import { realm } from '../../global/realm';
+import realm from '../../global/realm';
 import { routeNames, themeColor, gStyles } from '../../global';
 import DashboardCardItem from './DashboardCardItem';
 
@@ -59,7 +59,7 @@ class DashboardCard extends React.Component {
       <Icon name="chevron-up" type="entypo" size={18} color={themeColor.inactiveIcon} />
     ) : (
       <Badge
-        value={course.homeworkList.length}
+        value={course.homeworkList.filtered('finished = false').length}
         containerStyle={{
           backgroundColor: themeColor.underlayColor
         }}

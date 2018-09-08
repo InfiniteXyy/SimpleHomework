@@ -10,4 +10,4 @@ const realm = new Realm({
   deleteRealmIfMigrationNeeded: true,
   schemaVersion: version
 });
-export { realm };
+export default realm;

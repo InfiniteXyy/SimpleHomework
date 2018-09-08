@@ -5,16 +5,16 @@ class CourseModel {
 }
 
 CourseModel.schema = {
-  name: "Course",
-  primaryKey: "title",
+  name: 'Course',
+  primaryKey: 'title',
   properties: {
-    title: "string",
-    color: { type: "string", default: "#cccccc" },
-    expanding: { type: "bool", default: true }, // for view
+    title: 'string',
+    color: { type: 'string', default: '#cccccc' },
+    expanding: { type: 'bool', default: true }, // for view
     homeworkList: {
-      type: "linkingObjects",
-      objectType: "Homework",
-      property: "course"
+      type: 'linkingObjects',
+      objectType: 'Homework',
+      property: 'course'
     }
   }
 };
@@ -22,25 +22,25 @@ CourseModel.schema = {
 class HomeworkModel {}
 
 HomeworkModel.schema = {
-  name: "Homework",
+  name: 'Homework',
   properties: {
-    created: { type: "date", default: new Date() },
-    deadline: { type: "date", optional: true },
-    finished: { type: "bool", default: false },
-    archived: { type: "bool", default: false },
-    content: "string",
-    course: "Course",
-    remarks: "Remark[]"
+    created: { type: 'date', default: new Date() },
+    deadline: { type: 'date', optional: true },
+    finished: { type: 'bool', default: false },
+    archived: { type: 'bool', default: false },
+    content: 'string',
+    course: 'Course',
+    remarks: 'Remark[]'
   }
 };
 
 class RemarkModel {}
 
 RemarkModel.schema = {
-  name: "Remark",
+  name: 'Remark',
   properties: {
-    created: { type: "date", default: new Date() },
-    content: "string"
+    created: { type: 'date', default: new Date() },
+    content: 'string'
   }
 };
 

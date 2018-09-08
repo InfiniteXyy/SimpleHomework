@@ -5,7 +5,7 @@ import moment from 'moment';
 import { showMessage } from 'react-native-flash-message';
 import FlashMessage from 'react-native-flash-message/src/FlashMessage';
 import { themeColor } from '../../global';
-import { realm } from '../../global/realm';
+import realm from '../../global/realm';
 import MyTextInput from '../../components/MyTextInput';
 import ActionSheet from 'react-native-actionsheet';
 import BottomModalHeader from '../../components/BottomModalHeader';

@@ -1,8 +1,8 @@
-import React from "react";
-import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
-import { Icon } from "react-native-elements";
-import propTypes from "prop-types";
-import { themeColor, gStyles } from "../global";
+import React from 'react';
+import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Icon } from 'react-native-elements';
+import propTypes from 'prop-types';
+import { themeColor, gStyles } from '../global';
 
 export default class StackHeader extends React.PureComponent {
   static propTypes = {
@@ -15,8 +15,8 @@ export default class StackHeader extends React.PureComponent {
   static defaultProps = {
     onPressLeft: () => {},
     onPressRight: () => {},
-    leftTitle: "返回",
-    rightTitle: ""
+    leftTitle: '返回',
+    rightTitle: ''
   };
 
   render() {
@@ -24,13 +24,8 @@ export default class StackHeader extends React.PureComponent {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={onPressLeft}>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Icon
-              name="ios-arrow-back"
-              type="ionicon"
-              size={25}
-              color={themeColor.primaryText}
-            />
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Icon name="ios-arrow-back" type="ionicon" size={25} color={themeColor.primaryText} />
             <Text style={styles.title}>{leftTitle}</Text>
           </View>
         </TouchableOpacity>
@@ -46,23 +41,23 @@ export default class StackHeader extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
     marginHorizontal: 16,
     height: 63,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start"
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
   },
   subtitle: {
     marginRight: 12,
     fontSize: 24,
-    fontWeight: "600",
+    fontWeight: '600',
     color: themeColor.secondaryText
   },
   title: {
     marginLeft: 12,
     fontSize: 24,
-    fontWeight: "600",
+    fontWeight: '600',
     color: themeColor.primaryText
   }
 });

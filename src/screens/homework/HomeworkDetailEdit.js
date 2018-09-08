@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, ScrollView, Text, FlatList, TouchableOpacity } from 'react-native';
-import { Button, Icon  } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 import { showMessage } from 'react-native-flash-message';
 import moment from 'moment';
 import { themeColor, gStyles } from '../../global';
-import { realm } from '../../global/realm';
+import realm from '../../global/realm';
 import StackHeader from '../../components/StackHeader';
 import MyListItem from '../../components/MyListItem';
 import MyTextInput from '../../components/MyTextInput';

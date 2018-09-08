@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text } from "react-native";
-import { Icon } from "react-native-elements";
-import propTypes from "prop-types";
-import { themeColor, gStyles } from "../global";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Icon } from 'react-native-elements';
+import propTypes from 'prop-types';
+import { themeColor, gStyles } from '../global';
 
 export default class MyListItem extends React.PureComponent {
   static propTypes = {
@@ -37,14 +37,14 @@ export default class MyListItem extends React.PureComponent {
   };
 
   buttonRight = () => {
-    if (!this.props.rightIconVisible) return <View/>
+    if (!this.props.rightIconVisible) return <View />;
     return (
       <View style={gStyles.rightIconContainer}>
         <Icon
-          containerStyle={{padding: 10}}
+          containerStyle={{ padding: 10 }}
           onPress={this.props.onPressRight}
-          name={"edit"}
-          type={"feather"}
+          name={'edit'}
+          type={'feather'}
           color={themeColor.inactiveIcon}
           size={20}
         />
@@ -56,20 +56,20 @@ export default class MyListItem extends React.PureComponent {
 const styles = {
   container: {
     height: 83,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 20,
-    borderBottomColor: "#FAFAFA"
+    borderBottomColor: '#FAFAFA'
   },
   title: {
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: '500',
     color: themeColor.secondaryText
   },
   content: {
     marginTop: 12,
     fontSize: 16,
-    fontWeight: "500",
+    fontWeight: '500',
     color: themeColor.primaryText
   }
 };

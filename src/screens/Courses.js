@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, TouchableOpacity, Text, Animated, Dimensions } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { realm } from '../global/realm';
+import realm from '../global/realm';
 import { themeColor, gStyles, routeNames } from '../global';
 import DashboardHeader from '../components/DashboardHeader';
 import ToolbarView from '../components/ToolbarView';

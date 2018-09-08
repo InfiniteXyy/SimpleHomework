@@ -1,7 +1,7 @@
-import React from "react";
-import { Keyboard } from "react-native";
-import Modal from "react-native-modal";
-import propTypes from "prop-types";
+import React from 'react';
+import { Keyboard } from 'react-native';
+import Modal from 'react-native-modal';
+import propTypes from 'prop-types';
 
 export default class MyBottomModal extends React.Component {
   static propTypes = {
@@ -13,7 +13,7 @@ export default class MyBottomModal extends React.Component {
   render() {
     let modalProps = {
       isVisible: this.props.isVisible,
-      swipeDirection: "down",
+      swipeDirection: 'down',
       onSwipe: this.close,
       backdropOpacity: 0.38,
       animationInTiming: 500,
@@ -21,7 +21,7 @@ export default class MyBottomModal extends React.Component {
       onBackdropPress: this.close,
       style: {
         flex: 1,
-        justifyContent: "flex-end",
+        justifyContent: 'flex-end',
         margin: 0
       }
     };

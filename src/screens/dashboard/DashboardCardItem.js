@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { realm } from '../../global/realm';
+import realm from '../../global/realm';
 import { withNavigation } from 'react-navigation';
 import { colors, themeColor, routeNames, gStyles } from '../../global';
 

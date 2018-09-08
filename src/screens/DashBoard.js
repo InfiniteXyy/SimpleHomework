@@ -14,7 +14,7 @@ import MyBottomModal from '../components/MyBottomModal';
 // import time library and database support
 import moment from 'moment';
 import momentLocale from 'moment/locale/zh-cn';
-import { realm } from '../global/realm';
+import realm from '../global/realm';
 // import demo
 import { courseData } from '../global/DemoServer';
 import EmptyView from '../components/EmptyView';

@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Icon } from "react-native-elements";
-import propTypes from "prop-types";
-import { themeColor } from "../global";
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { Icon } from 'react-native-elements';
+import propTypes from 'prop-types';
+import { themeColor } from '../global';
 
 export default class DashboardHeader extends React.PureComponent {
   static propTypes = {
@@ -14,8 +14,8 @@ export default class DashboardHeader extends React.PureComponent {
   };
 
   static defaultProps = {
-    iconType: "material",
-    iconName: "dehaze"
+    iconType: 'material',
+    iconName: 'dehaze'
   };
 
   render() {
@@ -26,9 +26,7 @@ export default class DashboardHeader extends React.PureComponent {
           <Text style={styles.titleStyle}>{title}</Text>
           <Text style={styles.subtitleStyle}>{subtitle}</Text>
         </View>
-        <View
-          style={{ flex: 1, alignItems: "flex-end", justifyContent: "center" }}
-        >
+        <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
           <Icon
             onPress={onClick}
             underlayColor={themeColor.backgroundColor}
@@ -45,20 +43,20 @@ export default class DashboardHeader extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: "flex-start",
-    flexDirection: "row",
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
     paddingHorizontal: 36,
     paddingVertical: 16,
-    alignItems: "center"
+    alignItems: 'center'
   },
   titleStyle: {
     fontSize: 48,
-    fontWeight: "400",
+    fontWeight: '400',
     color: themeColor.primaryText
   },
   subtitleStyle: {
     fontSize: 16,
-    fontWeight: "400",
+    fontWeight: '400',
     color: themeColor.secondaryText
   }
 });
