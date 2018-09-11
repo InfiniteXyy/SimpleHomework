@@ -17,7 +17,6 @@ import momentLocale from 'moment/locale/zh-cn';
 import realm from '../global/realm';
 // import demo
 import { courseData } from '../global/DemoServer';
-import EmptyView from '../components/EmptyView';
 
 export default class DashBoard extends React.Component {
   constructor(props) {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Icon } from 'react-native-elements';
 import propTypes from 'prop-types';
-import { themeColor } from '../global';
+import { colors, themeColor } from '../global';
 
 export default class EmptyView extends React.PureComponent {
   static propTypes = {
-    title: propTypes.string.isRequired,
+    subtitle: propTypes.string.isRequired,
+    button: propTypes.string,
     onClick: propTypes.func
   };
 
@@ -17,33 +17,25 @@ export default class EmptyView extends React.PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        {this.image()}
-        {this.textGroup()}
+        {this.header()}
+        {this.bottom()}
       </View>
     );
   }
 
-  image = () => {
+  header = () => {
     return (
-      <View style={{ marginTop: 50, alignItems: 'center' }}>
-        <View style={styles.imageRec} />
-        <Icon
-          onPress={this.props.onClick}
-          containerStyle={{ marginTop: -24 }}
-          name={'add'}
-          size={24}
-          reverse
-          color={themeColor.primaryColor}
-        />
+      <View style={{ alignItems: 'center' }}>
+        <Text style={styles.title}>空空如也</Text>
+        <Text style={styles.subtitle}>{this.props.subtitle}</Text>
       </View>
     );
   };
 
-  textGroup = () => {
+  bottom = () => {
     return (
-      <View style={{ marginTop: 36, alignItems: 'center' }}>
-        <Text style={styles.title}>{this.props.title + '空空如也'}</Text>
-        <Text style={styles.subtitle}>点击 + 添加更多</Text>
+      <View style={styles.buttonContainer}>
+        <Text style={styles.buttonTitle}>打开列表</Text>
       </View>
     );
   };
@@ -56,21 +48,25 @@ const styles = {
     justifyContent: 'center'
   },
   title: {
-    color: '#9B9B9B',
-    fontSize: 20,
-    fontWeight: '500'
+    color: themeColor.primaryText,
+    fontSize: 28,
+    fontWeight: 'bold'
   },
   subtitle: {
-    marginTop: 4,
-    color: '#CACACA',
-    fontSize: 16,
-    fontWeight: '500'
+    marginTop: 8,
+    color: themeColor.secondaryText,
+    fontSize: 14
   },
-  imageRec: {
-    height: 158,
-    width: 133,
-    backgroundColor: 'white',
-    borderWidth: 4,
-    borderColor: themeColor.primaryColor
+  buttonContainer: {
+    marginTop: 60,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderBottomColor: colors.lightBlue,
+    borderBottomWidth: 2
+  },
+  buttonTitle: {
+    fontSize: 14,
+    color: colors.lightBlue,
+    fontWeight: "bold"
   }
 };

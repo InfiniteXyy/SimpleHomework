@@ -27,9 +27,13 @@ export default class CourseGroup extends React.Component {
   render() {
     return (
       <ScrollView>
-        {this.state.groups.map((item, index) => (
-          <CourseGroupItem group={item} key={index.toString()} />
-        ))}
+        <Text style={styles.largeTitle}>群组</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {this.state.groups.map((item, index) => (
+            <CourseGroupItem group={item} key={index.toString()} />
+          ))}
+        </ScrollView>
+        <Text style={styles.largeTitle}>消息</Text>
       </ScrollView>
     );
   }
@@ -43,9 +47,9 @@ class CourseGroupItem extends React.Component {
   render() {
     let group = this.props.group;
     return (
-      <View style={[styles.cardContainer, { borderColor: group.color }]}>
+      <View style={styles.cardContainer}>
         {this.renderTop()}
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>{this.renderBottom()}</View>
+        {this.renderBottom()}
       </View>
     );
   }
@@ -54,27 +58,29 @@ class CourseGroupItem extends React.Component {
     let { date, title } = this.props.group;
 
     return (
-      <View style={{ marginLeft: 20 }}>
-        <Text style={styles.subtitle}>{moment(date).format('创建于 YYYY年M月D日')}</Text>
+      <View>
         <Text style={styles.title}>{title}</Text>
       </View>
     );
   };
   renderBottom = () => {
     let { members } = this.props.group;
+    let subMembers = members.slice(0, 3);
     return (
-      <View style={{ marginHorizontal: 20, flexDirection: 'row', alignItems: 'flex-end' }}>
-        <Text style={styles.subtitle}>{members.length + ' 名成员'}</Text>
-        <View style={gStyles.rightIconContainer}>
-          {members.map((item, index) => (
-            <Avatar
-              rounded
-              height={24}
-              containerStyle={styles.avatar}
-              source={{ url: item.avatar }}
-              key={index.toString()}
-            />
-          ))}
+      <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+        <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+          <Text style={styles.subtitle}>{members.length + ' 名成员'}</Text>
+          <View style={gStyles.rightIconContainer}>
+            {subMembers.map((item, index) => (
+              <Avatar
+                rounded
+                height={18}
+                containerStyle={styles.avatar}
+                source={{ url: item.avatar }}
+                key={index.toString()}
+              />
+            ))}
+          </View>
         </View>
       </View>
     );
@@ -82,31 +88,35 @@ class CourseGroupItem extends React.Component {
 }
 
 const styles = {
-  cardContainer: {
-    marginHorizontal: 20,
+  largeTitle: {
     marginTop: 16,
-    height: 147,
-    paddingVertical: 20,
+    marginLeft: 26,
+    fontSize: 14,
+    fontWeight: '500',
+    color: themeColor.primaryText
+  },
+  cardContainer: {
+    marginLeft: 16,
+    marginTop: 10,
+    height: 134,
+    width: 134,
+    padding: 14,
     backgroundColor: 'white',
-    shadowColor: '#CCCCCC',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.38,
-    shadowRadius: 2,
-    elevation: 1,
-    borderRadius: 4,
-    borderLeftWidth: 6
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#979797'
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: 12,
+    fontWeight: '500',
     color: themeColor.secondaryText
   },
   title: {
-    fontSize: 18,
-    marginTop: 10,
+    fontSize: 16,
     color: themeColor.primaryText,
     fontWeight: '500'
   },
   avatar: {
-    marginLeft: -3
+    marginLeft: -4
   }
 };

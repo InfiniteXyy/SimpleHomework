@@ -23,6 +23,11 @@ export default class CourseDetail extends React.Component {
   };
 
   render() {
+    let modalProps = {
+      visible: this.state.webUrl !== '',
+      style: { flex: 1, margin: 0 },
+      animationType: 'slide'
+    };
     return (
       <View style={gStyles.container}>
         <StackHeader leftTitle={this.state.course.title} onPressLeft={() => this.props.navigation.goBack()} />
@@ -30,15 +35,8 @@ export default class CourseDetail extends React.Component {
           <CourseHistory tabLabel="详情" course={this.state.course} />
           <CourseNews tabLabel="动态" urlCallback={this.setWebUrl} />
           <CourseGroup tabLabel="群组" course={this.state.course} />
-          <ScrollView tabLabel="成就" />
         </ScrollableTabView>
-        <Modal
-          visible={this.state.webUrl !== ''}
-          style={{
-            flex: 1,
-            margin: 0
-          }}
-        >
+        <Modal {...modalProps}>
           <WebPage webUrl={this.state.webUrl} back={() => this.setState({ webUrl: '' })} />
         </Modal>
       </View>
