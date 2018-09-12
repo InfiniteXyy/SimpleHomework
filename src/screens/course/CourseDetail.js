@@ -14,12 +14,13 @@ export default class CourseDetail extends React.Component {
     super(props);
     this.state = {
       course: props.navigation.getParam('course'),
-      webUrl: ''
+      webUrl: '',
+      webTitle: ''
     };
   }
 
-  setWebUrl = url => {
-    this.setState({ webUrl: url });
+  setWebUrl = (url, title) => {
+    this.setState({ webUrl: url, webTitle: title });
   };
 
   render() {
@@ -37,7 +38,7 @@ export default class CourseDetail extends React.Component {
           <CourseGroup tabLabel="群组" course={this.state.course} />
         </ScrollableTabView>
         <Modal {...modalProps}>
-          <WebPage webUrl={this.state.webUrl} back={() => this.setState({ webUrl: '' })} />
+          <WebPage webUrl={this.state.webUrl} back={() => this.setState({ webUrl: '' })}  title={this.state.webTitle}/>
         </Modal>
       </View>
     );

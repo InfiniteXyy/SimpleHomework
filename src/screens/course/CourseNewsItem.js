@@ -17,7 +17,7 @@ class CourseNewsItem extends React.PureComponent {
       <TouchableHighlight
         underlayColor={themeColor.underlayColor}
         style={{ marginBottom: 6 }}
-        onPress={() => this.props.urlCallback(this.props.item.url)}
+        onPress={() => this.props.urlCallback(this.props.item.url, this.props.item.source)}
       >
         <View style={styles.container}>
           {this.renderTop()}
