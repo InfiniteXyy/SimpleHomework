@@ -14,7 +14,7 @@ export default class CourseNewsSelectPage extends React.Component {
   render() {
     return (
       <View style={gStyles.container}>
-        <StackToolbarView title={'新闻'} handleBack={this.props.back} />
+        <StackToolbarView title={'添加新闻源'} handleBack={this.props.back} />
         <View style={styles.container}>{this.renderList()}</View>
       </View>
     );

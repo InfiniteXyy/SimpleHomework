@@ -26,10 +26,6 @@ class DashboardCard extends React.Component {
     });
   }
 
-  componentDidMount() {
-    // this.state.course.homeworkList.addListener(this.updateListener);
-  }
-
   componentWillUnmount() {
     // this.state.course.homeworkList.removeListener(this.updateListener);
   }
@@ -43,7 +39,6 @@ class DashboardCard extends React.Component {
   }
 
   render() {
-    if (this.state.course.homeworkList.length === 0) return <View />;
     return (
       <View style={styles.cardContainer}>
         {this.cardTitle()}

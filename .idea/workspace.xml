@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0eba26f4-ac85-481f-8cad-060cca4d56ff" name="Default" comment="增加了emptyview, 全新的group界面">
-      <change afterPath="$PROJECT_DIR$/src/components/StackToolbarView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/course/CourseNewsSelectPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/course/CourseNewsSelectPageItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/StackToolbarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StackToolbarView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/DashBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/DashBoard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/course/CourseDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/course/CourseNews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseNews.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/course/CourseNewsItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseNewsItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/course/CourseNewsSelectPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/course/CourseNewsSelectPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/modals/WebPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/modals/WebPage.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,7 +38,7 @@
         <counts>
           <entry key="babelrc" value="37" />
           <entry key="editorconfig" value="1" />
-          <entry key="js" value="74921" />
+          <entry key="js" value="74929" />
           <entry key="json" value="55" />
           <entry key="prettierrc" value="8" />
           <entry key="txt" value="1275" />
@@ -48,7 +47,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="100" />
-          <entry key="JavaScript" value="72319" />
+          <entry key="JavaScript" value="72327" />
           <entry key="PLAIN_TEXT" value="1254" />
         </counts>
       </usages-collector>
@@ -62,7 +61,7 @@
           <entry key="gradle" value="3" />
           <entry key="iml" value="1" />
           <entry key="java" value="1" />
-          <entry key="js" value="846" />
+          <entry key="js" value="847" />
           <entry key="json" value="21" />
           <entry key="lock" value="1" />
           <entry key="log" value="1" />
@@ -79,7 +78,7 @@
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="8" />
           <entry key="JSON" value="29" />
-          <entry key="JavaScript" value="846" />
+          <entry key="JavaScript" value="847" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="TypeScript" value="8" />
           <entry key="yarn.lock" value="1" />
@@ -95,71 +94,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/course/CourseNews.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-133">
-              <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/screens/course/CourseNewsSelectPage.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="196">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/StackToolbarView.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCardItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="721">
-              <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="840">
+              <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/course/CourseNewsSelectPageItem.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1302">
-              <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/course/CourseDetail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/course/CourseNewsItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="687">
+              <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -175,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>utils/DemoServer</find>
       <find>../global/</find>
       <find>../global</find>
       <find>..//</find>
@@ -205,6 +161,7 @@
       <find>new Animated.Value(0)</find>
       <find>FlatList</find>
       <find>urlcal</find>
+      <find>write</find>
     </findStrings>
     <replaceStrings>
       <replace>hid</replace>
@@ -255,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/global/utils.js" />
         <option value="$PROJECT_DIR$/src/global/DemoServer.js" />
         <option value="$PROJECT_DIR$/src/AppRouter.js" />
-        <option value="$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js" />
         <option value="$PROJECT_DIR$/src/components/InputField.js" />
         <option value="$PROJECT_DIR$/src/screens/Mine.js" />
         <option value="$PROJECT_DIR$/src/screens/profile/Setting.js" />
@@ -273,6 +229,7 @@
         <option value="$PROJECT_DIR$/src/components/StackToolbarView.js" />
         <option value="$PROJECT_DIR$/src/screens/course/CourseNewsSelectPageItem.js" />
         <option value="$PROJECT_DIR$/src/screens/course/CourseNewsSelectPage.js" />
+        <option value="$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js" />
       </list>
     </option>
   </component>
@@ -299,10 +256,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-320" />
-    <option name="y" value="22" />
-    <option name="width" value="1267" />
-    <option name="height" value="1028" />
+    <option name="x" value="561" />
+    <option name="y" value="40" />
+    <option name="width" value="1067" />
+    <option name="height" value="896" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -394,6 +351,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleHomework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleHomework" type="b2602c69:ProjectViewProjectNode" />
@@ -826,7 +797,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321810000" />
+    <option name="totallyTimeSpent" value="322228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -838,10 +809,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-320" y="22" width="1267" height="1028" extended-state="0" />
+    <frame x="561" y="40" width="1067" height="896" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.72959805" visible="true" weight="0.25651145" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.72959805" visible="true" weight="0.3045923" />
       <window_info id="Structure" order="1" sideWeight="0.27040195" side_tool="true" weight="0.1817002" />
       <window_info id="npm" order="2" sideWeight="0.36674815" side_tool="true" weight="0.21493776" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -941,13 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
           <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/homework/HomeworkDetailEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="18" selection-start-line="6" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -1124,16 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCardItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-native/Libraries/Modal/Modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -1141,20 +1095,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/course/CourseGroup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1162,13 +1106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="41" column="2" lean-forward="true" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1825">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -1186,9 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
           <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1210,9 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="23" selection-start-line="10" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1284,6 +1215,37 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/homework/HomeworkDetailEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/DashBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCardItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/dashboard/DashboardCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>

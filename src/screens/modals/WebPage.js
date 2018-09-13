@@ -6,16 +6,16 @@ import StackHeader from '../../components/StackHeader';
 import StackToolbarView from '../../components/StackToolbarView';
 export default class WebPage extends React.Component {
   static propTypes = {
-    webUrl: propTypes.string.isRequired,
-    back: propTypes.func.isRequired,
-    title: propTypes.string.isRequired
+    webInfo: propTypes.shape({ webUrl: propTypes.string, webTitle: propTypes.string }).isRequired,
+    back: propTypes.func.isRequired
   };
 
   render() {
+    let info = this.props.webInfo;
     return (
       <View style={[gStyles.container, { backgroundColor: 'white' }]}>
-        <StackToolbarView handleBack={this.props.back} title={this.props.title}/>
-        <WebView originWhitelist={['*']} source={{ uri: this.props.webUrl }} />
+        <StackToolbarView handleBack={this.props.back} title={info.webTitle} />
+        <WebView originWhitelist={['*']} source={{ uri: info.webUrl }} />
       </View>
     );
   }

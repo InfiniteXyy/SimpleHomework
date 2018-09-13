@@ -14,18 +14,17 @@ export default class CourseDetail extends React.Component {
     super(props);
     this.state = {
       course: props.navigation.getParam('course'),
-      webUrl: '',
-      webTitle: ''
+      webInfo: { visible: false }
     };
   }
 
   setWebUrl = (url, title) => {
-    this.setState({ webUrl: url, webTitle: title });
+    this.setState({ webInfo: { webUrl: url, webTitle: title, visible: true } });
   };
 
   render() {
     let modalProps = {
-      visible: this.state.webUrl !== '',
+      visible: this.state.webInfo.visible,
       style: { flex: 1, margin: 0 },
       animationType: 'slide'
     };
@@ -38,7 +37,7 @@ export default class CourseDetail extends React.Component {
           <CourseGroup tabLabel="群组" course={this.state.course} />
         </ScrollableTabView>
         <Modal {...modalProps}>
-          <WebPage webUrl={this.state.webUrl} back={() => this.setState({ webUrl: '' })}  title={this.state.webTitle}/>
+          <WebPage webInfo={this.state.webInfo} back={() => this.setState({ webInfo: { visible: false } })} />
         </Modal>
       </View>
     );

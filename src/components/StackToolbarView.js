@@ -17,7 +17,7 @@ export default class StackToolbarView extends React.Component {
           <Icon
             name="ios-arrow-back"
             type="ionicon"
-            color={themeColor.activeIcon}
+            color={themeColor.primaryText}
             size={24}
             underlayColor={themeColor.backgroundColor}
             onPress={this.props.handleBack}
@@ -43,9 +43,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5
   },
   toolbarTitle: {
-    fontSize: 20,
+    fontSize: 18,
     alignSelf: "center",
     color: themeColor.primaryText,
-    fontWeight: '500'
   }
 });
