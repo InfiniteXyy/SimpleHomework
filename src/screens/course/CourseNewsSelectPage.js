@@ -5,11 +5,26 @@ import propTypes from 'prop-types';
 import CourseNewsSelectPageItem from './CourseNewsSelectPageItem';
 import StackToolbarView from '../../components/StackToolbarView';
 import { Icon, SearchBar } from 'react-native-elements';
+import { fetchRSSList } from '../../global/utils';
+import uuid from 'uuid';
 
 export default class CourseNewsSelectPage extends React.Component {
   static propTypes = {
     back: propTypes.func.isRequired
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      rssList: []
+    };
+  }
+
+  componentDidMount() {
+    fetchRSSList(results => {
+      this.setState({ rssList: results.data });
+    });
+  }
 
   render() {
     return (
@@ -20,16 +35,17 @@ export default class CourseNewsSelectPage extends React.Component {
     );
   }
   renderHeader = () => {
+    let searchBarProp = {
+      containerStyle: { backgroundColor: themeColor.backgroundColor, borderTopWidth: 0, borderBottomWidth: 0 },
+      inputStyle: { backgroundColor: '#ececed' },
+      lightTheme: true,
+      round: true,
+      cancelButtonTitle: 'Cancel',
+      placeholder: '搜索'
+    };
     return (
       <View style={{ marginHorizontal: 12, marginVertical: 16 }}>
-        <SearchBar
-          containerStyle={{ backgroundColor: themeColor.backgroundColor, borderTopWidth: 0, borderBottomWidth: 0 }}
-          inputStyle={{ backgroundColor: '#ececed' }}
-          lightTheme
-          round
-          cancelButtonTitle="Cancel"
-          placeholder="搜索"
-        />
+        <SearchBar {...searchBarProp} />
       </View>
     );
   };
@@ -38,9 +54,9 @@ export default class CourseNewsSelectPage extends React.Component {
     return (
       <FlatList
         ListHeaderComponent={this.renderHeader}
-        data={[1, 2, 3, 4]}
-        renderItem={({ item, index }) => <CourseNewsSelectPageItem />}
-        keyExtractor={item => item.toString()}
+        data={this.state.rssList}
+        renderItem={({ item, index }) => <CourseNewsSelectPageItem item={item} />}
+        keyExtractor={item => uuid.v4()}
       />
     );
   };

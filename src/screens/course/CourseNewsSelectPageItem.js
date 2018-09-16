@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { colors, gStyles, themeColor } from '../../global';
+import propTypes from 'prop-types';
 
 export default class CourseNewsSelectPageItem extends React.PureComponent {
   render() {
@@ -17,11 +18,12 @@ export default class CourseNewsSelectPageItem extends React.PureComponent {
   };
 
   renderRight = () => {
+    let item = this.props.item;
     return (
       <View style={{ marginHorizontal: 20 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View>
-            <Text style={styles.title}>123 新闻人</Text>
+            <Text style={styles.title}>{item.category}</Text>
             <Text style={styles.subtitle}>www.csdn.cn</Text>
           </View>
           <View style={gStyles.rightIconContainer}>

@@ -1,6 +1,7 @@
 import { groupData } from '../global/DemoServer';
 
 const NEWS_HOST = 'http://118.25.8.154/tp5/public/spider/index/category/';
+const RSS_HOST = 'http://118.25.8.154/tp5/public/spider/index/category_list';
 
 const fetchData = (url, method, successCallback, failCallback) => {
   fetch(url, {
@@ -15,6 +16,10 @@ const fetchData = (url, method, successCallback, failCallback) => {
     });
 };
 
+const fetchRSSList = successCallback => {
+  return fetchData(RSS_HOST, 'GET', successCallback);
+};
+
 const fetchNews = (newsType, successCallback) => {
   return fetchData(NEWS_HOST + newsType, 'GET', successCallback);
 };
@@ -24,4 +29,4 @@ const fetchCourseGroups = (cid, successCallback) => {
   successCallback(groupData);
 };
 
-export { fetchNews, fetchCourseGroups };
+export { fetchNews, fetchCourseGroups, fetchRSSList };

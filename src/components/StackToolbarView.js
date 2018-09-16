@@ -19,6 +19,7 @@ export default class StackToolbarView extends React.Component {
             type="ionicon"
             color={themeColor.primaryText}
             size={24}
+            containerStyle={{paddingRight: 20}}
             underlayColor={themeColor.backgroundColor}
             onPress={this.props.handleBack}
           />

@@ -30,10 +30,6 @@ class DashboardCard extends React.Component {
     // this.state.course.homeworkList.removeListener(this.updateListener);
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return nextState.course !== this.state.course;
-  }
-
   componentDidUpdate() {
     console.log(this.state.course.title + 'updated!!');
   }
@@ -93,6 +89,7 @@ class DashboardCard extends React.Component {
     let course = this.state.course;
     let expanding = course.expanding;
     let expandHeight = getBodyHeight(course.homeworkList.length);
+    if (course.homeworkList.length === 0) return;
     realm.write(() => {
       course.expanding = !expanding;
       this.forceUpdate();

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { Icon } from 'react-native-elements';
 import moment from 'moment';
+import uuid from 'uuid';
 import { showMessage } from 'react-native-flash-message';
 import FlashMessage from 'react-native-flash-message/src/FlashMessage';
 import { themeColor } from '../../global';
@@ -10,6 +11,7 @@ import MyTextInput from '../../components/MyTextInput';
 import ActionSheet from 'react-native-actionsheet';
 import BottomModalHeader from '../../components/BottomModalHeader';
 import MyDatePicker from '../../components/MyDatePicker';
+
 
 const df = date => moment(date).format('M月D日截止');
 
@@ -159,6 +161,7 @@ export default class HomeworkAdd extends React.Component {
         let course = realm.objectForPrimaryKey('Course', this.state.selectedCourse);
         realm.write(() => {
           realm.create('Homework', {
+            id: uuid.v4(),
             content,
             course,
             deadline: this.state.deadline

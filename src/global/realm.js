@@ -2,6 +2,7 @@ import Realm from 'realm';
 
 class CourseModel extends Realm.Object {}
 CourseModel.schema = {
+  id: 'string',
   name: 'Course',
   primaryKey: 'title',
   properties: {
@@ -21,6 +22,7 @@ class HomeworkModel extends Realm.Object {}
 HomeworkModel.schema = {
   name: 'Homework',
   properties: {
+    id: 'string',
     created: { type: 'date', default: new Date() },
     deadline: { type: 'date', optional: true },
     finished: { type: 'bool', default: false },
@@ -34,6 +36,7 @@ HomeworkModel.schema = {
 class RemarkModel extends Realm.Object {}
 
 RemarkModel.schema = {
+  id: 'string',
   name: 'Remark',
   properties: {
     created: { type: 'date', default: new Date() },

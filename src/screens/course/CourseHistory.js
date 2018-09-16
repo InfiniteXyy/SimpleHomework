@@ -9,6 +9,14 @@ export default class CourseHistory extends React.Component {
   static propTypes = {
     course: propTypes.object.isRequired
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      homeworkNum: this.props.course.homeworkList.filtered('finished = false').length
+    };
+  }
+
   render() {
     return (
       <ScrollView>
@@ -17,6 +25,7 @@ export default class CourseHistory extends React.Component {
       </ScrollView>
     );
   }
+
   renderDetail = () => {
     let course = this.props.course;
     return (
@@ -29,8 +38,7 @@ export default class CourseHistory extends React.Component {
 
   renderHomeworkList = () => {
     let course = this.props.course;
-    let homeworkNum = course.homeworkList.filtered('finished = false').length;
-    let subtitle = '剩余 ' + homeworkNum + ' 项';
+    let subtitle = '剩余 ' + this.state.homeworkNum + ' 项';
     return (
       <View style={styles.cardContainer}>
         <View style={{ flexDirection: 'row', marginBottom: 16 }}>
@@ -39,18 +47,25 @@ export default class CourseHistory extends React.Component {
             <Text style={styles.subtitle}>{subtitle}</Text>
           </View>
         </View>
-        {course.homeworkList.sorted('finished').map((item, index) => (
-          <HomeworkItem homeworkItem={item} key={index} />
+        {course.homeworkList.map(item => (
+          <HomeworkItem homeworkItem={item} setCallback={this.changeHomeworkNum} key={item.id} />
         ))}
         <Text style={styles.textMore}>显示已完成作业</Text>
       </View>
     );
   };
+
+  changeHomeworkNum = () => {
+    this.setState(prevState => {
+      return { homeworkNum: this.props.course.homeworkList.filtered('finished = false').length };
+    });
+  };
 }
 
 class HomeworkItem extends React.Component {
   static propTypes = {
-    homeworkItem: propTypes.object.isRequired
+    homeworkItem: propTypes.object.isRequired,
+    setCallback: propTypes.func.isRequired
   };
   render() {
     let item = this.props.homeworkItem;
@@ -78,7 +93,7 @@ class HomeworkItem extends React.Component {
     realm.write(() => {
       let finished = this.props.homeworkItem.finished;
       this.props.homeworkItem.finished = !finished;
-      this.forceUpdate();
+      this.props.setCallback();
     });
   };
 }

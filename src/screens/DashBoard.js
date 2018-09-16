@@ -2,7 +2,6 @@ import React from 'react';
 // import RN elements
 import { Animated, FlatList, View } from 'react-native';
 import { gStyles } from '../global';
-import ActionSheet from 'react-native-actionsheet';
 // import list items
 import ToolbarView from '../components/ToolbarView';
 import DashboardHeader from '../components/DashboardHeader';
@@ -11,12 +10,14 @@ import DashboardCard from './dashboard/DashboardCard';
 // import modals
 import HomeworkAdd from './modals/HomeworkAdd';
 import MyBottomModal from '../components/MyBottomModal';
+import uuid from 'uuid';
 // import time library and database support
 import moment from 'moment';
 import momentLocale from 'moment/locale/zh-cn';
 import realm from '../global/realm';
 // import demo
 import { courseData } from '../global/DemoServer';
+import MyActionSheet from '../components/MyActionSheet';
 
 export default class DashBoard extends React.Component {
   constructor(props) {
@@ -29,11 +30,12 @@ export default class DashBoard extends React.Component {
       modalVisible: null
     };
     moment.updateLocale('zh-cn', momentLocale);
+    this.toggleActionSheet = () => {};
     this.actionList = [
       {
         title: '添加作业',
         type: 'normal',
-        method: this.showAddHomeworkModal
+        method: this.buildToggleModal(true)
       },
       {
         title: '使用demo',
@@ -57,24 +59,24 @@ export default class DashBoard extends React.Component {
       }, 60000);
     }, 60000 - (new Date().valueOf() % 60000));
   }
+
   componentDidMount() {
     // fetch data from the database
     let courses = realm.objects('Course');
     this.setState({ courses });
+    // add refresh listener
+    this._focusListener = this.props.navigation.addListener('willFocus', () => {
+      this.forceUpdate();
+      console.log('focus homepage');
+    });
   }
 
   componentWillUnmount() {
     clearInterval(this.timeUpdater);
+    this._focusListener.remove();
   }
 
   render() {
-    let actionSheetProps = {
-      options: this.actionList.map(i => i.title),
-      cancelButtonIndex: this.actionList.findIndex(i => i.type === 'cancel'),
-      destructiveButtonIndex: this.actionList.findIndex(i => i.type === 'destructive'),
-      onPress: index => this.actionList[index].method()
-    };
-
     return (
       <View style={gStyles.container}>
         <PullDownTip content="下拉以添加更多作业" scrollY={this.state.scrollY} />
@@ -83,7 +85,7 @@ export default class DashBoard extends React.Component {
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
-              this.showAddHomeworkModal();
+              this.buildToggleModal(true)();
             }
           }}
           ListHeaderComponent={
@@ -98,26 +100,25 @@ export default class DashBoard extends React.Component {
           renderItem={({ item }) => <DashboardCard data={item} />}
         />
         <ToolbarView title={this.state.weekTitle} scrollY={this.state.scrollY} onClick={this.toggleActionSheet} />
-        <ActionSheet ref={o => (this.ActionSheet = o)} {...actionSheetProps} />
+        <MyActionSheet
+          bindAction={action => {
+            this.toggleActionSheet = action;
+          }}
+          actionData={this.actionList}
+        />
         <MyBottomModal
           isVisible={this.state.modalVisible === 1}
-          toggleModal={this.toggleModal}
+          toggleModal={this.buildToggleModal(false)}
           child={<HomeworkAdd data={this.state.courses} />}
         />
       </View>
     );
   }
 
-  toggleActionSheet = () => {
-    this.ActionSheet.show();
-  };
-
-  toggleModal = () => {
-    this.setState({ modalVisible: null });
-  };
-
-  showAddHomeworkModal = () => {
-    this.setState({ modalVisible: 1 });
+  buildToggleModal = visible => {
+    return () => {
+      this.setState({ modalVisible: visible ? 1 : null });
+    };
   };
 
   handleScroll = event => {
@@ -130,11 +131,13 @@ export default class DashBoard extends React.Component {
       this.forceUpdate();
       for (const item of courseData) {
         let course = realm.create('Course', {
+          id: uuid.v4(),
           title: item.title,
           color: item.color
         });
         for (let h of item.data) {
           realm.create('Homework', {
+            id: uuid.v4(),
             content: h.content,
             finished: h.finished,
             archived: false,
