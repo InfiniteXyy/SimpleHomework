@@ -14,74 +14,72 @@ import Setting from './screens/profile/Setting';
 import Profile from './screens/profile/Profile';
 import PersonPage from './screens/profile/PersonPage';
 import ThemeChoose from './screens/profile/ThemeChoose';
+import AboutPage from './screens/about/AboutPage';
+import OpenSourcePage from './screens/about/OpenSourcePage';
+import Weeks from './screens/Weeks';
 
-const FirstNavigator = createStackNavigator(
+const defaultCard = {
+  headerMode: 'none',
+  mode: 'card',
+  cardStyle: {
+    backgroundColor: themeColor.backgroundColor
+  }
+};
+const DashboardNavigator = createStackNavigator(
   {
     Dashboard: Dashboard,
     HomeworkDetail: HomeworkDetail,
-    HomeworkEdit: HomeworkDetailEdit,
+    HomeworkEdit: HomeworkDetailEdit
   },
-  {
-    // initialRouteName: "CourseDetail",
-    headerMode: 'none',
-    mode: 'card',
-    cardStyle: {
-      backgroundColor: themeColor.backgroundColor
-    }
-  }
+  defaultCard
 );
 
-const SecondNavigator = createStackNavigator(
+const CourseNavigator = createStackNavigator(
   {
     Courses: Courses,
     CourseDetail: CourseDetail
   },
-  {
-    // initialRouteName: "Courses",
-    headerMode: 'none',
-    mode: 'card',
-    cardStyle: {
-      backgroundColor: themeColor.backgroundColor
-    }
-  }
+  defaultCard
 );
 
-const ThirdNavigator = createStackNavigator(
+const WeekNavigator = createStackNavigator(
+  {
+    Weeks: Weeks
+  },
+  defaultCard
+);
+
+const ProfileNavigator = createStackNavigator(
   {
     Mine: Mine,
-    Setting: Setting,
     Profile: Profile,
-    PersonPage: PersonPage,
-    ThemeChoose: ThemeChoose,
-    Login: LoginModal,
-    Register: Register
+    PersonPage: PersonPage
   },
-  {
-    // initialRouteName: "Courses",
-    headerMode: 'none',
-    mode: 'card',
-    cardStyle: {
-      backgroundColor: themeColor.backgroundColor
-    }
-  }
+  defaultCard
 );
 
-const AppRouter = createBottomTabNavigator(
+const MainRouter = createBottomTabNavigator(
   {
-    FirstNavigator: {
-      screen: FirstNavigator,
+    DashboardNavigator: {
+      screen: DashboardNavigator,
       navigationOptions: {
         title: '首页'
       }
     },
-    SecondNavigator: {
-      screen: SecondNavigator,
+    CourseNavigator: {
+      screen: CourseNavigator,
       navigationOptions: {
         title: '课程'
       }
     },
-    ThirdNavigator: {
-      screen: ThirdNavigator,
+    WeekNavigator: {
+      screen: WeekNavigator,
+      navigationOptions: {
+        title: '本周'
+      }
+    },
+    ProfileNavigator: {
+      screen: ProfileNavigator,
       navigationOptions: {
         title: '我的'
       }
@@ -96,17 +94,39 @@ const AppRouter = createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === 'FirstNavigator') {
+        if (routeName === 'DashboardNavigator') {
           iconName = `dashboard`;
-        } else if (routeName === 'SecondNavigator') {
+        } else if (routeName === 'CourseNavigator') {
           iconName = `subject`;
-        } else {
+        } else if (routeName === 'ProfileNavigator') {
           iconName = `person`;
+        } else if (routeName === 'WeekNavigator') {
+          iconName = `date-range`;
         }
         return <Icon name={iconName} size={25} color={tintColor} />;
       }
     })
   }
+);
+
+const Settings = createStackNavigator(
+  {
+    Main: Setting,
+    About: AboutPage,
+    OpenSource: OpenSourcePage,
+    ThemeChoose: ThemeChoose,
+    Login: LoginModal,
+    Register: Register
+  },
+  defaultCard
+);
+
+const AppRouter = createStackNavigator(
+  {
+    Main: MainRouter,
+    Setting: Settings
+  },
+  defaultCard
 );
 
 export default AppRouter;

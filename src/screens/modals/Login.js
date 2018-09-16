@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import { gStyles, routeNames, themeColor } from '../../global';
 import StackHeader from '../../components/StackHeader';
 import InputField from '../../components/InputField';
+import StackToolbarView from '../../components/StackToolbarView';
 
 export default class Login extends React.Component {
   login = () => {
@@ -12,7 +13,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={gStyles.container}>
-        <StackHeader onPressLeft={() => this.props.navigation.goBack()} />
+        <StackToolbarView handleBack={() => this.props.navigation.goBack()} title={'登录'} />
         <Text style={styles.title}>欢迎</Text>
         <View style={styles.inputBoxContainer}>
           <InputField placeholder={'Email/Username'} type={'profile'} />

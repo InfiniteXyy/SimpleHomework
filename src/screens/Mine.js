@@ -40,7 +40,7 @@ export default class Mine extends React.Component {
           data={links}
           renderItem={({ item, index }) => {
             return (
-              <TouchableHighlight onPress={() => this.to(item.navigate, { me: me })} underlayColor={'#cccccc'}>
+              <TouchableHighlight onPress={() => this.to(item.navigate, { me: me })} underlayColor={themeColor.underlayColor}>
                 <ListItem title={item.title} containerStyle={[gStyles.listContainer]} />
               </TouchableHighlight>
             );

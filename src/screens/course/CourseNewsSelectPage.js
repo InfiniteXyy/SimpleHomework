@@ -8,6 +8,7 @@ import { Icon, SearchBar } from 'react-native-elements';
 import { arrayEquals, debounce, fetchRSSList } from '../../global/utils';
 
 export default class CourseNewsSelectPage extends React.Component {
+  static rssList = [];
   static propTypes = {
     back: propTypes.func.isRequired,
     course: propTypes.object.isRequired
@@ -15,19 +16,21 @@ export default class CourseNewsSelectPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      rssList: [],
-      searchText: ''
+    this._sortMethod = (a, b) => {
+      if (props.course.rssList.indexOf(a.id.toString()) === -1) return 1;
+      else return -1;
     };
-
+    this.state = {
+      rssList: CourseNewsSelectPage.rssList.concat().sort(this._sortMethod),
+      searchText: '',
+      refreshing: false
+    };
     this.prevRSSList = [];
     props.course.rssList.forEach(item => this.prevRSSList.push(item));
   }
 
   componentDidMount() {
-    fetchRSSList(results => {
-      this.setState({ rssList: results.data });
-    });
+    if (CourseNewsSelectPage.rssList.length === 0) this.refresh();
   }
 
   render() {
@@ -63,12 +66,22 @@ export default class CourseNewsSelectPage extends React.Component {
   renderList = () => {
     return (
       <FlatList
+        onRefresh={this.refresh}
+        refreshing={this.state.refreshing}
         ListHeaderComponent={this.renderHeader}
         data={this.state.rssList.filter(this.listFilter)}
         renderItem={({ item }) => <CourseNewsSelectPageItem item={item} course={this.props.course} />}
         keyExtractor={item => item.id.toString()}
       />
     );
+  };
+
+  refresh = () => {
+    this.setState({ refreshing: true });
+    fetchRSSList(results => {
+      CourseNewsSelectPage.rssList = results.data;
+      this.setState({ rssList: results.data.sort(this._sortMethod), refreshing: false });
+    });
   };
 
   listFilter = item => {

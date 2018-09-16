@@ -48,18 +48,20 @@ class CourseNewsItem extends React.PureComponent {
   renderContent = () => {
     let item = this.props.item;
     let { public_abbr, title } = item;
-    let summary = public_abbr.substr(0, 30).replace(/[\n\r*#]/g, '') + '…';
 
     return (
       <View style={{ marginTop: 12 }}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.topicSummary}>{summary}</Text>
+        <Text style={styles.topicSummary} ellipsizeMode={'tail'} numberOfLines={2}>
+          {public_abbr}
+        </Text>
       </View>
     );
   };
 
   renderBottom = () => {
-    let { source } = this.props.item;
+    let { source, category_name } = this.props.item;
+    let nodes = [source, category_name];
     let iconProp = {
       name: 'message',
       type: 'entypo',
@@ -69,9 +71,12 @@ class CourseNewsItem extends React.PureComponent {
     };
     return (
       <View style={styles.bottomContainer}>
-        <View style={styles.nodeContainer}>
-          <Text style={styles.nodeTitle}>{source}</Text>
-        </View>
+        {nodes.map(item => (
+          <View style={styles.nodeContainer} key={item}>
+            <Text style={styles.nodeTitle}>{item}</Text>
+          </View>
+        ))}
+
         <View style={gStyles.rightIconContainer}>
           <Icon {...iconProp} />
           <Text style={styles.subtitle}>{400}</Text>
@@ -102,7 +107,8 @@ const styles = StyleSheet.create({
   },
   nodeContainer: {
     borderRadius: 2,
-    paddingHorizontal: 10,
+    paddingHorizontal: 6,
+    marginRight: 8,
     height: 20,
     backgroundColor: '#EAEAEA',
     alignItems: 'center',

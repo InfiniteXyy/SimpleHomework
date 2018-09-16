@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ScrollView, TouchableWithoutFeedback, Text, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { gStyles, themeColor } from '../../global';
-import StackHeader from '../../components/StackHeader';
+import StackToolbarView from '../../components/StackToolbarView';
 
 const types = [{ title: '圆润', id: '1' }, { title: '方正', id: '2' }];
 export default class PersonPage extends React.Component {
@@ -16,7 +16,7 @@ export default class PersonPage extends React.Component {
   render() {
     return (
       <View style={[gStyles.container, { alignItems: 'center' }]}>
-        <StackHeader leftTitle={'主题'} onPressLeft={() => this.props.navigation.goBack()} />
+        <StackToolbarView title={'主题'} handleBack={() => this.props.navigation.goBack()} />
         <ScrollView>
           <View style={{ flexDirection: 'row', marginTop: '24%' }}>{types.map(this.renderChooseItem)}</View>
           <View style={{ alignSelf: 'center', marginTop: 70 }}>

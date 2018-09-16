@@ -63,7 +63,11 @@ export default class Courses extends React.Component {
           renderItem={this.renderCourse}
         />
         <ToolbarView title={this.state.title} scrollY={this.state.scrollY} />
-        <MyBottomModal isVisible={this.state.modalVisible} toggleModal={this.toggleModal} child={<CourseAdd />} />
+        <MyBottomModal
+          isVisible={this.state.modalVisible}
+          toggleModal={this.buildToggleModal(false)}
+          child={<CourseAdd />}
+        />
       </View>
     );
   }
@@ -91,12 +95,17 @@ export default class Courses extends React.Component {
       type: 'font-awesome',
       color: item.color
     };
+    let todoNum = item.homeworkList.filtered('finished = false').length;
+    let subtitle = todoNum + ' 任务';
 
     return (
       <TouchableOpacity onPress={() => this.toCourseDetail(item)}>
         <View style={[styles.courseCard, { height: 112, width: cardWidth }]}>
-          <Icon {...iconProps} />
-          <Text style={styles.cardTitle}>{item.title}</Text>
+          <Icon {...iconProps} containerStyle={{ flex: 1 }} />
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            {todoNum === 0 ? <View /> : <Text style={styles.cardSubtitle}>{subtitle}</Text>}
+          </View>
         </View>
       </TouchableOpacity>
     );
@@ -106,8 +115,8 @@ export default class Courses extends React.Component {
     this.state.scrollY.setValue(event.nativeEvent.contentOffset.y);
   };
 
-  toggleModal = () => {
-    this.setState({ modalVisible: false });
+  buildToggleModal = visible => () => {
+    this.setState({ modalVisible: visible });
   };
 
   toCourseDetail = item => {
@@ -122,6 +131,7 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     backgroundColor: '#fff',
     borderRadius: 10,
+    padding: 12,
     marginBottom: 16,
     justifyContent: 'center',
     alignItems: 'center',
@@ -132,14 +142,14 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   cardTitle: {
-    marginTop: 12,
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: 'bold',
     color: themeColor.primaryText
   },
   cardSubtitle: {
-    marginTop: 6,
-    fontSize: 13,
+    marginTop: 5,
+    fontSize: 14,
+    fontWeight: '400',
     color: themeColor.secondaryText
   }
 });

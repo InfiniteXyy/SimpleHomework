@@ -9,6 +9,7 @@ import CourseNews from './CourseNews';
 import CourseGroup from './CourseGroup';
 import WebPage from '../modals/WebPage';
 import TabBar from '../../components/TabBar';
+import CourseSetting from './CourseSetting';
 export default class CourseDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -33,8 +34,9 @@ export default class CourseDetail extends React.Component {
         <StackHeader leftTitle={this.state.course.title} onPressLeft={() => this.props.navigation.goBack()} />
         <ScrollableTabView renderTabBar={() => <TabBar />}>
           <CourseHistory tabLabel="详情" course={this.state.course} />
-          <CourseNews tabLabel="动态" urlCallback={this.setWebUrl} course={this.state.course} />
           <CourseGroup tabLabel="群组" course={this.state.course} />
+          <CourseNews tabLabel="动态" urlCallback={this.setWebUrl} course={this.state.course} />
+          <CourseSetting tabLabel="设置" course={this.state.course} />
         </ScrollableTabView>
         <Modal {...modalProps}>
           <WebPage webInfo={this.state.webInfo} back={() => this.setState({ webInfo: { visible: false } })} />

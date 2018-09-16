@@ -7,7 +7,7 @@ import { themeColor, gStyles } from '../global';
 export default class StackToolbarView extends React.Component {
   static propTypes = {
     title: propTypes.string.isRequired,
-    handleBack: propTypes.func.isRequired,
+    handleBack: propTypes.func.isRequired
   };
 
   render() {
@@ -19,7 +19,7 @@ export default class StackToolbarView extends React.Component {
             type="ionicon"
             color={themeColor.primaryText}
             size={24}
-            containerStyle={{height: 44, paddingRight: 35}}
+            containerStyle={{ height: 40, paddingRight: 35, paddingLeft: 20 }}
             underlayColor={themeColor.backgroundColor}
             onPress={this.props.handleBack}
           />
@@ -36,7 +36,6 @@ export default class StackToolbarView extends React.Component {
 const styles = StyleSheet.create({
   toolbarContainer: {
     height: Platform.OS === 'ios' ? 44 : 56,
-    paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: themeColor.backgroundColor,
@@ -45,7 +44,8 @@ const styles = StyleSheet.create({
   },
   toolbarTitle: {
     fontSize: 18,
-    alignSelf: "center",
+    alignSelf: 'center',
     color: themeColor.primaryText,
+    fontWeight: '500'
   }
 });

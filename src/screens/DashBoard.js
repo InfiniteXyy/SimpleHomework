@@ -22,8 +22,10 @@ import MyActionSheet from '../components/MyActionSheet';
 export default class DashBoard extends React.Component {
   constructor(props) {
     super(props);
+    let start = moment('20180910', 'YYYYMMDD');
+    let weekNum = moment().diff(start, 'weeks');
     this.state = {
-      weekTitle: 'Week 3',
+      weekTitle: 'Week ' + (weekNum + 1),
       dateTime: moment().format('dddd h:mm'),
       courses: [],
       scrollY: new Animated.Value(0), // for List Scroll Animation

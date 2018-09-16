@@ -25,15 +25,14 @@ export default class DashboardCard extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-    // this.state.course.homeworkList.removeListener(this.updateListener);
-  }
-
   componentDidUpdate() {
     console.log(this.state.course.title + 'updated!!');
   }
 
   render() {
+    if (this.state.course.homeworkList.filtered('finished = false').length === 0) {
+      return <View />;
+    }
     return (
       <View style={styles.cardContainer}>
         {this.cardTitle()}
@@ -82,19 +81,19 @@ export default class DashboardCard extends React.Component {
 
   setCardExpand = () => {
     let course = this.state.course;
-    let expanding = course.expanding;
+    let expanding = !course.expanding;
     let expandHeight = getBodyHeight(course.homeworkList.length);
     if (course.homeworkList.length === 0) return;
     realm.write(() => {
-      course.expanding = !expanding;
+      course.expanding = expanding;
       this.forceUpdate();
     });
     Animated.parallel([
       Animated.spring(this.state.marginBottomAnim, {
-        toValue: expanding ? -expandHeight : 0
+        toValue: expanding ? 0 : -expandHeight
       }),
       Animated.spring(this.state.opacity, {
-        toValue: expanding ? 0 : 1
+        toValue: expanding ? 1 : 0
       })
     ]).start();
   };

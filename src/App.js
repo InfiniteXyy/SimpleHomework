@@ -1,6 +1,6 @@
 import React from 'react';
 import FlashMessage from 'react-native-flash-message/src/FlashMessage';
-import { View } from 'react-native';
+import { View, YellowBox } from 'react-native';
 import AppRouter from './AppRouter';
 
 export default class App extends React.Component {
@@ -10,12 +10,13 @@ export default class App extends React.Component {
       userId: '1'
     };
     console.ignoredYellowBox = ['Remote debugger'];
+    YellowBox.ignoreWarnings(['Task orphaned']);
   }
   render() {
     return (
       <View style={{ flex: 1 }}>
         <AppRouter screenProps={this.state} />
-        <FlashMessage position="top" />
+        <FlashMessage position="top" duration={200} />
       </View>
     );
   }

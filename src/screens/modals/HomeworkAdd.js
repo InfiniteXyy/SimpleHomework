@@ -12,7 +12,6 @@ import ActionSheet from 'react-native-actionsheet';
 import BottomModalHeader from '../../components/BottomModalHeader';
 import MyDatePicker from '../../components/MyDatePicker';
 
-
 const df = date => moment(date).format('M月D日截止');
 
 export default class HomeworkAdd extends React.Component {

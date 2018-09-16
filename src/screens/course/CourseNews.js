@@ -2,9 +2,8 @@ import React from 'react';
 import { FlatList, View, Text } from 'react-native';
 import propTypes from 'prop-types';
 import CourseNewsItem from './CourseNewsItem';
-import { fetchNews, fetchNewsById, fetchRSSList } from '../../global/utils';
+import { fetchNewsById } from '../../global/utils';
 import Modal from 'react-native-modal';
-import WebPage from '../modals/WebPage';
 import CourseNewsSelectPage from './CourseNewsSelectPage';
 import { Icon } from 'react-native-elements';
 import { gStyles, themeColor } from '../../global';
@@ -17,18 +16,24 @@ export default class CourseNews extends React.Component {
   };
   constructor(props) {
     super(props);
-    this.state = { newsList: [], modalVisible: false };
+    this.state = { newsList: [], modalVisible: false, refreshing: false };
   }
 
   componentDidMount() {
     this.refresh();
   }
+
   refresh = () => {
-    this.state.newsList = [];
+    this.setState({ refreshing: true });
+    let tempList = [];
     this.props.course.rssList.forEach((item, index) => {
       fetchNewsById(item, results => {
-        this.state.newsList.push(...results.data);
-        if (index === this.props.course.rssList.length - 1) this.forceUpdate();
+        tempList.push(...results.data);
+        if (index === this.props.course.rssList.length - 1) {
+          tempList.sort((a, b) => b.date - a.date);
+          this.setState({ newsList: tempList, refreshing: false });
+          this.forceUpdate();
+        }
       });
     });
   };
@@ -40,13 +45,15 @@ export default class CourseNews extends React.Component {
       animationType: 'slide'
     };
     let mainView;
-    if (this.state.newsList.length === 0)
+    if (this.props.course.rssList.length === 0)
       mainView = (
         <EmptyView subtitle={'请先添加一些订阅源'} button={'立即添加'} onClick={this.buildToggleModal(true)} />
       );
     else
       mainView = (
         <FlatList
+          onRefresh={this.refresh}
+          refreshing={this.state.refreshing}
           ListHeaderComponent={this.renderHeader()}
           data={this.state.newsList}
           renderItem={({ item }) => <CourseNewsItem item={item} urlCallback={this.props.urlCallback} />}
@@ -73,6 +80,7 @@ export default class CourseNews extends React.Component {
             iconStyle={{ alignSelf: 'flex-end' }}
             color={themeColor.activeIcon}
             size={20}
+            containerStyle={{ paddingLeft: 10, paddingVertical: 5 }}
             underlayColor={themeColor.backgroundColor}
             onPress={this.buildToggleModal(true)}
           />

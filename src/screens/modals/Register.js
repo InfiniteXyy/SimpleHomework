@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import { routeNames, themeColor, gStyles } from '../../global';
 import StackHeader from '../../components/StackHeader';
 import InputField from '../../components/InputField';
+import StackToolbarView from '../../components/StackToolbarView';
 
 export default class Register extends React.Component {
   register = () => {
@@ -12,7 +13,7 @@ export default class Register extends React.Component {
   render() {
     return (
       <View style={gStyles.container}>
-        <StackHeader onPressLeft={() => this.props.navigation.goBack()} />
+        <StackToolbarView handleBack={() => this.props.navigation.goBack()} title={'注册'} />
         <Text style={styles.title}>注册</Text>
         <View style={styles.inputBoxContainer}>
           <InputField placeholder={'Email'} type={'profile'} />

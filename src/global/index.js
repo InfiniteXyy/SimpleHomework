@@ -11,7 +11,9 @@ const routeNames = {
   register: 'Register',
   courseDetail: 'CourseDetail',
   homeworkDetail: 'HomeworkDetail',
-  homeworkEdit: 'HomeworkEdit'
+  homeworkEdit: 'HomeworkEdit',
+  about: 'About',
+  openSource: 'OpenSource'
 };
 
 const gStyles = StyleSheet.create({
