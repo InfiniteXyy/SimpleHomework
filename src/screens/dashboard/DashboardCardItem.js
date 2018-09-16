@@ -19,7 +19,7 @@ class DashboardCardItem extends React.Component {
         <View style={styles.cardItemContainer}>
           <Text style={textStyle}>{item.content}</Text>
           <View style={gStyles.rightIconContainer}>
-            <Icon {...iconKind} size={18} color={colors.lightBlue} />
+            <Icon {...iconKind} size={18} color={colors.lightBlue} onPress={this.changeItemFinished} />
           </View>
         </View>
       </TouchableOpacity>

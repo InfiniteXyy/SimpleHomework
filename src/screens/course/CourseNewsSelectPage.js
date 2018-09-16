@@ -5,19 +5,23 @@ import propTypes from 'prop-types';
 import CourseNewsSelectPageItem from './CourseNewsSelectPageItem';
 import StackToolbarView from '../../components/StackToolbarView';
 import { Icon, SearchBar } from 'react-native-elements';
-import { fetchRSSList } from '../../global/utils';
-import uuid from 'uuid';
+import { arrayEquals, debounce, fetchRSSList } from '../../global/utils';
 
 export default class CourseNewsSelectPage extends React.Component {
   static propTypes = {
-    back: propTypes.func.isRequired
+    back: propTypes.func.isRequired,
+    course: propTypes.object.isRequired
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      rssList: []
+      rssList: [],
+      searchText: ''
     };
+
+    this.prevRSSList = [];
+    props.course.rssList.forEach(item => this.prevRSSList.push(item));
   }
 
   componentDidMount() {
@@ -29,7 +33,7 @@ export default class CourseNewsSelectPage extends React.Component {
   render() {
     return (
       <View style={gStyles.container}>
-        <StackToolbarView title={'添加新闻源'} handleBack={this.props.back} />
+        <StackToolbarView title={'添加新闻源'} handleBack={this.handleBack} />
         <View style={styles.container}>{this.renderList()}</View>
       </View>
     );
@@ -37,7 +41,7 @@ export default class CourseNewsSelectPage extends React.Component {
   renderHeader = () => {
     let searchBarProp = {
       containerStyle: { backgroundColor: themeColor.backgroundColor, borderTopWidth: 0, borderBottomWidth: 0 },
-      inputStyle: { backgroundColor: '#ececed' },
+      inputStyle: { backgroundColor: '#ececed', color: themeColor.primaryText },
       lightTheme: true,
       round: true,
       cancelButtonTitle: 'Cancel',
@@ -45,7 +49,13 @@ export default class CourseNewsSelectPage extends React.Component {
     };
     return (
       <View style={{ marginHorizontal: 12, marginVertical: 16 }}>
-        <SearchBar {...searchBarProp} />
+        <SearchBar
+          {...searchBarProp}
+          onChangeText={text => {
+            let method = () => this.setState({ searchText: text });
+            debounce(method, 50)();
+          }}
+        />
       </View>
     );
   };
@@ -54,11 +64,30 @@ export default class CourseNewsSelectPage extends React.Component {
     return (
       <FlatList
         ListHeaderComponent={this.renderHeader}
-        data={this.state.rssList}
-        renderItem={({ item, index }) => <CourseNewsSelectPageItem item={item} />}
-        keyExtractor={item => uuid.v4()}
+        data={this.state.rssList.filter(this.listFilter)}
+        renderItem={({ item }) => <CourseNewsSelectPageItem item={item} course={this.props.course} />}
+        keyExtractor={item => item.id.toString()}
       />
     );
+  };
+
+  listFilter = item => {
+    let searchText = this.state.searchText;
+    let findWord = input => {
+      return item[input].indexOf(searchText.toLowerCase()) !== -1;
+    };
+    for (let i of ['category_name', 'source', 'info']) {
+      if (findWord(i)) return true;
+    }
+    return false;
+  };
+
+  handleBack = () => {
+    console.log(this.prevRSSList);
+    console.log(this.props.course.rssList);
+    let needRefresh = !arrayEquals(this.prevRSSList, this.props.course.rssList);
+    console.log(needRefresh);
+    this.props.back(needRefresh);
   };
 }
 

@@ -33,7 +33,7 @@ export default class CourseDetail extends React.Component {
         <StackHeader leftTitle={this.state.course.title} onPressLeft={() => this.props.navigation.goBack()} />
         <ScrollableTabView renderTabBar={() => <TabBar />}>
           <CourseHistory tabLabel="详情" course={this.state.course} />
-          <CourseNews tabLabel="动态" urlCallback={this.setWebUrl} />
+          <CourseNews tabLabel="动态" urlCallback={this.setWebUrl} course={this.state.course} />
           <CourseGroup tabLabel="群组" course={this.state.course} />
         </ScrollableTabView>
         <Modal {...modalProps}>

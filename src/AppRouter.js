@@ -20,7 +20,6 @@ const FirstNavigator = createStackNavigator(
     Dashboard: Dashboard,
     HomeworkDetail: HomeworkDetail,
     HomeworkEdit: HomeworkDetailEdit,
-    CourseDetail: CourseDetail
   },
   {
     // initialRouteName: "CourseDetail",

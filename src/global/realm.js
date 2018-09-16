@@ -8,12 +8,13 @@ CourseModel.schema = {
   properties: {
     title: 'string',
     color: { type: 'string', default: '#cccccc' },
-    expanding: { type: 'bool', default: true }, // for view
+    expanding: { type: 'bool', default: false }, // for view
     homeworkList: {
       type: 'linkingObjects',
       objectType: 'Homework',
       property: 'course'
-    }
+    },
+    rssList: 'string[]'
   }
 };
 
@@ -48,9 +49,18 @@ let version = Realm.schemaVersion(Realm.defaultPath);
 if (!version) {
   version = 0;
 }
-const realm = new Realm({
-  schema: [CourseModel, HomeworkModel, RemarkModel],
-  deleteRealmIfMigrationNeeded: true,
-  schemaVersion: version
-});
+let realm;
+try {
+  realm = new Realm({
+    schema: [CourseModel, HomeworkModel, RemarkModel],
+    deleteRealmIfMigrationNeeded: true,
+    schemaVersion: version
+  });
+} catch (e) {
+  realm = new Realm({
+    schema: [CourseModel, HomeworkModel, RemarkModel],
+    deleteRealmIfMigrationNeeded: true,
+    schemaVersion: version + 1
+  });
+}
 export default realm;

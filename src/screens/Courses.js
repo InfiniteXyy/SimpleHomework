@@ -26,7 +26,11 @@ export default class Courses extends React.Component {
   }
 
   componentWillMount() {
-    this.rotateHandler = Dimensions.addEventListener('change', dims => {
+    this._focusListener = this.props.navigation.addListener('willFocus', () => {
+      this.forceUpdate();
+      console.log('focus course page');
+    });
+    this._rotateHandler = Dimensions.addEventListener('change', dims => {
       this.setState({
         windowWidth: dims.window.width,
         windowHeight: dims.window.height,
@@ -34,22 +38,13 @@ export default class Courses extends React.Component {
       });
     });
     let courses = realm.objects('Course');
-    // courses.addListener(this.updateUI);
     this.setState({ courses });
   }
 
   componentWillUnmount() {
-    Dimensions.removeEventListener('change', this.rotateHandler);
-    // this.state.courses.removeListener(this.updateUI);
+    this._focusListener.remove();
+    this._rotateHandler.remove();
   }
-
-  updateUI = (newList, changes) => {
-    if (changes.insertions.length !== 0) {
-      console.log('Courses Screen insert...');
-      console.log(changes);
-      this.forceUpdate();
-    }
-  };
 
   render() {
     let dataList = [...this.state.courses];

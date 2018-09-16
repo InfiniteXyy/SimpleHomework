@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import propTypes from 'prop-types';
 import { colors, themeColor } from '../global';
 
@@ -8,10 +8,6 @@ export default class EmptyView extends React.PureComponent {
     subtitle: propTypes.string.isRequired,
     button: propTypes.string,
     onClick: propTypes.func
-  };
-
-  static defaultProps = {
-    onClick: () => {}
   };
 
   render() {
@@ -34,9 +30,9 @@ export default class EmptyView extends React.PureComponent {
 
   bottom = () => {
     return (
-      <View style={styles.buttonContainer}>
-        <Text style={styles.buttonTitle}>打开列表</Text>
-      </View>
+      <TouchableOpacity onPress={this.props.onClick} style={styles.buttonContainer}>
+        <Text style={styles.buttonTitle}>{this.props.button}</Text>
+      </TouchableOpacity>
     );
   };
 }
@@ -67,6 +63,6 @@ const styles = {
   buttonTitle: {
     fontSize: 14,
     color: colors.lightBlue,
-    fontWeight: "bold"
+    fontWeight: 'bold'
   }
 };

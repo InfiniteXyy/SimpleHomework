@@ -1,9 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { colors, gStyles, themeColor } from '../../global';
 import propTypes from 'prop-types';
+import realm from '../../global/realm';
 
 export default class CourseNewsSelectPageItem extends React.PureComponent {
+  static propTypes = {
+    course: propTypes.object.isRequired,
+    item: propTypes.object.isRequired
+  };
   render() {
     return (
       <View style={styles.cardContainer}>
@@ -19,22 +24,44 @@ export default class CourseNewsSelectPageItem extends React.PureComponent {
 
   renderRight = () => {
     let item = this.props.item;
+    let course = this.props.course;
+    let hasSub = course.rssList.indexOf(item.id.toString()) !== -1;
     return (
-      <View style={{ marginHorizontal: 20 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <View style={{ marginLeft: 20, flex: 1 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
           <View>
-            <Text style={styles.title}>{item.category}</Text>
-            <Text style={styles.subtitle}>www.csdn.cn</Text>
+            <Text style={styles.title}>{item.category_name}</Text>
+            <Text style={styles.subtitle}>{item.source}</Text>
           </View>
           <View style={gStyles.rightIconContainer}>
-            <View style={styles.buttonContainer}>
-              <Text style={styles.buttonText}>加入</Text>
-            </View>
+            <TouchableOpacity
+              style={[styles.buttonContainer, { backgroundColor: !hasSub ? 'white' : themeColor.primaryColor }]}
+              onPress={this.clickSub}
+            >
+              <Text style={[styles.buttonText, { color: hasSub ? 'white' : themeColor.primaryColor }]}>
+                {hasSub ? '已订阅' : '订阅'}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
-        <Text style={styles.detail}>每天发布垃圾新闻，每天发布垃圾新闻，每天发布垃圾新闻。</Text>
+        <Text style={styles.detail} numberOfLines={3} ellipsizeMode={'tail'}>
+          {item.info}
+        </Text>
       </View>
     );
+  };
+
+  clickSub = () => {
+    realm.write(() => {
+      let list = this.props.course.rssList;
+      let index = list.indexOf(this.props.item.id.toString());
+      if (index !== -1) {
+        list.splice(index, 1);
+      } else {
+        list.push(this.props.item.id.toString());
+      }
+      this.forceUpdate();
+    });
   };
 }
 
@@ -43,7 +70,6 @@ const styles = {
     marginHorizontal: 20,
     marginBottom: 20,
     padding: 20,
-    height: 124,
     flexDirection: 'row',
     backgroundColor: 'white',
     shadowColor: '#CCCCCC',
@@ -52,7 +78,7 @@ const styles = {
     shadowRadius: 5
   },
   buttonContainer: {
-    height: 20,
+    height: 26,
     width: 48,
     borderRadius: 5,
     borderColor: themeColor.primaryColor,
@@ -62,7 +88,6 @@ const styles = {
   },
   buttonText: {
     fontSize: 11,
-    color: themeColor.primaryColor,
     fontWeight: 'bold'
   },
   title: {
@@ -77,8 +102,8 @@ const styles = {
   },
   detail: {
     fontSize: 14,
-    marginTop: 10,
+    marginTop: 6,
     color: colors.darkerGray,
-    lineHeight: 17
+    lineHeight: 18
   }
 };
