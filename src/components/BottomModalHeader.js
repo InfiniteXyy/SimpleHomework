@@ -78,6 +78,7 @@ const styles = {
     fontWeight: '500'
   },
   bottomButtonRed: {
+    marginLeft: 20,
     fontSize: 16,
     color: themeColor.redText,
     fontWeight: '500'

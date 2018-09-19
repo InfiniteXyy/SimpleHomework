@@ -1,18 +1,24 @@
 import React from 'react';
-import { View, ScrollView, Text, TouchableHighlight } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import StackToolbarView from '../../components/StackToolbarView';
-import { Icon } from 'react-native-elements';
 import { gStyles, themeColor } from '../../global';
 import realm from '../../global/realm';
-import propTypes from 'prop-types';
-import { getWeekIndex } from '../../global/utils';
+import { getWeekIndex, n2s } from '../../global/utils';
+import ArchivePageItem from './ArchivePageItems';
+import ArchivePageGroup, { ArchiveFolderGroup, ArchiveHomeworkPage } from './ArchivePageGroup';
+
+export const DEPTH = {
+  ROUTE_FOLDER: 0,
+  SEMESTER_FOLDER: 1,
+  WEEK_FOLDER: 2
+};
 
 export default class ArchivePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       listItems: [],
-      currentListDepth: 1,
+      currentListDepth: DEPTH.SEMESTER_FOLDER,
       index: null
     };
   }
@@ -28,41 +34,36 @@ export default class ArchivePage extends React.Component {
       if (listItems[index]) {
         listItems[index].data.push(i);
       } else {
-        listItems[index] = { title: '第 ' + index + ' 周', data: [], id: index };
+        listItems[index] = { title: '第' + n2s(index) + '周', data: [], id: index };
       }
     });
     this.setState({ listItems: listItems });
   };
 
   render() {
-    let listItems;
     let allItems = this.state.listItems;
+    let groupPage = <View />;
     switch (this.state.currentListDepth) {
-      case 0:
+      case DEPTH.ROUTE_FOLDER:
         break;
-      case 1:
-        listItems = allItems;
+      case DEPTH.SEMESTER_FOLDER:
+        groupPage = <ArchiveFolderGroup folders={allItems} changeListDepth={this.changeListDepth} />;
         break;
-      case 2:
-        listItems = allItems[this.state.index].data;
+      case DEPTH.WEEK_FOLDER:
+        groupPage = <ArchiveHomeworkPage homeworkList={allItems[this.state.index].data} />;
+        break;
     }
+    let routeName = '/ 大二下';
+    if (this.state.currentListDepth === DEPTH.WEEK_FOLDER) {
+      routeName += ' / ' + allItems[this.state.index].title;
+    }
+
     return (
       <View style={[gStyles.container, { backgroundColor: themeColor.backgroundColor }]}>
-        <StackToolbarView title={'归档'} handleBack={() => this.props.navigation.goBack()} />
+        <StackToolbarView title={'归档'} handleBack={this.handleBack} />
         <ScrollView>
-          <Text style={styles.routeTitle}>/大二下</Text>
-          <View style={styles.listContainer}>
-            {listItems.map((item, index) => {
-              return (
-                <ArchiveFolderItem
-                  item={item}
-                  key={item.id}
-                  onPress={this.changeListDepth(index)}
-                  depth={this.state.currentListDepth}
-                />
-              );
-            })}
-          </View>
+          <Text style={styles.routeTitle}>{routeName}</Text>
+          {groupPage}
         </ScrollView>
       </View>
     );
@@ -72,85 +73,22 @@ export default class ArchivePage extends React.Component {
     if (this.state.currentListDepth === 2) return;
     this.setState(prevState => ({ currentListDepth: prevState.currentListDepth + 1, index: itemIndex }));
   };
-}
 
-class ArchiveFolderItem extends React.Component {
-  static propTypes = {
-    item: propTypes.object.isRequired,
-    onPress: propTypes.func,
-    depth: propTypes.number.isRequired
-  };
-
-  render() {
-    let { title, rightTitle } = this.getItemProps(this.props.item);
-    let { onPress } = this.props;
-    let iconProps = {
-      size: 24,
-      name: 'md-folder',
-      type: 'ionicon',
-      color: themeColor.activeIcon
-    };
-    return (
-      <TouchableHighlight underlayColor={themeColor.underlayColor} onPress={onPress}>
-        <View style={styles.folderItemContainer}>
-          <Icon {...iconProps} />
-          <Text style={styles.itemTitle}>{title}</Text>
-          <View style={gStyles.rightIconContainer}>
-            <Text style={styles.itemSubtitle}>{rightTitle}</Text>
-          </View>
-        </View>
-      </TouchableHighlight>
-    );
-  }
-
-  getItemProps = item => {
-    let rightTitle, title;
-    if (this.props.depth === 1) {
-      let length = item.data.length;
-      rightTitle = length === 0 ? '空' : length + ' 个任务';
-      title = item.title;
+  handleBack = () => {
+    if (this.state.currentListDepth === 2) {
+      this.setState(prevState => ({ currentListDepth: prevState.currentListDepth - 1, index: null }));
     } else {
-      rightTitle = '';
-      title = item.content;
+      this.props.navigation.goBack();
     }
-
-    return {
-      rightTitle,
-      title
-    };
   };
 }
 
 const styles = {
-  folderItemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 60,
-    paddingHorizontal: 20,
-    borderTopWidth: 0.75,
-    borderTopColor: '#eeeeee',
-    backgroundColor: 'white'
-  },
-  listContainer: {
-    borderBottomWidth: 0.75,
-    borderBottomColor: '#eeeeee'
-  },
   routeTitle: {
     fontSize: 14,
     fontWeight: '500',
     marginLeft: 20,
     marginTop: 25,
-    marginBottom: 12,
     color: themeColor.primaryText
-  },
-  itemTitle: {
-    color: themeColor.primaryText,
-    fontSize: 16,
-    fontWeight: '400',
-    marginLeft: 20
-  },
-  itemSubtitle: {
-    color: themeColor.secondaryText,
-    fontSize: 14
   }
 };

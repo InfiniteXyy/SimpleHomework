@@ -4,9 +4,13 @@ import moment from 'moment';
 const NEWS_HOST = 'http://118.25.8.154/tp5/public/spider/index/category/';
 const NEWS_HOST_BY_ID = 'http://118.25.8.154/tp5/public/spider/index/categoryById/';
 const RSS_HOST = 'http://118.25.8.154/tp5/public/spider/index/category_list';
-
+const NUMBERS_CN = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
 const now = moment();
 const semesterStart = moment('20180910', 'YYYYMMDD');
+
+const n2s = index => {
+  return NUMBERS_CN[index];
+};
 
 const fetchData = (url, method, successCallback, failCallback) => {
   if (failCallback === undefined) failCallback = console.log;
@@ -58,4 +62,4 @@ const getWeekIndex = date => {
   return date.diff(semesterStart, 'weeks') + 1;
 };
 
-export { fetchNews, fetchNewsById, fetchCourseGroups, fetchRSSList, debounce, arrayEquals, getWeekIndex };
+export { fetchNews, fetchNewsById, fetchCourseGroups, fetchRSSList, debounce, arrayEquals, getWeekIndex, n2s };
