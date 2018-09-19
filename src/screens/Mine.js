@@ -6,7 +6,8 @@ import { profileData } from '../global/DemoServer';
 
 const links = [
   { title: '主页', navigate: routeNames.personPage },
-  { title: '归档', navigate: '' },
+  { title: '归档', navigate: routeNames.archivePage },
+  { title: '周报告', navigate: routeNames.weekPage },
   { title: '设置', navigate: routeNames.setting }
 ];
 
@@ -18,7 +19,7 @@ export default class Mine extends React.Component {
     };
   }
 
-  to = (where, params) => {
+  to = (where, params) => () => {
     this.props.navigation.navigate(where, params);
   };
 
@@ -27,7 +28,7 @@ export default class Mine extends React.Component {
 
     return (
       <View style={gStyles.container}>
-        <TouchableWithoutFeedback onPress={() => this.to(routeNames.profileSetting, { me: me })}>
+        <TouchableWithoutFeedback onPress={this.to(routeNames.profileSetting, { me: me })}>
           <View style={styles.profileContainer}>
             <Avatar large rounded source={{ uri: me.avatar }} />
             <View style={{ marginLeft: 32 }}>
@@ -40,7 +41,7 @@ export default class Mine extends React.Component {
           data={links}
           renderItem={({ item, index }) => {
             return (
-              <TouchableHighlight onPress={() => this.to(item.navigate, { me: me })} underlayColor={themeColor.underlayColor}>
+              <TouchableHighlight onPress={this.to(item.navigate, { me: me })} underlayColor={themeColor.underlayColor}>
                 <ListItem title={item.title} containerStyle={[gStyles.listContainer]} />
               </TouchableHighlight>
             );

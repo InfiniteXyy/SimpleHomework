@@ -18,14 +18,14 @@ import realm from '../global/realm';
 // import demo
 import { courseData } from '../global/DemoServer';
 import MyActionSheet from '../components/MyActionSheet';
+import { getWeekIndex } from '../global/utils';
 
 export default class DashBoard extends React.Component {
   constructor(props) {
     super(props);
-    let start = moment('20180910', 'YYYYMMDD');
-    let weekNum = moment().diff(start, 'weeks');
+
     this.state = {
-      weekTitle: 'Week ' + (weekNum + 1),
+      weekTitle: 'Week ' + getWeekIndex(),
       dateTime: moment().format('dddd h:mm'),
       courses: [],
       scrollY: new Animated.Value(0), // for List Scroll Animation

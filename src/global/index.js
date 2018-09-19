@@ -13,7 +13,9 @@ const routeNames = {
   homeworkDetail: 'HomeworkDetail',
   homeworkEdit: 'HomeworkEdit',
   about: 'About',
-  openSource: 'OpenSource'
+  openSource: 'OpenSource',
+  archivePage: 'Archive',
+  weekPage: 'Week'
 };
 
 const gStyles = StyleSheet.create({

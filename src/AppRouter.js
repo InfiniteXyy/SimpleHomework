@@ -16,7 +16,8 @@ import PersonPage from './screens/profile/PersonPage';
 import ThemeChoose from './screens/profile/ThemeChoose';
 import AboutPage from './screens/about/AboutPage';
 import OpenSourcePage from './screens/about/OpenSourcePage';
-import Weeks from './screens/Weeks';
+import ArchivePage from './screens/profile/ArchivePage';
+import Weeks from './screens/profile/Weeks';
 
 const defaultCard = {
   headerMode: 'none',
@@ -42,18 +43,13 @@ const CourseNavigator = createStackNavigator(
   defaultCard
 );
 
-const WeekNavigator = createStackNavigator(
-  {
-    Weeks: Weeks
-  },
-  defaultCard
-);
-
 const ProfileNavigator = createStackNavigator(
   {
     Mine: Mine,
     Profile: Profile,
-    PersonPage: PersonPage
+    PersonPage: PersonPage,
+    Archive: ArchivePage,
+    Week: Weeks
   },
   defaultCard
 );
@@ -70,12 +66,6 @@ const MainRouter = createBottomTabNavigator(
       screen: CourseNavigator,
       navigationOptions: {
         title: '课程'
-      }
-    },
-    WeekNavigator: {
-      screen: WeekNavigator,
-      navigationOptions: {
-        title: '本周'
       }
     },
     ProfileNavigator: {

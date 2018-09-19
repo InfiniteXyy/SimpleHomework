@@ -40,15 +40,15 @@ export default class BottomModalHeader extends React.PureComponent {
   renderLeft = () => {
     let leftContent =
       this.props.leftType === 'icon' ? (
-        <TouchableOpacity onPress={this.props.onPressLeft}>
-          <Icon
-            containerStyle={{ alignSelf: 'flex-start' }}
-            name="ios-arrow-back"
-            type="ionicon"
-            size={24}
-            color={themeColor.secondaryText}
-          />
-        </TouchableOpacity>
+        <Icon
+          onPress={this.props.onPressLeft}
+          underlayColor={"transparent"}
+          containerStyle={{ alignSelf: 'flex-start', paddingHorizontal: 20, paddingVertical: 10 }}
+          name="ios-arrow-back"
+          type="ionicon"
+          size={24}
+          color={themeColor.secondaryText}
+        />
       ) : (
         <TouchableOpacity onPress={this.props.onPressLeft}>
           <Text style={styles.bottomButtonRed}>{this.props.leftTitle}</Text>
@@ -62,7 +62,6 @@ const styles = {
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
     flexDirection: 'row',
     borderBottomColor: '#b2b2b2',
     borderBottomWidth: 0.5
@@ -73,6 +72,7 @@ const styles = {
     fontWeight: 'bold'
   },
   bottomButton: {
+    paddingHorizontal: 20,
     fontSize: 16,
     color: themeColor.primaryColor,
     fontWeight: '500'

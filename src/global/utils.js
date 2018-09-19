@@ -1,8 +1,12 @@
 import { groupData } from '../global/DemoServer';
+import moment from 'moment';
 
 const NEWS_HOST = 'http://118.25.8.154/tp5/public/spider/index/category/';
 const NEWS_HOST_BY_ID = 'http://118.25.8.154/tp5/public/spider/index/categoryById/';
 const RSS_HOST = 'http://118.25.8.154/tp5/public/spider/index/category_list';
+
+const now = moment();
+const semesterStart = moment('20180910', 'YYYYMMDD');
 
 const fetchData = (url, method, successCallback, failCallback) => {
   if (failCallback === undefined) failCallback = console.log;
@@ -48,4 +52,10 @@ const arrayEquals = (array1, array2) => {
   return array1.length === array2.length && array1.every(value => array2.indexOf(value) !== -1);
 };
 
-export { fetchNews, fetchNewsById, fetchCourseGroups, fetchRSSList, debounce, arrayEquals };
+const getWeekIndex = date => {
+  if (!date) date = now;
+  else date = moment(date);
+  return date.diff(semesterStart, 'weeks') + 1;
+};
+
+export { fetchNews, fetchNewsById, fetchCourseGroups, fetchRSSList, debounce, arrayEquals, getWeekIndex };

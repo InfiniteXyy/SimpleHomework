@@ -30,7 +30,7 @@ export default class DashboardCard extends React.Component {
   }
 
   render() {
-    if (this.state.course.homeworkList.filtered('finished = false').length === 0) {
+    if (this.state.course.homeworkList.filtered('archived = false').length === 0) {
       return <View />;
     }
     return (

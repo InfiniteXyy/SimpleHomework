@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { colors, gStyles, themeColor } from '../../global';
 import propTypes from 'prop-types';
 import realm from '../../global/realm';
+import { Avatar } from 'react-native-elements';
 
 export default class CourseNewsSelectPageItem extends React.PureComponent {
   static propTypes = {
@@ -19,7 +20,8 @@ export default class CourseNewsSelectPageItem extends React.PureComponent {
   }
 
   renderLeft = () => {
-    return <View style={{ height: 44, width: 44, borderRadius: 2, backgroundColor: '#EAEAEA' }} />;
+    let item = this.props.item;
+    return <Image source={{ uri: item.img_url }} style={{ height: 36, width: 36, opacity: 0.6 }} />;
   };
 
   renderRight = () => {
