@@ -1,110 +1,118 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, Animated } from 'react-native';
 import { Icon, Badge } from 'react-native-elements';
-import realm from '../../global/realm';
 import { themeColor, gStyles } from '../../global';
 import DashboardCardItem from './DashboardCardItem';
+import realm from '../../global/realm';
 
 // 计算卡片"内容高度"的函数
-const getBodyHeight = num => num * 39 + 24;
+function getBodyHeight(num) {
+  return num * 39 + 24;
+}
 
 export default class DashboardCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      course: props.data
+      course: props.data,
+      isExpanding: true,
+      homeworkList: props.data.homeworkList
     };
   }
 
   componentWillMount() {
-    let course = this.state.course;
-    let expanding = course.expanding;
+    let { course, isExpanding } = this.state;
     this.setState({
-      opacity: new Animated.Value(expanding ? 1 : 0),
-      marginBottomAnim: new Animated.Value(expanding ? 0 : -getBodyHeight(course.homeworkList.length))
+      opacityAnimate: new Animated.Value(isExpanding ? 1 : 0),
+      marginBottomAnimate: new Animated.Value(isExpanding ? 0 : -getBodyHeight(course.homeworkList.length))
     });
   }
 
-  componentDidUpdate() {
-    console.log(this.state.course.title + 'updated!!');
-  }
-
   render() {
+    let { course, isExpanding } = this.state;
     if (this.state.course.homeworkList.filtered('archived = false').length === 0) {
       return <View />;
     }
     return (
       <View style={styles.cardContainer}>
-        {this.cardTitle()}
+        {cardTitle(
+          course.title,
+          course.homeworkList.filtered('finished = false').length,
+          isExpanding,
+          this.setCardExpand
+        )}
         {this.homeworkList()}
       </View>
     );
   }
-
-  cardTitle = () => {
-    let course = this.state.course;
-    let expanding = course.expanding;
-    let icon = expanding ? (
-      <Icon name="chevron-up" type="entypo" size={18} color={themeColor.inactiveIcon} />
-    ) : (
-      <Badge
-        value={course.homeworkList.filtered('finished = false').length}
-        containerStyle={{
-          backgroundColor: themeColor.underlayColor
-        }}
-      />
-    );
-
-    return (
-      <TouchableHighlight onPress={this.setCardExpand} underlayColor={themeColor.backgroundColor}>
-        <View style={styles.cardTitleContainer}>
-          <Text style={styles.cardTitle}>{course.title}</Text>
-          <View style={gStyles.rightIconContainer}>{icon}</View>
-        </View>
-      </TouchableHighlight>
-    );
-  };
-
   homeworkList = () => {
-    let animProp = {
-      opacity: this.state.opacity,
-      marginBottom: this.state.marginBottomAnim
+    let { opacityAnimate, marginBottomAnimate, homeworkList } = this.state;
+    let animatedViewProps = {
+      opacity: opacityAnimate,
+      marginBottom: marginBottomAnimate
     };
     return (
-      <Animated.View style={[styles.contentContainer, { ...animProp }]}>
-        {this.state.course.homeworkList.map((item, index) => {
-          return <DashboardCardItem item={item} key={index} />;
+      <Animated.View style={[styles.contentContainer, { ...animatedViewProps }]}>
+        {homeworkList.map((item, index) => {
+          return <DashboardCardItem item={item} onPressItem={this.setHomeworkStatus} key={index} />;
         })}
       </Animated.View>
     );
   };
 
-  setCardExpand = () => {
-    let course = this.state.course;
-    let expanding = !course.expanding;
-    let expandHeight = getBodyHeight(course.homeworkList.length);
-    if (course.homeworkList.length === 0) return;
+  setHomeworkStatus = homework => () => {
     realm.write(() => {
-      course.expanding = expanding;
-      this.forceUpdate();
+      homework.finished = !homework.finished;
+      this.setState({
+        homeworkList: [...this.state.course.homeworkList]
+      });
     });
-    Animated.parallel([
-      Animated.spring(this.state.marginBottomAnim, {
-        toValue: expanding ? 0 : -expandHeight
-      }),
-      Animated.spring(this.state.opacity, {
-        toValue: expanding ? 1 : 0
-      })
-    ]).start();
+  };
+
+  setCardExpand = () => {
+    this.setState(({ homeworkList, isExpanding, marginBottomAnimate, opacityAnimate }) => {
+      let expandHeight = getBodyHeight(homeworkList.length);
+      let nextExpanding = !isExpanding;
+      Animated.parallel([
+        Animated.spring(marginBottomAnimate, {
+          toValue: nextExpanding ? 0 : -expandHeight
+        }),
+        Animated.spring(opacityAnimate, {
+          toValue: nextExpanding ? 1 : 0
+        })
+      ]).start();
+      return { isExpanding: nextExpanding };
+    });
   };
 }
+
+const cardTitle = (title, badge, isExpanding, onSetExpanding) => {
+  let icon = isExpanding ? (
+    <Icon name="chevron-up" type="entypo" size={18} color={themeColor.inactiveIcon} />
+  ) : (
+    <Badge
+      value={badge}
+      containerStyle={{
+        backgroundColor: themeColor.underlayColor
+      }}
+    />
+  );
+
+  return (
+    <TouchableHighlight onPress={onSetExpanding} underlayColor={themeColor.backgroundColor}>
+      <View style={styles.cardTitleContainer}>
+        <Text style={styles.cardTitle}>{title}</Text>
+        <View style={gStyles.rightIconContainer}>{icon}</View>
+      </View>
+    </TouchableHighlight>
+  );
+};
 
 const styles = {
   cardContainer: {
     marginVertical: 8,
     marginHorizontal: 20,
     backgroundColor: 'white',
-    //TODO: android beautify
     shadowColor: '#CCCCCC',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,

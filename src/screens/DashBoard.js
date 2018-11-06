@@ -25,8 +25,7 @@ export default class DashBoard extends React.Component {
     super(props);
 
     this.state = {
-      weekTitle: 'Week ' + getWeekIndex(),
-      dateTime: moment().format('dddd h:mm'),
+      weekIndex: getWeekIndex(),
       courses: [],
       scrollY: new Animated.Value(0), // for List Scroll Animation
       modalVisible: null
@@ -37,7 +36,7 @@ export default class DashBoard extends React.Component {
       {
         title: '添加作业',
         type: 'normal',
-        method: this.buildToggleModal(true)
+        method: this.toggleModal(true)
       },
       {
         title: '使用demo',
@@ -69,7 +68,6 @@ export default class DashBoard extends React.Component {
     // add refresh listener
     this._focusListener = this.props.navigation.addListener('willFocus', () => {
       this.forceUpdate();
-      console.log('focus homepage');
     });
   }
 
@@ -79,6 +77,7 @@ export default class DashBoard extends React.Component {
   }
 
   render() {
+    let { weekIndex, modalVisible, courses } = this.state;
     return (
       <View style={gStyles.container}>
         <PullDownTip content="下拉以添加更多作业" scrollY={this.state.scrollY} />
@@ -87,21 +86,21 @@ export default class DashBoard extends React.Component {
           onScroll={this.handleScroll}
           onScrollEndDrag={event => {
             if (event.nativeEvent.contentOffset.y < -70) {
-              this.buildToggleModal(true)();
+              this.toggleModal(true)();
             }
           }}
           ListHeaderComponent={
             <DashboardHeader
-              title={this.state.weekTitle}
-              subtitle={this.state.dateTime}
+              title={`Week ${weekIndex}`}
+              subtitle={moment().format('dddd h:mm')}
               onClick={this.toggleActionSheet}
             />
           }
           keyExtractor={item => item.title}
-          data={this.state.courses}
+          data={courses}
           renderItem={({ item }) => <DashboardCard data={item} />}
         />
-        <ToolbarView title={this.state.weekTitle} scrollY={this.state.scrollY} onClick={this.toggleActionSheet} />
+        <ToolbarView title={`Week ${weekIndex}`} scrollY={this.state.scrollY} onClick={this.toggleActionSheet} />
         <MyActionSheet
           bindAction={action => {
             this.toggleActionSheet = action;
@@ -109,15 +108,15 @@ export default class DashBoard extends React.Component {
           actionData={this.actionList}
         />
         <MyBottomModal
-          isVisible={this.state.modalVisible === 1}
-          toggleModal={this.buildToggleModal(false)}
-          child={<HomeworkAdd data={this.state.courses} />}
+          isVisible={modalVisible === 1}
+          toggleModal={this.toggleModal(false)}
+          child={<HomeworkAdd data={courses} />}
         />
       </View>
     );
   }
 
-  buildToggleModal = visible => {
+  toggleModal = visible => {
     return () => {
       this.setState({ modalVisible: visible ? 1 : null });
     };
