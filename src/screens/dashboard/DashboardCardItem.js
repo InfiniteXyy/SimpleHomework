@@ -3,20 +3,26 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import { colors, themeColor, routeNames, gStyles } from '../../global';
+import realm from '../../global/realm';
 
 class DashboardCardItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { homework: props.item };
+  }
+
   render() {
-    let { item, onPressItem } = this.props;
-    let rightIcon = item.finished
+    let { homework } = this.state;
+    let rightIcon = homework.finished
       ? { type: 'ionicon', name: 'ios-checkmark-circle' }
       : { type: 'font-awesome', name: 'circle-thin' };
-    let textStyle = item.finished
+    let textStyle = homework.finished
       ? { fontSize: 15, textDecorationLine: 'line-through', color: '#DDDDDD' }
       : { fontSize: 15, color: themeColor.primaryText };
     return (
-      <TouchableOpacity onPress={onPressItem(item)} onLongPress={this.goToDetail}>
+      <TouchableOpacity onPress={this.setHomeworkState} onLongPress={this.goToDetail}>
         <View style={styles.cardItemContainer}>
-          <Text style={textStyle}>{item.content}</Text>
+          <Text style={textStyle}>{homework.content}</Text>
           <View style={gStyles.rightIconContainer}>
             <Icon {...rightIcon} size={18} color={colors.lightBlue} />
           </View>
@@ -27,7 +33,17 @@ class DashboardCardItem extends React.Component {
 
   goToDetail = () => {
     this.props.navigation.navigate(routeNames.homeworkDetail, {
-      homework: this.props.item
+      homework: this.state.homework
+    });
+  };
+
+  setHomeworkState = () => {
+    realm.write(() => {
+      let { homework } = this.state;
+      homework.finished = !homework.finished;
+      this.setState({
+        homework: this.props.item
+      });
     });
   };
 }

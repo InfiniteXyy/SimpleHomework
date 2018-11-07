@@ -3,21 +3,25 @@ import { View, ScrollView, Text, TouchableHighlight } from 'react-native';
 import { Icon } from 'react-native-elements';
 import moment from 'moment';
 import { showMessage } from 'react-native-flash-message';
-import { gStyles, routeNames, themeColor } from '../../global';
+import { gStyles, themeColor } from '../../global';
 import StackHeader from '../../components/StackHeader';
 import MyListItem from '../../components/MyListItem';
+import MyBottomModal from '../../components/MyBottomModal';
+import HomeworkEditModal from './HomeworkEditModal';
 
-const df = date => {
+function df(date) {
   if (date) return moment(date).format('YYYY-M-D');
   else return '未设置';
-};
+}
+
+const priority = ['无优先级', '低优先级', '高优先级'];
 
 export default class HomeworkDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       homework: props.navigation.getParam('homework'),
-      hasEdit: false
+      editProperty: null
     };
   }
   static buttons = [
@@ -26,16 +30,14 @@ export default class HomeworkDetail extends React.Component {
     { title: '删除', iconProp: { name: 'delete', type: 'material' } }
   ];
 
-  refresh = () => {
-    this.setState({ hasEdit: true });
-  };
-
   render() {
     let homework = this.state.homework;
     let listItems = [
       { title: '课程', content: homework.course.title },
       { title: '内容', content: homework.content },
+      { title: '优先级', content: priority[homework.priority] },
       { title: '截止时间', content: df(homework.deadline) },
+      { title: '提醒时间', content: '203123123' },
       { title: '备注', content: '无' }
     ];
     return (
@@ -45,15 +47,19 @@ export default class HomeworkDetail extends React.Component {
           <View style={gStyles.cardContainer}>{this.detailList(listItems)}</View>
           <View style={[gStyles.cardContainer, styles.buttonContainer]}>{this.buttonGroup()}</View>
         </ScrollView>
+        <MyBottomModal
+          isVisible={this.state.editProperty !== null}
+          toggleModal={() => {
+            this.setState({ editProperty: null });
+          }}
+          child={<HomeworkEditModal item={this.state.editProperty} />}
+        />
       </View>
     );
   }
 
   handleBack = () => {
     this.props.navigation.goBack();
-    if (this.state.hasEdit) {
-      this.props.navigation.getParam('refreshUI')();
-    }
   };
 
   detailList = details => {
@@ -110,12 +116,7 @@ export default class HomeworkDetail extends React.Component {
   };
 
   handleEdit = item => {
-    this.props.navigation.navigate(routeNames.homeworkEdit, {
-      content: item.content,
-      editType: item.title,
-      item: this.state.homework,
-      refresh: this.refresh
-    });
+    this.setState({ editProperty: item });
   };
 }
 

@@ -3,7 +3,6 @@ import { Text, View, TouchableHighlight, Animated } from 'react-native';
 import { Icon, Badge } from 'react-native-elements';
 import { themeColor, gStyles } from '../../global';
 import DashboardCardItem from './DashboardCardItem';
-import realm from '../../global/realm';
 
 // 计算卡片"内容高度"的函数
 function getBodyHeight(num) {
@@ -30,7 +29,7 @@ export default class DashboardCard extends React.Component {
 
   render() {
     let { course, isExpanding } = this.state;
-    if (this.state.course.homeworkList.filtered('archived = false').length === 0) {
+    if (course.homeworkList.filtered('archived = false').length === 0) {
       return <View />;
     }
     return (
@@ -46,27 +45,18 @@ export default class DashboardCard extends React.Component {
     );
   }
   homeworkList = () => {
-    let { opacityAnimate, marginBottomAnimate, homeworkList } = this.state;
+    let { opacityAnimate, marginBottomAnimate, course } = this.state;
     let animatedViewProps = {
       opacity: opacityAnimate,
       marginBottom: marginBottomAnimate
     };
     return (
       <Animated.View style={[styles.contentContainer, { ...animatedViewProps }]}>
-        {homeworkList.map((item, index) => {
-          return <DashboardCardItem item={item} onPressItem={this.setHomeworkStatus} key={index} />;
+        {course.homeworkList.map((item, index) => {
+          return <DashboardCardItem item={item} key={index} />;
         })}
       </Animated.View>
     );
-  };
-
-  setHomeworkStatus = homework => () => {
-    realm.write(() => {
-      homework.finished = !homework.finished;
-      this.setState({
-        homeworkList: [...this.state.course.homeworkList]
-      });
-    });
   };
 
   setCardExpand = () => {

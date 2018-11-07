@@ -18,6 +18,7 @@ import AboutPage from './screens/about/AboutPage';
 import OpenSourcePage from './screens/about/OpenSourcePage';
 import ArchivePage from './screens/profile/ArchivePage';
 import Weeks from './screens/profile/Weeks';
+import SignIn from './screens/SignIn';
 
 const defaultCard = {
   headerMode: 'none',
@@ -39,6 +40,12 @@ const CourseNavigator = createStackNavigator(
   {
     Courses: Courses,
     CourseDetail: CourseDetail
+  },
+  defaultCard
+);
+const SignInNavigator = createStackNavigator(
+  {
+    SignIn: SignIn
   },
   defaultCard
 );
@@ -68,6 +75,12 @@ const MainRouter = createBottomTabNavigator(
         title: '课程'
       }
     },
+    SignInNavigator: {
+      screen: SignInNavigator,
+      navigationOptions: {
+        title: '签到'
+      }
+    },
     ProfileNavigator: {
       screen: ProfileNavigator,
       navigationOptions: {
@@ -90,7 +103,7 @@ const MainRouter = createBottomTabNavigator(
           iconName = `subject`;
         } else if (routeName === 'ProfileNavigator') {
           iconName = `person`;
-        } else if (routeName === 'WeekNavigator') {
+        } else if (routeName === 'SignInNavigator') {
           iconName = `date-range`;
         }
         return <Icon name={iconName} size={25} color={tintColor} />;

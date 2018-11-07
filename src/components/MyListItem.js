@@ -55,7 +55,7 @@ export default class MyListItem extends React.PureComponent {
 
 const styles = {
   container: {
-    height: 83,
+    height: 70,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,

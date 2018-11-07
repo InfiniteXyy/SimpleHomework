@@ -27,20 +27,11 @@ HomeworkModel.schema = {
     deadline: { type: 'date', optional: true },
     finished: { type: 'bool', default: false },
     archived: { type: 'bool', default: false },
+    priority: { type: 'int', default: 0 },
     content: 'string',
     course: 'Course',
-    remarks: 'Remark[]'
-  }
-};
-
-class RemarkModel extends Realm.Object {}
-
-RemarkModel.schema = {
-  id: 'string',
-  name: 'Remark',
-  properties: {
-    created: { type: 'date', default: new Date() },
-    content: 'string'
+    remarks: 'string[]',
+    alarm: 'data[]'
   }
 };
 
@@ -51,13 +42,13 @@ if (!version) {
 let realm;
 try {
   realm = new Realm({
-    schema: [CourseModel, HomeworkModel, RemarkModel],
+    schema: [CourseModel, HomeworkModel],
     deleteRealmIfMigrationNeeded: true,
     schemaVersion: version
   });
 } catch (e) {
   realm = new Realm({
-    schema: [CourseModel, HomeworkModel, RemarkModel],
+    schema: [CourseModel, HomeworkModel],
     deleteRealmIfMigrationNeeded: true,
     schemaVersion: version + 1
   });
